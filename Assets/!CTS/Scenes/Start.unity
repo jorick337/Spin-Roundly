@@ -404,40 +404,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1151310633}
     m_Modifications:
     - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
       propertyPath: m_Color.b
-      value: 0.9529412
+      value: 0.9716981
       objectReference: {fileID: 0}
     - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
       propertyPath: m_Color.g
-      value: 0.7921569
+      value: 0.9716981
       objectReference: {fileID: 0}
     - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
       propertyPath: m_Color.r
-      value: 0.4862745
+      value: 0.9716981
       objectReference: {fileID: 0}
-    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_FillCenter
+    - target: {fileID: 1414747404519945267, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_PixelsPerUnitMultiplier
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 1414747404519945267, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_EffectDistance.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1414747404519945267, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_EffectDistance.y
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4209059797721263890, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
       propertyPath: m_Name
@@ -447,10 +427,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7886631795410796208, guid: 6535d94cea840437e8ca62962dc238ba, type: 3}
-    - target: {fileID: 4970678727212299548, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7449770382916437808, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -651,90 +627,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1473911369
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1473911371}
-  - component: {fileID: 1473911370}
-  m_Layer: 0
-  m_Name: Light 2D
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1473911370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473911369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
-  m_LightType: 4
-  m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_LightVolumeIntensity: 1
-  m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 0}
-  m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
-  m_OverlapOperation: 0
-  m_NormalMapDistance: 3
-  m_NormalMapQuality: 2
-  m_UseNormalMap: 0
-  m_ShadowsEnabled: 1
-  m_ShadowIntensity: 0.75
-  m_ShadowSoftness: 0.3
-  m_ShadowSoftnessFalloffIntensity: 0.5
-  m_ShadowVolumeIntensityEnabled: 0
-  m_ShadowVolumeIntensity: 0.75
-  m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
-  m_ShapeLightParametricSides: 5
-  m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
---- !u!4 &1473911371
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473911369}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15424247, y: -3.1525257, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1532376341
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,6 +821,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 1151310633}
     m_Modifications:
     - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9533642
+      objectReference: {fileID: 0}
+    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9533642
+      objectReference: {fileID: 0}
+    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9811321
+      objectReference: {fileID: 0}
+    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
       propertyPath: m_Maskable
       value: 0
       objectReference: {fileID: 0}
@@ -936,8 +840,12 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_RaycastPadding.x
+    - target: {fileID: 1414747404519945267, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414747404519945267, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_UseGraphicAlpha
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4209059797721263890, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
@@ -948,14 +856,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2660195087753647290, guid: 71ddaa58430fed4fdb474c8ab08339a1, type: 3}
-    - target: {fileID: 4970678727212299548, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4970678727212299548, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7449770382916437808, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1048,7 +948,6 @@ SceneRoots:
   - {fileID: 1104138409}
   - {fileID: 519420032}
   - {fileID: 2041660016}
-  - {fileID: 1473911371}
   - {fileID: 1919200530}
   - {fileID: 525340882}
   - {fileID: 131817333}
