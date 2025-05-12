@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace MyTools.Start
 {
-    public class StartButtons : MonoBehaviour
+    public class StartView : MonoBehaviour
     {
         #region  CORE
 
@@ -25,6 +25,11 @@ namespace MyTools.Start
         [SerializeField] private AnimateScaleInUI _animateScaleInSettingsButton;
         [SerializeField] private AnimateScaleXInUI _animateClickSettingsButton;
 
+        [Header("Shop")]
+        [SerializeField] private Button _shopButton;
+        [SerializeField] private AnimateScaleInUI _animateScaleInShopButton;
+        [SerializeField] private AnimateScaleXInUI _animateClickShopButton;
+
         // Managers
         private MusicManager _musicManager;
 
@@ -40,12 +45,14 @@ namespace MyTools.Start
         {
             _startButton.onClick.AddListener(LoadLevelsPanel);
             _settingsButton.onClick.AddListener(LoadSettingsPanel);
+            _shopButton.onClick.AddListener(LoadShopPanel);
         }
 
         private void OnDisable()
         {
             _startButton.onClick.RemoveListener(LoadLevelsPanel);
             _settingsButton.onClick.RemoveListener(LoadSettingsPanel);
+            _shopButton.onClick.RemoveListener(LoadShopPanel);
         }
 
         #endregion
@@ -56,6 +63,7 @@ namespace MyTools.Start
         {
             _startButton.interactable = active;
             _settingsButton.interactable = active;
+            _shopButton.interactable = active;
         }
 
         private void DisableUI() => SetInteractableButtons(false);
@@ -103,6 +111,14 @@ namespace MyTools.Start
                 await AnimateButtonsInAsync();
                 EnableButtons();
             });
+        }
+
+        private async void LoadShopPanel()
+        {
+            DisableUI();
+            PlayClickSound();
+            await _animateClickStartButton.AnimateAsync();
+            await AnimateAllOutAsync();
         }
 
         private void PlayClickSound() => _musicManager.PlayClickSound();
