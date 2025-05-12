@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Game.Music
+namespace MyTools.Music
 {
     public class MusicManager : MonoBehaviour
     {
@@ -55,8 +54,8 @@ namespace Game.Music
             IsMusicActive = isMusicActive;
             IsSoundsActive = isSoundsActive;
             
-            UpdateActiveMusic();
-            UpdateActiveSounds();
+            UpdateMusicMuteState();
+            UpdateSoundsMuteState();
         }
 
         #endregion
@@ -71,26 +70,33 @@ namespace Game.Music
             backgroundAudioSource.volume = defaultVolume;
         }
 
-        private void UpdateActiveMusic() => backgroundAudioSource.mute = !IsMusicActive;
-        private void UpdateActiveSounds() => clickAudioSource.mute = !IsSoundsActive;
+        private void UpdateMusicMuteState() => backgroundAudioSource.mute = !IsMusicActive;
+        private void UpdateSoundsMuteState() => clickAudioSource.mute = !IsSoundsActive;
+
+        #endregion
+
+        #region VALUES
+
+        public void SetIsActiveMusic(bool isMusicActive)
+        {
+            IsMusicActive = isMusicActive;
+            UpdateMusicMuteState();
+            InvokeIsMusicActiveChanged();
+        }
+
+        public void SetIsActiveSounds(bool isSoundsActive)
+        {
+            IsSoundsActive = isSoundsActive;
+            UpdateSoundsMuteState();
+            InvokeIsSoundsActiveChanged();
+        }
 
         #endregion
 
         #region CALLBACKS
 
-        public void SwitchActiveMusic()
-        {
-            IsMusicActive = !IsMusicActive;
-            UpdateActiveMusic();
-            IsMusicActiveChanged?.Invoke();
-        }
-
-        public void SwitchActiveSounds()
-        {
-            IsSoundsActive = !IsSoundsActive;
-            UpdateActiveSounds();
-            IsSoundsActiveChanged?.Invoke();
-        }
+        private void InvokeIsMusicActiveChanged() => IsMusicActiveChanged?.Invoke();
+        private void InvokeIsSoundsActiveChanged() => IsSoundsActiveChanged?.Invoke();
 
         #endregion
     }

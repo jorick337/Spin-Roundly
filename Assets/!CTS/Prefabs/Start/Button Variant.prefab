@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1055249271248660548, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
+      propertyPath: timeToHide
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055249271248660548, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
+      propertyPath: timeToShow
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1542994445340926761, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
       propertyPath: m_Name
       value: Button Variant

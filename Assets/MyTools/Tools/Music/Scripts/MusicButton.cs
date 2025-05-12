@@ -1,3 +1,4 @@
+using MyTools.Music;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +7,7 @@ namespace Game.Music
     public class MusicButton : MonoBehaviour
     {
         [Header("Music")]
-        [SerializeField] private Button button;
+        [SerializeField] private Toggle toggle;
         [SerializeField] private Image image;
 
         [Header("Sprites")]
@@ -19,24 +20,18 @@ namespace Game.Music
         private void Awake()
         {
             _musicManager = MusicManager.Instance;
+            toggle.isOn = _musicManager.IsMusicActive;
             UpdateSprite();
         }
 
-        private void OnEnable()
-        {
-            button.onClick.AddListener(ChangeActiveSoundsAndSpriteButton);
-        }
-
-        private void OnDisable()
-        {
-            button.onClick.RemoveListener(ChangeActiveSoundsAndSpriteButton);
-        }
+        private void OnEnable() => toggle.onValueChanged.AddListener(UpdateActiveMusicAndSprite);
+        private void OnDisable() => toggle.onValueChanged.RemoveListener(UpdateActiveMusicAndSprite);
         
-        private void UpdateSprite() => image.sprite = _musicManager.IsMusicActive ? enableSoundSprite : disableSoundSprite;
+        private void UpdateSprite() => image.sprite = toggle.isOn ? enableSoundSprite : disableSoundSprite;
 
-        private void ChangeActiveSoundsAndSpriteButton()
+        private void UpdateActiveMusicAndSprite(bool isActiveMusic)
         {
-            _musicManager.SwitchActiveMusic();
+            _musicManager.SetIsActiveMusic(isActiveMusic);
             UpdateSprite();
         }
     }

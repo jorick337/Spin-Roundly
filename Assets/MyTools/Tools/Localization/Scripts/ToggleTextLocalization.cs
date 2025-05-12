@@ -6,16 +6,16 @@ namespace Game.Localization
     public class ToggleTextLocalization : MonoBehaviour
     {
         [Header("Core")]
-        [SerializeField] private LocalizeStringEvent localizedText;
+        [SerializeField] private LocalizeStringEvent _localizeStringEvent;
 
         [Header("Keys")]
-        [SerializeField] private string keyOn = "Setting_On";
-        [SerializeField] private string keyOff = "Setting_Off";
+        [SerializeField] private string _keyOn = "Setting_On";
+        [SerializeField] private string _keyOff = "Setting_Off";
 
         public void SetToggleState(bool isOn)
         {
-            localizedText.StringReference.TableEntryReference = isOn ? keyOn : keyOff;
-            localizedText.RefreshString();
+            _localizeStringEvent.StringReference.TableEntryReference = isOn ? _keyOn : _keyOff;
+            _localizeStringEvent.RefreshString();
         }
     }
 }

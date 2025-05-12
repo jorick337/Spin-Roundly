@@ -304,5 +304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1dab6e1f209f5b1496cee2faebc9d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultVolume: 0
   clickAudioSource: {fileID: 99212342749118791}
   backgroundAudioSource: {fileID: 4691643318133764486}

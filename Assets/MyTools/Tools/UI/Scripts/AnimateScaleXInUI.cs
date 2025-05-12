@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Game.UITools.Animate
+namespace MyTools.UI.Animate
 {
     public class AnimateScaleXInUI : MonoBehaviour
     {
