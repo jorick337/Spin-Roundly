@@ -708,6 +708,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3102645246019188791, guid: bc216eba27e57f3b590483baecae677b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102645246019188791, guid: bc216eba27e57f3b590483baecae677b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000091553
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947958661385117341, guid: bc216eba27e57f3b590483baecae677b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947958661385117341, guid: bc216eba27e57f3b590483baecae677b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947958661385117341, guid: bc216eba27e57f3b590483baecae677b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499495007588298042, guid: bc216eba27e57f3b590483baecae677b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499495007588298042, guid: bc216eba27e57f3b590483baecae677b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499495007588298042, guid: bc216eba27e57f3b590483baecae677b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5686909435182820480, guid: bc216eba27e57f3b590483baecae677b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5686909435182820480, guid: bc216eba27e57f3b590483baecae677b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5686909435182820480, guid: bc216eba27e57f3b590483baecae677b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6359663941715497468, guid: bc216eba27e57f3b590483baecae677b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

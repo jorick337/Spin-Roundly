@@ -11,17 +11,12 @@ namespace MyTools.Settings
         #region CORE
 
         [Header("Core")]
+        [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private AnimateAnchorPosInUI _animateAnchorPosInBackground;
 
-        [Header("Music")]
-        [SerializeField] private Toggle _musicToggle;
-        [SerializeField] private ToggleTextLocalization _toggleMusicTextLocalization;
-        [SerializeField] private AnimateScaleXInUI _animateScaleXInMusicToggle;
-
-        [Header("Sounds")]
-        [SerializeField] private Toggle _soundsToggle;
-        [SerializeField] private ToggleTextLocalization _toggleSoundsTextLocalization;
-        [SerializeField] private AnimateScaleXInUI _animateScaleXInSoundsToggle;
+        [Header("SwitcherActiveToggles")]
+        [SerializeField] private SwitcherActiveToggle _switcherActiveMusicToggle;
+        [SerializeField] private SwitcherActiveToggle _switcherActiveSoundsToggle;
 
         [Header("Close")]
         [SerializeField] private Button _closeButton;
@@ -38,22 +33,28 @@ namespace MyTools.Settings
         private void Awake()
         {
             _musicManager = MusicManager.Instance;
-            UpdateActivities();
+            _switcherActiveMusicToggle.UpdateActivity(_musicManager.IsMusicActive);
+            _switcherActiveSoundsToggle.UpdateActivity(_musicManager.IsSoundsActive);
         }
 
         private async void Start() => await _animateAnchorPosInBackground.AnimateInAsync();
 
         private void OnEnable()
         {
-            _closeButton.onClick.AddListener(AnimatedSelfDestruction);
-            _musicToggle.onValueChanged.AddListener(SwitchActiveMusic);
-            _soundsToggle.onValueChanged.AddListener(SwitchActiveSounds);
+            _closeButton.onClick.AddListener(ClearSettingView);
+            _switcherActiveMusicToggle.OnPressed += PlayClickSound;
+            _switcherActiveMusicToggle.OnPressEnded += _musicManager.SetIsActiveMusic;
+            _switcherActiveSoundsToggle.OnPressed += PlayClickSound;
+            _switcherActiveSoundsToggle.OnPressEnded += _musicManager.SetIsActiveSounds;
         }
 
         private void OnDisable()
         {
-            _musicToggle.onValueChanged.RemoveListener(SwitchActiveMusic);
-            _soundsToggle.onValueChanged.RemoveListener(SwitchActiveSounds);
+            _closeButton.onClick.RemoveListener(ClearSettingView);
+            _switcherActiveMusicToggle.OnPressed -= PlayClickSound;
+            _switcherActiveMusicToggle.OnPressEnded -= _musicManager.SetIsActiveMusic;
+            _switcherActiveSoundsToggle.OnPressed -= PlayClickSound;
+            _switcherActiveSoundsToggle.OnPressEnded -= _musicManager.SetIsActiveSounds;
         }
 
         #endregion
@@ -62,46 +63,17 @@ namespace MyTools.Settings
 
         public void SetSettingsProvider(SettingsViewProvider settingsProvider) => _settingsViewProvider = settingsProvider;
 
-        private void UpdateActivities()
-        {
-            _musicToggle.isOn = _musicManager.IsMusicActive;
-            _toggleMusicTextLocalization.SetToggleState(_musicManager.IsMusicActive);
-            _soundsToggle.isOn = _musicManager.IsSoundsActive;
-            _toggleSoundsTextLocalization.SetToggleState(_musicManager.IsSoundsActive);
-        }
-
-        private void DisableUI() 
-        {
-            _closeButton.interactable = false;
-            _musicToggle.interactable = false;
-            _soundsToggle.interactable = false;
-        }
-
         #endregion
 
         #region CALLBACKS
 
-        private async void AnimatedSelfDestruction()
+        private async void ClearSettingView()
         {
-            DisableUI();
+            _canvasGroup.interactable = false;
             await _animateClickCloseButton.AnimateAsync();
             PlayClickSound();
             await _animateAnchorPosInBackground.AnimateOutAsync();
             _settingsViewProvider.Unload();
-        }
-
-        private void SwitchActiveMusic(bool isMusicActive)
-        {
-            _animateScaleXInMusicToggle.Animate();
-            _musicManager.SetIsActiveMusic(isMusicActive);
-            _toggleMusicTextLocalization.SetToggleState(isMusicActive);
-        }
-
-        private void SwitchActiveSounds(bool isSoundsActive)
-        {
-            _animateScaleXInSoundsToggle.Animate();
-            _musicManager.SetIsActiveSounds(isSoundsActive);
-            _toggleSoundsTextLocalization.SetToggleState(isSoundsActive);
         }
 
         private void PlayClickSound() => _musicManager.PlayClickSound();

@@ -1,9 +1,9 @@
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.UITools.Animate
+namespace MyTools.UI.Animate
 {
     public class AnimateTranparencyInUI : MonoBehaviour
     {
@@ -38,14 +38,14 @@ namespace Game.UITools.Animate
             _animationOut?.Kill();
         }
 
-        public async Task AnimateInAsync()
+        public async UniTask AnimateInAsync()
         {
             _animationIn?.Kill();
             _animationIn = DOTween.Sequence().Append(uiElement.DOColor(_visibleColor, timeToShow));
             await _animationIn.AsyncWaitForCompletion();
         }
 
-        public async Task AnimateOutAsync()
+        public async UniTask AnimateOutAsync()
         {
             _animationOut?.Kill();
             _animationOut = DOTween.Sequence().Append(uiElement.DOColor(_hiddenColor, timeToHide));

@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
@@ -23,14 +23,14 @@ namespace MyTools.UI.Animate
             _animationOut?.Kill();
         }
 
-        public async Task AnimateInAsync()
+        public async UniTask AnimateInAsync()
         {
             _animationIn?.Kill();
             _animationIn = DOTween.Sequence().Append(transform.DOScale(visibleScale, timeToShow));
             await _animationIn.AsyncWaitForCompletion();
         }
 
-        public async Task AnimateOutAsync()
+        public async UniTask AnimateOutAsync()
         {
             _animationOut?.Kill();
             _animationOut = DOTween.Sequence().Append(transform.DOScale(hiddenScale, timeToHide));

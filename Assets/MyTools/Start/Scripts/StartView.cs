@@ -1,10 +1,8 @@
-using System.Threading.Tasks;
-using Game.UITools.Animate;
+using Cysharp.Threading.Tasks;
 using MyTools.Music;
 using MyTools.Settings;
 using MyTools.UI.Animate;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace MyTools.Start
 {
@@ -13,22 +11,15 @@ namespace MyTools.Start
         #region  CORE
 
         [Header("Core")]
+        [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private AnimateTranparencyInUI _animateTransparencyInTitleText;
 
-        [Header("Start")]
-        [SerializeField] private Button _startButton;
-        [SerializeField] private AnimateScaleInUI _animateScaleInStartButton;
-        [SerializeField] private AnimateScaleXInUI _animateClickStartButton;
+        [Header("Buttons")]
+        [SerializeField] private StartButton _startButton;
+        [SerializeField] private StartButton _settingsButton;
+        [SerializeField] private StartButton _shopButton;
 
-        [Header("Settings")]
-        [SerializeField] private Button _settingsButton;
-        [SerializeField] private AnimateScaleInUI _animateScaleInSettingsButton;
-        [SerializeField] private AnimateScaleXInUI _animateClickSettingsButton;
-
-        [Header("Shop")]
-        [SerializeField] private Button _shopButton;
-        [SerializeField] private AnimateScaleInUI _animateScaleInShopButton;
-        [SerializeField] private AnimateScaleXInUI _animateClickShopButton;
+        private StartButton[] _startButtons;
 
         // Managers
         private MusicManager _musicManager;
@@ -37,59 +28,73 @@ namespace MyTools.Start
 
         #region MONO
 
-        private void Awake() => _musicManager = MusicManager.Instance;
+        private void Awake()
+        {
+            _musicManager = MusicManager.Instance;
+            _startButtons = new StartButton[3] { _startButton, _settingsButton, _shopButton };
+        }
 
         private async void Start() => await AnimateAllInAsync();
 
         private void OnEnable()
         {
-            _startButton.onClick.AddListener(LoadLevelsPanel);
-            _settingsButton.onClick.AddListener(LoadSettingsPanel);
-            _shopButton.onClick.AddListener(LoadShopPanel);
+            foreach (var startButton in _startButtons)
+                startButton.OnPressed += ClearStartView;
+
+            // _startButton.OnPressEnded += ;
+            _settingsButton.OnPressEnded += LoadSettingsPanel;
+            // _shopButton.OnPressEnded += ;
         }
 
         private void OnDisable()
         {
-            _startButton.onClick.RemoveListener(LoadLevelsPanel);
-            _settingsButton.onClick.RemoveListener(LoadSettingsPanel);
-            _shopButton.onClick.RemoveListener(LoadShopPanel);
+            foreach (var startButton in _startButtons)
+                startButton.OnPressed -= ClearStartView;
+
+            // _startButton.OnPressEnded -= ;
+            _settingsButton.OnPressEnded -= LoadSettingsPanel;
+            // _shopButton.OnPressEnded -= ;
         }
 
         #endregion
 
         #region UI
 
-        private void SetInteractableButtons(bool active)
-        {
-            _startButton.interactable = active;
-            _settingsButton.interactable = active;
-            _shopButton.interactable = active;
-        }
+        private void SetInteractableButtons(bool active) => _canvasGroup.interactable = active;
 
-        private void DisableUI() => SetInteractableButtons(false);
         private void EnableButtons() => SetInteractableButtons(true);
+        private void DisableButtons() => SetInteractableButtons(false);
 
         #endregion
 
         #region ANIMATIONS
 
-        private async Task AnimateAllInAsync() => await Task.WhenAll(_animateTransparencyInTitleText.AnimateInAsync(), AnimateButtonsInAsync());
-        private async Task AnimateAllOutAsync() => await Task.WhenAll(_animateTransparencyInTitleText.AnimateOutAsync(), AnimateButtonsOutAsync());
+        private async UniTask AnimateAllInAsync() => await UniTask.WhenAll(
+            _animateTransparencyInTitleText.AnimateInAsync(),
+            _startButton.AnimateScaleIn(),
+            _settingsButton.AnimateScaleIn(),
+            _shopButton.AnimateScaleIn());
 
-        private async Task AnimateButtonsInAsync() => await Task.WhenAll(_animateScaleInStartButton.AnimateInAsync(), _animateScaleInSettingsButton.AnimateInAsync());
-        private async Task AnimateButtonsOutAsync() => await Task.WhenAll(_animateScaleInStartButton.AnimateOutAsync(), _animateScaleInSettingsButton.AnimateOutAsync());
+        private async UniTask AnimateAllOutAsync() => await UniTask.WhenAll(
+            _animateTransparencyInTitleText.AnimateOutAsync(),
+            _startButton.AnimateScaleOut(),
+            _settingsButton.AnimateScaleOut(),
+            _shopButton.AnimateScaleOut());
 
         #endregion
 
         #region CALLBACKS
 
-        private async void LoadLevelsPanel()
+        private async void ClearStartView(AnimateScaleXInUI animateScaleXInUI)
         {
-            DisableUI();
+            DisableButtons();
             PlayClickSound();
-            await _animateClickStartButton.AnimateAsync();
+            await animateScaleXInUI.AnimateAsync();
             await AnimateAllOutAsync();
+        }
 
+        private void LoadLevelsPanel()
+        {
             // LevelsPanelProvider levelsPanelProvider = new();
             // levelsPanelProvider.Load(transform.parent, async () =>
             // {
@@ -98,28 +103,19 @@ namespace MyTools.Start
             // });
         }
 
-        private async void LoadSettingsPanel()
+        private void LoadSettingsPanel()
         {
-            DisableUI();
-            PlayClickSound();
-            await _animateClickSettingsButton.AnimateAsync();
-            await AnimateButtonsOutAsync();
-
             SettingsViewProvider settingsViewProvider = new();
             settingsViewProvider.Load(transform.parent, async () =>
             {
-                await AnimateButtonsInAsync();
+                await AnimateAllInAsync();
                 EnableButtons();
             });
         }
 
-        private async void LoadShopPanel()
-        {
-            DisableUI();
-            PlayClickSound();
-            await _animateClickStartButton.AnimateAsync();
-            await AnimateAllOutAsync();
-        }
+        // private async void LoadShopPanel()
+        // {
+        // }
 
         private void PlayClickSound() => _musicManager.PlayClickSound();
 
