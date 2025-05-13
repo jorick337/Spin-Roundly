@@ -4,7 +4,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Game.Load
+namespace MyTools.Loading
 {
     public class LoadingScene : MonoBehaviour
     {

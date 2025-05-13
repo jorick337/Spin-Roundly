@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using MyTools.Music;
 using MyTools.Settings;
+using MyTools.UI;
 using MyTools.UI.Animate;
 using UnityEngine;
 
@@ -15,11 +16,9 @@ namespace MyTools.Start
         [SerializeField] private AnimateTranparencyInUI _animateTransparencyInTitleText;
 
         [Header("Buttons")]
-        [SerializeField] private StartButton _startButton;
-        [SerializeField] private StartButton _settingsButton;
-        [SerializeField] private StartButton _shopButton;
-
-        private StartButton[] _startButtons;
+        [SerializeField] private MyButton _startButton;
+        [SerializeField] private MyButton _settingsButton;
+        [SerializeField] private MyButton _shopButton;
 
         // Managers
         private MusicManager _musicManager;
@@ -28,18 +27,14 @@ namespace MyTools.Start
 
         #region MONO
 
-        private void Awake()
-        {
-            _musicManager = MusicManager.Instance;
-            _startButtons = new StartButton[3] { _startButton, _settingsButton, _shopButton };
-        }
-
+        private void Awake() =>_musicManager = MusicManager.Instance;
         private async void Start() => await AnimateAllInAsync();
 
         private void OnEnable()
         {
-            foreach (var startButton in _startButtons)
-                startButton.OnPressed += ClearStartView;
+            _startButton.OnPressed += ClearStartView;
+            _settingsButton.OnPressed += ClearStartView;
+            _shopButton.OnPressed += ClearStartView;
 
             // _startButton.OnPressEnded += ;
             _settingsButton.OnPressEnded += LoadSettingsPanel;
@@ -48,8 +43,9 @@ namespace MyTools.Start
 
         private void OnDisable()
         {
-            foreach (var startButton in _startButtons)
-                startButton.OnPressed -= ClearStartView;
+            _startButton.OnPressed -= ClearStartView;
+            _settingsButton.OnPressed -= ClearStartView;
+            _shopButton.OnPressed -= ClearStartView;
 
             // _startButton.OnPressEnded -= ;
             _settingsButton.OnPressEnded -= LoadSettingsPanel;
@@ -60,10 +56,8 @@ namespace MyTools.Start
 
         #region UI
 
-        private void SetInteractableButtons(bool active) => _canvasGroup.interactable = active;
-
-        private void EnableButtons() => SetInteractableButtons(true);
-        private void DisableButtons() => SetInteractableButtons(false);
+        private void EnableUI() => _canvasGroup.interactable = true;
+        private void DisableUI() => _canvasGroup.interactable = false;
 
         #endregion
 
@@ -87,7 +81,7 @@ namespace MyTools.Start
 
         private async void ClearStartView(AnimateScaleXInUI animateScaleXInUI)
         {
-            DisableButtons();
+            DisableUI();
             PlayClickSound();
             await animateScaleXInUI.AnimateAsync();
             await AnimateAllOutAsync();
@@ -109,7 +103,7 @@ namespace MyTools.Start
             settingsViewProvider.Load(transform.parent, async () =>
             {
                 await AnimateAllInAsync();
-                EnableButtons();
+                EnableUI();
             });
         }
 

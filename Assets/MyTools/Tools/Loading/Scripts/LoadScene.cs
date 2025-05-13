@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Game.Load
+namespace MyTools.Loading
 {
     public class LoadScene : MonoBehaviour
     {
         public static LoadScene Instance { get; private set; }
 
         [Header("Core")]
-        [SerializeField] private GameScenes gameScenes;
+        [SerializeField] private GameScenes _gameScenes;
 
         public string Title { get; private set; }
         public bool IsAddressables = false;
@@ -17,9 +17,9 @@ namespace Game.Load
         {
             Instance = this;
 
-            if (gameScenes != null)
+            if (_gameScenes != null)
             {
-                Title = gameScenes.GetTitleScene();
+                Title = _gameScenes.GetTitleScene();
             }
         }
 
@@ -33,9 +33,8 @@ namespace Game.Load
 
         public void SetScene(int index) 
         {
-            gameScenes.IndexScene = (Scenes)index;
-            Title = gameScenes.GetTitleScene();
-            Debug.Log($"{index} {gameScenes.GetTitleScene()}");
+            _gameScenes.IndexScene = (Scenes)index;
+            Title = _gameScenes.GetTitleScene();
         }
     }
 }

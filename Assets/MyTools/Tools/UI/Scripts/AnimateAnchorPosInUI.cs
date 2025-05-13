@@ -1,6 +1,6 @@
-using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
+using Cysharp.Threading.Tasks;
 
 namespace MyTools.UI.Animate
 {
@@ -30,14 +30,14 @@ namespace MyTools.UI.Animate
             _animationOut?.Kill();
         }
 
-        public async Task AnimateInAsync()
+        public async UniTask AnimateInAsync()
         {
             _animationIn?.Kill();
             _animationIn = DOTween.Sequence().Append(_rectTransform.DOAnchorPos(_visibleAchorPos, _timeToShow));
             await _animationIn.AsyncWaitForCompletion();
         }
 
-        public async Task AnimateOutAsync()
+        public async UniTask AnimateOutAsync()
         {
             _animationOut?.Kill();
             _animationOut = DOTween.Sequence().Append(_rectTransform.DOAnchorPos(_hiddenAchorPos, _timeToHide));

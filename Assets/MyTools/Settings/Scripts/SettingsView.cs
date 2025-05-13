@@ -1,4 +1,5 @@
 using MyTools.Music;
+using MyTools.UI;
 using MyTools.UI.Animate;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,13 +14,12 @@ namespace MyTools.Settings
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private AnimateAnchorPosInUI _animateAnchorPosInBackground;
 
-        [Header("SwitcherActiveToggles")]
+        [Header("Music And Sounds")]
         [SerializeField] private SwitcherActiveToggle _switcherActiveMusicToggle;
         [SerializeField] private SwitcherActiveToggle _switcherActiveSoundsToggle;
 
         [Header("Close")]
-        [SerializeField] private Button _closeButton;
-        [SerializeField] private AnimateScaleXInUI _animateClickCloseButton;
+        [SerializeField] private MyButton _closeButton;
 
         // Managers
         private MusicManager _musicManager;
@@ -40,7 +40,7 @@ namespace MyTools.Settings
 
         private void OnEnable()
         {
-            _closeButton.onClick.AddListener(ClearSettingView);
+            _closeButton.OnPressed += ClearSettingView;
             _switcherActiveMusicToggle.OnPressed += PlayClickSound;
             _switcherActiveMusicToggle.OnPressEnded += _musicManager.SetIsActiveMusic;
             _switcherActiveSoundsToggle.OnPressed += PlayClickSound;
@@ -49,7 +49,7 @@ namespace MyTools.Settings
 
         private void OnDisable()
         {
-            _closeButton.onClick.RemoveListener(ClearSettingView);
+            _closeButton.OnPressed -= ClearSettingView;
             _switcherActiveMusicToggle.OnPressed -= PlayClickSound;
             _switcherActiveMusicToggle.OnPressEnded -= _musicManager.SetIsActiveMusic;
             _switcherActiveSoundsToggle.OnPressed -= PlayClickSound;
@@ -62,14 +62,16 @@ namespace MyTools.Settings
 
         public void SetSettingsProvider(SettingsViewProvider settingsProvider) => _settingsViewProvider = settingsProvider;
 
+        private void DisableUI() => _canvasGroup.interactable = false;
+
         #endregion
 
         #region CALLBACKS
 
-        private async void ClearSettingView()
+        private async void ClearSettingView(AnimateScaleXInUI animateScaleXIn)
         {
-            _canvasGroup.interactable = false;
-            await _animateClickCloseButton.AnimateAsync();
+            DisableUI();
+            await animateScaleXIn.AnimateAsync();
             PlayClickSound();
             await _animateAnchorPosInBackground.AnimateOutAsync();
             _settingsViewProvider.Unload();

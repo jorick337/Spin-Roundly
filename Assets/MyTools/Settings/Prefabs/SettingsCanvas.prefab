@@ -127,8 +127,7 @@ MonoBehaviour:
   _animateAnchorPosInBackground: {fileID: 1043775798072688833}
   _switcherActiveMusicToggle: {fileID: 547258361963454826}
   _switcherActiveSoundsToggle: {fileID: 4858430046545258543}
-  _closeButton: {fileID: 6514478874143002623}
-  _animateClickCloseButton: {fileID: 6371881813800650730}
+  _closeButton: {fileID: 5589645527854110363}
 --- !u!1 &7750922260517419564
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,22 +504,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2424268448335651967, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4209059797721263890, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5589645527854110363}
   m_SourcePrefab: {fileID: 100100000, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
 --- !u!224 &1521036780276244169 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7449770382916437808, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
   m_PrefabInstance: {fileID: 8248668541287307769}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5192859003240265451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4209059797721263890, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+  m_PrefabInstance: {fileID: 8248668541287307769}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5589645527854110363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192859003240265451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f927596993b669cf93c26b726894f4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 6514478874143002623}
+  _animateScaleIn: {fileID: 0}
+  _animateScaleXIn: {fileID: 6371881813800650730}
 --- !u!114 &6371881813800650730 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3032137416136891923, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
   m_PrefabInstance: {fileID: 8248668541287307769}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 5192859003240265451}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f176a9b0bff897898a0f4db4c91e5a1, type: 3}
@@ -531,7 +554,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2887155152954463750, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
   m_PrefabInstance: {fileID: 8248668541287307769}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 5192859003240265451}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}

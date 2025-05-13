@@ -38,6 +38,10 @@ MonoBehaviour:
     m_Localized: SESLER
     m_Metadata:
       m_Items: []
+  - m_Id: 361238052982784
+    m_Localized: "Y\xFCkleniyor"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

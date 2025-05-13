@@ -35,6 +35,10 @@ MonoBehaviour:
     m_Key: NameGame
     m_Metadata:
       m_Items: []
+  - m_Id: 361238052982784
+    m_Key: Loading
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

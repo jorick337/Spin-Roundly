@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Load
+namespace MyTools.Loading
 {
     public enum Scenes
     {
