@@ -45,7 +45,7 @@ namespace Game.Load
                     float progress = Mathf.Clamp01(handle.PercentComplete);
 
                     progressSlider.value = progress;
-                    progressText.text = $"ЗАГРУЗКА ... {(progress * 100).ToString("F0")}%";
+                    progressText.text = $"{progress * 100:F0}%";
 
                     yield return null;
                 }
@@ -60,7 +60,7 @@ namespace Game.Load
                     float progress = Mathf.Clamp01(asyncLoad.progress / 0.9f);
 
                     progressSlider.value = progress;
-                    progressText.text = $"ЗАГРУЗКА ... {(progress * 100).ToString("F0")}%";
+                    progressText.text = $"{progress * 100:F0}%";
 
                     if (asyncLoad.progress >= 0.9f)
                     {

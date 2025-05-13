@@ -1,4 +1,3 @@
-using Game.Localization;
 using MyTools.Music;
 using MyTools.UI.Animate;
 using UnityEngine;
