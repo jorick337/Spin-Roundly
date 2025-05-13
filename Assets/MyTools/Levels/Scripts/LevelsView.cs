@@ -71,7 +71,6 @@ namespace MyTools.Levels
 
         private async Task AnimateAll(Func<MyButton, UniTask> levelAnimation, Func<UniTask> titleAnimation, Func<UniTask> closeButtonAnimation) =>
             await UniTask.WhenAll(UniTask.WhenAll(_levelButtons.Select(levelAnimation)), titleAnimation(), closeButtonAnimation());
-
         private async UniTask AnimateAllIn() =>
             await AnimateAll(x => x.AnimateScaleIn(), () => animateAnchorPosInTitle.AnimateInAsync(), () => _closeButton.AnimateScaleIn());
         private async UniTask AnimateAllOut() =>
@@ -92,7 +91,7 @@ namespace MyTools.Levels
 
         private void SetAndLoadScene(int indexScene)
         {
-            _loadScene.SetScene(indexScene);
+            
             _loadScene.Load();
         }
 

@@ -7,7 +7,6 @@ namespace MyTools.Loading
     {
         public static LoadScene Instance { get; private set; }
 
-        [Header("Core")]
         [SerializeField] private GameScenes _gameScenes;
 
         public string Title { get; private set; }

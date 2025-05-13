@@ -1,4 +1,3 @@
-using MyTools.Loading;
 using MyTools.UI;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,8 +8,7 @@ namespace MyTools.Levels
     {
         public event UnityAction<int> OnSelected;
 
-        [Header("Scene")]
-        [SerializeField] private GameScenes gameScenes;
+        [SerializeField] private int _indexLevel = 0;
 
         public override void Click()
         {
@@ -19,6 +17,6 @@ namespace MyTools.Levels
             InvokeOnSelected();
         }
 
-        private void InvokeOnSelected() => OnSelected?.Invoke((int)gameScenes.IndexScene);
+        private void InvokeOnSelected() => OnSelected?.Invoke(_indexLevel);
     }
 }

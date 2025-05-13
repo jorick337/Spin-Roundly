@@ -42,6 +42,10 @@ MonoBehaviour:
     m_Localized: "Y\xFCkleniyor"
     m_Metadata:
       m_Items: []
+  - m_Id: 413070158712832
+    m_Localized: "SEV\u0130YELER"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

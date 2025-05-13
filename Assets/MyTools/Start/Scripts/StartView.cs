@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using MyTools.Levels;
 using MyTools.Music;
 using MyTools.Settings;
 using MyTools.UI;
@@ -36,7 +37,7 @@ namespace MyTools.Start
             _settingsButton.OnPressed += ClearStartView;
             _shopButton.OnPressed += ClearStartView;
 
-            // _startButton.OnPressEnded += ;
+            _startButton.OnPressEnded += LoadLevelsPanel;
             _settingsButton.OnPressEnded += LoadSettingsPanel;
             // _shopButton.OnPressEnded += ;
         }
@@ -47,7 +48,7 @@ namespace MyTools.Start
             _settingsButton.OnPressed -= ClearStartView;
             _shopButton.OnPressed -= ClearStartView;
 
-            // _startButton.OnPressEnded -= ;
+            _startButton.OnPressEnded -= LoadLevelsPanel;
             _settingsButton.OnPressEnded -= LoadSettingsPanel;
             // _shopButton.OnPressEnded -= ;
         }
@@ -89,12 +90,12 @@ namespace MyTools.Start
 
         private void LoadLevelsPanel()
         {
-            // LevelsPanelProvider levelsPanelProvider = new();
-            // levelsPanelProvider.Load(transform.parent, async () =>
-            // {
-            //     await AnimateAllInAsync();
-            //     EnableButtons();
-            // });
+            LevelsViewProvider levelsViewProvider = new();
+            levelsViewProvider.Load(transform.parent, async () =>
+            {
+                await AnimateAllInAsync();
+                EnableUI();
+            });
         }
 
         private void LoadSettingsPanel()
