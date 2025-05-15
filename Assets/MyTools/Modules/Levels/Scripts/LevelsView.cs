@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
@@ -31,7 +32,11 @@ namespace MyTools.Levels
 
         #region MONO
 
-        private void Awake() => _musicManager = MusicManager.Instance;
+        private void Awake()
+        {
+            _musicManager = MusicManager.Instance;
+            _loadScene = LoadScene.Instance;
+        }
 
         private async void Start() => await AnimateAllIn();
 
@@ -39,22 +44,24 @@ namespace MyTools.Levels
         {
             for (int i = 0; i < _levelButtons.Length; i++)
             {
-                _levelButtons[i].OnPressed += ClearLevelsView;
-                _levelButtons[i].OnSelected += SetAndLoadScene;
+                _levelButtons[i].OnPressed += DisableUIAndClick;
+                _levelButtons[i].OnSelected += LoadLevelsScene;
             }
 
-            _closeButton.OnPressed += ClearLevelsView;
+            _closeButton.OnPressed += DisableUIAndClick;
+            _closeButton.OnPressEnded += DestroySelf;
         }
 
         private void OnDisable()
         {
             for (int i = 0; i < _levelButtons.Length; i++)
             {
-                _levelButtons[i].OnPressed -= ClearLevelsView;
-                _levelButtons[i].OnSelected -= SetAndLoadScene;
+                _levelButtons[i].OnPressed -= DisableUIAndClick;
+                _levelButtons[i].OnSelected -= LoadLevelsScene;
             }
 
-            _closeButton.OnPressed -= ClearLevelsView;
+            _closeButton.OnPressed -= DisableUIAndClick;
+            _closeButton.OnPressEnded -= DestroySelf;
         }
 
         #endregion
@@ -69,8 +76,17 @@ namespace MyTools.Levels
 
         #region ANIMATIONS
 
-        private async Task AnimateAll(Func<MyButton, UniTask> levelAnimation, Func<UniTask> titleAnimation, Func<UniTask> closeButtonAnimation) =>
-            await UniTask.WhenAll(UniTask.WhenAll(_levelButtons.Select(levelAnimation)), titleAnimation(), closeButtonAnimation());
+        private async Task AnimateAll(Func<MyButton, UniTask> levelAnimation, Func<UniTask> titleAnimation, Func<UniTask> closeButtonAnimation)
+        {
+            var animations = new List<UniTask>();
+
+            animations.AddRange(_levelButtons.Select(levelAnimation));
+            animations.Add(titleAnimation());
+            animations.Add(closeButtonAnimation());
+
+            await UniTask.WhenAll(animations);
+        }
+
         private async UniTask AnimateAllIn() =>
             await AnimateAll(x => x.AnimateScaleIn(), () => animateAnchorPosInTitle.AnimateInAsync(), () => _closeButton.AnimateScaleIn());
         private async UniTask AnimateAllOut() =>
@@ -80,20 +96,20 @@ namespace MyTools.Levels
 
         #region CALLBACKS
 
-        private async void ClearLevelsView(AnimateScaleXInUI animateScaleXInUI)
+        private async UniTask DisableUIAndClick(AnimateScaleXInUI animateScaleXInUI)
         {
             DisableUI();
             PlayClickSound();
             await animateScaleXInUI.AnimateAsync();
             await AnimateAllOut();
-            _levelsViewProvider.Unload();
         }
 
-        private void SetAndLoadScene(int indexScene)
+        private async UniTask LoadLevelsScene(int level)
         {
-            
-            _loadScene.Load();
+            await _loadScene.LoadAsync();
         }
+
+        private async UniTask DestroySelf() => await _levelsViewProvider.UnloadAsync();
 
         private void PlayClickSound() => _musicManager.PlayClickSound();
 

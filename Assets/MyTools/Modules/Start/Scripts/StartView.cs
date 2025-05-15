@@ -80,7 +80,7 @@ namespace MyTools.Start
 
         #region CALLBACKS
 
-        private async void ClearStartView(AnimateScaleXInUI animateScaleXInUI)
+        private async UniTask ClearStartView(AnimateScaleXInUI animateScaleXInUI)
         {
             DisableUI();
             PlayClickSound();
@@ -88,7 +88,7 @@ namespace MyTools.Start
             await AnimateAllOutAsync();
         }
 
-        private void LoadLevelsPanel()
+        private UniTask LoadLevelsPanel()
         {
             LevelsViewProvider levelsViewProvider = new();
             levelsViewProvider.Load(transform.parent, async () =>
@@ -96,9 +96,10 @@ namespace MyTools.Start
                 await AnimateAllInAsync();
                 EnableUI();
             });
+            return UniTask.CompletedTask;
         }
 
-        private void LoadSettingsPanel()
+        private UniTask LoadSettingsPanel()
         {
             SettingsViewProvider settingsViewProvider = new();
             settingsViewProvider.Load(transform.parent, async () =>
@@ -106,6 +107,7 @@ namespace MyTools.Start
                 await AnimateAllInAsync();
                 EnableUI();
             });
+            return UniTask.CompletedTask;
         }
 
         // private async void LoadShopPanel()

@@ -7,16 +7,11 @@ namespace MyTools.UI.Animate
 {
     public class AnimateTranparencyInUI : MonoBehaviour
     {
-        [Header("Core")]
-        [SerializeField] private float visibleTransparency;
-        [SerializeField] private float hiddenTransparency;
-
-        [Header("UI")]
-        [SerializeField] private Graphic uiElement;
-
-        [Header("Time")]
-        [SerializeField] private float timeToShow;
-        [SerializeField] private float timeToHide;
+        [SerializeField] private float _visibleTransparency;
+        [SerializeField] private float _hiddenTransparency;
+        [SerializeField] private Graphic _uiElement;
+        [SerializeField] private float _timeToShow;
+        [SerializeField] private float _timeToHide;
 
         private Color _visibleColor;
         private Color _hiddenColor;
@@ -26,10 +21,10 @@ namespace MyTools.UI.Animate
 
         private void Awake()
         {
-            _visibleColor = uiElement.color;
-            _visibleColor.a = visibleTransparency;
-            _hiddenColor = uiElement.color;
-            _hiddenColor.a = hiddenTransparency;
+            _visibleColor = _uiElement.color;
+            _visibleColor.a = _visibleTransparency;
+            _hiddenColor = _uiElement.color;
+            _hiddenColor.a = _hiddenTransparency;
         }
 
         private void OnDisable()
@@ -41,14 +36,14 @@ namespace MyTools.UI.Animate
         public async UniTask AnimateInAsync()
         {
             _animationIn?.Kill();
-            _animationIn = DOTween.Sequence().Append(uiElement.DOColor(_visibleColor, timeToShow));
+            _animationIn = DOTween.Sequence().Append(_uiElement.DOColor(_visibleColor, _timeToShow));
             await _animationIn.AsyncWaitForCompletion();
         }
 
         public async UniTask AnimateOutAsync()
         {
             _animationOut?.Kill();
-            _animationOut = DOTween.Sequence().Append(uiElement.DOColor(_hiddenColor, timeToHide));
+            _animationOut = DOTween.Sequence().Append(_uiElement.DOColor(_hiddenColor, _timeToHide));
             await _animationOut.AsyncWaitForCompletion();
         }
     }

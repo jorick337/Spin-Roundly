@@ -151,9 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f176a9b0bff897898a0f4db4c91e5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visibleScaleX: 1
-  hiddenScaleX: 0.95
-  time: 0.1
+  _visibleScaleX: 1
+  _hiddenScaleX: 0.95
+  _time: 0.1
 --- !u!114 &1055249271248660548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,10 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51dd91cc00b7c2d6e9a8675d438fbc3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visibleScale: {x: 1, y: 1, z: 1}
-  hiddenScale: {x: 0, y: 0, z: 0}
-  timeToShow: 1
-  timeToHide: 1
+  _visibleScale: {x: 1, y: 1, z: 1}
+  _hiddenScale: {x: 0, y: 0, z: 0}
+  _timeToShow: 0.5
+  _timeToHide: 0.5
 --- !u!1 &3446477414602941234
 GameObject:
   m_ObjectHideFlags: 0

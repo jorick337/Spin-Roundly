@@ -1,8 +1,8 @@
+using Cysharp.Threading.Tasks;
 using MyTools.Music;
 using MyTools.UI;
 using MyTools.UI.Animate;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace MyTools.Settings
 {
@@ -68,13 +68,13 @@ namespace MyTools.Settings
 
         #region CALLBACKS
 
-        private async void ClearSettingView(AnimateScaleXInUI animateScaleXIn)
+        private async UniTask ClearSettingView(AnimateScaleXInUI animateScaleXIn)
         {
             DisableUI();
             await animateScaleXIn.AnimateAsync();
             PlayClickSound();
             await _animateAnchorPosInBackground.AnimateOutAsync();
-            _settingsViewProvider.Unload();
+            await _settingsViewProvider.UnloadAsync();
         }
 
         private void PlayClickSound() => _musicManager.PlayClickSound();

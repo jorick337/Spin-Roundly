@@ -265,11 +265,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64060e0be6515c7c86091e39a9cdc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visibleTransparency: 1
-  hiddenTransparency: 0
-  uiElement: {fileID: 2864576431840611808}
-  timeToShow: 1
-  timeToHide: 1
+  _visibleTransparency: 1
+  _hiddenTransparency: 0
+  _uiElement: {fileID: 2864576431840611808}
+  _timeToShow: 0.5
+  _timeToHide: 0.5
 --- !u!1 &6663742267932117102
 GameObject:
   m_ObjectHideFlags: 0

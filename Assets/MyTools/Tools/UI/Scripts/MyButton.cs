@@ -1,23 +1,32 @@
+using System;
 using Cysharp.Threading.Tasks;
 using MyTools.UI.Animate;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.ResourceManagement.ResourceProviders.Simulation;
 using UnityEngine.UI;
 
 namespace MyTools.UI
 {
     public class MyButton : MonoBehaviour
     {
-        public event UnityAction<AnimateScaleXInUI> OnPressed;
-        public event UnityAction OnPressEnded;
+        #region EVENTS
+
+        public Func<AnimateScaleXInUI, UniTask> OnPressed;
+        public Func<UniTask> OnPressEnded;
+
+        #endregion
+
+        #region CORE
 
         [SerializeField] private Button _button;
         [SerializeField] private AnimateScaleInUI _animateScaleIn;
         [SerializeField] private AnimateScaleXInUI _animateScaleXIn;
 
-        private void OnEnable() => _button.onClick.AddListener(Click);
-        private void OnDisable() => _button.onClick.RemoveListener(Click);
+        #endregion
+
+        #region MONO
+
+        private void OnEnable() => _button.onClick.AddListener(ClickAsync);
+        private void OnDisable() => _button.onClick.RemoveListener(ClickAsync);
 
         private void OnValidate()
         {
@@ -31,6 +40,10 @@ namespace MyTools.UI
                 _animateScaleXIn = GetComponent<AnimateScaleXInUI>();
         }
 
+        #endregion
+
+        #region ANIMATIONS
+
         public async UniTask AnimateScaleIn()
         {
             if (_animateScaleIn != null)
@@ -43,13 +56,28 @@ namespace MyTools.UI
                 await _animateScaleIn.AnimateOutAsync();
         }
 
-        public virtual void Click()
+        #endregion
+
+        #region CALLBACKS
+
+        public virtual async void ClickAsync()
         {
-            InvokeOnPressed();
-            InvokeOnPressEnded();
+            await InvokeOnPressed();
+            await InvokeOnPressEnded();
         }
 
-        protected virtual void InvokeOnPressed() => OnPressed?.Invoke(_animateScaleXIn);
-        protected virtual void InvokeOnPressEnded() => OnPressEnded?.Invoke();
+        protected virtual async UniTask InvokeOnPressed()
+        {
+            if (OnPressed != null)
+                await OnPressed.Invoke(_animateScaleXIn);
+        }
+
+        protected virtual async UniTask InvokeOnPressEnded()
+        {
+            if (OnPressEnded != null)
+                await OnPressEnded.Invoke();
+        }
+
+        #endregion
     }
 }

@@ -311,6 +311,30 @@ PrefabInstance:
       propertyPath: _keyOff
       value: DisableSettings
       objectReference: {fileID: 0}
+    - target: {fileID: 5549642227865341020, guid: 079eb35b1866044fe8cb609c0bb5fb9d, type: 3}
+      propertyPath: _time
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549642227865341020, guid: 079eb35b1866044fe8cb609c0bb5fb9d, type: 3}
+      propertyPath: _hiddenScaleX
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549642227865341020, guid: 079eb35b1866044fe8cb609c0bb5fb9d, type: 3}
+      propertyPath: _visibleScaleX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8371188731988517590, guid: 079eb35b1866044fe8cb609c0bb5fb9d, type: 3}
+      propertyPath: _time
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8371188731988517590, guid: 079eb35b1866044fe8cb609c0bb5fb9d, type: 3}
+      propertyPath: _hiddenScaleX
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 8371188731988517590, guid: 079eb35b1866044fe8cb609c0bb5fb9d, type: 3}
+      propertyPath: _visibleScaleX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8766554992180967043, guid: 079eb35b1866044fe8cb609c0bb5fb9d, type: 3}
       propertyPath: m_Name
       value: MusicAndSoundsSwitch

@@ -6,11 +6,8 @@ namespace MyTools.UI.Animate
 {
     public class AnimateAnchorPosInUI : MonoBehaviour
     {
-        [Header("Core")]
         [SerializeField] private Vector3 _visibleAchorPos;
         [SerializeField] private Vector3 _hiddenAchorPos;
-
-        [Header("Time")]
         [SerializeField] private float _timeToShow;
         [SerializeField] private float _timeToHide;
 
@@ -19,10 +16,7 @@ namespace MyTools.UI.Animate
         private Sequence _animationIn;
         private Sequence _animationOut;
 
-        private void Awake()
-        {
-            _rectTransform = (RectTransform)transform;
-        }
+        private void Awake() => _rectTransform = (RectTransform)transform;
 
         private void OnDisable()
         {

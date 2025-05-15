@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,8 +25,14 @@ namespace MyTools.Loading
 
         public void Load()
         {
-            SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
             DontDestroyOnLoad(gameObject);
+            SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
+        }
+
+        public async UniTask LoadAsync()
+        {
+            DontDestroyOnLoad(gameObject);
+            await SceneManager.LoadSceneAsync(SceneManager.sceneCountInBuildSettings - 1);
         }
 
         public void DestroySelf() => Destroy(gameObject);

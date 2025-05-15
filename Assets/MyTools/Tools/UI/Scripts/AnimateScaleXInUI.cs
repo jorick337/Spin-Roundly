@@ -6,12 +6,9 @@ namespace MyTools.UI.Animate
 {
     public class AnimateScaleXInUI : MonoBehaviour
     {
-        [Header("Core")]
-        [SerializeField] private float visibleScaleX;
-        [SerializeField] private float hiddenScaleX;
-
-        [Header("Time")]
-        [SerializeField] private float time;
+        [SerializeField] private float _visibleScaleX;
+        [SerializeField] private float _hiddenScaleX;
+        [SerializeField] private float _time;
 
         private Sequence _animate;
 
@@ -27,8 +24,8 @@ namespace MyTools.UI.Animate
         {
             _animate?.Kill();
             _animate = DOTween.Sequence()
-                .Append(transform.DOScaleX(hiddenScaleX, time))
-                .Append(transform.DOScaleX(visibleScaleX, time));
+                .Append(transform.DOScaleX(_hiddenScaleX, _time))
+                .Append(transform.DOScaleX(_visibleScaleX, _time));
         }
     }
 }

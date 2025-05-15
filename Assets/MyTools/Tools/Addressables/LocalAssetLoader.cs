@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -6,7 +9,15 @@ namespace MyTools.LocalAddressables
 {
     public class LocalAssetLoader
     {
+        private List<Func<UniTask>> _onUnloaded = new();
+
         private GameObject _cachedObject;
+
+        public async UniTask UnloadAsync()
+        {
+            await InvokeOnUnloaded();
+            UnloadInternal();
+        }
 
         protected async Task<T> LoadInternal<T>(string assetsId, Transform transform)
         {
@@ -27,5 +38,9 @@ namespace MyTools.LocalAddressables
             Addressables.ReleaseInstance(_cachedObject);
             _cachedObject = null;
         }
+
+        protected void AddEvent(Func<UniTask> action) => _onUnloaded.Add(action);
+
+        protected async UniTask InvokeOnUnloaded() => await UniTask.WhenAll(_onUnloaded.Select(handler => handler()));
     }
 }
