@@ -25,8 +25,9 @@ namespace MyTools.Levels
 
         // Managers
         private MusicManager _musicManager;
-        private LevelsViewProvider _levelsViewProvider;
+        private LevelsManager _levelsManager;
         private LoadScene _loadScene;
+        private LevelsViewProvider _levelsViewProvider;
 
         #endregion
 
@@ -35,6 +36,7 @@ namespace MyTools.Levels
         private void Awake()
         {
             _musicManager = MusicManager.Instance;
+            _levelsManager = LevelsManager.Instance;
             _loadScene = LoadScene.Instance;
         }
 
@@ -106,6 +108,7 @@ namespace MyTools.Levels
 
         private async UniTask LoadLevelsScene(int level)
         {
+            _levelsManager.SetLevel(level);
             await _loadScene.LoadAsync();
         }
 

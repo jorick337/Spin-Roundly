@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -19,7 +18,7 @@ namespace MyTools.LocalAddressables
             UnloadInternal();
         }
 
-        protected async Task<T> LoadInternal<T>(string assetsId, Transform transform)
+        protected async UniTask<T> LoadInternal<T>(string assetsId, Transform transform = null)
         {
             _cachedObject = await Addressables.InstantiateAsync(assetsId, transform).Task;
             T prefab = _cachedObject.GetComponent<T>();
