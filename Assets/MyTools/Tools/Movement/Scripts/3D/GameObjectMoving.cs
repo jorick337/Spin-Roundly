@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace MyTools.Movement
+namespace MyTools.Movement.ThreeDimensional
 {
     public class GameObjectMoving : MonoBehaviour
     {

@@ -57,7 +57,7 @@ namespace MyTools.Movement
                 // InputActions.GamePlay.Backward.started += OnMoveBackwardStarted; // S
                 // InputActions.GamePlay.Backward.canceled += OnMoveBackwardCanceled;
 
-                // InputActions.GamePlay.Left.started += OnMoveLeftStarted; // A
+                // InputActions.GamePlay.Right.started += OnMoveLeftStarted; // A
                 // InputActions.GamePlay.Left.canceled += OnMoveLeftCanceled;
 
                 // InputActions.GamePlay.Right.started += OnMoveRightStarted; // D
@@ -95,6 +95,12 @@ namespace MyTools.Movement
 
         public void EnableInputActions() => InputActions.Enable();
         public void DisableInputActions() => InputActions.Disable();
+
+        #endregion
+
+        #region VALUES
+
+
 
         #endregion
 

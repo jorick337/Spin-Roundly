@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MyTools.Movement.Animation
+namespace MyTools.Movement.ThreeDimensional
 {
     public class AnimationMovement : MonoBehaviour
     {
