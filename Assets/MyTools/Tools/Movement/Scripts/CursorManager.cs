@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Movement
+namespace MyTools.Movement
 {
     public class CursorManager : MonoBehaviour
     {

@@ -1,19 +1,19 @@
-using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace Game.Movement
+namespace MyTools.Movement
 {
     public class GameInputEvents : MonoBehaviour
     {
         #region EVENTS
 
-        public Action<bool> MoveForward;
-        public Action<bool> MoveBackward;
-        public Action<bool> MoveLeft;
-        public Action<bool> MoveRight;
+        public UnityAction<bool> MoveForward;
+        public UnityAction<bool> MoveBackward;
+        public UnityAction<bool> MoveLeft;
+        public UnityAction<bool> MoveRight;
 
-        public Action JumpUp;
+        public UnityAction JumpUp;
 
         #endregion
 

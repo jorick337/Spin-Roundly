@@ -1,16 +1,16 @@
-using System;
 using UnityEngine;
+using UnityEngine.Events;
 
-namespace Game.Movement
+namespace MyTools.Movement
 {
     public class GameObjectMoving : MonoBehaviour
     {
         #region EVENTS
 
-        private Action<bool> _moveForwardHandler;
-        private Action<bool> _moveBackwardHandler;
-        private Action<bool> _moveLeftHandler;
-        private Action<bool> _moveRightHandler;
+        private UnityAction<bool> _moveForwardHandler;
+        private UnityAction<bool> _moveBackwardHandler;
+        private UnityAction<bool> _moveLeftHandler;
+        private UnityAction<bool> _moveRightHandler;
 
         #endregion
 
@@ -160,7 +160,7 @@ namespace Game.Movement
 
         #region CALLBACKS
 
-        public void DoActionWithoutMovement(Action action, float timeToFrize)
+        public void DoActionWithoutMovement(UnityAction action, float timeToFrize)
         {
             DisableAllControl();
             action?.Invoke();
