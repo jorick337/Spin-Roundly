@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MyTools.Levels
+namespace MyTools.Levels.Play
 {
     public class GameLevelView : MonoBehaviour
     {

@@ -9,7 +9,7 @@ using MyTools.UI;
 using MyTools.UI.Animate;
 using UnityEngine;
 
-namespace MyTools.Levels
+namespace MyTools.Levels.Start
 {
     public class LevelsView : MonoBehaviour
     {

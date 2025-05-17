@@ -1,6 +1,6 @@
 using MyTools.LocalAddressables;
 
-namespace MyTools.Levels
+namespace MyTools.Levels.Play
 {
     public class GameLevelsProvider : LocalAssetLoader
     {
