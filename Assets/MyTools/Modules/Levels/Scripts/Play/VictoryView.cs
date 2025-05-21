@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using MyTools.Music;
+using MyTools.PlayerSystem;
 using MyTools.UI;
 using MyTools.UI.Animate;
 using UnityEngine;
@@ -31,6 +32,7 @@ namespace MyTools.Levels.Play
         [SerializeField] private MyButton _forwardButton;
 
         // Managers
+        private PlayerManager _playerManager;
         private GameLevelManager _gameLevelView;
         private MusicManager _musicManager;
         private VictoryViewProvider _victoryViewProvider;
@@ -38,6 +40,14 @@ namespace MyTools.Levels.Play
         #endregion
 
         #region MONO
+
+        private void Awake()
+        {
+            _playerManager = PlayerManager.Instance;
+            _gameLevelView = GameLevelManager.Instance;
+            _musicManager = MusicManager.Instance;
+            SetTextMoney();
+        }
 
         private void OnEnable()
         {
@@ -71,6 +81,7 @@ namespace MyTools.Levels.Play
                 await _animateTranparencyInStars[i].AnimateInAsync();
         }
 
+        private void SetTextMoney() => _moneyText.text = _playerManager.Player.Money.ToString();
         private void DisableUI() => _canvasGroup.interactable = false;
 
         #endregion
