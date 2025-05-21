@@ -18,12 +18,12 @@ namespace MyTools.Levels.Play
 
         private void OnEnable()
         {
-            _colliderTrigger.OnTriggered += LoadVictoryMenu;
+            _colliderTrigger.OnTriggered += LoadVictoryView;
         }
 
         private void OnDisable()
         {
-            _colliderTrigger.OnTriggered -= LoadVictoryMenu;
+            _colliderTrigger.OnTriggered -= LoadVictoryView;
         }
 
         #endregion
@@ -36,7 +36,7 @@ namespace MyTools.Levels.Play
 
         #region CALLBACKS
 
-        private void LoadVictoryMenu() => Debug.Log(1);
+        private void LoadVictoryView() => Debug.Log(1);
 
         #endregion
     }

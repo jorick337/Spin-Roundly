@@ -9,11 +9,15 @@ namespace MyTools.Movement.TwoDimensional
         [SerializeField] private float _yOffSet;
         [SerializeField] private Transform _target;
 
+        private Transform _mainCamera;
+
         [Header("Limits")]
         [SerializeField] private float _minX;
         [SerializeField] private float _maxX;
         [SerializeField] private float _minY;
         [SerializeField] private float _maxY;
+
+        private void Awake() => _mainCamera = Camera.main.transform;
 
         private void Update()
         {
@@ -23,7 +27,7 @@ namespace MyTools.Movement.TwoDimensional
             float clampedX = Mathf.Clamp(smoothPos.x, _minX, _maxX);
             float clampedY = Mathf.Clamp(smoothPos.y, _minY, _maxY);
 
-            transform.position = new Vector3(clampedX, clampedY, -10f);
+            _mainCamera.position = new Vector3(clampedX, clampedY, -10f);
         }
     }
 }
