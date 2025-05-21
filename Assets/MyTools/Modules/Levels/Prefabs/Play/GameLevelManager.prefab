@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7392110082470818455}
   - component: {fileID: 6327264973022650692}
   m_Layer: 0
-  m_Name: GameLevelView
+  m_Name: GameLevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,6 +41,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 474258125549554359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 574b8481bd9c83f61b6109ccbad4f022, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c3b1d4d168fb03d584765551369055b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
