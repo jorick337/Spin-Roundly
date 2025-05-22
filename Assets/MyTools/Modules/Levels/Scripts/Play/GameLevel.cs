@@ -7,9 +7,11 @@ namespace MyTools.Levels.Play
     {
         #region  CORE
 
-        [Header("Finish")]
-        [SerializeField] private ColliderTrigger _colliderTrigger;
+        [Header("Core")]
+        [SerializeField] private ColliderTrigger _finishColliderTrigger;
+        [SerializeField] private ColliderTrigger _defeatColliderTrigger;
 
+        // Managers
         private GameLevelsProvider _gameLevelsProvider;
 
         #endregion
@@ -18,13 +20,21 @@ namespace MyTools.Levels.Play
 
         private void OnEnable()
         {
-            _colliderTrigger.OnTriggered += LoadVictoryView;
+            _finishColliderTrigger.OnTriggered += LoadVictoryView;
+            _defeatColliderTrigger.OnTriggered += Restart;
         }
 
         private void OnDisable()
         {
-            _colliderTrigger.OnTriggered -= LoadVictoryView;
+            _finishColliderTrigger.OnTriggered -= LoadVictoryView;
+            _defeatColliderTrigger.OnTriggered -= Restart;
         }
+
+        #endregion
+
+        #region UI
+
+
 
         #endregion
 
@@ -36,7 +46,16 @@ namespace MyTools.Levels.Play
 
         #region CALLBACKS
 
-        private void LoadVictoryView() => Debug.Log(1);
+        private void LoadVictoryView()
+        {
+            VictoryViewProvider victoryViewProvider = new();
+            victoryViewProvider.Load();
+        }
+
+        private void Restart()
+        {
+            Debug.Log(123);
+        }
 
         #endregion
     }
