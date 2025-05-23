@@ -7,6 +7,6 @@ namespace MyTools.UI
         [SerializeField] private Transform _targetTrans;
         [SerializeField] private Transform _objTrans;
 
-        private void SendToTarget() => _objTrans.position = _targetTrans.position;
+        public void SendToTarget() => _objTrans.position = _targetTrans.position;
     }
 }

@@ -1,16 +1,25 @@
 using MyTools.UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MyTools.Levels.Play
 {
     public class GameLevel : MonoBehaviour
     {
+        #region EVENTS
+
+        public event UnityAction OnReload;
+
+        #endregion
+
         #region  CORE
 
         [Header("Core")]
         [SerializeField] private ColliderTrigger _finishColliderTrigger;
         [SerializeField] private ColliderTrigger _defeatColliderTrigger;
-        [SerializeField] private Star[] _stars;
+
+        [Header("Restart")]
+        [SerializeField] private Teleport _teleportPlayer;
 
         // Managers
         private GameLevelsProvider _gameLevelsProvider;
@@ -21,13 +30,13 @@ namespace MyTools.Levels.Play
 
         private void OnEnable()
         {
-            _finishColliderTrigger.OnTriggered += LoadVictoryView;
+            _finishColliderTrigger.OnTriggered += Finish;
             _defeatColliderTrigger.OnTriggered += Restart;
         }
 
         private void OnDisable()
         {
-            _finishColliderTrigger.OnTriggered -= LoadVictoryView;
+            _finishColliderTrigger.OnTriggered -= Finish;
             _defeatColliderTrigger.OnTriggered -= Restart;
         }
 
@@ -37,20 +46,28 @@ namespace MyTools.Levels.Play
 
         public void SetGameLevelsProvider(GameLevelsProvider gameLevelsProvider) => _gameLevelsProvider = gameLevelsProvider;
 
-        #endregion
-
-        #region CALLBACKS
-
         private void LoadVictoryView()
         {
             VictoryViewProvider victoryViewProvider = new();
             victoryViewProvider.Load();
         }
 
+        #endregion
+
+        #region CALLBACKS
+
+        private void Finish()
+        {
+            LoadVictoryView();
+        }
+
         private void Restart()
         {
-            Debug.Log(123);
+            InvokeOnReload();
+            _teleportPlayer.SendToTarget();
         }
+
+        private void InvokeOnReload() => OnReload?.Invoke();
 
         #endregion
     }
