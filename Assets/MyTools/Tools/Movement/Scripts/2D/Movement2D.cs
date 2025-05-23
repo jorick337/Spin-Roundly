@@ -29,13 +29,13 @@ namespace MyTools.Movement.TwoDimensional
 
         private void OnEnable()
         {
-            _inputActions.Enable();
+            Enable();
             _inputActions.GamePlay.Jump.started += OnJumpUpStarted;
         }
 
         private void OnDisable()
         {
-            _inputActions.Disable();
+            Disable();
             _inputActions.GamePlay.Jump.started -= OnJumpUpStarted;
         }
 
@@ -67,6 +67,13 @@ namespace MyTools.Movement.TwoDimensional
             RaycastHit2D hit = Physics2D.CircleCast(_rigidbody2D.position, _groundCheckRadius, Vector2.down, extraHeight, _groundMask);
             _isGrounded = hit.collider != null;
         }
+
+        #endregion
+
+        #region VALUES
+
+        public void Enable() => _inputActions.Enable();
+        public void Disable() => _inputActions.Disable();
 
         #endregion
 

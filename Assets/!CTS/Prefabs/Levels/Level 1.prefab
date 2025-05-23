@@ -1194,6 +1194,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
+--- !u!114 &1937840054560149507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 707999726432715705, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
+  m_PrefabInstance: {fileID: 1384792302807700410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72827d80b5c6afaf2b28255fbd0de293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5756136934263879937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6689584085607754427, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
@@ -1227,6 +1238,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3035801407406896712, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+      propertyPath: _movement2D
+      value: 
+      objectReference: {fileID: 1937840054560149507}
     - target: {fileID: 3035801407406896712, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: _stars.Array.size
       value: 3

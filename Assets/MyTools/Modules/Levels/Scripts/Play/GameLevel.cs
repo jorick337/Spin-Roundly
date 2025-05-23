@@ -1,3 +1,4 @@
+using MyTools.Movement.TwoDimensional;
 using MyTools.UI;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,11 +15,12 @@ namespace MyTools.Levels.Play
 
         #region  CORE
 
-        [Header("Core")]
+        [Header("Finish")]
         [SerializeField] private ColliderTrigger _finishColliderTrigger;
-        [SerializeField] private ColliderTrigger _defeatColliderTrigger;
+        [SerializeField] private Movement2D _movement2D;
 
         [Header("Restart")]
+        [SerializeField] private ColliderTrigger _defeatColliderTrigger;
         [SerializeField] private Teleport _teleportPlayer;
 
         // Managers
@@ -58,6 +60,7 @@ namespace MyTools.Levels.Play
 
         private void Finish()
         {
+            _movement2D.Disable();
             LoadVictoryView();
         }
 
