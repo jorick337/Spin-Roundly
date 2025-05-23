@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using MyTools.Levels.Play;
 using UnityEngine;
 
@@ -5,7 +6,12 @@ namespace MyTools.Levels
 {
     public class LevelsManager : MonoBehaviour
     {
+        private const int MAX_LEVEL = 15;
+
         public static LevelsManager Instance { get; private set; }
+
+        // Managers
+        private GameLevel _gameLevel;
 
         private int _level = 1;
 
@@ -24,10 +30,27 @@ namespace MyTools.Levels
 
         public void SetLevel(int level) => _level = level;
 
-        public void Load()
+        private void AddLevel()
+        {
+            if (_level + 1 <= MAX_LEVEL)
+                _level += 1;
+        }
+
+        public async void Load()
         {
             GameLevelsProvider gameLevelsProvider = new();
-            gameLevelsProvider.Load(_level);
+            _gameLevel = await gameLevelsProvider.Load(_level, async () => 
+            {
+                _gameLevel.OnNextLevel -= LoadNextLevel;
+                await UniTask.CompletedTask;
+            });
+            _gameLevel.OnNextLevel += LoadNextLevel;
+        }
+
+        private void LoadNextLevel()
+        {
+            AddLevel();
+            Load();
         }
     }
 }

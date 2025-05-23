@@ -10,15 +10,16 @@ namespace MyTools.Levels.Play
 
         // Managers
         private LevelsManager _levelsManager;
-        private GameLevel _gameLevel;
 
         private void Awake()
         {
             Instance = this;
             _levelsManager = LevelsManager.Instance;
-            _levelsManager.Load();
         }
 
+        private void Start() => _levelsManager.Load();
+
         public void AddStar() => NumberStars += 1;
+        public void ResetStars() => NumberStars = 0;
     }
 }
