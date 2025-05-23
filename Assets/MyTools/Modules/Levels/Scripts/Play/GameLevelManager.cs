@@ -10,6 +10,7 @@ namespace MyTools.Levels.Play
 
         // Managers
         private LevelsManager _levelsManager;
+        private GameLevel _gameLevel;
 
         private void Awake()
         {
@@ -18,6 +19,6 @@ namespace MyTools.Levels.Play
             _levelsManager.Load();
         }
 
-        private void AddStar() => NumberStars += 1;
+        public void AddStar() => NumberStars += 1;
     }
 }

@@ -10,6 +10,7 @@ namespace MyTools.Levels.Play
         [Header("Core")]
         [SerializeField] private ColliderTrigger _finishColliderTrigger;
         [SerializeField] private ColliderTrigger _defeatColliderTrigger;
+        [SerializeField] private Star[] _stars;
 
         // Managers
         private GameLevelsProvider _gameLevelsProvider;
@@ -29,12 +30,6 @@ namespace MyTools.Levels.Play
             _finishColliderTrigger.OnTriggered -= LoadVictoryView;
             _defeatColliderTrigger.OnTriggered -= Restart;
         }
-
-        #endregion
-
-        #region UI
-
-
 
         #endregion
 
