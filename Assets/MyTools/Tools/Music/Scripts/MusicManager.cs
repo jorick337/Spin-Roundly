@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MyTools.Music
 {
@@ -7,8 +7,8 @@ namespace MyTools.Music
     {
         #region EVENTS
 
-        public Action IsMusicActiveChanged;
-        public Action IsSoundsActiveChanged;
+        public UnityAction<bool> MusicActiveChanged;
+        public UnityAction<bool> SoundsActiveChanged;
 
         #endregion
 
@@ -40,9 +40,7 @@ namespace MyTools.Music
                 SetDefaultVolume();
             }
             else
-            {
                 Destroy(gameObject);
-            }
         }
 
         #endregion
@@ -95,8 +93,8 @@ namespace MyTools.Music
 
         #region CALLBACKS
 
-        private void InvokeIsMusicActiveChanged() => IsMusicActiveChanged?.Invoke();
-        private void InvokeIsSoundsActiveChanged() => IsSoundsActiveChanged?.Invoke();
+        private void InvokeIsMusicActiveChanged() => MusicActiveChanged?.Invoke(IsMusicActive);
+        private void InvokeIsSoundsActiveChanged() => SoundsActiveChanged?.Invoke(IsSoundsActive);
 
         #endregion
     }

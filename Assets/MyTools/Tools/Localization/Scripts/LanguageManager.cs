@@ -1,22 +1,22 @@
 using System;
-using System.Collections;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 
 namespace Game.Localization
 {
     public class LanguageManager : MonoBehaviour
     {
-
-        private readonly string[] LOCALES = new string[2] { "ru", "en" };
-
-        public Action LocaleChanged;
+        public UnityAction<string> LocaleChanged;
 
         public static LanguageManager Instance { get; private set; }
 
-        public string Locale { get; private set; }
+        public Locale SelectedLocale { get; private set; }
 
-        private int _localeIndex;
+        private Locale[] _locales;
+        private int _index;
 
         private void Awake()
         {
@@ -26,33 +26,33 @@ namespace Game.Localization
                 DontDestroyOnLoad(gameObject);
             }
             else
-            {
                 Destroy(gameObject);
-            }
         }
 
-        public IEnumerator Initialize(string locale)
+        public async UniTask InitializeAsync(string locale)
         {
-            yield return LocalizationSettings.InitializationOperation;
+            await LocalizationSettings.InitializationOperation.Task;
 
-            _localeIndex = Array.IndexOf(LOCALES, locale);
-            Locale = locale;
+            _locales = LocalizationSettings.AvailableLocales.Locales.ToArray();
+            SelectedLocale = Array.Find(_locales, l => l.Identifier.Code == locale);
+            _index = Array.IndexOf(_locales, SelectedLocale);
+
             UpdateLocale();
         }
 
         public void ChangeLanguage()
         {
-            _localeIndex = (_localeIndex + 1) % LOCALES.Length;
-            Locale = LOCALES[_localeIndex];
-
+            _index = (_index + 1) % _locales.Length;
             UpdateLocale();
-            LocaleChanged?.Invoke();
         }
 
         private void UpdateLocale()
         {
-            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales
-                .Find(l => l.Identifier.Code == Locale);
+            SelectedLocale = _locales[_index];
+            LocalizationSettings.SelectedLocale = SelectedLocale;
+            InvokeLocaleChanged();
         }
+
+        private void InvokeLocaleChanged() => LocaleChanged?.Invoke(SelectedLocale.Identifier.Code);
     }
 }

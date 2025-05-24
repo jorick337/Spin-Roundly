@@ -4,7 +4,7 @@ namespace MyTools.PlayerSystem
 {
     public class Player
     {
-        public UnityAction MoneyChanged;
+        public UnityAction<int> MoneyChanged;
 
         public int Money { get; private set; }
 
@@ -15,10 +15,14 @@ namespace MyTools.PlayerSystem
 
         public void AddMoney(int money) 
         {
-            InvokeMoneyChanged();
             Money += money;
+            InvokeMoneyChanged();
         }
 
-        private void InvokeMoneyChanged() => MoneyChanged?.Invoke();
+        private void InvokeMoneyChanged() 
+        {
+            MoneyChanged?.Invoke(Money);
+            SaveManager.SaveMoney(Money);
+        } 
     }
 }
