@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MyTools.Start
 {
-    public class StartView : MonoBehaviour
+    public class StartView_V1 : MonoBehaviour
     {
         #region  CORE
 
