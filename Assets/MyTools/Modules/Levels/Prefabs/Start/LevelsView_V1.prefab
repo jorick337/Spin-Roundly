@@ -395,7 +395,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvasGroup: {fileID: 6690113145209134356}
-  animateAnchorPosInTitle: {fileID: 6782435204167282222}
   _levelButtons:
   - {fileID: 4505724463721247121}
   - {fileID: 7410299448462499885}
@@ -412,6 +411,7 @@ MonoBehaviour:
   - {fileID: 392549079869821637}
   - {fileID: 8426780352862967294}
   - {fileID: 8164288531256653985}
+  _animateAnchorPosInTitle: {fileID: 6782435204167282222}
   _closeButton: {fileID: 2566424686288954181}
 --- !u!1 &6884795088362271683
 GameObject:
@@ -1117,46 +1117,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4505280612468351636}
     m_Modifications:
-    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_Color.b
-      value: 0.9716981
-      objectReference: {fileID: 0}
-    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_Color.g
-      value: 0.9716981
-      objectReference: {fileID: 0}
-    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_Color.r
-      value: 0.9716981
-      objectReference: {fileID: 0}
-    - target: {fileID: 1414747404519945267, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4729237559508679667, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4729237559508679667, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4729237559508679667, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4729237559508679667, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4970678727212299548, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -4346244404228752641, guid: 3c9a9d0720972a4ae966e49621a77b97, type: 3}
-    - target: {fileID: 4970678727212299548, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
-      propertyPath: m_PreserveAspect
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1542994445340926761, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
       propertyPath: m_Name
       value: Button
@@ -1257,6 +1217,46 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -4346244404228752641, guid: 3c9a9d0720972a4ae966e49621a77b97, type: 3}
+    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 592868264576112607, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414747404519945267, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729237559508679667, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729237559508679667, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729237559508679667, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729237559508679667, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970678727212299548, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4346244404228752641, guid: 3c9a9d0720972a4ae966e49621a77b97, type: 3}
+    - target: {fileID: 4970678727212299548, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2424268448335651967, guid: 39f4978aab8d261749bbb67ab6ffbcee, type: 3}
     m_RemovedGameObjects: []

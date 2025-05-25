@@ -15,15 +15,6 @@ namespace MyTools.Levels.Start
         [SerializeField] private Material _starVisibleMaterial;
         [SerializeField] private Color _starVisibleColor;
 
-        // Managers
-        private LevelsManager _levelsManager;
-
-        private void Awake()
-        {
-            _levelsManager = LevelsManager.Instance;
-            Initialize();
-        }
-
         private void OnValidate()
         {
             if (transform.parent == null)
@@ -41,9 +32,9 @@ namespace MyTools.Levels.Start
             }
         }
 
-        private void Initialize()
+        public void Initialize(int[] stars)
         {
-            for (int i = 0; i < _levelsManager.Stars[_level - 1]; i++)
+            for (int i = 0; i < stars[_level - 1]; i++)
             {
                 _starImages[i].material = _starVisibleMaterial;
                 _starImages[i].color = _starVisibleColor;

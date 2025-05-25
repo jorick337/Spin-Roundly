@@ -69,7 +69,12 @@ namespace MyTools.Levels.Play
             _forwardButton.OnPressEnded -= InvokeOnForwardPressed;
         }
 
-        private void Start() => ShowStars();
+        private void Start() 
+        {
+            DisableUI();
+            ShowStars();
+            EnableUI();
+        } 
 
         #endregion
 
@@ -82,6 +87,8 @@ namespace MyTools.Levels.Play
         }
 
         private void SetTextMoney() => _moneyText.text = _playerManager.Player.Money.ToString();
+
+        private void EnableUI() => _canvasGroup.interactable = true;
         private void DisableUI() => _canvasGroup.interactable = false;
 
         #endregion

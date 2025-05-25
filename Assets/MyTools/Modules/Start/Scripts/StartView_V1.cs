@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using MyTools.Levels.Start;
-using MyTools.Music;
 using MyTools.Settings;
 using MyTools.UI;
 using MyTools.UI.Animate;
@@ -8,57 +7,38 @@ using UnityEngine;
 
 namespace MyTools.Start
 {
-    public class StartView_V1 : MonoBehaviour
+    public class StartView_V1 : StartView
     {
         #region  CORE
 
-        [Header("Core")]
-        [SerializeField] private CanvasGroup _canvasGroup;
+        [Header("Animations")]
         [SerializeField] private AnimateTranparencyInUI _animateTransparencyInTitleText;
 
         [Header("Buttons")]
         [SerializeField] private MyButton _startButton;
         [SerializeField] private MyButton _settingsButton;
-        [SerializeField] private MyButton _shopButton;
-
-        // Managers
-        private MusicManager _musicManager;
 
         #endregion
 
         #region MONO
 
-        private void Awake() =>_musicManager = MusicManager.Instance;
         private async void Start() => await AnimateAllInAsync();
 
         private void OnEnable()
         {
             _startButton.OnPressed += ClearStartView;
+            _startButton.OnPressEnded += LoadLevelsView;
             _settingsButton.OnPressed += ClearStartView;
-            _shopButton.OnPressed += ClearStartView;
-
-            _startButton.OnPressEnded += LoadLevelsPanel;
-            _settingsButton.OnPressEnded += LoadSettingsPanel;
-            // _shopButton.OnPressEnded += ;
+            _settingsButton.OnPressEnded += LoadSettingsView;
         }
 
         private void OnDisable()
         {
             _startButton.OnPressed -= ClearStartView;
+            _startButton.OnPressEnded -= LoadLevelsView;
             _settingsButton.OnPressed -= ClearStartView;
-            _shopButton.OnPressed -= ClearStartView;
-
-            _startButton.OnPressEnded -= LoadLevelsPanel;
-            _settingsButton.OnPressEnded -= LoadSettingsPanel;
-            // _shopButton.OnPressEnded -= ;
+            _settingsButton.OnPressEnded -= LoadSettingsView;
         }
-
-        #endregion
-
-        #region UI
-
-        private void EnableUI() => _canvasGroup.interactable = true;
-        private void DisableUI() => _canvasGroup.interactable = false;
 
         #endregion
 
@@ -80,15 +60,7 @@ namespace MyTools.Start
 
         #region CALLBACKS
 
-        private async UniTask ClearStartView(AnimateScaleXInUI animateScaleXInUI)
-        {
-            DisableUI();
-            PlayClickSound();
-            await animateScaleXInUI.AnimateAsync();
-            await AnimateAllOutAsync();
-        }
-
-        private UniTask LoadLevelsPanel()
+        private UniTask LoadLevelsView()
         {
             LevelsViewProvider levelsViewProvider = new();
             levelsViewProvider.Load(transform.parent, async () =>
@@ -99,7 +71,7 @@ namespace MyTools.Start
             return UniTask.CompletedTask;
         }
 
-        private UniTask LoadSettingsPanel()
+        private UniTask LoadSettingsView()
         {
             SettingsViewProvider settingsViewProvider = new();
             settingsViewProvider.Load(transform.parent, async () =>
@@ -109,12 +81,6 @@ namespace MyTools.Start
             });
             return UniTask.CompletedTask;
         }
-
-        // private async void LoadShopPanel()
-        // {
-        // }
-
-        private void PlayClickSound() => _musicManager.PlayClickSound();
 
         #endregion
     }

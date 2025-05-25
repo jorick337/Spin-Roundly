@@ -169,27 +169,8 @@ MonoBehaviour:
   m_SourceFontFilePath: 
   m_AtlasPopulationMode: 1
   InternalDynamicOS: 0
-  m_GlyphTable:
-  - m_Index: 67
-    m_Metrics:
-      m_Width: 1003.5781
-      m_Height: 264.59375
-      m_HorizontalBearingX: 13.109375
-      m_HorizontalBearingY: 0
-      m_HorizontalAdvance: 1030.9844
-    m_GlyphRect:
-      m_X: 10
-      m_Y: 10
-      m_Width: 1004
-      m_Height: 265
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
-  m_CharacterTable:
-  - m_ElementType: 1
-    m_Unicode: 95
-    m_GlyphIndex: 67
-    m_Scale: 1
+  m_GlyphTable: []
+  m_CharacterTable: []
   m_AtlasTextures:
   - {fileID: 5372036617675631811}
   m_AtlasTextureIndex: 0
@@ -200,16 +181,12 @@ MonoBehaviour:
   m_AtlasHeight: 1024
   m_AtlasPadding: 9
   m_AtlasRenderMode: 4165
-  m_UsedGlyphRects:
+  m_UsedGlyphRects: []
+  m_FreeGlyphRects:
   - m_X: 0
     m_Y: 0
     m_Width: 1023
-    m_Height: 284
-  m_FreeGlyphRects:
-  - m_X: 0
-    m_Y: 284
-    m_Width: 1023
-    m_Height: 739
+    m_Height: 1023
   m_FontFeatureTable:
     m_MultipleSubstitutionRecords: []
     m_LigatureSubstitutionRecords: []

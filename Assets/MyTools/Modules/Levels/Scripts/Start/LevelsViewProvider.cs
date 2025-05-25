@@ -9,7 +9,7 @@ namespace MyTools.Levels.Start
     {
         public async void Load(Transform transform, Func<UniTask> action = null)
         {
-            LevelsView levelsView = await LoadInternal<LevelsView>("LevelsView", transform);
+            LevelsView_V1 levelsView = await LoadInternal<LevelsView_V1>("LevelsView", transform);
             levelsView.SetLevelsPanelProvider(this);
             if (action != null)
                 AddEvent(action);

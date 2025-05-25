@@ -1,67 +1,50 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
-using MyTools.Loading;
-using MyTools.Music;
 using MyTools.UI;
 using MyTools.UI.Animate;
 using UnityEngine;
 
 namespace MyTools.Levels.Start
 {
-    public class LevelsView : MonoBehaviour
+    public class LevelsView_V1 : LevelsView
     {
         #region CORE
 
-        [Header("Core")]
-        [SerializeField] private CanvasGroup _canvasGroup;
-        [SerializeField] private AnimateAnchorPosInUI animateAnchorPosInTitle;
-
-        [Header("Buttons")]
-        [SerializeField] private LevelButton[] _levelButtons;
+        [SerializeField] private AnimateAnchorPosInUI _animateAnchorPosInTitle;
         [SerializeField] private MyButton _closeButton;
 
         // Managers
-        private MusicManager _musicManager;
-        private LevelsManager _levelsManager;
-        private LoadScene _loadScene;
         private LevelsViewProvider _levelsViewProvider;
 
         #endregion
 
         #region MONO
 
-        private void Awake()
+        public override async void Start()
         {
-            _musicManager = MusicManager.Instance;
-            _levelsManager = LevelsManager.Instance;
-            _loadScene = LoadScene.Instance;
+            Initialize();
+            await AnimateAllIn();
         }
 
-        private async void Start() => await AnimateAllIn();
-
-        private void OnEnable()
+        public override void OnEnable()
         {
             for (int i = 0; i < _levelButtons.Length; i++)
             {
                 _levelButtons[i].OnPressed += DisableUIAndClick;
                 _levelButtons[i].OnSelected += LoadLevelsScene;
             }
-
             _closeButton.OnPressed += DisableUIAndClick;
             _closeButton.OnPressEnded += DestroySelf;
         }
 
-        private void OnDisable()
+        public override void OnDisable()
         {
             for (int i = 0; i < _levelButtons.Length; i++)
             {
                 _levelButtons[i].OnPressed -= DisableUIAndClick;
                 _levelButtons[i].OnSelected -= LoadLevelsScene;
             }
-
             _closeButton.OnPressed -= DisableUIAndClick;
             _closeButton.OnPressEnded -= DestroySelf;
         }
@@ -72,13 +55,11 @@ namespace MyTools.Levels.Start
 
         public void SetLevelsPanelProvider(LevelsViewProvider levelsViewProvider) => _levelsViewProvider = levelsViewProvider;
 
-        private void DisableUI() => _canvasGroup.interactable = false;
-
         #endregion
 
         #region ANIMATIONS
 
-        private async Task AnimateAll(Func<MyButton, UniTask> levelAnimation, Func<UniTask> titleAnimation, Func<UniTask> closeButtonAnimation)
+        private async UniTask AnimateAll(Func<MyButton, UniTask> levelAnimation, Func<UniTask> titleAnimation, Func<UniTask> closeButtonAnimation)
         {
             var animations = new List<UniTask>();
 
@@ -90,15 +71,15 @@ namespace MyTools.Levels.Start
         }
 
         private async UniTask AnimateAllIn() =>
-            await AnimateAll(x => x.AnimateScaleIn(), () => animateAnchorPosInTitle.AnimateInAsync(), () => _closeButton.AnimateScaleIn());
+            await AnimateAll(x => x.AnimateScaleIn(), () => _animateAnchorPosInTitle.AnimateInAsync(), () => _closeButton.AnimateScaleIn());
         private async UniTask AnimateAllOut() =>
-            await AnimateAll(x => x.AnimateScaleOut(), () => animateAnchorPosInTitle.AnimateOutAsync(), () => _closeButton.AnimateScaleOut());
+            await AnimateAll(x => x.AnimateScaleOut(), () => _animateAnchorPosInTitle.AnimateOutAsync(), () => _closeButton.AnimateScaleOut());
 
         #endregion
 
         #region CALLBACKS
 
-        private async UniTask DisableUIAndClick(AnimateScaleXInUI animateScaleXInUI)
+        public override async UniTask DisableUIAndClick(AnimateScaleXInUI animateScaleXInUI)
         {
             DisableUI();
             PlayClickSound();
@@ -106,15 +87,7 @@ namespace MyTools.Levels.Start
             await AnimateAllOut();
         }
 
-        private async UniTask LoadLevelsScene(int level)
-        {
-            _levelsManager.SetLevel(level);
-            await _loadScene.LoadAsync();
-        }
-
         private async UniTask DestroySelf() => await _levelsViewProvider.UnloadAsync();
-
-        private void PlayClickSound() => _musicManager.PlayClickSound();
 
         #endregion
     }
