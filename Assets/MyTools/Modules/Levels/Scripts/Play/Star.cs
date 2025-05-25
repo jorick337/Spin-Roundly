@@ -8,10 +8,6 @@ namespace MyTools.Levels.Play
         [Header("Managers")]
         [SerializeField] private GameLevel _gameLevel;
 
-        private GameLevelManager _gameLevelManager;
-
-        private void Awake() => _gameLevelManager = GameLevelManager.Instance;
-
         private void OnEnable() 
         {
             _colliderTrigger.OnTriggered += Collect;
@@ -26,7 +22,7 @@ namespace MyTools.Levels.Play
 
         private void Collect()
         {
-            _gameLevelManager.AddStar();
+            _gameLevel.AddStar();
             _particleSystem.Play();
         }
     }

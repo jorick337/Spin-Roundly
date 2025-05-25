@@ -32,8 +32,8 @@ namespace MyTools.Levels.Play
         [SerializeField] private MyButton _forwardButton;
 
         // Managers
+        private LevelsManager _levelsManager;
         private PlayerManager _playerManager;
-        private GameLevelManager _gameLevelView;
         private MusicManager _musicManager;
         private VictoryViewProvider _victoryViewProvider;
 
@@ -43,8 +43,8 @@ namespace MyTools.Levels.Play
 
         private void Awake()
         {
+            _levelsManager = LevelsManager.Instance;
             _playerManager = PlayerManager.Instance;
-            _gameLevelView = GameLevelManager.Instance;
             _musicManager = MusicManager.Instance;
             SetTextMoney();
         }
@@ -77,7 +77,7 @@ namespace MyTools.Levels.Play
 
         private async void ShowStars()
         {
-            for (int i = 0; i < _gameLevelView.NumberStars; i++)
+            for (int i = 0; i < _levelsManager.GetStars(); i++)
                 await _animateTranparencyInStars[i].AnimateInAsync();
         }
 

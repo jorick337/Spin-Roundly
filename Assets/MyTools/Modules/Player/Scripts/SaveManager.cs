@@ -1,21 +1,51 @@
+using System.Linq;
 using UnityEngine;
 
 namespace MyTools.PlayerSystem
 {
     public class SaveManager
     {
+        #region CONSTANTS
+
+        private const int MAX_LEVEL = 15;
+        private static readonly string LEVEL_STARS = string.Join(",", Enumerable.Repeat("0", MAX_LEVEL));
+
+        private const int MONEY = 0;
+
+        private const int MUSIC_ACTIVE = 1;
+        private const int SOUNDS_ACTIVE = 1;
+
+        private const string LANGUAGE = "ru";
+
+        #endregion
+
         #region LOAD
 
-        public static int LoadMoney() => PlayerPrefs.GetInt("Money", 0);
+        public static int[] LoadLevelStars()
+        {
+            int[] levelStars = new int[MAX_LEVEL];
 
-        public static bool LoadMusisActive() => PlayerPrefs.GetInt("MusicActive", 1) == 1;
-        public static bool LoadSoundsActive() => PlayerPrefs.GetInt("SoundsActive", 1) == 1;
+            string saved = PlayerPrefs.GetString("LevelStars", LEVEL_STARS);
+            string[] parts = saved.Split(',');
 
-        public static string LoadLanguage() => PlayerPrefs.GetString("Language", "ru");
+            for (int i = 0; i < MAX_LEVEL; i++)
+                levelStars[i] = int.Parse(parts[i]);
+
+            return levelStars;
+        }
+
+        public static int LoadMoney() => PlayerPrefs.GetInt("Money", MONEY);
+
+        public static bool LoadMusisActive() => PlayerPrefs.GetInt("MusicActive", MUSIC_ACTIVE) == 1;
+        public static bool LoadSoundsActive() => PlayerPrefs.GetInt("SoundsActive", SOUNDS_ACTIVE) == 1;
+
+        public static string LoadLanguage() => PlayerPrefs.GetString("Language", LANGUAGE);
 
         #endregion
 
         #region SAVE
+
+        public static void SaveLevelStars(int[] levelStars) => PlayerPrefs.SetString("LevelStars", string.Join(",", levelStars));
 
         public static void SaveMoney(int money) => PlayerPrefs.SetInt("Money", money);
 

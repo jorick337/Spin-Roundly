@@ -13,6 +13,7 @@ namespace MyTools.Levels.Play
 
         public event UnityAction OnReload;
         public event UnityAction OnNextLevel;
+        public event UnityAction<int> OnStarsCollected;
 
         #endregion
 
@@ -26,8 +27,9 @@ namespace MyTools.Levels.Play
         [SerializeField] private ColliderTrigger _defeatColliderTrigger;
         [SerializeField] private Teleport _teleportPlayer;
 
+        public int NumberStars { get; private set; } = 0;
+
         // Managers
-        private GameLevelManager _gameLevelManager;
         private VictoryView _victoryView;
         private LoadScene _loadScene;
         private GameLevelsProvider _gameLevelsProvider;
@@ -36,11 +38,7 @@ namespace MyTools.Levels.Play
 
         #region MONO
 
-        private void Awake() 
-        {
-            _gameLevelManager = GameLevelManager.Instance;
-            _loadScene = LoadScene.Instance;
-        }
+        private void Awake() => _loadScene = LoadScene.Instance;
 
         private void OnEnable()
         {
@@ -59,6 +57,9 @@ namespace MyTools.Levels.Play
         #region VALUES
 
         public void SetGameLevelsProvider(GameLevelsProvider gameLevelsProvider) => _gameLevelsProvider = gameLevelsProvider;
+
+        public void AddStar() => NumberStars += 1;
+        public void ResetStars() => NumberStars = 0;
 
         private async void LoadVictoryView()
         {
@@ -83,6 +84,7 @@ namespace MyTools.Levels.Play
         {
             _movement2D.Disable();
             LoadVictoryView();
+            InvokeOnStarsCollected();
         }
 
         private void Restart()
@@ -90,7 +92,7 @@ namespace MyTools.Levels.Play
             InvokeOnReload();
             _teleportPlayer.SendToTarget();
             _movement2D.Enable();
-            _gameLevelManager.ResetStars();
+            ResetStars();
         }
 
         private async void LoadNextLevel()
@@ -103,6 +105,7 @@ namespace MyTools.Levels.Play
 
         private void InvokeOnReload() => OnReload?.Invoke();
         private void InvokeOnNextLevel() => OnNextLevel?.Invoke();
+        private void InvokeOnStarsCollected() => OnStarsCollected?.Invoke(NumberStars);
 
         #endregion
     }
