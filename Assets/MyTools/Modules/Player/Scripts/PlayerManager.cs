@@ -39,6 +39,7 @@ namespace MyTools.PlayerSystem
         private void OnEnable()
         {
             _levelsManager.StarsChanged += SaveLevelsStar;
+            _levelsManager.TrophyChanged += SaveTrophy;
             _languageManager.LocaleChanged += SaveLanguage;
             _musicManager.MusicActiveChanged += SaveMusicActive;
             _musicManager.SoundsActiveChanged += SaveSoundsActive;
@@ -47,15 +48,17 @@ namespace MyTools.PlayerSystem
         private void OnDisable()
         {
             _levelsManager.StarsChanged -= SaveLevelsStar;
+            _levelsManager.TrophyChanged -= SaveTrophy;
             _languageManager.LocaleChanged -= SaveLanguage;
             _musicManager.MusicActiveChanged -= SaveMusicActive;
             _musicManager.SoundsActiveChanged -= SaveSoundsActive;
         }
 
-        private void InitializeLevels() => _levelsManager.Initialize(SaveManager.LoadLevelStars());
-        private async void InitializeLanguage() => await _languageManager.InitializeAsync(SaveManager.LoadLanguage());
+        private void InitializeLevels() => _levelsManager.Initialize(SaveManager.LoadLevelStars(), SaveManager.LoadTrophy());
+        private void InitializeLanguage() => _languageManager.Initialize(SaveManager.LoadLanguage());
         private void InitializeMusic() => _musicManager.Initialize(SaveManager.LoadMusisActive(), SaveManager.LoadSoundsActive());
 
+        private void SaveTrophy(int trophy) => SaveManager.SaveTrophy(trophy);
         private void SaveLevelsStar(int[] levelStars) => SaveManager.SaveLevelStars(levelStars);
         private void SaveLanguage(string locale) => SaveManager.SaveLanguage(locale);
         private void SaveMusicActive(bool active) => SaveManager.SaveMusicActive(active);

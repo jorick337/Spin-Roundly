@@ -23,11 +23,14 @@ namespace MyTools.Levels.Start
 
         #region MONO
 
-        private void Awake()
+        private async void Awake()
         {
             _musicManager = MusicManager.Instance;
             _levelsManager = LevelsManager.Instance;
             _loadScene = LoadScene.Instance;
+
+            await UniTask.WaitUntil(() => _levelsManager.IsLoaded);
+            Initialize();
         }
 
         public virtual void Start() => Initialize();
@@ -57,7 +60,7 @@ namespace MyTools.Levels.Start
         protected void Initialize()
         {
             for (int i = 0; i < _levelButtons.Length; i++)
-                _levelButtons[i].Initialize(_levelsManager.Stars);
+                _levelButtons[i].Initialize(_levelsManager.Stars[i]);
         }
 
         protected void DisableUI() => _canvasGroup.interactable = false;

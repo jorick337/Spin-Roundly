@@ -13,7 +13,9 @@ namespace MyTools.Levels.Play
 
         public event UnityAction OnReload;
         public event UnityAction OnNextLevel;
-        public event UnityAction<int> OnStarsCollected;
+
+        public event UnityAction<int> StarsCollected;
+        public event UnityAction<int> TrophyCollected;
 
         #endregion
 
@@ -105,7 +107,7 @@ namespace MyTools.Levels.Play
 
         private void InvokeOnReload() => OnReload?.Invoke();
         private void InvokeOnNextLevel() => OnNextLevel?.Invoke();
-        private void InvokeOnStarsCollected() => OnStarsCollected?.Invoke(NumberStars);
+        private void InvokeOnStarsCollected() => StarsCollected?.Invoke(NumberStars);
 
         #endregion
     }

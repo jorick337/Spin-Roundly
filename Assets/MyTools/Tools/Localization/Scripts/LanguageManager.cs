@@ -29,7 +29,7 @@ namespace Game.Localization
                 Destroy(gameObject);
         }
 
-        public async UniTask InitializeAsync(string locale)
+        public async void Initialize(string locale)
         {
             await LocalizationSettings.InitializationOperation.Task;
 

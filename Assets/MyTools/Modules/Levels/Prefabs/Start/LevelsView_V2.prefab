@@ -195,7 +195,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3321323955373779588, guid: 091282e7dc0fc2553962383f1d51ea20, type: 3}
       propertyPath: m_Name
-      value: CupCounter
+      value: TrophyCounter
       objectReference: {fileID: 0}
     - target: {fileID: 5494165143162398903, guid: 091282e7dc0fc2553962383f1d51ea20, type: 3}
       propertyPath: m_Pivot.x

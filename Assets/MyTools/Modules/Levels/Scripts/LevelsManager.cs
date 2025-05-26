@@ -10,13 +10,18 @@ namespace MyTools.Levels
         #region EVENTS
 
         public event UnityAction<int[]> StarsChanged;
+        public event UnityAction<int> TrophyChanged;
 
         #endregion
 
         #region CORE
 
         public static LevelsManager Instance { get; private set; }
+
         public int[] Stars { get; private set; }
+        public int Trophy { get; private set; }
+
+        public bool IsLoaded { get; private set; } = false;
 
         private int _level = 1;
 
@@ -42,18 +47,25 @@ namespace MyTools.Levels
 
         #region CORE LOGIC
 
-        public void Initialize(int[] stars) => Stars = stars;
+        public void Initialize(int[] stars, int trophy)
+        {
+            Stars = stars;
+            Trophy = trophy;
+            IsLoaded = true;
+        }
 
         public async void Load()
         {
             GameLevelsProvider gameLevelsProvider = new();
             GameLevel = await gameLevelsProvider.Load(_level, async () =>
             {
-                GameLevel.OnStarsCollected -= SetStars;
+                GameLevel.StarsCollected -= SetStars;
+                GameLevel.TrophyCollected -= AddTrophy;
                 GameLevel.OnNextLevel -= LoadNextLevel;
                 await UniTask.CompletedTask;
             });
-            GameLevel.OnStarsCollected += SetStars;
+            GameLevel.StarsCollected += SetStars;
+            GameLevel.TrophyCollected += AddTrophy;
             GameLevel.OnNextLevel += LoadNextLevel;
         }
 
@@ -74,9 +86,15 @@ namespace MyTools.Levels
         {
             if (Stars[_level - 1] == 3)
                 return;
-                
+
             Stars[_level - 1] = stars;
             InvokeStarsChanged();
+        }
+
+        private void AddTrophy(int trophy) 
+        {
+            Trophy += trophy;
+            InvokeTrophyChanged();
         }
 
         #endregion
@@ -90,6 +108,7 @@ namespace MyTools.Levels
         }
 
         private void InvokeStarsChanged() => StarsChanged?.Invoke(Stars);
+        private void InvokeTrophyChanged() => TrophyChanged?.Invoke(Trophy);
 
         #endregion
     }

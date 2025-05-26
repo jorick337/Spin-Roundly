@@ -10,6 +10,7 @@ namespace MyTools.PlayerSystem
         private const int MAX_LEVEL = 15;
         private static readonly string LEVEL_STARS = string.Join(",", Enumerable.Repeat("0", MAX_LEVEL));
 
+        private const int TROPHY = 0;
         private const int MONEY = 0;
 
         private const int MUSIC_ACTIVE = 1;
@@ -34,6 +35,7 @@ namespace MyTools.PlayerSystem
             return levelStars;
         }
 
+        public static int LoadTrophy() => PlayerPrefs.GetInt("Trophy", TROPHY);
         public static int LoadMoney() => PlayerPrefs.GetInt("Money", MONEY);
 
         public static bool LoadMusisActive() => PlayerPrefs.GetInt("MusicActive", MUSIC_ACTIVE) == 1;
@@ -46,7 +48,8 @@ namespace MyTools.PlayerSystem
         #region SAVE
 
         public static void SaveLevelStars(int[] levelStars) => PlayerPrefs.SetString("LevelStars", string.Join(",", levelStars));
-
+        
+        public static void SaveTrophy(int trophy) => PlayerPrefs.SetInt("Trophy", trophy);
         public static void SaveMoney(int money) => PlayerPrefs.SetInt("Money", money);
 
         public static void SaveMusicActive(bool active) => PlayerPrefs.SetInt("MusicActive", active ? 1 : 0);

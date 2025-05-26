@@ -22,7 +22,7 @@ namespace MyTools.Music
         private async void Awake() 
         {
             _musicManager = MusicManager.Instance;
-            await UniTask.WaitUntil(() => _musicManager.IsLoaded == true);
+            await UniTask.WaitUntil(() => _musicManager.IsLoaded);
             Initialize();
         }
 

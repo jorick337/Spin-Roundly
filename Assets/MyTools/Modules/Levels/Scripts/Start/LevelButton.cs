@@ -32,9 +32,9 @@ namespace MyTools.Levels.Start
             Validate();
         }
 
-        public void Initialize(int[] stars)
+        public void Initialize(int stars)
         {
-            for (int i = 0; i < stars[_level - 1]; i++)
+            for (int i = 0; i < stars; i++)
             {
                 _starImages[i].material = _starVisibleMaterial;
                 _starImages[i].color = _starVisibleColor;
