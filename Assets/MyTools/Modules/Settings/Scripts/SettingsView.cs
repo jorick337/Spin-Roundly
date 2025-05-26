@@ -14,10 +14,6 @@ namespace MyTools.Settings
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private AnimateAnchorPosInUI _animateAnchorPosInBackground;
 
-        [Header("Music And Sounds")]
-        [SerializeField] private SwitcherActiveToggle _switcherActiveMusicToggle;
-        [SerializeField] private SwitcherActiveToggle _switcherActiveSoundsToggle;
-
         [Header("Close")]
         [SerializeField] private MyButton _closeButton;
 
@@ -29,32 +25,10 @@ namespace MyTools.Settings
 
         #region MONO
 
-        private void Awake()
-        {
-            _musicManager = MusicManager.Instance;
-            _switcherActiveMusicToggle.UpdateActivity(_musicManager.IsMusicActive);
-            _switcherActiveSoundsToggle.UpdateActivity(_musicManager.IsSoundsActive);
-        }
-
+        private void Awake() => _musicManager = MusicManager.Instance;
         private async void Start() => await _animateAnchorPosInBackground.AnimateInAsync();
-
-        private void OnEnable()
-        {
-            _closeButton.OnPressed += ClearSettingView;
-            _switcherActiveMusicToggle.OnPressed += PlayClickSound;
-            _switcherActiveMusicToggle.OnPressEnded += _musicManager.SetIsActiveMusic;
-            _switcherActiveSoundsToggle.OnPressed += PlayClickSound;
-            _switcherActiveSoundsToggle.OnPressEnded += _musicManager.SetIsActiveSounds;
-        }
-
-        private void OnDisable()
-        {
-            _closeButton.OnPressed -= ClearSettingView;
-            _switcherActiveMusicToggle.OnPressed -= PlayClickSound;
-            _switcherActiveMusicToggle.OnPressEnded -= _musicManager.SetIsActiveMusic;
-            _switcherActiveSoundsToggle.OnPressed -= PlayClickSound;
-            _switcherActiveSoundsToggle.OnPressEnded -= _musicManager.SetIsActiveSounds;
-        }
+        private void OnEnable() => _closeButton.OnPressed += ClearSettingView;
+        private void OnDisable() => _closeButton.OnPressed -= ClearSettingView;
 
         #endregion
 

@@ -151,13 +151,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4169376959452080008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bbdcf6865d1c7f46850021474039b9a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d42278a9fa5b014c9e6721b2e205153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggle: {fileID: 5904065620033507479}
-  image: {fileID: 1377374999747996731}
-  enableSoundSprite: {fileID: 1719120691, guid: c77ec43ee31d4f124990bb9fde26209b, type: 3}
-  disableSoundSprite: {fileID: -1475189229, guid: c598e4b6b78893e0f93b90593c5975cf, type: 3}
+  _toggle: {fileID: 0}
+  _button: {fileID: 0}
+  _animateScaleIn: {fileID: 0}
+  _animateScaleXIn: {fileID: 0}
+  _image: {fileID: 0}
+  _enableSoundSprite: {fileID: 0}
+  _disableSoundSprite: {fileID: 0}
+  _canMusic: 1
+  _canSounds: 1
 --- !u!1 &5382876430951305333
 GameObject:
   m_ObjectHideFlags: 0

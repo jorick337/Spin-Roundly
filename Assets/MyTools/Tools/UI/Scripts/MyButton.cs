@@ -17,19 +17,41 @@ namespace MyTools.UI
 
         #region CORE
 
-        [SerializeField] private Button _button;
-        [SerializeField] private AnimateScaleInUI _animateScaleIn;
-        [SerializeField] private AnimateScaleXInUI _animateScaleXIn;
+        [Header("Core")]
+        [SerializeField] protected Toggle _toggle;
+        [SerializeField] protected Button _button;
+
+        [Header("Animations")]
+        [SerializeField] protected AnimateScaleInUI _animateScaleIn;
+        [SerializeField] protected AnimateScaleXInUI _animateScaleXIn;
 
         #endregion
 
         #region MONO
 
-        private void OnEnable() => _button.onClick.AddListener(ClickAsync);
-        private void OnDisable() => _button.onClick.RemoveListener(ClickAsync);
-
-        private void OnValidate()
+        protected void OnEnable()
         {
+            _button?.onClick.AddListener(ClickButtonAsync);
+            _toggle?.onValueChanged.AddListener(ClickToggle);
+        }
+
+        protected void OnDisable()
+        {
+            _button?.onClick.RemoveListener(ClickButtonAsync);
+            _toggle?.onValueChanged.RemoveListener(ClickToggle);
+        }
+
+        public virtual void OnValidate() => Validate();
+
+        #endregion
+
+        #region CORE LOGIC
+
+        protected void Validate()
+        {
+            if (_toggle == null)
+                _toggle = GetComponent<Toggle>();
+
             if (_button == null)
                 _button = GetComponent<Button>();
 
@@ -56,11 +78,19 @@ namespace MyTools.UI
                 await _animateScaleIn.AnimateOutAsync();
         }
 
+        protected void AnimateScaleXIn() => _animateScaleXIn.Animate();
+
         #endregion
 
         #region CALLBACKS
 
-        public virtual async void ClickAsync()
+        public virtual async void ClickButtonAsync()
+        {
+            await InvokeOnPressed();
+            await InvokeOnPressEnded();
+        }
+
+        public virtual async void ClickToggle(bool isOn)
         {
             await InvokeOnPressed();
             await InvokeOnPressEnded();

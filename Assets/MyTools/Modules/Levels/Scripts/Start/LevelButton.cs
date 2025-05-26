@@ -10,26 +10,26 @@ namespace MyTools.Levels.Start
     {
         public Func<int, UniTask> OnSelected;
 
+        [Header("Level")]
         [SerializeField] private int _level = 1;
         [SerializeField] private Image[] _starImages = new Image[3];
         [SerializeField] private Material _starVisibleMaterial;
         [SerializeField] private Color _starVisibleColor;
 
-        private void OnValidate()
+        public override void OnValidate()
         {
             if (transform.parent == null)
                 return;
 
             LevelButton[] siblings = transform.parent.GetComponentsInChildren<LevelButton>(true);
-
             for (int i = 0; i < siblings.Length; i++)
-            {
                 if (siblings[i] == this)
                 {
                     _level = i + 1;
                     break;
                 }
-            }
+
+            Validate();
         }
 
         public void Initialize(int[] stars)
@@ -41,7 +41,7 @@ namespace MyTools.Levels.Start
             }
         }
 
-        public override async void ClickAsync()
+        public override async void ClickButtonAsync()
         {
             await InvokeOnPressed();
             await InvokeOnPressEnded();

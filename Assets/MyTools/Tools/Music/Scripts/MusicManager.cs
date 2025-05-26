@@ -26,6 +26,8 @@ namespace MyTools.Music
         public bool IsMusicActive { get; private set; } = true;
         public bool IsSoundsActive { get; private set; } = true;
 
+        public bool IsLoaded { get; private set; } = false;
+
         #endregion
 
         #region MONO
@@ -54,6 +56,8 @@ namespace MyTools.Music
             
             UpdateMusicMuteState();
             UpdateSoundsMuteState();
+
+            IsLoaded = true;
         }
 
         #endregion
