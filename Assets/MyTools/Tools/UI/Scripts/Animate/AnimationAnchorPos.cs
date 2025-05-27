@@ -13,7 +13,7 @@ namespace MyTools.UI.Animation
 
         private void Awake() => _rectTransform = (RectTransform)transform;
 
-        public override Sequence AnimationOut() => DOTween.Sequence().Append(_rectTransform.DOAnchorPos(_hiddenAchorPos, _timeToHide));
-        public override Sequence AnimationIn() => DOTween.Sequence().Append(_rectTransform.DOAnchorPos(_visibleAchorPos, _timeToShow));
+        public override Sequence AnimationOut() => DOTween.Sequence().Append(_rectTransform.DOAnchorPos(_hiddenAchorPos, _timeToHide).SetEase(Ease.InOutSine));
+        public override Sequence AnimationIn() => DOTween.Sequence().Append(_rectTransform.DOAnchorPos(_visibleAchorPos, _timeToShow).SetEase(Ease.InOutSine));
     }
 }
