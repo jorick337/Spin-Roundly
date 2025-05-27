@@ -33,8 +33,6 @@ namespace MyTools.Levels.Start
             Initialize();
         }
 
-        public virtual void Start() => Initialize();
-
         public virtual void OnEnable()
         {
             for (int i = 0; i < _levelButtons.Length; i++)
@@ -60,7 +58,7 @@ namespace MyTools.Levels.Start
         protected void Initialize()
         {
             for (int i = 0; i < _levelButtons.Length; i++)
-                _levelButtons[i].Initialize(_levelsManager.Stars[i]);
+                _levelButtons[i].Initialize();
         }
 
         protected void DisableUI() => _canvasGroup.interactable = false;

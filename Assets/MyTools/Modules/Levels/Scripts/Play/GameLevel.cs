@@ -29,7 +29,7 @@ namespace MyTools.Levels.Play
         [SerializeField] private ColliderTrigger _defeatColliderTrigger;
         [SerializeField] private Teleport _teleportPlayer;
 
-        public int NumberStars { get; private set; } = 0;
+        public int Stars { get; private set; } = 0;
 
         // Managers
         private VictoryView _victoryView;
@@ -60,8 +60,8 @@ namespace MyTools.Levels.Play
 
         public void SetGameLevelsProvider(GameLevelsProvider gameLevelsProvider) => _gameLevelsProvider = gameLevelsProvider;
 
-        public void AddStar() => NumberStars += 1;
-        public void ResetStars() => NumberStars = 0;
+        public void AddStar() => Stars += 1;
+        public void ResetStars() => Stars = 0;
 
         private async void LoadVictoryView()
         {
@@ -107,7 +107,7 @@ namespace MyTools.Levels.Play
 
         private void InvokeOnReload() => OnReload?.Invoke();
         private void InvokeOnNextLevel() => OnNextLevel?.Invoke();
-        private void InvokeOnStarsCollected() => StarsCollected?.Invoke(NumberStars);
+        private void InvokeOnStarsCollected() => StarsCollected?.Invoke(Stars);
 
         #endregion
     }

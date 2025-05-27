@@ -21,11 +21,7 @@ namespace MyTools.Levels.Start
 
         #region MONO
 
-        public override async void Start()
-        {
-            Initialize();
-            await AnimateAllIn();
-        }
+        private async void Start() => await AnimateAllIn();
 
         public override void OnEnable()
         {

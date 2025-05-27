@@ -82,7 +82,7 @@ namespace MyTools.Levels.Play
 
         private async void ShowStars()
         {
-            for (int i = 0; i < _levelsManager.GetStars(); i++)
+            for (int i = 0; i < _levelsManager.GetStarsCurrentLevel(); i++)
                 await _animateTranparencyInStars[i].AnimateInAsync();
         }
 

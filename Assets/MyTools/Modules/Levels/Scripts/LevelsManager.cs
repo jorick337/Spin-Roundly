@@ -74,7 +74,7 @@ namespace MyTools.Levels
         #region VALUES
 
         public void SetLevel(int level) => _level = level;
-        public int GetStars() => Stars[_level - 1];
+        public int GetStarsCurrentLevel() => GameLevel.Stars;
 
         private void AddLevel()
         {
