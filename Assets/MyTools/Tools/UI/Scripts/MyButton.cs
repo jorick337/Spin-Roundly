@@ -1,6 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
-using MyTools.UI.Animate;
+using MyTools.UI.Animation;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +10,7 @@ namespace MyTools.UI
     {
         #region EVENTS
 
-        public Func<AnimateScaleXInUI, UniTask> OnPressed;
+        public Func<AnimationScaleX, UniTask> OnPressed;
         public Func<UniTask> OnPressEnded;
 
         #endregion
@@ -22,8 +22,8 @@ namespace MyTools.UI
         [SerializeField] protected Button _button;
 
         [Header("Animations")]
-        [SerializeField] protected AnimateScaleInUI _animateScaleIn;
-        [SerializeField] protected AnimateScaleXInUI _animateScaleXIn;
+        [SerializeField] protected AnimationScale _animationScale;
+        [SerializeField] protected AnimationScaleX _animationScaleX;
 
         #endregion
 
@@ -55,11 +55,11 @@ namespace MyTools.UI
             if (_button == null)
                 _button = GetComponent<Button>();
 
-            if (_animateScaleIn == null)
-                _animateScaleIn = GetComponent<AnimateScaleInUI>();
+            if (_animationScale == null)
+                _animationScale = GetComponent<AnimationScale>();
 
-            if (_animateScaleXIn == null)
-                _animateScaleXIn = GetComponent<AnimateScaleXInUI>();
+            if (_animationScaleX == null)
+                _animationScaleX = GetComponent<AnimationScaleX>();
         }
 
         #endregion
@@ -68,17 +68,17 @@ namespace MyTools.UI
 
         public async UniTask AnimateScaleIn()
         {
-            if (_animateScaleIn != null)
-                await _animateScaleIn.AnimateInAsync();
+            if (_animationScale != null)
+                await _animationScale.AnimateInAsync();
         }
 
         public async UniTask AnimateScaleOut()
         {
-            if (_animateScaleIn)
-                await _animateScaleIn.AnimateOutAsync();
+            if (_animationScale)
+                await _animationScale.AnimateOutAsync();
         }
 
-        protected void AnimateScaleXIn() => _animateScaleXIn.Animate();
+        protected void AnimateClick() => _animationScaleX.Animate();
 
         #endregion
 
@@ -99,7 +99,7 @@ namespace MyTools.UI
         protected virtual async UniTask InvokeOnPressed()
         {
             if (OnPressed != null)
-                await OnPressed.Invoke(_animateScaleXIn);
+                await OnPressed.Invoke(_animationScaleX);
         }
 
         protected virtual async UniTask InvokeOnPressEnded()

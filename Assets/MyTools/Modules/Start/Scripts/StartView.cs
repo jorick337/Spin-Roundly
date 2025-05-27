@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using MyTools.Music;
 using MyTools.UI;
-using MyTools.UI.Animate;
+using MyTools.UI.Animation;
 using UnityEngine;
 
 namespace MyTools.Start
@@ -51,11 +51,11 @@ namespace MyTools.Start
 
         #region CALLBACKS
 
-        protected async UniTask ClearStartView(AnimateScaleXInUI animateScaleXInUI)
+        protected async UniTask ClearStartView(AnimationScaleX animationScaleX)
         {
             DisableUI();
             PlayClickSound();
-            await animateScaleXInUI.AnimateAsync();
+            await animationScaleX.AnimateAsync();
         }
 
         private async UniTask LoadShopView() => await UniTask.CompletedTask;

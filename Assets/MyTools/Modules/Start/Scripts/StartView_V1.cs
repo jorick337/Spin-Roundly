@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using MyTools.Levels.Start;
 using MyTools.Settings;
 using MyTools.UI;
-using MyTools.UI.Animate;
+using MyTools.UI.Animation;
 using UnityEngine;
 
 namespace MyTools.Start
@@ -12,7 +12,7 @@ namespace MyTools.Start
         #region  CORE
 
         [Header("Animations")]
-        [SerializeField] private AnimateTranparencyInUI _animateTransparencyInTitleText;
+        [SerializeField] private AnimationTransparency _animateTransparencyInTitleText;
 
         [Header("Buttons")]
         [SerializeField] private MyButton _startButton;

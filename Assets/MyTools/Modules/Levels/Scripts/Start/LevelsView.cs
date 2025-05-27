@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using MyTools.Loading;
 using MyTools.Music;
-using MyTools.UI.Animate;
+using MyTools.UI.Animation;
 using UnityEngine;
 
 namespace MyTools.Levels.Start
@@ -67,11 +67,11 @@ namespace MyTools.Levels.Start
 
         #region CALLBACKS
 
-        public virtual async UniTask DisableUIAndClick(AnimateScaleXInUI animateScaleXInUI)
+        public virtual async UniTask DisableUIAndClick(AnimationScaleX animationScaleX)
         {
             DisableUI();
             PlayClickSound();
-            await animateScaleXInUI.AnimateAsync();
+            await animationScaleX.AnimateAsync();
         }
 
         protected async UniTask LoadLevelsScene(int level)

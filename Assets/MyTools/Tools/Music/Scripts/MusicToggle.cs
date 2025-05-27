@@ -67,7 +67,7 @@ namespace MyTools.Music
 
         public override void ClickToggle(bool isOn)
         {
-            AnimateScaleXIn();
+            AnimateClick();
             PlayClickSound();
             UpdateMusic(isOn);
             UpdateSprite();

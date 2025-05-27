@@ -414,6 +414,17 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &569382109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1381528096524912686, guid: e6e7fb092a123ab0bb4f9bbe002a1e20, type: 3}
+  m_PrefabInstance: {fileID: 7293104996298160013}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c46158f82de5dc3ca7ce2143fbb8d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &852445117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -511,46 +522,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartView
       objectReference: {fileID: 0}
-    - target: {fileID: 4123722901630264941, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4123722901630264941, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4123722901630264941, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4123722901630264941, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5255923308540959447, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
       propertyPath: _canvasGroup
       value: 
       objectReference: {fileID: 525340883}
-    - target: {fileID: 5555376926997188065, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5555376926997188065, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -6860867096884436751, guid: 6c53b64ee595eba189200de455180998, type: 3}
-    - target: {fileID: 5555376926997188065, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5555376926997188065, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5555376926997188065, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7191946379079957897, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1127,6 +1102,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.000030517578
       objectReference: {fileID: 0}
+    - target: {fileID: 4684695333963227515, guid: e6e7fb092a123ab0bb4f9bbe002a1e20, type: 3}
+      propertyPath: _animationScaleClick
+      value: 
+      objectReference: {fileID: 569382109}
     - target: {fileID: 4705861806772486189, guid: e6e7fb092a123ab0bb4f9bbe002a1e20, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.07019043

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using MyTools.UI;
-using MyTools.UI.Animate;
+using MyTools.UI.Animation;
 using UnityEngine;
 
 namespace MyTools.Levels.Start
@@ -11,7 +11,7 @@ namespace MyTools.Levels.Start
     {
         #region CORE
 
-        [SerializeField] private AnimateAnchorPosInUI _animateAnchorPosInTitle;
+        [SerializeField] private AnimationAchorPos _animateAnchorPosInTitle;
         [SerializeField] private MyButton _closeButton;
 
         // Managers
@@ -75,11 +75,11 @@ namespace MyTools.Levels.Start
 
         #region CALLBACKS
 
-        public override async UniTask DisableUIAndClick(AnimateScaleXInUI animateScaleXInUI)
+        public override async UniTask DisableUIAndClick(AnimationScaleX animationScaleX)
         {
             DisableUI();
             PlayClickSound();
-            await animateScaleXInUI.AnimateAsync();
+            await animationScaleX.AnimateAsync();
             await AnimateAllOut();
         }
 

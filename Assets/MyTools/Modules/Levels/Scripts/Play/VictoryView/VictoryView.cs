@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using MyTools.Music;
 using MyTools.PlayerSystem;
 using MyTools.UI;
-using MyTools.UI.Animate;
+using MyTools.UI.Animation;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -23,7 +23,7 @@ namespace MyTools.Levels.Play
 
         [Header("Core")]
         [SerializeField] private CanvasGroup _canvasGroup;
-        [SerializeField] private AnimateTranparencyInUI[] _animateTranparencyInStars;
+        [SerializeField] private AnimationTransparency[] _animateTranparencyInStars;
         [SerializeField] private Text _moneyText;
 
         [Header("Buttons")]
@@ -107,11 +107,11 @@ namespace MyTools.Levels.Play
 
         #region CALLBACKS
 
-        private async UniTask DisableUIAndClick(AnimateScaleXInUI animateScaleXInUI)
+        private async UniTask DisableUIAndClick(AnimationScaleX animationScaleX)
         {
             DisableUI();
             PlayClickSound();
-            await animateScaleXInUI.AnimateAsync();
+            await animationScaleX.AnimateAsync();
         }
 
         private async UniTask InvokeOnReloadPressed() => await InvokeAction(OnReloadPressed);
