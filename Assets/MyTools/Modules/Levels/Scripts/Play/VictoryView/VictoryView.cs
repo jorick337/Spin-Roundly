@@ -23,7 +23,7 @@ namespace MyTools.Levels.Play
 
         [Header("Core")]
         [SerializeField] private CanvasGroup _canvasGroup;
-        [SerializeField] private AnimationTransparency[] _animateTranparencyInStars;
+        [SerializeField] private AnimationTransparency[] _animationTranparencyStars;
         [SerializeField] private Text _moneyText;
 
         [Header("Buttons")]
@@ -83,7 +83,7 @@ namespace MyTools.Levels.Play
         private async void ShowStars()
         {
             for (int i = 0; i < _levelsManager.GetStarsCurrentLevel(); i++)
-                await _animateTranparencyInStars[i].AnimateInAsync();
+                await _animationTranparencyStars[i].AnimateInAsync();
         }
 
         private void SetTextMoney() => _moneyText.text = _playerManager.Player.Money.ToString();

@@ -434,6 +434,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 99212342749118791, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 99212342749118791, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: f7d4ef38c009ba7e6975ddbb7fe097eb, type: 3}
@@ -450,6 +454,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4691643318133764486, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691643318133764486, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: 978c75ac0fc76d7de91062c65f74e97f, type: 3}
@@ -463,7 +471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5656386026309471404, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}
       propertyPath: defaultVolume
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5751835045845352084, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}
       propertyPath: m_LocalPosition.x

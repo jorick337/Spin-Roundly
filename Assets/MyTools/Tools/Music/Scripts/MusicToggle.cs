@@ -39,8 +39,12 @@ namespace MyTools.Music
 
         private void Initialize() 
         {
+            UnregisterEvents();
+
             UpdateIsOn();
             UpdateSprite();
+
+            RegisterEvents();
         }
 
         private void UpdateIsOn() 

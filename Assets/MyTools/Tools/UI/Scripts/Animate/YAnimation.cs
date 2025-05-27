@@ -42,6 +42,8 @@ namespace MyTools.UI.Animation
         {
             _animationIn?.Kill();
             _animationOut?.Kill();
+            _animation?.Kill();
+            DOTween.Kill(this);
         }
 
         private async void AnimateAlways()
@@ -49,7 +51,7 @@ namespace MyTools.UI.Animation
             var token = this.GetCancellationTokenOnDestroy();
             try
             {
-                while (true)
+                while (IsValid())
                     await AnimateAsync().AttachExternalCancellation(token);
             }
             catch (OperationCanceledException) { }
@@ -61,39 +63,53 @@ namespace MyTools.UI.Animation
 
         public void AnimateIn()
         {
+            if (!IsValid()) return;
+
             _animationIn?.Kill();
             _animationIn = AnimationIn();
         }
 
         public void AnimateOut()
         {
+            if (!IsValid()) return;
+
             _animationOut?.Kill();
             _animationOut = AnimationOut();
         }
 
         public void Animate()
         {
+            if (!IsValid()) return;
+
             _animation?.Kill();
             _animation = DOTween.Sequence().Append(AnimationIn()).Append(AnimationOut());
         }
 
         public async UniTask AnimateInAsync()
         {
+            if (!IsValid()) return;
+
             AnimateIn();
             await _animationIn.AsyncWaitForCompletion();
         }
 
         public async UniTask AnimateOutAsync()
         {
+            if (!IsValid()) return;
+
             AnimateOut();
             await _animationOut.AsyncWaitForCompletion();
         }
 
         public async UniTask AnimateAsync()
         {
+            if (!IsValid()) return;
+
             await AnimateInAsync();
             await AnimateOutAsync();
         }
+
+        private bool IsValid() => this != null && gameObject != null && gameObject.activeInHierarchy;
 
         #endregion
     }

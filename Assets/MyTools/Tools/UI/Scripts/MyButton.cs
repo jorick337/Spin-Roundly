@@ -29,23 +29,14 @@ namespace MyTools.UI
 
         #region MONO
 
-        protected void OnEnable()
-        {
-            _button?.onClick.AddListener(ClickButtonAsync);
-            _toggle?.onValueChanged.AddListener(ClickToggle);
-        }
-
-        protected void OnDisable()
-        {
-            _button?.onClick.RemoveListener(ClickButtonAsync);
-            _toggle?.onValueChanged.RemoveListener(ClickToggle);
-        }
-
+        protected void OnEnable() => RegisterEvents();
+        protected void OnDisable() => UnregisterEvents();
+        
         public virtual void OnValidate() => Validate();
 
         #endregion
 
-        #region CORE LOGIC
+        #region INITIALIZATION
 
         protected void Validate()
         {
@@ -60,6 +51,22 @@ namespace MyTools.UI
 
             if (_animationScaleX == null)
                 _animationScaleX = GetComponent<AnimationScaleX>();
+        }
+
+        #endregion
+
+        #region UI
+
+        protected void RegisterEvents()
+        {
+            _button?.onClick.AddListener(ClickButtonAsync);
+            _toggle?.onValueChanged.AddListener(ClickToggle);
+        }
+
+        protected void UnregisterEvents()
+        {
+            _button?.onClick.RemoveListener(ClickButtonAsync);
+            _toggle?.onValueChanged.RemoveListener(ClickToggle);
         }
 
         #endregion
