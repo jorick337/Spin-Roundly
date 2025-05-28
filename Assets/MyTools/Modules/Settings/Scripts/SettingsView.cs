@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using MyTools.Music;
 using MyTools.UI;
 using MyTools.UI.Animation;
 using UnityEngine;
@@ -13,19 +12,15 @@ namespace MyTools.Settings
         [Header("Core")]
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private AnimationAchorPos _animateAnchorPosInBackground;
-
-        [Header("Close")]
         [SerializeField] private MyButton _closeButton;
 
         // Managers
-        private MusicManager _musicManager;
         private SettingsViewProvider _settingsViewProvider;
 
         #endregion
 
         #region MONO
 
-        private void Awake() => _musicManager = MusicManager.Instance;
         private async void Start() => await _animateAnchorPosInBackground.AnimateInAsync();
         private void OnEnable() => _closeButton.OnPressed += ClearSettingView;
         private void OnDisable() => _closeButton.OnPressed -= ClearSettingView;
@@ -42,16 +37,12 @@ namespace MyTools.Settings
 
         #region CALLBACKS
 
-        private async UniTask ClearSettingView(AnimationScaleX animationScaleX)
+        private async UniTask ClearSettingView()
         {
             DisableUI();
-            await animationScaleX.AnimateAsync();
-            PlayClickSound();
             await _animateAnchorPosInBackground.AnimateOutAsync();
             await _settingsViewProvider.UnloadAsync();
         }
-
-        private void PlayClickSound() => _musicManager.PlayClickSound();
 
         #endregion
     }

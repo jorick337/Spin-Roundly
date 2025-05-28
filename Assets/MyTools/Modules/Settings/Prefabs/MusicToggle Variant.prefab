@@ -119,6 +119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &4204602263679603351 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6232698909843123608, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
+  m_PrefabInstance: {fileID: 7793270083627056911}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5412569747547120875 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2826587502714199012, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
@@ -130,6 +135,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5872258741584877400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4420623810862884951, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
+  m_PrefabInstance: {fileID: 7793270083627056911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8741082928101366822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c229df92fbd5ccfdebfee6f4e8154eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7098726648593307467 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1055249271248660548, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
@@ -138,18 +154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8741082928101366822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51dd91cc00b7c2d6e9a8675d438fbc3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7580497034448842023 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 365939709106278952, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
-  m_PrefabInstance: {fileID: 7793270083627056911}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8741082928101366822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f176a9b0bff897898a0f4db4c91e5a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c46158f82de5dc3ca7ce2143fbb8d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8741082928101366822 stripped
@@ -219,8 +224,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _toggle: {fileID: 1231438766783937833}
   _button: {fileID: 0}
-  _animateScaleIn: {fileID: 7098726648593307467}
-  _animateScaleXIn: {fileID: 7580497034448842023}
+  _audioSourceClick: {fileID: 4204602263679603351}
+  _animationScale: {fileID: 7098726648593307467}
+  _animationScaleX: {fileID: 5872258741584877400}
   _image: {fileID: 566434301276538408}
   _enableSoundSprite: {fileID: 1719120691, guid: c77ec43ee31d4f124990bb9fde26209b, type: 3}
   _disableSoundSprite: {fileID: -1475189229, guid: c598e4b6b78893e0f93b90593c5975cf, type: 3}

@@ -10,7 +10,7 @@ namespace MyTools.UI
     {
         #region EVENTS
 
-        public Func<AnimationScaleX, UniTask> OnPressed;
+        public Func<UniTask> OnPressed;
         public Func<UniTask> OnPressEnded;
 
         #endregion
@@ -20,6 +20,7 @@ namespace MyTools.UI
         [Header("Core")]
         [SerializeField] protected Toggle _toggle;
         [SerializeField] protected Button _button;
+        [SerializeField] protected AudioSource _audioSourceClick;
 
         [Header("Animations")]
         [SerializeField] protected AnimationScale _animationScale;
@@ -69,6 +70,8 @@ namespace MyTools.UI
             _toggle?.onValueChanged.RemoveListener(ClickToggle);
         }
 
+        protected void PlayClickSound() => _audioSourceClick.Play();
+
         #endregion
 
         #region ANIMATIONS
@@ -86,6 +89,7 @@ namespace MyTools.UI
         }
 
         protected void AnimateClick() => _animationScaleX.Animate();
+        protected async UniTask AnimateClickAsync() => await _animationScaleX.AnimateAsync();
 
         #endregion
 
@@ -93,12 +97,18 @@ namespace MyTools.UI
 
         public virtual async void ClickButtonAsync()
         {
+            PlayClickSound();
+            await AnimateClickAsync();
+            
             await InvokeOnPressed();
             await InvokeOnPressEnded();
         }
 
         public virtual async void ClickToggle(bool isOn)
         {
+            PlayClickSound();
+            await AnimateClickAsync();
+
             await InvokeOnPressed();
             await InvokeOnPressEnded();
         }
@@ -106,7 +116,7 @@ namespace MyTools.UI
         protected virtual async UniTask InvokeOnPressed()
         {
             if (OnPressed != null)
-                await OnPressed.Invoke(_animationScaleX);
+                await OnPressed.Invoke();
         }
 
         protected virtual async UniTask InvokeOnPressEnded()

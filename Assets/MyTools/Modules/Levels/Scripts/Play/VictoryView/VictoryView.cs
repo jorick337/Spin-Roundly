@@ -34,7 +34,6 @@ namespace MyTools.Levels.Play
         // Managers
         private LevelsManager _levelsManager;
         private PlayerManager _playerManager;
-        private MusicManager _musicManager;
         private VictoryViewProvider _victoryViewProvider;
 
         #endregion
@@ -45,27 +44,26 @@ namespace MyTools.Levels.Play
         {
             _levelsManager = LevelsManager.Instance;
             _playerManager = PlayerManager.Instance;
-            _musicManager = MusicManager.Instance;
             SetTextMoney();
         }
 
         private void OnEnable()
         {
-            _reloadButton.OnPressed += DisableUIAndClick;
+            _reloadButton.OnPressed += DisableUIAsync;
             _reloadButton.OnPressEnded += InvokeOnReloadPressed;
-            _homeButton.OnPressed += DisableUIAndClick;
+            _homeButton.OnPressed += DisableUIAsync;
             _homeButton.OnPressEnded += InvokeOnHomePressed;
-            _forwardButton.OnPressed += DisableUIAndClick;
+            _forwardButton.OnPressed += DisableUIAsync;
             _forwardButton.OnPressEnded += InvokeOnForwardPressed;
         }
 
         private void OnDisable()
         {
-            _reloadButton.OnPressed -= DisableUIAndClick;
+            _reloadButton.OnPressed -= DisableUIAsync;
             _reloadButton.OnPressEnded -= InvokeOnReloadPressed;
-            _homeButton.OnPressed -= DisableUIAndClick;
+            _homeButton.OnPressed -= DisableUIAsync;
             _homeButton.OnPressEnded -= InvokeOnHomePressed;
-            _forwardButton.OnPressed -= DisableUIAndClick;
+            _forwardButton.OnPressed -= DisableUIAsync;
             _forwardButton.OnPressEnded -= InvokeOnForwardPressed;
         }
 
@@ -107,18 +105,15 @@ namespace MyTools.Levels.Play
 
         #region CALLBACKS
 
-        private async UniTask DisableUIAndClick(AnimationScaleX animationScaleX)
+        private async UniTask DisableUIAsync()
         {
             DisableUI();
-            PlayClickSound();
-            await animationScaleX.AnimateAsync();
+            await UniTask.CompletedTask;
         }
 
         private async UniTask InvokeOnReloadPressed() => await InvokeAction(OnReloadPressed);
         private async UniTask InvokeOnHomePressed() => await InvokeAction(OnHomePressed);
         private async UniTask InvokeOnForwardPressed() => await InvokeAction(OnForwardPressed);
-
-        private void PlayClickSound() => _musicManager.PlayClickSound();
 
         #endregion
     }

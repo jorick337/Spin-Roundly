@@ -457,17 +457,25 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 978c75ac0fc76d7de91062c65f74e97f, type: 3}
+    - target: {fileID: 4691643318133764486, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 5846798357707779973, guid: f455c7cc3ec81d0a4a197a186e192634, type: 2}
     - target: {fileID: 5385677329601438695, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}
       propertyPath: m_Name
       value: MusicManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5656386026309471404, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}
+      propertyPath: _generalMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: f455c7cc3ec81d0a4a197a186e192634, type: 2}
     - target: {fileID: 5656386026309471404, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}
       propertyPath: defaultVolume
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5656386026309471404, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}
       propertyPath: _defaultVolume
-      value: 1
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 5751835045845352084, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -510,7 +518,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1826925299872084672, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d45425156a136c96b1fb69d1e08319c, type: 3}

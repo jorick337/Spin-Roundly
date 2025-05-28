@@ -27,10 +27,10 @@ namespace MyTools.Levels.Start
         {
             for (int i = 0; i < _levelButtons.Length; i++)
             {
-                _levelButtons[i].OnPressed += DisableUIAndClick;
+                _levelButtons[i].OnPressed += DisableUIAsync;
                 _levelButtons[i].OnSelected += LoadLevelsScene;
             }
-            _closeButton.OnPressed += DisableUIAndClick;
+            _closeButton.OnPressed += DisableUIAsync;
             _closeButton.OnPressEnded += DestroySelf;
         }
 
@@ -38,10 +38,10 @@ namespace MyTools.Levels.Start
         {
             for (int i = 0; i < _levelButtons.Length; i++)
             {
-                _levelButtons[i].OnPressed -= DisableUIAndClick;
+                _levelButtons[i].OnPressed -= DisableUIAsync;
                 _levelButtons[i].OnSelected -= LoadLevelsScene;
             }
-            _closeButton.OnPressed -= DisableUIAndClick;
+            _closeButton.OnPressed -= DisableUIAsync;
             _closeButton.OnPressEnded -= DestroySelf;
         }
 
@@ -75,11 +75,9 @@ namespace MyTools.Levels.Start
 
         #region CALLBACKS
 
-        public override async UniTask DisableUIAndClick(AnimationScaleX animationScaleX)
+        public override async UniTask DisableUIAsync()
         {
             DisableUI();
-            PlayClickSound();
-            await animationScaleX.AnimateAsync();
             await AnimateAllOut();
         }
 

@@ -76,7 +76,5 @@ namespace MyTools.Music
             UpdateMusic(isOn);
             UpdateSprite();
         }
-
-        private void PlayClickSound() => _musicManager.PlayClickSound();
     }
 }

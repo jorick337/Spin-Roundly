@@ -37,7 +37,7 @@ namespace MyTools.Levels.Start
         {
             for (int i = 0; i < _levelButtons.Length; i++)
             {
-                _levelButtons[i].OnPressed += DisableUIAndClick;
+                _levelButtons[i].OnPressed += DisableUIAsync;
                 _levelButtons[i].OnSelected += LoadLevelsScene;
             }
         }
@@ -46,7 +46,7 @@ namespace MyTools.Levels.Start
         {
             for (int i = 0; i < _levelButtons.Length; i++)
             {
-                _levelButtons[i].OnPressed -= DisableUIAndClick;
+                _levelButtons[i].OnPressed -= DisableUIAsync;
                 _levelButtons[i].OnSelected -= LoadLevelsScene;
             }
         }
@@ -67,11 +67,10 @@ namespace MyTools.Levels.Start
 
         #region CALLBACKS
 
-        public virtual async UniTask DisableUIAndClick(AnimationScaleX animationScaleX)
+        public virtual async UniTask DisableUIAsync()
         {
             DisableUI();
-            PlayClickSound();
-            await animationScaleX.AnimateAsync();
+            await UniTask.CompletedTask;
         }
 
         protected async UniTask LoadLevelsScene(int level)
@@ -79,8 +78,6 @@ namespace MyTools.Levels.Start
             _levelsManager.SetLevel(level);
             await _loadScene.LoadAsync();
         }
-
-        protected void PlayClickSound() => _musicManager.PlayClickSound();
 
         #endregion
     }

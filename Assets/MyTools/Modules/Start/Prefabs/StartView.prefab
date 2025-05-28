@@ -554,6 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _toggle: {fileID: 0}
   _button: {fileID: 1275782101956778051}
+  _audioSourceClick: {fileID: 4673605212222746598}
   _animationScale: {fileID: 0}
   _animationScaleX: {fileID: 3169461428310977065}
 --- !u!114 &1275782101956778051 stripped
@@ -578,6 +579,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c229df92fbd5ccfdebfee6f4e8154eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &4673605212222746598 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6232698909843123608, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
+  m_PrefabInstance: {fileID: 1631716553338290814}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6829612001402063221 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5215909857798523659, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
@@ -806,6 +812,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2278702524819566356}
   m_SourcePrefab: {fileID: 100100000, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
+--- !u!82 &157607771900317342 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6232698909843123608, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
+  m_PrefabInstance: {fileID: 6075656940587606790}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2032165414470313997 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5215909857798523659, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
@@ -830,6 +841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _toggle: {fileID: 0}
   _button: {fileID: 5998910481797593403}
+  _audioSourceClick: {fileID: 157607771900317342}
   _animationScale: {fileID: 0}
   _animationScaleX: {fileID: 7568338907155254097}
 --- !u!114 &5998910481797593403 stripped

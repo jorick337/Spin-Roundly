@@ -49,6 +49,9 @@ namespace MyTools.Levels.Start
 
         public override async void ClickButtonAsync()
         {
+            PlayClickSound();
+            await AnimateClickAsync();
+
             await InvokeOnPressed();
             await InvokeOnPressEnded();
             await InvokeOnSelectedAsync();

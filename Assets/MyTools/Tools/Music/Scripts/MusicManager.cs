@@ -18,12 +18,8 @@ namespace MyTools.Music
         public static MusicManager Instance { get; private set; }
 
         [Header("Core")]
-        [SerializeField] private float _defaultVolume;
+        [SerializeField] private float _generalVolume;
         [SerializeField] private AudioMixer _mixer;
-
-        [Header("UI")]
-        [SerializeField] private AudioSource _clickAudioSource;
-        [SerializeField] private AudioSource _backgroundAudioSource;
 
         public bool IsMusicActive { get; private set; } = true;
         public bool IsSoundsActive { get; private set; } = true;
@@ -40,11 +36,15 @@ namespace MyTools.Music
             {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
-                
-                SetDefaultVolume();
             }
             else
                 Destroy(gameObject);
+        }
+
+        private void Start()
+        {
+            if (Instance != null)
+                UpdateGeneralVolume();
         }
 
         #endregion
@@ -55,9 +55,9 @@ namespace MyTools.Music
         {
             IsMusicActive = isMusicActive;
             IsSoundsActive = isSoundsActive;
-            
-            UpdateMusicMuteState();
-            UpdateSoundsMuteState();
+
+            UpdateBackgroundVolume();
+            UpdateSoundsVolume();
 
             IsLoaded = true;
         }
@@ -66,12 +66,9 @@ namespace MyTools.Music
 
         #region UI
 
-        public void PlayClickSound() => _clickAudioSource.Play(); // only for those who created during the game
-
-        private void SetDefaultVolume() => _mixer.SetFloat("Volume", Mathf.Lerp(-80, 0, _defaultVolume));
-
-        private void UpdateMusicMuteState() => _backgroundAudioSource.mute = !IsMusicActive;
-        private void UpdateSoundsMuteState() => _clickAudioSource.mute = !IsSoundsActive;
+        private void UpdateGeneralVolume() => _mixer.SetFloat("GeneralVolume", Mathf.Lerp(-80, 0, _generalVolume));
+        private void UpdateBackgroundVolume() => _mixer.SetFloat("MusicVolume", Mathf.Lerp(-80, 0, IsMusicActive ? 1 : 0));
+        private void UpdateSoundsVolume() => _mixer.SetFloat("SoundsVolume", Mathf.Lerp(-80, 0, IsMusicActive ? 1 : 0));
 
         #endregion
 
@@ -80,14 +77,14 @@ namespace MyTools.Music
         public void SetIsActiveMusic(bool isMusicActive)
         {
             IsMusicActive = isMusicActive;
-            UpdateMusicMuteState();
+            UpdateBackgroundVolume();
             InvokeIsMusicActiveChanged();
         }
 
         public void SetIsActiveSounds(bool isSoundsActive)
         {
             IsSoundsActive = isSoundsActive;
-            UpdateSoundsMuteState();
+            UpdateSoundsVolume();
             InvokeIsSoundsActiveChanged();
         }
 

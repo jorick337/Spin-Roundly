@@ -1,7 +1,5 @@
 using Cysharp.Threading.Tasks;
-using MyTools.Music;
 using MyTools.UI;
-using MyTools.UI.Animation;
 using UnityEngine;
 
 namespace MyTools.Start
@@ -15,14 +13,9 @@ namespace MyTools.Start
         [SerializeField] protected MyButton _shopButton;
         [SerializeField] protected MyButton _leaderboardButton;
 
-        // Managers
-        protected MusicManager _musicManager;
-
         #endregion
 
         #region MONO
-
-        private void Awake() => _musicManager = MusicManager.Instance;
 
         private void OnEnable()
         {
@@ -51,17 +44,14 @@ namespace MyTools.Start
 
         #region CALLBACKS
 
-        protected async UniTask ClearStartView(AnimationScaleX animationScaleX)
+        protected async UniTask ClearStartView() 
         {
             DisableUI();
-            PlayClickSound();
-            await animationScaleX.AnimateAsync();
-        }
+            await UniTask.CompletedTask;
+        } 
 
         private async UniTask LoadShopView() => await UniTask.CompletedTask;
         private async UniTask LoadLeaderboardView() => await UniTask.CompletedTask;
-
-        private void PlayClickSound() => _musicManager.PlayClickSound();
 
         #endregion
     }
