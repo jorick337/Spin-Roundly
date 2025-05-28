@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 
 namespace MyTools.Music
@@ -17,11 +18,12 @@ namespace MyTools.Music
         public static MusicManager Instance { get; private set; }
 
         [Header("Core")]
-        [SerializeField] private float defaultVolume;
+        [SerializeField] private float _defaultVolume;
+        [SerializeField] private AudioMixer _mixer;
 
         [Header("UI")]
-        [SerializeField] private AudioSource clickAudioSource;
-        [SerializeField] private AudioSource backgroundAudioSource;
+        [SerializeField] private AudioSource _clickAudioSource;
+        [SerializeField] private AudioSource _backgroundAudioSource;
 
         public bool IsMusicActive { get; private set; } = true;
         public bool IsSoundsActive { get; private set; } = true;
@@ -64,16 +66,12 @@ namespace MyTools.Music
 
         #region UI
 
-        public void PlayClickSound() => clickAudioSource.Play(); // only for those who created during the game
+        public void PlayClickSound() => _clickAudioSource.Play(); // only for those who created during the game
 
-        private void SetDefaultVolume()
-        {
-            clickAudioSource.volume = defaultVolume;
-            backgroundAudioSource.volume = defaultVolume;
-        }
+        private void SetDefaultVolume() => _mixer.SetFloat("Volume", Mathf.Lerp(-80, 0, _defaultVolume));
 
-        private void UpdateMusicMuteState() => backgroundAudioSource.mute = !IsMusicActive;
-        private void UpdateSoundsMuteState() => clickAudioSource.mute = !IsSoundsActive;
+        private void UpdateMusicMuteState() => _backgroundAudioSource.mute = !IsMusicActive;
+        private void UpdateSoundsMuteState() => _clickAudioSource.mute = !IsSoundsActive;
 
         #endregion
 

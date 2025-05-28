@@ -41,7 +41,7 @@ AudioSource:
   m_GameObject: {fileID: 1826925299872084672}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f455c7cc3ec81d0a4a197a186e192634, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 6019566457880467331}
   - component: {fileID: 4691643318133764486}
   m_Layer: 0
-  m_Name: BackGround
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,7 @@ AudioSource:
   m_GameObject: {fileID: 1889132465195567184}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f455c7cc3ec81d0a4a197a186e192634, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1dab6e1f209f5b1496cee2faebc9d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultVolume: 0
-  clickAudioSource: {fileID: 99212342749118791}
-  backgroundAudioSource: {fileID: 4691643318133764486}
+  _defaultVolume: 0.4
+  _mixer: {fileID: 24100000, guid: f455c7cc3ec81d0a4a197a186e192634, type: 2}
+  _clickAudioSource: {fileID: 99212342749118791}
+  _backgroundAudioSource: {fileID: 4691643318133764486}

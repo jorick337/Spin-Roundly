@@ -44,14 +44,14 @@ namespace MyTools.Levels.Play
 
         private void OnEnable()
         {
-            _finishColliderTrigger.OnTriggered += Finish;
-            _defeatColliderTrigger.OnTriggered += Restart;
+            _finishColliderTrigger.TriggerEnter2D += Finish;
+            _defeatColliderTrigger.TriggerEnter2D += Restart;
         }
 
         private void OnDisable()
         {
-            _finishColliderTrigger.OnTriggered -= Finish;
-            _defeatColliderTrigger.OnTriggered -= Restart;
+            _finishColliderTrigger.TriggerEnter2D -= Finish;
+            _defeatColliderTrigger.TriggerEnter2D -= Restart;
         }
 
         #endregion
