@@ -7,10 +7,13 @@ namespace MyTools.Movement.TwoDimensional
     {
         #region CORE
 
+        [Header("Core")]
         [SerializeField] private float _moveSpeed;
+        [SerializeField] private float _rotationSpeed;
         [SerializeField] private Rigidbody2D _rigidbody2D;
         [SerializeField] SpriteRenderer _spriteRenderer;
 
+        [Header("Jump")]
         [SerializeField] private float _jumpForce;
         [SerializeField] private float _groundCheckRadius;
         [SerializeField] private LayerMask _groundMask;
@@ -39,13 +42,17 @@ namespace MyTools.Movement.TwoDimensional
             _inputActions.GamePlay.Jump.started -= OnJumpUpStarted;
         }
 
-        private void Update() => Move();
+        private void Update()
+        {
+            Rotate();
+            Move();
+        }
 
         #endregion
 
         #region CORE LOGIC
 
-        private void Move() 
+        private void Move()
         {
             _input = _inputActions.GamePlay.Move.ReadValue<Vector2>();
             _rigidbody2D.linearVelocity = new Vector2(_input.x * _moveSpeed, _rigidbody2D.linearVelocity.y);
@@ -60,7 +67,17 @@ namespace MyTools.Movement.TwoDimensional
             if (_isGrounded)
                 _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, _jumpForce);
         }
-        
+
+        private void Rotate()
+        {
+            float horizontalSpeed = _rigidbody2D.linearVelocityX;
+            float speedFactor = _rigidbody2D.linearVelocity.magnitude;
+
+            float rotationAmount = -Mathf.Sign(horizontalSpeed) * speedFactor * _rotationSpeed * Time.deltaTime;
+
+            transform.Rotate(0f, 0f, rotationAmount);
+        }
+
         private void UpdateIsGrounded()
         {
             float extraHeight = 0.1f;

@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _colliderTrigger: {fileID: 6426677747238704236}
   _gameLevel: {fileID: 0}
-  _hitsToBreak: 2
+  _hitsToBreak: 1
   _breakSound: {fileID: 3328572117640112246}
   _coins:
   - {fileID: 4914949198511148075}

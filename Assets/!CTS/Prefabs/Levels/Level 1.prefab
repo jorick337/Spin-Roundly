@@ -1325,45 +1325,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1857312337583011124}
     m_Modifications:
-    - target: {fileID: 951250527026897412, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
-      propertyPath: m_Size.y
-      value: 2.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 951250527026897412, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -8120479604261871205, guid: 5c5e4adb28f6e43d6a93ef6e58690905, type: 3}
-    - target: {fileID: 951250527026897412, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 951250527026897412, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 951250527026897412, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 951250527026897412, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2400970362568149036, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
       propertyPath: m_Name
       value: Circle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3691704170886355389, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
-      propertyPath: _maxX
-      value: 5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3691704170886355389, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
-      propertyPath: _maxY
-      value: 5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3691704170886355389, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
-      propertyPath: _minX
-      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6689584085607754427, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
       propertyPath: m_LocalPosition.x
