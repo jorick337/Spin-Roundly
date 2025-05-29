@@ -19,7 +19,7 @@ namespace MyTools.Movement.TwoDimensional
 
         private void Awake() => _mainCamera = Camera.main.transform;
 
-        private void Update()
+        private void LateUpdate()
         {
             Vector3 newPos = new(_target.position.x, _target.position.y + _yOffSet, -10f);
             Vector3 smoothPos = Vector3.Slerp(transform.position, newPos, _speed * Time.deltaTime);
