@@ -4770,8 +4770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d406df9fcf69452a7df211884cc026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 5908073099884006065}
   _colliderTrigger: {fileID: 8448607481645767947}
+  _gameLevel: {fileID: 0}
   _particleSystem: {fileID: 1927320059000473798}
 --- !u!199 &7279171060753027444
 ParticleSystemRenderer:
@@ -4927,7 +4927,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 7
   m_Sprite: {fileID: 5199979006384268662, guid: 6db72696d7d87ffbb9f5b82fd54f808e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4997,3 +4997,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c08c3dc4fa3296988e949aa4d8e900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _looping: 0
