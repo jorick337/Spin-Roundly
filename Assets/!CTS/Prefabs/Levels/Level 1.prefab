@@ -1329,6 +1329,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle
       objectReference: {fileID: 0}
+    - target: {fileID: 3105329794438179668, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 75e6e7a3fb6aec85da580cc2cbeb5600, type: 2}
+    - target: {fileID: 4868459043826012418, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 75e6e7a3fb6aec85da580cc2cbeb5600, type: 2}
     - target: {fileID: 6689584085607754427, guid: 10cd9859e14f8ffa4a8f927d4686b45f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.88
