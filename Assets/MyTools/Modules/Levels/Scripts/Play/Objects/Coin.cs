@@ -11,8 +11,8 @@ namespace MyTools.Levels.Play
 
         private PlayerManager _playerManager;
 
-        private void Awake() => _playerManager = PlayerManager.Instance;
-
+        protected override void DoActionOnAwake() => _playerManager = PlayerManager.Instance;
+        
         protected override void ActivateTriggerEnter2D()
         {
             _playerManager.Player.AddMoney(1);
@@ -22,5 +22,7 @@ namespace MyTools.Levels.Play
         protected override void ActivateCollisionEnter2D(Collision2D collision2D) { }
 
         protected override void DoActionBeforeRestart() { }
+
+
     }
 }

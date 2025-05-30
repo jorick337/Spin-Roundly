@@ -6,11 +6,10 @@ namespace MyTools.Levels.Play
 {
     public class GameLevelsProvider : LocalAssetLoader
     {
-        public async UniTask<GameLevel> Load(int level, Func<UniTask> action)
+        public async UniTask<GameLevel> Load(int level)
         {
             GameLevel gameLevel = await LoadInternal<GameLevel>($"Level {level}");
-            gameLevel.SetGameLevelsProvider(this);
-            AddEvent(action);
+            gameLevel.SetProvider(this);
 
             return gameLevel;
         }

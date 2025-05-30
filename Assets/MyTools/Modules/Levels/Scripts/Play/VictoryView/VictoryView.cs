@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using MyTools.Music;
+using MyTools.Loading;
 using MyTools.PlayerSystem;
 using MyTools.UI;
 using MyTools.UI.Animation;
@@ -11,14 +11,6 @@ namespace MyTools.Levels.Play
 {
     public class VictoryView : MonoBehaviour
     {
-        #region EVENTS
-
-        public event UnityAction OnReloadPressed;
-        public event UnityAction OnHomePressed;
-        public event UnityAction OnForwardPressed;
-
-        #endregion
-
         #region CORE
 
         [Header("Core")]
@@ -32,8 +24,9 @@ namespace MyTools.Levels.Play
         [SerializeField] private MyButton _forwardButton;
 
         // Managers
-        private LevelsManager _levelsManager;
+        private GameLevelManager _gameLevelManager;
         private PlayerManager _playerManager;
+        private LoadScene _loadScene;
         private VictoryViewProvider _victoryViewProvider;
 
         #endregion
@@ -42,29 +35,24 @@ namespace MyTools.Levels.Play
 
         private void Awake()
         {
-            _levelsManager = LevelsManager.Instance;
+            _gameLevelManager = GameLevelManager.Instance;
             _playerManager = PlayerManager.Instance;
+            _loadScene = LoadScene.Instance;
             SetTextMoney();
         }
 
         private void OnEnable()
         {
-            _reloadButton.OnPressed += DisableUIAsync;
-            _reloadButton.OnPressEnded += InvokeOnReloadPressed;
-            _homeButton.OnPressed += DisableUIAsync;
-            _homeButton.OnPressEnded += InvokeOnHomePressed;
-            _forwardButton.OnPressed += DisableUIAsync;
-            _forwardButton.OnPressEnded += InvokeOnForwardPressed;
+            _reloadButton.OnPressEnded += Reload;
+            _homeButton.OnPressEnded += LoadStartScene;
+            _forwardButton.OnPressEnded += LoadNextLevel;
         }
 
         private void OnDisable()
         {
-            _reloadButton.OnPressed -= DisableUIAsync;
-            _reloadButton.OnPressEnded -= InvokeOnReloadPressed;
-            _homeButton.OnPressed -= DisableUIAsync;
-            _homeButton.OnPressEnded -= InvokeOnHomePressed;
-            _forwardButton.OnPressed -= DisableUIAsync;
-            _forwardButton.OnPressEnded -= InvokeOnForwardPressed;
+            _reloadButton.OnPressEnded -= Reload;
+            _homeButton.OnPressEnded -= LoadStartScene;
+            _forwardButton.OnPressEnded -= LoadNextLevel;
         }
 
         private void Start() 
@@ -80,7 +68,7 @@ namespace MyTools.Levels.Play
 
         private async void ShowStars()
         {
-            for (int i = 0; i < _levelsManager.GetStarsCurrentLevel(); i++)
+            for (int i = 0; i < _gameLevelManager.Stars; i++)
                 await _animationTranparencyStars[i].AnimateInAsync();
         }
 
@@ -95,8 +83,9 @@ namespace MyTools.Levels.Play
 
         public void SetProvider(VictoryViewProvider victoryViewProvider) => _victoryViewProvider = victoryViewProvider;
 
-        private async UniTask InvokeAction(UnityAction action)
+        private async UniTask InvokeActionAndUnload(UnityAction action)
         {
+            DisableUI();
             action?.Invoke();
             await _victoryViewProvider.UnloadAsync();
         }
@@ -105,15 +94,9 @@ namespace MyTools.Levels.Play
 
         #region CALLBACKS
 
-        private async UniTask DisableUIAsync()
-        {
-            DisableUI();
-            await UniTask.CompletedTask;
-        }
-
-        private async UniTask InvokeOnReloadPressed() => await InvokeAction(OnReloadPressed);
-        private async UniTask InvokeOnHomePressed() => await InvokeAction(OnHomePressed);
-        private async UniTask InvokeOnForwardPressed() => await InvokeAction(OnForwardPressed);
+        private async UniTask Reload() => await InvokeActionAndUnload(() =>  _gameLevelManager.Restart());
+        private async UniTask LoadStartScene() => await InvokeActionAndUnload(() =>  _loadScene.Load());
+        private async UniTask LoadNextLevel() => await InvokeActionAndUnload(() =>  _gameLevelManager.Next());
 
         #endregion
     }

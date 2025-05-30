@@ -1,24 +1,12 @@
 using Cysharp.Threading.Tasks;
-using MyTools.Loading;
 using MyTools.Movement.TwoDimensional;
 using MyTools.UI;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace MyTools.Levels.Play
 {
     public class GameLevel : MonoBehaviour
     {
-        #region EVENTS
-
-        public event UnityAction OnReload;
-        public event UnityAction OnNextLevel;
-
-        public event UnityAction<int> StarsCollected;
-        public event UnityAction<int> TrophyCollected;
-
-        #endregion
-
         #region  CORE
 
         [Header("Finish")]
@@ -29,18 +17,15 @@ namespace MyTools.Levels.Play
         [SerializeField] private ColliderTrigger _defeatColliderTrigger;
         [SerializeField] private Teleport _teleportPlayer;
 
-        public int Stars { get; private set; } = 0;
-
         // Managers
-        private VictoryView _victoryView;
-        private LoadScene _loadScene;
+        private GameLevelManager _gameLevelManager;
         private GameLevelsProvider _gameLevelsProvider;
 
         #endregion
 
         #region MONO
 
-        private void Awake() => _loadScene = LoadScene.Instance;
+        private void Awake() => _gameLevelManager = GameLevelManager.Instance;
 
         private void OnEnable()
         {
@@ -58,25 +43,8 @@ namespace MyTools.Levels.Play
 
         #region VALUES
 
-        public void SetGameLevelsProvider(GameLevelsProvider gameLevelsProvider) => _gameLevelsProvider = gameLevelsProvider;
-
-        public void AddStar() => Stars += 1;
-        public void ResetStars() => Stars = 0;
-
-        private async void LoadVictoryView()
-        {
-            VictoryViewProvider victoryViewProvider = new();
-            _victoryView = await victoryViewProvider.Load(async () =>
-            {
-                _victoryView.OnReloadPressed -= Restart;
-                _victoryView.OnHomePressed -= LoadStartScene;
-                _victoryView.OnForwardPressed -= LoadNextLevel;
-                await UniTask.CompletedTask;
-            });
-            _victoryView.OnReloadPressed += Restart;
-            _victoryView.OnHomePressed += LoadStartScene;
-            _victoryView.OnForwardPressed += LoadNextLevel;
-        }
+        public void SetProvider(GameLevelsProvider gameLevelsProvider) => _gameLevelsProvider = gameLevelsProvider;
+        public UniTask Unload() => _gameLevelsProvider.UnloadAsync();
 
         #endregion
 
@@ -84,30 +52,16 @@ namespace MyTools.Levels.Play
 
         private void Finish()
         {
+            _gameLevelManager.Finish();
             _movement2D.Disable();
-            LoadVictoryView();
-            InvokeOnStarsCollected();
         }
 
         private void Restart()
         {
-            InvokeOnReload();
+            _gameLevelManager.Restart();
             _teleportPlayer.SendToTarget();
             _movement2D.Enable();
-            ResetStars();
         }
-
-        private async void LoadNextLevel()
-        {
-            InvokeOnNextLevel();
-            await _gameLevelsProvider.UnloadAsync();
-        }
-
-        private void LoadStartScene() => _loadScene.Load();
-
-        private void InvokeOnReload() => OnReload?.Invoke();
-        private void InvokeOnNextLevel() => OnNextLevel?.Invoke();
-        private void InvokeOnStarsCollected() => StarsCollected?.Invoke(Stars);
 
         #endregion
     }

@@ -7,25 +7,34 @@ namespace MyTools.UI
     {
         [Header("Core")]
         [SerializeField] protected ColliderTrigger _colliderTrigger;
-        [SerializeField] protected GameLevel _gameLevel;
+
+        protected GameLevelManager _gameLevelManager;
+
+        protected abstract void DoActionOnAwake();
 
         protected abstract void ActivateTriggerEnter2D();
         protected abstract void ActivateCollisionEnter2D(Collision2D collision2D);
 
         protected abstract void DoActionBeforeRestart();
 
+        private void Awake() 
+        {
+            _gameLevelManager = GameLevelManager.Instance;
+            DoActionOnAwake();
+        } 
+
         private void OnEnable()
         {
             _colliderTrigger.TriggerEnter2D += ActivateTriggerEnter2D;
             _colliderTrigger.CollisionEnter2D += ActivateCollisionEnter2D;
-            _gameLevel.OnReload += Restart;
+            _gameLevelManager.OnRestart += Restart;
         }
 
         private void OnDisable()
         {
             _colliderTrigger.TriggerEnter2D -= ActivateTriggerEnter2D;
             _colliderTrigger.CollisionEnter2D -= ActivateCollisionEnter2D;
-            _gameLevel.OnReload -= Restart;
+            _gameLevelManager.OnRestart -= Restart;
         }
 
         public void Restart()

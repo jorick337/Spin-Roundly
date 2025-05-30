@@ -6,11 +6,10 @@ namespace MyTools.Levels.Play
 {
     public class VictoryViewProvider : LocalAssetLoader
     {
-        public async UniTask<VictoryView> Load(Func<UniTask> action)
+        public async UniTask<VictoryView> Load()
         {
             VictoryView victoryView = await LoadInternal<VictoryView>("VictoryView");
             victoryView.SetProvider(this);
-            AddEvent(action);
 
             return victoryView;
         }

@@ -17,16 +17,12 @@ namespace MyTools.Levels
         #region CORE
 
         public static LevelsManager Instance { get; private set; }
+        public bool IsLoaded { get; private set; } = false;
 
         public int[] Stars { get; private set; }
         public int Trophy { get; private set; }
 
-        public bool IsLoaded { get; private set; } = false;
-
-        private int _level = 1;
-
-        // Managers
-        public GameLevel GameLevel { get; private set; }
+        private int _chosedLevel = 1;
 
         #endregion
 
@@ -45,7 +41,23 @@ namespace MyTools.Levels
 
         #endregion
 
-        #region CORE LOGIC
+        #region LOAD
+
+        public async UniTask<GameLevel> Load()
+        {
+            GameLevelsProvider gameLevelsProvider = new();
+            return await gameLevelsProvider.Load(_chosedLevel);
+        }
+
+        public async UniTask<GameLevel> LoadNextLevel()
+        {
+            AddLevel();
+            return await Load();
+        }
+
+        #endregion
+
+        #region INITIALIZATION
 
         public void Initialize(int[] stars, int trophy)
         {
@@ -54,58 +66,36 @@ namespace MyTools.Levels
             IsLoaded = true;
         }
 
-        public async void Load()
-        {
-            GameLevelsProvider gameLevelsProvider = new();
-            GameLevel = await gameLevelsProvider.Load(_level, async () =>
-            {
-                GameLevel.StarsCollected -= SetStars;
-                GameLevel.TrophyCollected -= AddTrophy;
-                GameLevel.OnNextLevel -= LoadNextLevel;
-                await UniTask.CompletedTask;
-            });
-            GameLevel.StarsCollected += SetStars;
-            GameLevel.TrophyCollected += AddTrophy;
-            GameLevel.OnNextLevel += LoadNextLevel;
-        }
-
         #endregion
 
         #region VALUES
 
-        public void SetLevel(int level) => _level = level;
-        public int GetStarsCurrentLevel() => GameLevel.Stars;
-
-        private void AddLevel()
-        {
-            if (_level + 1 <= Stars.Length)
-                _level += 1;
-        }
+        public void SetLevel(int level) => _chosedLevel = level;
 
         private void SetStars(int stars)
         {
-            if (Stars[_level - 1] == 3)
+            if (Stars[_chosedLevel - 1] == 3)
                 return;
 
-            Stars[_level - 1] = stars;
+            Stars[_chosedLevel - 1] = stars;
             InvokeStarsChanged();
         }
 
-        private void AddTrophy(int trophy) 
+        private void AddTrophy(int trophy)
         {
             Trophy += trophy;
             InvokeTrophyChanged();
         }
 
+        private void AddLevel()
+        {
+            if (_chosedLevel + 1 <= Stars.Length)
+                _chosedLevel += 1;
+        }
+
         #endregion
 
         #region CALLBACKS
-
-        private void LoadNextLevel()
-        {
-            AddLevel();
-            Load();
-        }
 
         private void InvokeStarsChanged() => StarsChanged?.Invoke(Stars);
         private void InvokeTrophyChanged() => TrophyChanged?.Invoke(Trophy);

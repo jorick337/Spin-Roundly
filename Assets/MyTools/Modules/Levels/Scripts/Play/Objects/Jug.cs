@@ -17,6 +17,8 @@ namespace MyTools.Levels.Play
 
         private int _currentHits = 0;
 
+        protected override void DoActionOnAwake() { }
+
         protected override void ActivateCollisionEnter2D(Collision2D collision) { }
 
         protected override void ActivateTriggerEnter2D()

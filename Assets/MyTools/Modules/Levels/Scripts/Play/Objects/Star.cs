@@ -8,9 +8,11 @@ namespace MyTools.Levels.Play
         [Header("Star")]
         [SerializeField] private ParticleSystem _particleSystem;
 
+        protected override void DoActionOnAwake() { }
+
         protected override void ActivateTriggerEnter2D()
         {
-            _gameLevel.AddStar();
+            _gameLevelManager.AddStar();
             _particleSystem.Play();
         }
 

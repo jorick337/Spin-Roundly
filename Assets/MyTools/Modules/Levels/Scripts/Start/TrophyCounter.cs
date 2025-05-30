@@ -14,8 +14,8 @@ namespace MyTools.Levels.Start
             Initialize();
         } 
 
-        private void OnEnable() => _levelsManager.TrophyChanged += UpdateTrophy;
-        private void OnDisable() => _levelsManager.TrophyChanged -= UpdateTrophy;
+        // private void OnEnable() => _levelsManager.TrophyChanged += UpdateTrophy;
+        // private void OnDisable() => _levelsManager.TrophyChanged -= UpdateTrophy;
 
         private void Initialize() => UpdateTrophy(_levelsManager.Trophy);
         private void UpdateTrophy(int trophy) => UpdateText(trophy.ToString());
