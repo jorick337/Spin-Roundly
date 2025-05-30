@@ -11,6 +11,8 @@ namespace MyTools.Levels.Play
         public event UnityAction OnFinish;
         public event UnityAction OnRestart;
 
+        public event UnityAction<int> StarsChanged;
+
         #endregion
 
         #region CORE
@@ -52,10 +54,7 @@ namespace MyTools.Levels.Play
             InvokeOnRestart();
         }
 
-        public void Next()
-        {
-            LoadNextLevel();
-        }
+        public void Next() => LoadNextLevel();
 
         #endregion
 
@@ -79,7 +78,12 @@ namespace MyTools.Levels.Play
 
         #region VALUES
 
-        public void AddStar() => Stars += 1;
+        public void AddStar() 
+        {
+            Stars += 1;
+            InvokeStarsChanged();
+        }
+
         private void ResetStars() => Stars = 0;
 
         #endregion
@@ -88,6 +92,8 @@ namespace MyTools.Levels.Play
 
         private void InvokeOnFinish() => OnFinish?.Invoke();
         private void InvokeOnRestart() => OnRestart?.Invoke();
+
+        private void InvokeStarsChanged() => StarsChanged?.Invoke(Stars);
 
         #endregion
     }

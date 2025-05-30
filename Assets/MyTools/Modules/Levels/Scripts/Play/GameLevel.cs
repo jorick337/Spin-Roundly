@@ -29,14 +29,18 @@ namespace MyTools.Levels.Play
 
         private void OnEnable()
         {
-            _finishColliderTrigger.TriggerEnter2D += Finish;
-            _defeatColliderTrigger.TriggerEnter2D += Restart;
+            _gameLevelManager.OnFinish += Finish;
+            _gameLevelManager.OnRestart += Restart;
+            _finishColliderTrigger.TriggerEnter2D += _gameLevelManager.Finish;
+            _defeatColliderTrigger.TriggerEnter2D += _gameLevelManager.Restart;
         }
 
         private void OnDisable()
         {
-            _finishColliderTrigger.TriggerEnter2D -= Finish;
-            _defeatColliderTrigger.TriggerEnter2D -= Restart;
+            _gameLevelManager.OnFinish -= Finish;
+            _gameLevelManager.OnRestart -= Restart;
+            _finishColliderTrigger.TriggerEnter2D -= _gameLevelManager.Finish;
+            _defeatColliderTrigger.TriggerEnter2D -= _gameLevelManager.Restart;
         }
 
         #endregion
@@ -50,15 +54,10 @@ namespace MyTools.Levels.Play
 
         #region CALLBACKS
 
-        private void Finish()
-        {
-            _gameLevelManager.Finish();
-            _movement2D.Disable();
-        }
+        private void Finish() => _movement2D.Disable();
 
         private void Restart()
         {
-            _gameLevelManager.Restart();
             _teleportPlayer.SendToTarget();
             _movement2D.Enable();
         }
