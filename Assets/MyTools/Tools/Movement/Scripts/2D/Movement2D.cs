@@ -9,7 +9,6 @@ namespace MyTools.Movement.TwoDimensional
 
         [Header("Core")]
         [SerializeField] private float _moveSpeed;
-        [SerializeField] private float _rotationSpeed;
         [SerializeField] private Rigidbody2D _rigidbody2D;
         [SerializeField] SpriteRenderer _spriteRenderer;
 
@@ -42,11 +41,7 @@ namespace MyTools.Movement.TwoDimensional
             _inputActions.GamePlay.Jump.started -= OnJumpUpStarted;
         }
 
-        private void Update()
-        {
-            Rotate();
-            Move();
-        }
+        private void Update() => Move();
 
         #endregion
 
@@ -66,16 +61,6 @@ namespace MyTools.Movement.TwoDimensional
             UpdateIsGrounded();
             if (_isGrounded)
                 _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, _jumpForce);
-        }
-
-        private void Rotate()
-        {
-            float horizontalSpeed = _rigidbody2D.linearVelocityX;
-            float speedFactor = _rigidbody2D.linearVelocity.magnitude;
-
-            float rotationAmount = -Mathf.Sign(horizontalSpeed) * speedFactor * _rotationSpeed * Time.deltaTime;
-
-            transform.Rotate(0f, 0f, rotationAmount);
         }
 
         private void UpdateIsGrounded()

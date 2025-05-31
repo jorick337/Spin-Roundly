@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 4990368510417099155}
   - component: {fileID: 6487234348729557546}
   - component: {fileID: 3643179066495457404}
-  - component: {fileID: 1172104616187130001}
   - component: {fileID: 3075085062928542357}
+  - component: {fileID: 2992348465749103978}
+  - component: {fileID: 1172104616187130001}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player2D
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,27 +100,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.65
---- !u!114 &1172104616187130001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4091099298256190212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72827d80b5c6afaf2b28255fbd0de293, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 7
-  _rotationSpeed: 90
-  _rigidbody2D: {fileID: 6487234348729557546}
-  _spriteRenderer: {fileID: 1487579447772188972}
-  _jumpForce: 11
-  _groundCheckRadius: 0.6
-  _groundMask:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!114 &3075085062928542357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +119,40 @@ MonoBehaviour:
   _maxX: 0
   _minY: 0
   _maxY: 0
+--- !u!114 &2992348465749103978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091099298256190212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7eeb558b5024325aa71b07fcfc8ec83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 6487234348729557546}
+  _rotationSpeed: 90
+--- !u!114 &1172104616187130001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091099298256190212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72827d80b5c6afaf2b28255fbd0de293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 7
+  _rigidbody2D: {fileID: 6487234348729557546}
+  _spriteRenderer: {fileID: 1487579447772188972}
+  _jumpForce: 11
+  _groundCheckRadius: 0.6
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &8302808662137845678
 GameObject:
   m_ObjectHideFlags: 0
