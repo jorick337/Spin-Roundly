@@ -56,11 +56,11 @@ namespace MyTools.Movement.TwoDimensional
                 _spriteRenderer.flipX = _input.x > 0;
         }
 
-        private void Jump()
+        private void JumpIfGrounded()
         {
             UpdateIsGrounded();
             if (_isGrounded)
-                _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, _jumpForce);
+                Jump();
         }
 
         private void UpdateIsGrounded()
@@ -74,6 +74,8 @@ namespace MyTools.Movement.TwoDimensional
 
         #region VALUES
 
+        public void Jump() => _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, _jumpForce);
+
         public void Enable() => _inputActions.Enable();
         public void Disable() => _inputActions.Disable();
 
@@ -81,7 +83,7 @@ namespace MyTools.Movement.TwoDimensional
 
         #region CALLBACKS
 
-        private void OnJumpUpStarted(InputAction.CallbackContext context) => Jump();
+        private void OnJumpUpStarted(InputAction.CallbackContext context) => JumpIfGrounded();
 
         #endregion
     }

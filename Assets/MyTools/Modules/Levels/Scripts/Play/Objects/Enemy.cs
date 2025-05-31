@@ -1,21 +1,24 @@
+using System;
+using Cysharp.Threading.Tasks;
+using MyTools.Levels.Play;
+using MyTools.Movement.TwoDimensional;
 using MyTools.UI;
 using UnityEngine;
 
-namespace MyTools.Levels.Play
+namespace MyTools.Enemy
 {
-    public class Jug : LevelItem
+    public class Enemy : LevelItem
     {
         #region CORE
 
-        [Header("Jug")]
+        [Header("Enemy")]
         [SerializeField] private int _hitsToBreak;
-        [SerializeField] private AudioSource _breakSound;
         [SerializeField] private Coin[] _coins;
 
-        [Header("Restart")]
-        [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private Sprite _normalSprite;
-        [SerializeField] private Sprite _brokenSprite;
+        [Header("Jump")]
+        [SerializeField] private Movement2D _movement2D;
+        [SerializeField] private PatrolArea _patrolArea;
+        [SerializeField] private ParticleSystem _particleSystem;
 
         private int _currentHits = 0;
 
@@ -29,18 +32,33 @@ namespace MyTools.Levels.Play
         {
             _currentHits = 0;
             DisableCoins();
-            SetNormalSprite();
+            Enable();
+            _patrolArea.Enable();
         }
 
         #endregion
 
         #region CORE LOGIC
 
-        private void Break()
+        private void BreakAsync()
         {
-            PlayBreakSound();
             EnableCoins();
-            SetBrokenSprite();
+            Disable();
+        }
+
+        private async UniTask ReboundAsync()
+        {
+            _patrolArea.Disable();
+            _movement2D.Jump();
+            await Stun();
+            _patrolArea.Enable();
+        }
+
+        private async UniTask Stun()
+        {
+            _particleSystem.Stop();
+            _particleSystem.Play();
+            await UniTask.WaitUntil(() => !_particleSystem.isPlaying);
         }
 
         #endregion
@@ -61,23 +79,21 @@ namespace MyTools.Levels.Play
         private void EnableCoins() => SetActiveCoins(true);
         private void DisableCoins() => SetActiveCoins(false);
 
-        private void SetBrokenSprite() => _spriteRenderer.sprite = _brokenSprite;
-        private void SetNormalSprite() => _spriteRenderer.sprite = _normalSprite;
-
-        private void PlayBreakSound() => _breakSound.Play();
-
         #endregion
 
         #region CALLBACKS
 
-        protected override void InvokeTrigger2D(Collider2D collider2D)
+        protected override async void InvokeTrigger2D(Collider2D collider2D)
         {
             if (_currentHits >= _hitsToBreak)
                 return;
 
             _currentHits++;
+
             if (_currentHits >= _hitsToBreak)
-                Break();
+                BreakAsync();
+
+            await ReboundAsync();
         }
 
         #endregion

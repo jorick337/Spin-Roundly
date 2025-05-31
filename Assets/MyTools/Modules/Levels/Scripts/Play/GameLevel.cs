@@ -10,11 +10,11 @@ namespace MyTools.Levels.Play
         #region  CORE
 
         [Header("Finish")]
-        [SerializeField] private ColliderTrigger _finishColliderTrigger;
+        [SerializeField] private Collider2DTrigger _finishColliderTrigger;
         [SerializeField] private Movement2D _movement2D;
 
         [Header("Restart")]
-        [SerializeField] private ColliderTrigger _defeatColliderTrigger;
+        [SerializeField] private Collider2DTrigger _defeatColliderTrigger;
         [SerializeField] private Teleport _teleportPlayer;
 
         // Managers
@@ -31,16 +31,16 @@ namespace MyTools.Levels.Play
         {
             _gameLevelManager.OnFinish += Finish;
             _gameLevelManager.OnRestart += Restart;
-            _finishColliderTrigger.TriggerEnter2D += _gameLevelManager.Finish;
-            _defeatColliderTrigger.TriggerEnter2D += _gameLevelManager.Restart;
+            _finishColliderTrigger.OnTriggered += InvokeFinish;
+            _defeatColliderTrigger.OnTriggered += InvokeRestart;
         }
 
         private void OnDisable()
         {
             _gameLevelManager.OnFinish -= Finish;
             _gameLevelManager.OnRestart -= Restart;
-            _finishColliderTrigger.TriggerEnter2D -= _gameLevelManager.Finish;
-            _defeatColliderTrigger.TriggerEnter2D -= _gameLevelManager.Restart;
+            _finishColliderTrigger.OnTriggered -= InvokeFinish;
+            _defeatColliderTrigger.OnTriggered -= InvokeRestart;
         }
 
         #endregion
@@ -54,13 +54,16 @@ namespace MyTools.Levels.Play
 
         #region CALLBACKS
 
-        private void Finish() => _movement2D.Disable();
-
         private void Restart()
         {
             _teleportPlayer.SendToTarget();
             _movement2D.Enable();
         }
+        
+        private void Finish() => _movement2D.Disable();
+
+        private void InvokeFinish(Collider2D collider2D) => _gameLevelManager.Finish();
+        private void InvokeRestart(Collider2D collider2D) => _gameLevelManager.Restart();
 
         #endregion
     }

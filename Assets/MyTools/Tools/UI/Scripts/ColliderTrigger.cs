@@ -3,29 +3,70 @@ using UnityEngine.Events;
 
 namespace MyTools.UI
 {
-    public class ColliderTrigger : MonoBehaviour
+    public class Collider2DTrigger : MonoBehaviour
     {
-        public UnityAction TriggerEnter2D;
-        public UnityAction<Collision2D> CollisionEnter2D;
+        #region EVENTS
 
-        [SerializeField] private bool _looping = false;
+        public UnityAction<Collider2D> OnTriggered;
+
+        #endregion
+
+        #region CORE
+
+        [Header("Core")]
+        [SerializeField] private bool _repeatable = false;
+        [SerializeField] private bool _allowActivation = true;
+        [SerializeField] private string _tag = "Player";
+
+        [Header("Jump")]
+        [SerializeField] private bool _onlyTriggerFromAbove = false;
+        [SerializeField] private float _minJumpHeight = 0;
+
+        #endregion
+
+        #region MONO
 
         private void OnTriggerEnter2D(Collider2D collider2D)
         {
-            InvokeTriggerEnter2D();
-            gameObject.SetActive(_looping);
+            if (!collider2D.transform.CompareTag(_tag))
+                return;
+
+            if (_onlyTriggerFromAbove && !IsTriggerFromAbove(collider2D))
+                return;
+                
+            InvokeOnTriggered(collider2D);
+
+            if (_allowActivation)
+                SetActiveByLooping();
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            InvokeCollisionEnter2D(collision);
-            gameObject.SetActive(_looping);
-        }
+        #endregion
+
+        #region UI
 
         public void Enable() => gameObject.SetActive(true);
         public void Disable() => gameObject.SetActive(false);
 
-        private void InvokeTriggerEnter2D() => TriggerEnter2D?.Invoke();
-        private void InvokeCollisionEnter2D(Collision2D collision2D) => CollisionEnter2D?.Invoke(collision2D);
+        #endregion
+
+        #region VALUES
+
+        private void SetActiveByLooping() => gameObject.SetActive(_repeatable);
+
+        protected bool IsTriggerFromAbove(Collider2D collider2D)
+        {
+            float triggerY = collider2D.transform.position.y;
+            float transformY = transform.position.y;
+
+            return triggerY > transformY + _minJumpHeight;
+        }
+
+        #endregion
+
+        #region CALLBACKS
+
+        private void InvokeOnTriggered(Collider2D collider2D) => OnTriggered?.Invoke(collider2D);
+
+        #endregion
     }
 }

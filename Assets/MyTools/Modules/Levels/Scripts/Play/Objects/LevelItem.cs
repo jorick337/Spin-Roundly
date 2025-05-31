@@ -1,0 +1,76 @@
+using MyTools.Levels.Play;
+using UnityEngine;
+
+namespace MyTools.UI
+{
+    public abstract class LevelItem : MonoBehaviour
+    {
+        #region CORE
+
+        [Header("Core")]
+        [SerializeField] protected Collider2DTrigger _collider2DTrigger;
+
+        protected GameLevelManager _gameLevelManager;
+
+        #endregion
+
+        #region MONO
+
+        protected abstract void DoActionOnAwake();
+        protected abstract void DoActionBeforeRestart();
+
+        private void Awake()
+        {
+            _gameLevelManager = GameLevelManager.Instance;
+            DoActionOnAwake();
+        }
+
+        private void OnEnable()
+        {
+            _collider2DTrigger.OnTriggered += InvokeTrigger2D;
+            _gameLevelManager.OnRestart += Restart;
+        }
+
+        private void OnDisable()
+        {
+            _collider2DTrigger.OnTriggered -= InvokeTrigger2D;
+            _gameLevelManager.OnRestart -= Restart;
+        }
+
+        #endregion
+
+        #region UI
+
+        public void Enable()
+        {
+            EnableLevelItem();
+            EnableColliderTrigger();
+        }
+
+        public void Disable()
+        {
+            DisableLevelItem();
+            DisableColliderTrigger();
+        }
+
+        protected void EnableLevelItem() => gameObject.SetActive(true);
+        protected void DisableLevelItem() => gameObject.SetActive(false);
+
+        protected void EnableColliderTrigger() => _collider2DTrigger.Enable();
+        protected void DisableColliderTrigger() => _collider2DTrigger.Disable();
+
+        #endregion
+
+        #region CALLBACKS
+
+        protected void Restart()
+        {
+            DoActionBeforeRestart();
+            EnableColliderTrigger();
+        }
+
+        protected abstract void InvokeTrigger2D(Collider2D collider2D);
+
+        #endregion
+    }
+}

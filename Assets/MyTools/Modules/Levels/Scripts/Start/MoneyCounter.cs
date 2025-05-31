@@ -14,7 +14,7 @@ namespace MyTools.Levels.Start
         } 
 
         private void OnEnable() => _playerManager.Player.MoneyChanged += UpdateStars;
-        private void OnDisable() => _playerManager.Player.MoneyChanged += UpdateStars;
+        private void OnDisable() => _playerManager.Player.MoneyChanged -= UpdateStars;
 
         private void Initialize() => UpdateStars(_playerManager.Player.Money);
 
