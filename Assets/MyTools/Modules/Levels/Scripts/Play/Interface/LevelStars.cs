@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MyTools.Levels.Play
 {
-    public class StarsView : MonoBehaviour
+    public class LevelStars : MonoBehaviour
     {
         [SerializeField] private AnimationTransparency[] _animationTransparenciesStars;
 

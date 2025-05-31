@@ -1,10 +1,9 @@
 using Cysharp.Threading.Tasks;
 using MyTools.UI;
-using UnityEngine;
 
 namespace MyTools.Levels.Start
 {
-    public class StarCounter : Counter
+    public class StarsCounter : Counter
     {
         private LevelsManager _levelsManager;
 
