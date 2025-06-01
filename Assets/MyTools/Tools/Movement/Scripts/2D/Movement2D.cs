@@ -1,10 +1,17 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace MyTools.Movement.TwoDimensional
 {
     public class Movement2D : MonoBehaviour
     {
+        #region EVENTS
+
+        public event UnityAction OnJump;
+
+        #endregion
+
         #region CORE
 
         [Header("Core")]
@@ -74,7 +81,11 @@ namespace MyTools.Movement.TwoDimensional
 
         #region VALUES
 
-        public void Jump() => _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, _jumpForce);
+        public void Jump() 
+        {
+            InvokeOnJump();
+            _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, _jumpForce);
+        } 
 
         public void Enable() => _inputActions.Enable();
         public void Disable() => _inputActions.Disable();
@@ -84,6 +95,8 @@ namespace MyTools.Movement.TwoDimensional
         #region CALLBACKS
 
         private void OnJumpUpStarted(InputAction.CallbackContext context) => JumpIfGrounded();
+
+        private void InvokeOnJump() => OnJump?.Invoke();
 
         #endregion
     }

@@ -13,6 +13,7 @@ namespace MyTools.Enemy
 
         [Header("Enemy")]
         [SerializeField] private int _hitsToBreak;
+        [SerializeField] private AudioSource _deathSound;
         [SerializeField] private Coin[] _coins;
 
         [Header("Jump")]
@@ -40,8 +41,9 @@ namespace MyTools.Enemy
 
         #region CORE LOGIC
 
-        private void BreakAsync()
+        private async void BreakAsync()
         {
+            await PlayBreakSoundAsync();
             EnableCoins();
             Disable();
         }
@@ -78,6 +80,12 @@ namespace MyTools.Enemy
 
         private void EnableCoins() => SetActiveCoins(true);
         private void DisableCoins() => SetActiveCoins(false);
+
+        private async UniTask PlayBreakSoundAsync()
+        {
+            _deathSound.Play();
+            await UniTask.Delay(TimeSpan.FromSeconds(_deathSound.clip.length));
+        }
 
         #endregion
 
