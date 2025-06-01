@@ -26,8 +26,5 @@ namespace MyTools.Enemy
             if (Vector2.Distance(newPos, target) < 0.1f)
                 _currentIndex = (_currentIndex + 1) % _points.Length;
         }
-
-        public void Enable() => enabled = true;
-        public void Disable() => enabled = false;
     }
 }

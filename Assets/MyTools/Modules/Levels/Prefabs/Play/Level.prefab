@@ -259,6 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _repeatable: 0
   _allowActivation: 1
+  _tag: Player
   _onlyTriggerFromAbove: 0
   _minJumpHeight: 0
 --- !u!1 &5778835480458076214
@@ -609,8 +610,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c08c3dc4fa3296988e949aa4d8e900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _repeatable: 0
+  _repeatable: 1
   _allowActivation: 1
+  _tag: Player
   _onlyTriggerFromAbove: 0
   _minJumpHeight: 0
 --- !u!1 &7537873789111375942
