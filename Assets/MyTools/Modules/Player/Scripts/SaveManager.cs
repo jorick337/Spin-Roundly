@@ -22,7 +22,7 @@ namespace MyTools.PlayerSystem
 
         #region LOAD
 
-        public static int[] LoadLevelStars()
+        public static int[] LoadStars()
         {
             int[] levelStars = new int[MAX_LEVEL];
 
@@ -47,9 +47,9 @@ namespace MyTools.PlayerSystem
 
         #region SAVE
 
-        public static void SaveLevelStars(int[] levelStars) => PlayerPrefs.SetString("LevelStars", string.Join(",", levelStars));
+        public static void SaveStars(int[] levelStars) => PlayerPrefs.SetString("LevelStars", string.Join(",", levelStars));
         
-        public static void SaveTrophy(int trophy) => PlayerPrefs.SetInt("Trophy", trophy);
+        public static void SaveTrophies(int trophy) => PlayerPrefs.SetInt("Trophy", trophy);
         public static void SaveMoney(int money) => PlayerPrefs.SetInt("Money", money);
 
         public static void SaveMusicActive(bool active) => PlayerPrefs.SetInt("MusicActive", active ? 1 : 0);

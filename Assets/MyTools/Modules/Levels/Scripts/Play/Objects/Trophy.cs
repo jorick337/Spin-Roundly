@@ -1,4 +1,3 @@
-using MyTools.PlayerSystem;
 using MyTools.UI;
 using UnityEngine;
 
@@ -10,14 +9,14 @@ namespace MyTools.Levels.Play
         [SerializeField] private ParticleSystem _particleSystem;
 
         // Managers
-        private PlayerManager _playerManager;
+        private LevelsManager _levelsManager;
 
-        protected override void DoActionOnAwake() => _playerManager = PlayerManager.Instance;
+        protected override void DoActionOnAwake() => _levelsManager = LevelsManager.Instance;
         protected override void DoActionBeforeRestart() { }
 
         protected override void InvokeTrigger2D(Collider2D collider2D)
         {
-            _playerManager.Player.AddTrophy(1);
+            _levelsManager.AddTrophy(1);
             _particleSystem.Play();
         }
     }

@@ -2,11 +2,14 @@ using Game.Localization;
 using MyTools.Levels;
 using MyTools.Music;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MyTools.PlayerSystem
 {
     public class PlayerManager : MonoBehaviour
     {
+        public event UnityAction OnLoaded;
+
         public static PlayerManager Instance { get; private set; }
 
         public Player Player { get; private set; }
@@ -21,47 +24,46 @@ namespace MyTools.PlayerSystem
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
-
                 Player = new();
+                DontDestroyOnLoad(gameObject);
             }
             else
                 Destroy(gameObject);
         }
 
-        private void Start()
-        {
-            InitializeLanguage();
-            InitializeMusic();
-            InitializeLevels();
-        }
+        private void Start() => Initialize();
 
         private void OnEnable()
         {
-            _levelsManager.StarsChanged += SaveLevelsStar;
-            _levelsManager.TrophyChanged += SaveTrophy;
-            _languageManager.LocaleChanged += SaveLanguage;
-            _musicManager.MusicActiveChanged += SaveMusicActive;
-            _musicManager.SoundsActiveChanged += SaveSoundsActive;
+            _levelsManager.TrophiesChanged += SaveManager.SaveTrophies;
+            _levelsManager.StarsChanged += SaveManager.SaveStars;
+            _languageManager.LocaleChanged += SaveManager.SaveLanguage;
+            _musicManager.MusicActiveChanged += SaveManager.SaveMusicActive;
+            _musicManager.SoundsActiveChanged += SaveManager.SaveSoundsActive;
         }
 
         private void OnDisable()
         {
-            _levelsManager.StarsChanged -= SaveLevelsStar;
-            _levelsManager.TrophyChanged -= SaveTrophy;
-            _languageManager.LocaleChanged -= SaveLanguage;
-            _musicManager.MusicActiveChanged -= SaveMusicActive;
-            _musicManager.SoundsActiveChanged -= SaveSoundsActive;
+            _levelsManager.TrophiesChanged += SaveManager.SaveTrophies;
+            _levelsManager.StarsChanged += SaveManager.SaveStars;
+            _languageManager.LocaleChanged += SaveManager.SaveLanguage;
+            _musicManager.MusicActiveChanged += SaveManager.SaveMusicActive;
+            _musicManager.SoundsActiveChanged += SaveManager.SaveSoundsActive;
         }
 
-        private void InitializeLevels() => _levelsManager.Initialize(SaveManager.LoadLevelStars(), SaveManager.LoadTrophy());
+        private void Initialize()
+        {
+            Player.Initialize();
+            InitializeLevels();
+            InitializeLanguage();
+            InitializeMusic();
+            InvokeOnLoaded();
+        }
+
+        private void InitializeLevels() => _levelsManager.Initialize(SaveManager.LoadStars(), SaveManager.LoadTrophy());
         private void InitializeLanguage() => _languageManager.Initialize(SaveManager.LoadLanguage());
         private void InitializeMusic() => _musicManager.Initialize(SaveManager.LoadMusisActive(), SaveManager.LoadSoundsActive());
 
-        private void SaveTrophy(int trophy) => SaveManager.SaveTrophy(trophy);
-        private void SaveLevelsStar(int[] levelStars) => SaveManager.SaveLevelStars(levelStars);
-        private void SaveLanguage(string locale) => SaveManager.SaveLanguage(locale);
-        private void SaveMusicActive(bool active) => SaveManager.SaveMusicActive(active);
-        private void SaveSoundsActive(bool active) => SaveManager.SaveSoundsActive(active);
+        private void InvokeOnLoaded() => OnLoaded?.Invoke();
     }
 }

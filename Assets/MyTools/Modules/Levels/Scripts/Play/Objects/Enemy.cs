@@ -54,6 +54,7 @@ namespace MyTools.Enemy
         {
             _isDeath = true;
             _teleportReward.SendToTarget();
+            _movement2D.Jump();
             PlayBreakSound();
             ActiveUI(false);
         }
@@ -70,7 +71,7 @@ namespace MyTools.Enemy
         {
             _particleSystem.Stop();
             _particleSystem.Play();
-            await UniTask.WaitUntil(() => !_isDeath || !_particleSystem.isPlaying);
+            await UniTask.WaitUntil(() => _isDeath || !_particleSystem.isPlaying);
         }
 
         #endregion

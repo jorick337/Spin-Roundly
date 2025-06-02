@@ -10,7 +10,7 @@ namespace MyTools.Levels
         #region EVENTS
 
         public event UnityAction<int[]> StarsChanged;
-        public event UnityAction<int> TrophyChanged;
+        public event UnityAction<int> TrophiesChanged;
 
         #endregion
 
@@ -20,7 +20,7 @@ namespace MyTools.Levels
         public bool IsLoaded { get; private set; } = false;
 
         public int[] Stars { get; private set; }
-        public int Trophy { get; private set; }
+        public int Trophies { get; private set; }
 
         private int _chosedLevel = 1;
 
@@ -62,7 +62,7 @@ namespace MyTools.Levels
         public void Initialize(int[] stars, int trophy)
         {
             Stars = stars;
-            Trophy = trophy;
+            Trophies = trophy;
             IsLoaded = true;
         }
 
@@ -72,7 +72,7 @@ namespace MyTools.Levels
 
         public void SetLevel(int level) => _chosedLevel = level;
 
-        private void SetStars(int stars)
+        private void AddStars(int stars)
         {
             if (Stars[_chosedLevel - 1] == 3)
                 return;
@@ -81,11 +81,13 @@ namespace MyTools.Levels
             InvokeStarsChanged();
         }
 
-        private void AddTrophy(int trophy)
+        public void AddTrophy(int trophy)
         {
-            Trophy += trophy;
-            InvokeTrophyChanged();
+            Trophies += trophy;
+            InvokeTrophiesChanged();
         }
+        
+        public async UniTask WaitUntilLoaded() => await UniTask.WaitUntil(() => IsLoaded);
 
         private void AddLevel()
         {
@@ -98,7 +100,7 @@ namespace MyTools.Levels
         #region CALLBACKS
 
         private void InvokeStarsChanged() => StarsChanged?.Invoke(Stars);
-        private void InvokeTrophyChanged() => TrophyChanged?.Invoke(Trophy);
+        private void InvokeTrophiesChanged() => TrophiesChanged?.Invoke(Trophies);
 
         #endregion
     }
