@@ -1,4 +1,3 @@
-using System;
 using Cysharp.Threading.Tasks;
 using MyTools.Levels.Play;
 using MyTools.Movement.TwoDimensional;
@@ -14,8 +13,11 @@ namespace MyTools.Enemy
         [Header("Enemy")]
         [SerializeField] private int _hitsToBreak;
         [SerializeField] private AudioSource _deathSound;
+
+        [Header("Reward")]
         [SerializeField] private Coin[] _coins;
-        [SerializeField] private Teleport _teleportCoins;
+        [SerializeField] private Trophy[] _trophies;
+        [SerializeField] private Teleport _teleportReward;
 
         [Header("Jump")]
         [SerializeField] private Movement2D _movement2D;
@@ -28,6 +30,7 @@ namespace MyTools.Enemy
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
         private int _currentHits = 0;
+        private bool _isDeath = false;
 
         #endregion
 
@@ -38,6 +41,7 @@ namespace MyTools.Enemy
         protected override void DoActionBeforeRestart()
         {
             _currentHits = 0;
+            _isDeath = false;
             _teleportEnemy.SendToTarget();
             ActiveUI(true);
         }
@@ -48,7 +52,8 @@ namespace MyTools.Enemy
 
         private void Death()
         {
-            _teleportCoins.SendToTarget();
+            _isDeath = true;
+            _teleportReward.SendToTarget();
             PlayBreakSound();
             ActiveUI(false);
         }
@@ -65,7 +70,7 @@ namespace MyTools.Enemy
         {
             _particleSystem.Stop();
             _particleSystem.Play();
-            await UniTask.WaitUntil(() => !_particleSystem.isPlaying);
+            await UniTask.WaitUntil(() => !_isDeath || !_particleSystem.isPlaying);
         }
 
         #endregion
@@ -74,13 +79,12 @@ namespace MyTools.Enemy
 
         private void ActiveUI(bool active)
         {
-            _patrolArea.enabled = active;
             SetActiveCoins(!active);
+            SetActiveTrophies(!active);
             _collider2D.enabled = active;
             _spriteRenderer.enabled = active;
+            _patrolArea.enabled = active;
         }
-
-        private void PlayBreakSound() => _deathSound.Play();
 
         private void SetActiveCoins(bool active)
         {
@@ -93,6 +97,19 @@ namespace MyTools.Enemy
             }
         }
 
+        private void SetActiveTrophies(bool active)
+        {
+            for (int i = 0; i < _trophies.Length; i++)
+            {
+                if (active)
+                    _trophies[i].Enable();
+                else
+                    _trophies[i].Disable();
+            }
+        }
+
+        private void PlayBreakSound() => _deathSound.Play();
+
         #endregion
 
         #region CALLBACKS
@@ -101,7 +118,7 @@ namespace MyTools.Enemy
         {
             if (_currentHits >= _hitsToBreak)
                 return;
-
+            
             _currentHits++;
 
             if (_currentHits >= _hitsToBreak)
