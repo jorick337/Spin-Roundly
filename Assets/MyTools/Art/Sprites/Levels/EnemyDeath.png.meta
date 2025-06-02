@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: dc1d6ae62e70ae6ceac7e45211b8f5fe
+guid: 32f1541bc3799038681a9efc44b7fe59
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3156634924717718424
-    second: Stun_0
-  - first:
-      213: 2831363460287316188
-    second: Stun_1
+      213: 7003975502510558183
+    second: EnemyDeath_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stun_0
+      name: EnemyDeath_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 2
+        y: 23
+        width: 124
+        height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89b346d4dbe9ecb20800000000000000
-      internalID: 3156634924717718424
+      spriteID: 7eb0ea26c9e133160800000000000000
+      internalID: 7003975502510558183
       vertices: []
       indices: 
       edges: []
@@ -141,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 474182dc29a864746bab9efa3a786b46
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -150,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Stun_0: 3156634924717718424
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

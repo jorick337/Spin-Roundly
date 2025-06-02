@@ -6,7 +6,10 @@ namespace MyTools.Movement.TwoDimensional
     {
         [Header("Core")]
         [SerializeField] private AudioSource _audioSource;
+
+        [Header("Jump")]
         [SerializeField] private AudioClip _jumpSound;
+        [SerializeField] private ParticleSystem _jumpParticleSystem;
 
         [Header("Managers")]
         [SerializeField] private Movement2D _movement2D;
@@ -17,6 +20,7 @@ namespace MyTools.Movement.TwoDimensional
         private void PlayJumpSound() 
         {
             _audioSource.clip = _jumpSound;
+            _jumpParticleSystem.Play();
             _audioSource.Play();
         }
     }
