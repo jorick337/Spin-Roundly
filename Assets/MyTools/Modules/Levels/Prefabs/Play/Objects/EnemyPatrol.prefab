@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6496983615816813803}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5102,8 +5102,10 @@ MonoBehaviour:
   _repeatable: 1
   _allowActivation: 0
   _tag: Player
-  _onlyTriggerFromAbove: 1
-  _minJumpHeight: 1
+  _onlyTriggerFromVertical: 1
+  _verticalDistance: 1
+  _onlyTriggerFromHorizontal: 0
+  _horizontalDistance: 0
 --- !u!199 &2100401242459618085
 ParticleSystemRenderer:
   serializedVersion: 6

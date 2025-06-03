@@ -18,9 +18,13 @@ namespace MyTools.UI
         [SerializeField] private bool _allowActivation = true;
         [SerializeField] private string _tag = "Player";
 
-        [Header("Jump")]
-        [SerializeField] private bool _onlyTriggerFromAbove = false;
-        [SerializeField] private float _minJumpHeight = 0;
+        [Header("Vertical")]
+        [SerializeField] private bool _onlyTriggerFromVertical = false;
+        [SerializeField] private float _verticalDistance = 0;
+
+        [Header("Horizontal")]
+        [SerializeField] private bool _onlyTriggerFromHorizontal = false;
+        [SerializeField] private float _horizontalDistance = 0;
 
         #endregion
 
@@ -31,9 +35,12 @@ namespace MyTools.UI
             if (!collider2D.transform.CompareTag(_tag))
                 return;
 
-            if (_onlyTriggerFromAbove && !IsTriggerFromAbove(collider2D))
+            if (_onlyTriggerFromVertical && !IsTriggerFromVertical(collider2D))
                 return;
-                
+
+            if (_onlyTriggerFromHorizontal && !IsTriggerFromHorizontal(collider2D))
+                return;
+
             InvokeOnTriggered(collider2D);
 
             if (_allowActivation)
@@ -51,15 +58,23 @@ namespace MyTools.UI
 
         #region VALUES
 
-        private void SetActiveByLooping() => gameObject.SetActive(_repeatable);
-
-        protected bool IsTriggerFromAbove(Collider2D collider2D)
+        private bool IsTriggerFromVertical(Collider2D collider2D)
         {
             float triggerY = collider2D.transform.position.y;
             float transformY = transform.position.y;
 
-            return triggerY > transformY + _minJumpHeight;
+            return triggerY > transformY + _verticalDistance;
         }
+
+        private bool IsTriggerFromHorizontal(Collider2D collider2D)
+        {
+            float triggerX = collider2D.transform.position.x;
+            float transformX = transform.position.x;
+
+            return triggerX > transformX + _horizontalDistance;
+        }
+
+        private void SetActiveByLooping() => gameObject.SetActive(_repeatable);
 
         #endregion
 
