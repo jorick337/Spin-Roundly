@@ -46,17 +46,6 @@ namespace MyTools.UI.Animation
             DOTween.Kill(this);
         }
 
-        private async void AnimateAlways()
-        {
-            var token = this.GetCancellationTokenOnDestroy();
-            try
-            {
-                while (IsValid())
-                    await AnimateAsync().AttachExternalCancellation(token);
-            }
-            catch (OperationCanceledException) { }
-        }
-
         #endregion
 
         #region CORE LOGIC
@@ -85,6 +74,10 @@ namespace MyTools.UI.Animation
             _animation = DOTween.Sequence().Append(AnimationIn()).Append(AnimationOut());
         }
 
+        #endregion
+
+        #region ASYNC
+
         public async UniTask AnimateInAsync()
         {
             if (!IsValid()) return;
@@ -108,6 +101,37 @@ namespace MyTools.UI.Animation
             await AnimateInAsync();
             await AnimateOutAsync();
         }
+
+        #endregion
+
+        #region ALWAYS
+
+        public void StartAlwaysAnimation()
+        {
+            _isLooping = true;
+            AnimateAlways();
+        }
+        
+        public void StopAlwaysAnimation() 
+        {
+            _isLooping = false;
+            AnimateIn();
+        } 
+
+        private async void AnimateAlways()
+        {
+            var token = this.GetCancellationTokenOnDestroy();
+            try
+            {
+                while (IsValid() && _isLooping)
+                    await AnimateAsync().AttachExternalCancellation(token);
+            }
+            catch (OperationCanceledException) { }
+        }
+
+        #endregion
+
+        #region VALUES
 
         private bool IsValid() => this != null && gameObject != null && gameObject.activeInHierarchy;
 

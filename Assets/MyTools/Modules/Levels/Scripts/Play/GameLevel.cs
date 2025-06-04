@@ -1,6 +1,9 @@
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using MyTools.Movement.TwoDimensional;
 using MyTools.UI;
+using MyTools.UI.Animation;
+using MyTools.UI.Objects;
 using UnityEngine;
 
 namespace MyTools.Levels.Play
@@ -16,6 +19,11 @@ namespace MyTools.Levels.Play
         [Header("Restart")]
         [SerializeField] private Collider2DTrigger _defeatColliderTrigger;
         [SerializeField] private Teleport _teleportPlayer;
+
+        [Header("Player")]
+        [SerializeField] private StunAndInvincibility _playerStunAndInvincibility;
+        [SerializeField] private Health _playerHealth;
+        [SerializeField] private AnimationTransparency _playerAnimationTransparency;
 
         // Managers
         private GameLevelManager _gameLevelManager;
@@ -33,6 +41,7 @@ namespace MyTools.Levels.Play
             _gameLevelManager.OnRestart += Restart;
             _finishColliderTrigger.OnTriggered += FinishLevelByCollider;
             _defeatColliderTrigger.OnTriggered += RestartLevelByCollider;
+            _playerHealth.Changed += TakeHit;
         }
 
         private void OnDisable()
@@ -41,6 +50,19 @@ namespace MyTools.Levels.Play
             _gameLevelManager.OnRestart -= Restart;
             _finishColliderTrigger.OnTriggered -= FinishLevelByCollider;
             _defeatColliderTrigger.OnTriggered -= RestartLevelByCollider;
+            _playerHealth.Changed -= TakeHit;
+        }
+
+        #endregion
+
+        #region CORE LOGIC
+
+        private async void StunAndAnimatePlayerAsync()
+        {
+            _playerStunAndInvincibility.Stun();
+            _playerAnimationTransparency.StartAlwaysAnimation();
+            await _playerStunAndInvincibility.WaitUntilFinished();
+            _playerAnimationTransparency.StopAlwaysAnimation();
         }
 
         #endregion
@@ -56,10 +78,11 @@ namespace MyTools.Levels.Play
 
         private void Restart()
         {
+            StunAndAnimatePlayerAsync();
             _teleportPlayer.SendToTarget();
             _movement2D.Enable();
         }
-        
+
         private void Finish() => _movement2D.Disable();
 
         private void FinishLevelByCollider(Collider2D collider2D) => FinishLevel();
@@ -67,6 +90,8 @@ namespace MyTools.Levels.Play
 
         private void FinishLevel() => _gameLevelManager.Finish();
         private void RestartLevel() => _gameLevelManager.Restart();
+
+        private void TakeHit(int heart) => StunAndAnimatePlayerAsync();
 
         #endregion
     }
