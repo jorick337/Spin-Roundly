@@ -31,16 +31,16 @@ namespace MyTools.Levels.Play
         {
             _gameLevelManager.OnFinish += Finish;
             _gameLevelManager.OnRestart += Restart;
-            _finishColliderTrigger.OnTriggered += InvokeFinish;
-            _defeatColliderTrigger.OnTriggered += InvokeRestart;
+            _finishColliderTrigger.OnTriggered += FinishLevelByCollider;
+            _defeatColliderTrigger.OnTriggered += RestartLevelByCollider;
         }
 
         private void OnDisable()
         {
             _gameLevelManager.OnFinish -= Finish;
             _gameLevelManager.OnRestart -= Restart;
-            _finishColliderTrigger.OnTriggered -= InvokeFinish;
-            _defeatColliderTrigger.OnTriggered -= InvokeRestart;
+            _finishColliderTrigger.OnTriggered -= FinishLevelByCollider;
+            _defeatColliderTrigger.OnTriggered -= RestartLevelByCollider;
         }
 
         #endregion
@@ -62,8 +62,11 @@ namespace MyTools.Levels.Play
         
         private void Finish() => _movement2D.Disable();
 
-        private void InvokeFinish(Collider2D collider2D) => _gameLevelManager.Finish();
-        private void InvokeRestart(Collider2D collider2D) => _gameLevelManager.Restart();
+        private void FinishLevelByCollider(Collider2D collider2D) => FinishLevel();
+        private void RestartLevelByCollider(Collider2D collider2D) => RestartLevel();
+
+        private void FinishLevel() => _gameLevelManager.Finish();
+        private void RestartLevel() => _gameLevelManager.Restart();
 
         #endregion
     }

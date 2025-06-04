@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using MyTools.UI;
 
 namespace MyTools.Levels.Start
@@ -10,7 +9,7 @@ namespace MyTools.Levels.Start
         private async void Awake() 
         {
             _levelsManager = LevelsManager.Instance;
-            await UniTask.WaitUntil(() => _levelsManager.IsLoaded);
+            await _levelsManager.WaitUntilLoaded();
             Initialize();
         } 
 

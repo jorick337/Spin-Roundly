@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,6 +23,7 @@ namespace MyTools.Levels.Play
         public int Stars { get; private set; } = 0;
 
         private GameLevel _gameLevel;
+        private bool IsLoaded = false;
 
         // Managers
         private LevelsManager _levelsManager;
@@ -60,6 +62,8 @@ namespace MyTools.Levels.Play
 
         #region LOAD
 
+        public async UniTask WaitUntilLoaded() => await UniTask.WaitUntil(() => IsLoaded);
+
         private async void LoadVictoryView()
         {
             VictoryViewProvider victoryViewProvider = new();
@@ -72,13 +76,17 @@ namespace MyTools.Levels.Play
             _gameLevel = await _levelsManager.LoadNextLevel();
         }
 
-        private async void Load() => _gameLevel = await _levelsManager.Load();
+        private async void Load() 
+        {
+            _gameLevel = await _levelsManager.Load();
+            IsLoaded = true;
+        } 
 
         #endregion
 
         #region VALUES
 
-        public void AddStar() 
+        public void AddStar()
         {
             Stars += 1;
             InvokeStarsChanged();

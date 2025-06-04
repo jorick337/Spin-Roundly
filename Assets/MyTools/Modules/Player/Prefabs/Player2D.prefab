@@ -5177,7 +5177,7 @@ MonoBehaviour:
   _onlyTriggerFromVertical: 0
   _verticalDistance: 0
   _onlyTriggerFromHorizontal: 1
-  _horizontalDistance: 0
+  _horizontalDistance: 1
 --- !u!114 &388514210042500176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5190,5 +5190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e2aecaf0ba5d904ad54181bebe5398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider2DTrigger: {fileID: 2945810391613237109}
-  _heath: 3
+  _collider2DTrigger: {fileID: 2945810391613237109}
+  _default: 3
+  _instance: 1
