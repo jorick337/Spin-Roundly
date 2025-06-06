@@ -1,11 +1,10 @@
 using Cysharp.Threading.Tasks;
-using MyTools.Levels.Play;
+using MyTools.Enemy;
 using MyTools.Movement.TwoDimensional;
 using MyTools.UI;
-using MyTools.UI.Objects;
 using UnityEngine;
 
-namespace MyTools.Enemy
+namespace MyTools.Levels.Play.Objects
 {
     public class Enemy : LevelItem
     {

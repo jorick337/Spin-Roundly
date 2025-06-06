@@ -69,7 +69,6 @@ namespace MyTools.Levels.Play
 
         private void Restart()
         {
-            StunAndAnimatePlayerAsync();
             _teleportPlayer.SendToTarget();
             _movement2D.Enable();
         }

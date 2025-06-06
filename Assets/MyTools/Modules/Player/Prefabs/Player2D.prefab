@@ -5000,7 +5000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0.1
   _yOffSet: 0
-  _isLooping: 0
+  _isLooping: 1
   _target: {fileID: 0}
   _minX: -0.5
   _maxX: 5.5

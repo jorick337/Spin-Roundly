@@ -108,6 +108,9 @@ namespace MyTools.UI.Animation
 
         public void StartAlwaysAnimation()
         {
+            if (_isLooping)
+                return;
+                
             _isLooping = true;
             AnimateAlways();
         }
@@ -116,7 +119,7 @@ namespace MyTools.UI.Animation
         {
             _isLooping = false;
             AnimateIn();
-        } 
+        }
 
         private async void AnimateAlways()
         {
