@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: _playerHealth
       value: 
       objectReference: {fileID: 77107227375164870}
+    - target: {fileID: 5308750041503340449, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6034489456051379497, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

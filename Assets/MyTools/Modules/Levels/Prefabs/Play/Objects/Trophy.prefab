@@ -150,8 +150,14 @@ MonoBehaviour:
   _repeatable: 0
   _allowActivation: 1
   _tag: Player
-  _onlyTriggerFromAbove: 0
-  _minJumpHeight: 0
+  _canTop: 1
+  _topDistance: 0
+  _canBottom: 1
+  _bottomDistance: 0
+  _canLeft: 1
+  _leftDistance: 0
+  _canRight: 1
+  _rightDistance: 0
 --- !u!1 &6287327753680751502
 GameObject:
   m_ObjectHideFlags: 0
