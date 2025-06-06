@@ -1,4 +1,5 @@
 using System.Collections;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace MyTools.UI.CameraSystem
@@ -11,6 +12,8 @@ namespace MyTools.UI.CameraSystem
         private Transform _mainCamera;
         private Vector3 _initialPos;
 
+        private bool _isFinish;
+
         private void Awake() => _mainCamera = Camera.main.transform;
 
         public void Shake(float duration, float magnitude)
@@ -21,8 +24,11 @@ namespace MyTools.UI.CameraSystem
 
         public void Shake() => Shake(_defaultDuration, _defaultMagnitude);
 
+        public async UniTask WaitUntilFinished() => await UniTask.WaitUntil(() => _isFinish == true);
+
         private IEnumerator ShakeCoroutine(float duration, float magnitude)
         {
+            _isFinish = false;
             _initialPos = _mainCamera.position;
             float time = 0f;
 
@@ -38,6 +44,7 @@ namespace MyTools.UI.CameraSystem
             }
 
             _mainCamera.position = _initialPos;
+            _isFinish = true;
         }
     }
 }

@@ -1,8 +1,6 @@
 using Cysharp.Threading.Tasks;
 using MyTools.Movement.TwoDimensional;
 using MyTools.UI;
-using MyTools.UI.Animation;
-using MyTools.UI.Objects;
 using UnityEngine;
 
 namespace MyTools.Levels.Play
@@ -14,11 +12,6 @@ namespace MyTools.Levels.Play
         [Header("Core")]
         [SerializeField] private Movement2D _movement2D;
         [SerializeField] private Teleport _teleportPlayer;
-
-        [Header("Player")]
-        [SerializeField] private StunAndInvincibility _playerStunAndInvincibility;
-        [SerializeField] private Health _playerHealth;
-        [SerializeField] private AnimationTransparency _playerAnimationTransparency;
 
         // Managers
         private GameLevelManager _gameLevelManager;
@@ -34,26 +27,12 @@ namespace MyTools.Levels.Play
         {
             _gameLevelManager.OnFinish += Finish;
             _gameLevelManager.OnRestart += Restart;
-            _playerHealth.Changed += StunAndAnimatePlayerAsync;
         }
 
         private void OnDisable()
         {
             _gameLevelManager.OnFinish -= Finish;
             _gameLevelManager.OnRestart -= Restart;
-            _playerHealth.Changed -= StunAndAnimatePlayerAsync;
-        }
-
-        #endregion
-
-        #region CORE LOGIC
-
-        private async void StunAndAnimatePlayerAsync()
-        {
-            _playerStunAndInvincibility.Stun();
-            _playerAnimationTransparency.StartAlwaysAnimation();
-            await _playerStunAndInvincibility.WaitUntilFinished();
-            _playerAnimationTransparency.StopAlwaysAnimation();
         }
 
         #endregion
@@ -74,8 +53,6 @@ namespace MyTools.Levels.Play
         }
 
         private void Finish() => _movement2D.Disable();
-
-        private void StunAndAnimatePlayerAsync(int heart) => StunAndAnimatePlayerAsync();
 
         #endregion
     }

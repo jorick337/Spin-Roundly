@@ -20,6 +20,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2964128509026187432, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+      propertyPath: _movement2D
+      value: 
+      objectReference: {fileID: 4246427044104553583}
+    - target: {fileID: 3035801407406896712, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+      propertyPath: _playerHealth
+      value: 
+      objectReference: {fileID: 77107227375164870}
     - target: {fileID: 6034489456051379497, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -64,8 +72,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8061654172276949643, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+      propertyPath: m_Name
+      value: HealthCollider
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1976893884877757979, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+--- !u!114 &77107227375164870 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5433978974752634331, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+  m_PrefabInstance: {fileID: 5366231968258041885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e2aecaf0ba5d904ad54181bebe5398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4246427044104553583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8112946032853871730, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+  m_PrefabInstance: {fileID: 5366231968258041885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72827d80b5c6afaf2b28255fbd0de293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
