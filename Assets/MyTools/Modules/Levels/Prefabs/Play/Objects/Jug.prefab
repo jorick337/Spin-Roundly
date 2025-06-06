@@ -253,10 +253,14 @@ MonoBehaviour:
   _repeatable: 1
   _allowActivation: 1
   _tag: Player
-  _onlyTriggerFromVertical: 1
-  _verticalDistance: 1
-  _onlyTriggerFromHorizontal: 0
-  _horizontalDistance: 0
+  _canTop: 1
+  _topDistance: 1
+  _canBottom: 0
+  _bottomDistance: 0
+  _canLeft: 0
+  _leftDistance: 0
+  _canRight: 0
+  _rightDistance: 0
 --- !u!114 &1271603950351876993
 MonoBehaviour:
   m_ObjectHideFlags: 0

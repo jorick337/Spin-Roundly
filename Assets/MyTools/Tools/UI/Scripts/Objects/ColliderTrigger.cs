@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 namespace MyTools.UI
 {
@@ -18,13 +19,17 @@ namespace MyTools.UI
         [SerializeField] private bool _allowActivation = true;
         [SerializeField] private string _tag = "Player";
 
-        [Header("Vertical")]
-        [SerializeField] private bool _onlyTriggerFromVertical = false;
-        [SerializeField] private float _verticalDistance = 0;
+        [Header("Directions")]
+        [SerializeField] private bool _canTop = false;
+        [SerializeField] private float _topDistance = 0;
+        [SerializeField] private bool _canBottom = false;
+        [SerializeField] private float _bottomDistance = 0;
+        [SerializeField] private bool _canLeft = false;
+        [SerializeField] private float _leftDistance = 0;
+        [SerializeField] private bool _canRight = false;
+        [SerializeField] private float _rightDistance = 0;
 
-        [Header("Horizontal")]
-        [SerializeField] private bool _onlyTriggerFromHorizontal = false;
-        [SerializeField] private float _horizontalDistance = 0;
+        public enum Direction { Top, Bottom, Left, Right }
 
         #endregion
 
@@ -35,10 +40,18 @@ namespace MyTools.UI
             if (!collider2D.transform.CompareTag(_tag))
                 return;
 
-            if (_onlyTriggerFromVertical && !IsTriggerFromVertical(collider2D))
-                return;
+            bool can = false;
 
-            if (_onlyTriggerFromHorizontal && !IsTriggerFromHorizontal(collider2D))
+            if (_canTop && IsTriggerFrom(Direction.Top, collider2D))
+                can = true;
+            if (_canLeft && IsTriggerFrom(Direction.Left, collider2D))
+                can = true;
+            if (_canBottom && IsTriggerFrom(Direction.Bottom, collider2D))
+                can = true;
+            if (_canRight && IsTriggerFrom(Direction.Right, collider2D))
+                can = true;
+
+            if (!can)
                 return;
 
             InvokeOnTriggered(collider2D);
@@ -58,20 +71,19 @@ namespace MyTools.UI
 
         #region VALUES
 
-        private bool IsTriggerFromVertical(Collider2D collider2D)
+        private bool IsTriggerFrom(Direction direction, Collider2D collider2D)
         {
-            float triggerY = collider2D.transform.position.y;
-            float transformY = transform.position.y;
+            Vector2 triggerPos = collider2D.transform.position;
+            Vector2 selfPos = transform.position;
 
-            return triggerY > transformY + _verticalDistance;
-        }
-
-        private bool IsTriggerFromHorizontal(Collider2D collider2D)
-        {
-            float triggerX = collider2D.transform.position.x;
-            float transformX = transform.position.x;
-
-            return triggerX > transformX + _horizontalDistance;
+            return direction switch
+            {
+                Direction.Top => triggerPos.y > selfPos.y + _topDistance,
+                Direction.Bottom => triggerPos.y < selfPos.y - _bottomDistance,
+                Direction.Left => triggerPos.x < selfPos.x - _leftDistance,
+                Direction.Right => triggerPos.x > selfPos.x + _rightDistance,
+                _ => false
+            };
         }
 
         private void SetActiveByLooping() => gameObject.SetActive(_repeatable);

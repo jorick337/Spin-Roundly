@@ -5453,10 +5453,14 @@ MonoBehaviour:
   _repeatable: 0
   _allowActivation: 0
   _tag: Enemy
-  _onlyTriggerFromVertical: 0
-  _verticalDistance: 0
-  _onlyTriggerFromHorizontal: 1
-  _horizontalDistance: -2
+  _canTop: 0
+  _topDistance: 0
+  _canBottom: 0
+  _bottomDistance: 0
+  _canLeft: 1
+  _leftDistance: 1
+  _canRight: 1
+  _rightDistance: 1
 --- !u!114 &6318656566422421758
 MonoBehaviour:
   m_ObjectHideFlags: 0
