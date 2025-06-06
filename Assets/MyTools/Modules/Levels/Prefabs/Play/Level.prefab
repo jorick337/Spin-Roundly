@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 1391175781988393293}
   - component: {fileID: 3596926192566757783}
   - component: {fileID: 1390166729333284412}
+  - component: {fileID: 8025917382817962495}
   m_Layer: 0
   m_Name: FinishPoint
   m_TagString: Untagged
@@ -736,6 +737,20 @@ MonoBehaviour:
   _verticalDistance: 0
   _onlyTriggerFromHorizontal: 0
   _horizontalDistance: 0
+--- !u!114 &8025917382817962495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5683198153590421613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98a737e49cb7d014b3904b50f33bb9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colliderTrigger: {fileID: 1390166729333284412}
+  _isFinish: 1
 --- !u!1 &5778835480458076214
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8534642050141431039}
+  - component: {fileID: 3754165285640608619}
   m_Layer: 0
   m_Name: StartPoint
   m_TagString: Untagged
@@ -892,6 +908,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8261702728538337586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3754165285640608619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6032630651943658334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3388bd7578b6cdc99af61b2687721f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTrans: {fileID: 8534642050141431039}
+  _objTrans: {fileID: 6456022239407697078}
 --- !u!1 &6567596627806399306
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,7 +963,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6034489456051379497}
-  - component: {fileID: 6741657685057965710}
   - component: {fileID: 3035801407406896712}
   m_Layer: 0
   m_Name: Level
@@ -965,20 +994,6 @@ Transform:
   - {fileID: 4741795055514929500}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6741657685057965710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6574035658119494229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3388bd7578b6cdc99af61b2687721f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetTrans: {fileID: 8534642050141431039}
-  _objTrans: {fileID: 6456022239407697078}
 --- !u!114 &3035801407406896712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,10 +1006,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2034d983fe43fcae7ae8597dd7869c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _finishColliderTrigger: {fileID: 1390166729333284412}
   _movement2D: {fileID: 908910518825371060}
-  _defeatColliderTrigger: {fileID: 6637102609945520668}
-  _teleportPlayer: {fileID: 6741657685057965710}
+  _teleportPlayer: {fileID: 3754165285640608619}
   _playerStunAndInvincibility: {fileID: 4970775967753901142}
   _playerHealth: {fileID: 1976893884877757979}
   _playerAnimationTransparency: {fileID: 7083778443030010123}
@@ -1009,6 +1022,7 @@ GameObject:
   - component: {fileID: 8551381940918485922}
   - component: {fileID: 2293178168187619899}
   - component: {fileID: 6637102609945520668}
+  - component: {fileID: 2096645342062622596}
   m_Layer: 0
   m_Name: DefeatCollider
   m_TagString: Untagged
@@ -1096,6 +1110,20 @@ MonoBehaviour:
   _verticalDistance: 0
   _onlyTriggerFromHorizontal: 0
   _horizontalDistance: 0
+--- !u!114 &2096645342062622596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7241432704623204157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98a737e49cb7d014b3904b50f33bb9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colliderTrigger: {fileID: 6637102609945520668}
+  _isFinish: 0
 --- !u!1 &7479228267610973287
 GameObject:
   m_ObjectHideFlags: 0

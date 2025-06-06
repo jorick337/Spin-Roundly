@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using MyTools.Levels.Play;
 using MyTools.Movement.TwoDimensional;
 using MyTools.UI;
+using MyTools.UI.Objects;
 using UnityEngine;
 
 namespace MyTools.Enemy

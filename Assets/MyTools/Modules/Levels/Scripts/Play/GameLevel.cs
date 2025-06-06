@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using MyTools.Movement.TwoDimensional;
 using MyTools.UI;
@@ -12,12 +11,8 @@ namespace MyTools.Levels.Play
     {
         #region  CORE
 
-        [Header("Finish")]
-        [SerializeField] private Collider2DTrigger _finishColliderTrigger;
+        [Header("Core")]
         [SerializeField] private Movement2D _movement2D;
-
-        [Header("Restart")]
-        [SerializeField] private Collider2DTrigger _defeatColliderTrigger;
         [SerializeField] private Teleport _teleportPlayer;
 
         [Header("Player")]
@@ -39,18 +34,14 @@ namespace MyTools.Levels.Play
         {
             _gameLevelManager.OnFinish += Finish;
             _gameLevelManager.OnRestart += Restart;
-            _finishColliderTrigger.OnTriggered += FinishLevelByCollider;
-            _defeatColliderTrigger.OnTriggered += RestartLevelByCollider;
-            _playerHealth.Changed += TakeHit;
+            _playerHealth.Changed += StunAndAnimatePlayerAsync;
         }
 
         private void OnDisable()
         {
             _gameLevelManager.OnFinish -= Finish;
             _gameLevelManager.OnRestart -= Restart;
-            _finishColliderTrigger.OnTriggered -= FinishLevelByCollider;
-            _defeatColliderTrigger.OnTriggered -= RestartLevelByCollider;
-            _playerHealth.Changed -= TakeHit;
+            _playerHealth.Changed -= StunAndAnimatePlayerAsync;
         }
 
         #endregion
@@ -85,13 +76,7 @@ namespace MyTools.Levels.Play
 
         private void Finish() => _movement2D.Disable();
 
-        private void FinishLevelByCollider(Collider2D collider2D) => FinishLevel();
-        private void RestartLevelByCollider(Collider2D collider2D) => RestartLevel();
-
-        private void FinishLevel() => _gameLevelManager.Finish();
-        private void RestartLevel() => _gameLevelManager.Restart();
-
-        private void TakeHit(int heart) => StunAndAnimatePlayerAsync();
+        private void StunAndAnimatePlayerAsync(int heart) => StunAndAnimatePlayerAsync();
 
         #endregion
     }

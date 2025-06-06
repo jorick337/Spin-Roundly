@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6570195913840855812}
   - component: {fileID: 6350781176916681075}
   - component: {fileID: 9121932516985515054}
+  - component: {fileID: 7627102442862915299}
   m_Layer: 6
   m_Name: Effects
   m_TagString: Untagged
@@ -67,6 +68,20 @@ MonoBehaviour:
   _hiddenTransparency: 0
   _uiElement: {fileID: 0}
   _spriteRenderer: {fileID: 1487579447772188972}
+--- !u!114 &7627102442862915299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2787317360973933934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb31d6d540de8a6885e609796b8565c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultDuration: 0.1
+  _defaultMagnitude: 0.2
 --- !u!1 &4091099298256190212
 GameObject:
   m_ObjectHideFlags: 0
@@ -4985,6 +5000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0.1
   _yOffSet: 0
+  _isLooping: 0
   _target: {fileID: 0}
   _minX: -0.5
   _maxX: 5.5
