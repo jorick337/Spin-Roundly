@@ -226,10 +226,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6318656566422421758}
-  _stunAndInvincibility: {fileID: 6350781176916681075}
-  _animationTransparency: {fileID: 9121932516985515054}
   _cameraFollower: {fileID: 2765730178596865821}
   _cameraShaker: {fileID: 7275942886803278985}
+  _stunAndInvincibility: {fileID: 6350781176916681075}
+  _animationTransparency: {fileID: 9121932516985515054}
 --- !u!1 &4442345418916127789
 GameObject:
   m_ObjectHideFlags: 0
@@ -5115,8 +5115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement2D: {fileID: 7804675292730317143}
   _audioSource: {fileID: 6108821962227508196}
-  _jumpParticleSystem: {fileID: 7268443726680896334}
   _jumpSound: {fileID: 8300000, guid: caa2a5980f94bd3edb3f92b0e37d19c8, type: 3}
+  _jumpParticleSystem: {fileID: 7268443726680896334}
 --- !u!114 &7804675292730317143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5225,6 +5225,7 @@ GameObject:
   - component: {fileID: 5652362444602960484}
   - component: {fileID: 1487579447772188972}
   - component: {fileID: 7573791230136250175}
+  - component: {fileID: 2276344713849563303}
   - component: {fileID: 2945810391613237109}
   - component: {fileID: 6318656566422421758}
   m_Layer: 6
@@ -5340,6 +5341,103 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1.5
+--- !u!82 &2276344713849563303
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8302808662137845678}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 1001725658682267121, guid: f455c7cc3ec81d0a4a197a186e192634, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &2945810391613237109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5358,7 +5456,7 @@ MonoBehaviour:
   _onlyTriggerFromVertical: 0
   _verticalDistance: 0
   _onlyTriggerFromHorizontal: 1
-  _horizontalDistance: 1
+  _horizontalDistance: -2
 --- !u!114 &6318656566422421758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5374,3 +5472,6 @@ MonoBehaviour:
   _collider2DTrigger: {fileID: 2945810391613237109}
   _default: 3
   _instance: 1
+  _audioSource: {fileID: 2276344713849563303}
+  _hitAudioClip: {fileID: 8300000, guid: 1e34943a958521aaf8ef6fcc4b66e0d9, type: 3}
+  _deadAudioClip: {fileID: 8300000, guid: 3bfc13281b96cd663b475174415a6bd3, type: 3}

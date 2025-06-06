@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8061654172276949643, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: m_Name
-      value: HealthCollider
+      value: Health
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1976893884877757979, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}

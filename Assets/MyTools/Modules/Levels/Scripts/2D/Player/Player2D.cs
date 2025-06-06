@@ -8,11 +8,16 @@ namespace MyTools.Levels.TwoDimensional.Player
 {
     public class Player2D : MonoBehaviour
     {
+        [Header("Core")]
         [SerializeField] private Health _health;
-        [SerializeField] private StunAndInvincibility _stunAndInvincibility;
-        [SerializeField] private AnimationTransparency _animationTransparency;
+
+        [Header("Shake")]
         [SerializeField] private CameraFollower _cameraFollower;
         [SerializeField] private CameraShaker _cameraShaker;
+        
+        [Header("Stun")]
+        [SerializeField] private StunAndInvincibility _stunAndInvincibility;
+        [SerializeField] private AnimationTransparency _animationTransparency;
 
         private void OnEnable() => _health.Changed += Apply;
         private void OnDisable() => _health.Changed -= Apply;
