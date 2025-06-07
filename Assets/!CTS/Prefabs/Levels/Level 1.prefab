@@ -20,6 +20,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2293178168187619899, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293178168187619899, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2964128509026187432, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: _movement2D
       value: 
@@ -31,6 +39,10 @@ PrefabInstance:
     - target: {fileID: 4231386165926048312, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: _maxX
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231386165926048312, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+      propertyPath: _minX
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 6034489456051379497, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: m_LocalPosition.x

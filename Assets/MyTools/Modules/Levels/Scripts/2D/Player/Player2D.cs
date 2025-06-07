@@ -14,15 +14,24 @@ namespace MyTools.Levels.TwoDimensional.Player
         [Header("Shake")]
         [SerializeField] private CameraFollower _cameraFollower;
         [SerializeField] private CameraShaker _cameraShaker;
-        
+
         [Header("Stun")]
         [SerializeField] private StunAndInvincibility _stunAndInvincibility;
         [SerializeField] private AnimationTransparency _animationTransparency;
 
-        private void OnEnable() => _health.Changed += Apply;
-        private void OnDisable() => _health.Changed -= Apply;
+        private void OnEnable()
+        {
+            _health.Changed += TakeHit;
+            _health.Dead += Dead;
+        }
 
-        private void Apply()
+        private void OnDisable()
+        {
+            _health.Changed -= TakeHit;
+            _health.Dead -= Dead;
+        }
+
+        private void TakeHit()
         {
             Shake();
             Stun();
@@ -43,7 +52,12 @@ namespace MyTools.Levels.TwoDimensional.Player
             await _stunAndInvincibility.WaitUntilFinished();
             _animationTransparency.StopAlwaysAnimation();
         }
-
-        private void Apply(int heart) => Apply();
+        
+        private void Dead()
+        {
+            
+        }
+        
+        private void TakeHit(int heart) => TakeHit();
     }
 }
