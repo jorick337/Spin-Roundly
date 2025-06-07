@@ -20,7 +20,6 @@ namespace MyTools.Levels.Play.Objects
         [SerializeField] private Teleport _teleportReward;
 
         [Header("Jump")]
-        [SerializeField] private Movement2D _movement2D;
         [SerializeField] private PatrolArea _patrolArea;
         [SerializeField] private ParticleSystem _particleSystem;
 
@@ -54,7 +53,6 @@ namespace MyTools.Levels.Play.Objects
         {
             _isDeath = true;
             _teleportReward.SendToTarget();
-            _movement2D.Jump();
             PlayBreakSound();
             ActiveUI(false);
         }
@@ -62,7 +60,6 @@ namespace MyTools.Levels.Play.Objects
         private async UniTask ReboundAsync()
         {
             _patrolArea.enabled = false;
-            _movement2D.Jump();
             await Stun();
             _patrolArea.enabled = true;
         }

@@ -897,12 +897,13 @@ GameObject:
   - component: {fileID: 8551381940918485922}
   - component: {fileID: 5308750041503340449}
   - component: {fileID: 2293178168187619899}
+  - component: {fileID: 8212032363233938300}
   - component: {fileID: 5021821060767868951}
   - component: {fileID: 6637102609945520668}
-  - component: {fileID: 2096645342062622596}
+  - component: {fileID: 6653344409809417599}
   m_Layer: 0
   m_Name: DefeatCollider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -917,7 +918,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4, y: -10, z: 0}
-  m_LocalScale: {x: 46.875, y: 6, z: 1}
+  m_LocalScale: {x: 80, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8261702728538337586}
@@ -1008,7 +1009,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.1}
@@ -1021,8 +1022,27 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 1
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 1}
+  m_Size: {x: 1.3, y: 1}
   m_EdgeRadius: 0
+--- !u!253 &8212032363233938300
+BuoyancyEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7241432704623204157}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_SurfaceLevel: -0.2
+  m_Density: 2
+  m_LinearDrag: 5
+  m_AngularDrag: 5
+  m_FlowAngle: 0
+  m_FlowMagnitude: 0
+  m_FlowVariation: 0
 --- !u!114 &5021821060767868951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,7 +1083,7 @@ MonoBehaviour:
   _leftDistance: 0
   _canRight: 1
   _rightDistance: 0
---- !u!114 &2096645342062622596
+--- !u!114 &6653344409809417599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1072,11 +1092,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7241432704623204157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c98a737e49cb7d014b3904b50f33bb9f, type: 3}
+  m_Script: {fileID: 11500000, guid: b6e56c2748023b1a4be49e9a8cf05f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colliderTrigger: {fileID: 6637102609945520668}
-  _isFinish: 0
+  _collider2DTrigger: {fileID: 6637102609945520668}
+  _movement2D: {fileID: 8112946032853871730}
 --- !u!1 &7479228267610973287
 GameObject:
   m_ObjectHideFlags: 0
@@ -2665,6 +2685,10 @@ PrefabInstance:
       propertyPath: _allowActivation
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1978655977192672168, guid: ebcda9a1c57765f0f814cc14adc52dd9, type: 3}
+      propertyPath: _movement2D
+      value: 
+      objectReference: {fileID: 8112946032853871730}
     - target: {fileID: 2026380028593882146, guid: ebcda9a1c57765f0f814cc14adc52dd9, type: 3}
       propertyPath: m_Name
       value: EnemyPatrol

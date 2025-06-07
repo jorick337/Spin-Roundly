@@ -24,7 +24,6 @@ namespace MyTools.Levels.Play
 
         private void Awake() => Initialize();
         private void OnEnable() => _collider2DTrigger.OnTriggered += Add;
-
         private void OnDisable() => _collider2DTrigger.OnTriggered -= Add; 
 
         private void Initialize()

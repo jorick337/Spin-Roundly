@@ -145,9 +145,9 @@ MonoBehaviour:
   _yOffSet: 0
   _isLooping: 1
   _target: {fileID: 4990368510417099155}
-  _minX: -10
-  _maxX: 15
-  _minY: 0
+  _minX: -30
+  _maxX: 30
+  _minY: -3
   _maxY: 6
 --- !u!1 &4091099298256190212
 GameObject:
