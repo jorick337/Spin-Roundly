@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using MyTools.UI;
 using UnityEngine;
 
@@ -11,51 +12,31 @@ namespace MyTools.Levels.Play
         // Managers
         private GameLevelManager _gameLevelManager;
 
-        private void Awake()
+        private async void Awake()
         {
             _gameLevelManager = GameLevelManager.Instance;
-            InitializeAsync();
+            await _gameLevelManager.WaitUntilLoaded();
+            Initialize();
+            UpdateHealth();
         }
 
-        private void OnEnable()
-        {
-            if (!_findInstance)
-                RegisterEvents();
-        }
+        private void OnEnable() => _gameLevelManager.OnRestart += UpdateHealth;
 
         private void OnDisable()
         {
             _playerHealth.Changed -= UpdateHealth;
-            _playerHealth.Dead -= Restart;
-            _gameLevelManager.OnRestart -= InitializeAsync;
+            _gameLevelManager.OnRestart -= UpdateHealth;
         }
 
-        private async void InitializeAsync()
+        private void Initialize()
         {
-            await _gameLevelManager.WaitUntilLoaded();
-
             if (_findInstance)
-            {
                 _playerHealth = Health.Instance;
-                RegisterEvents();
-            }
 
-            UpdateHealth(_playerHealth.Current);
-        }
-
-        private void RegisterEvents()
-        {
             _playerHealth.Changed += UpdateHealth;
-            _playerHealth.Dead += Restart;
-            _gameLevelManager.OnRestart += InitializeAsync;
         }
 
+        private void UpdateHealth() => UpdateHealth(_playerHealth.Current);
         private void UpdateHealth(int health) => UpdateText(health.ToString());
-
-        private void Restart() 
-        {
-            _playerHealth.Restart();
-            _gameLevelManager.Restart();
-        } 
     }
 }

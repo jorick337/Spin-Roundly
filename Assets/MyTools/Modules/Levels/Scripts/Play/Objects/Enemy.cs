@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using MyTools.Enemy;
-using MyTools.Movement.TwoDimensional;
 using MyTools.UI;
 using UnityEngine;
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1437059994009780424}
   - component: {fileID: 8125894759177648345}
   - component: {fileID: 5141102604622231383}
+  - component: {fileID: 9033703367249022218}
   m_Layer: 5
   m_Name: AdvertisingView
   m_TagString: Untagged
@@ -102,6 +103,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &9033703367249022218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987758234992155068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4355cb9268edfb7089182c5c5e98292a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _time: 5
+  _slider: {fileID: 25955772239427951}
 --- !u!1 &2165469462557507209
 GameObject:
   m_ObjectHideFlags: 0

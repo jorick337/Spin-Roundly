@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Advertising
+  m_EditorClassIdentifier: 
+  m_GroupName: Advertising
+  m_GUID: 162579e31b0130c74bfd89e147b781d0
+  m_SerializeEntries:
+  - m_GUID: e0b5eafd30f38ffc5b409722e1dadc56
+    m_Address: AdvertisingView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 97ba2dda6834bfb338823d3fc0be546e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 02ef923e69e5ccebf8415f1642a8ab1d, type: 2}
+    - {fileID: 11400000, guid: 072322491d1ac708fabd90ddb07f28f2, type: 2}

@@ -1,3 +1,5 @@
+using Cysharp.Threading.Tasks;
+using MyTools.Advertising;
 using MyTools.Levels.Play;
 using MyTools.UI.Animation;
 using MyTools.UI.CameraSystem;
@@ -8,6 +10,8 @@ namespace MyTools.Levels.TwoDimensional.Player
 {
     public class Player2D : MonoBehaviour
     {
+        #region CORE
+
         [Header("Core")]
         [SerializeField] private Health _health;
 
@@ -18,6 +22,16 @@ namespace MyTools.Levels.TwoDimensional.Player
         [Header("Stun")]
         [SerializeField] private StunAndInvincibility _stunAndInvincibility;
         [SerializeField] private AnimationTransparency _animationTransparency;
+
+        // Managers
+        private GameLevelManager _gameLevelManager;
+        private AdvertisingView _advertisingView;
+
+        #endregion
+
+        #region MONO
+
+        private void Awake() => _gameLevelManager = GameLevelManager.Instance;
 
         private void OnEnable()
         {
@@ -30,6 +44,10 @@ namespace MyTools.Levels.TwoDimensional.Player
             _health.Changed -= TakeHit;
             _health.Dead -= Dead;
         }
+
+        #endregion
+
+        #region TAKE HIT
 
         private void TakeHit()
         {
@@ -52,12 +70,40 @@ namespace MyTools.Levels.TwoDimensional.Player
             await _stunAndInvincibility.WaitUntilFinished();
             _animationTransparency.StopAlwaysAnimation();
         }
-        
-        private void Dead()
+
+        #endregion
+
+        #region DEAD
+
+        private async UniTask LoadAdvertisingViewAsync()
         {
-            
+            AdvertisingViewProvider provider = new();
+            _advertisingView = await provider.LoadAsync(async () =>
+            {
+                _advertisingView.Finished -= TryRewardedRestartAsync;
+                await UniTask.CompletedTask;
+            });
+            _advertisingView.Finished += TryRewardedRestartAsync;
         }
-        
+
+        private void TryRewardedRestartAsync(bool canGiveReward)
+        {
+            if (canGiveReward)
+                Rebirth();
+            else
+                Restart();
+        }
+
+        private void Rebirth() => _health.Restart();
+        private void Restart() => _gameLevelManager.Restart();
+
+        #endregion
+
+        #region CALLBACKS
+
+        private async void Dead() => await LoadAdvertisingViewAsync();
         private void TakeHit(int heart) => TakeHit();
+
+        #endregion
     }
 }
