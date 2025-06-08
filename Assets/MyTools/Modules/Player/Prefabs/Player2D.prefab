@@ -5227,6 +5227,7 @@ GameObject:
   - component: {fileID: 7573791230136250175}
   - component: {fileID: 2276344713849563303}
   - component: {fileID: 2945810391613237109}
+  - component: {fileID: 3368997529782143389}
   - component: {fileID: 6318656566422421758}
   m_Layer: 6
   m_Name: Health
@@ -5461,6 +5462,22 @@ MonoBehaviour:
   _leftDistance: 1
   _canRight: 1
   _rightDistance: 1
+--- !u!114 &3368997529782143389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8302808662137845678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823bdf0762d89ddf0b7b926debb64010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 6318656566422421758}
+  _audioSource: {fileID: 2276344713849563303}
+  _changedAudioClip: {fileID: 8300000, guid: 1e34943a958521aaf8ef6fcc4b66e0d9, type: 3}
+  _deadAudioClip: {fileID: 8300000, guid: 3bfc13281b96cd663b475174415a6bd3, type: 3}
 --- !u!114 &6318656566422421758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5476,6 +5493,3 @@ MonoBehaviour:
   _collider2DTrigger: {fileID: 2945810391613237109}
   _default: 3
   _instance: 1
-  _audioSource: {fileID: 2276344713849563303}
-  _hitAudioClip: {fileID: 8300000, guid: 1e34943a958521aaf8ef6fcc4b66e0d9, type: 3}
-  _deadAudioClip: {fileID: 8300000, guid: 3bfc13281b96cd663b475174415a6bd3, type: 3}
