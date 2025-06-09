@@ -2,23 +2,23 @@ using UnityEngine;
 
 namespace MyTools.Levels.TwoDimensional.Objects.Health
 {
-    public class HealthSounds : MonoBehaviour
+    public class HL2_Sounds : MonoBehaviour
     {
-        [SerializeField] private Health _health;
+        [SerializeField] private Health_HL2 _health;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private AudioClip _changedAudioClip;
         [SerializeField] private AudioClip _deadAudioClip;
 
         private void OnEnable()
         {
-            _health.Changed += PlayChangedSound;
-            _health.Dead += PlayDeadSound;
+            _health.OnChanged += PlayChangedSound;
+            _health.OnDead += PlayDeadSound;
         }
 
         private void OnDisable()
         {
-            _health.Changed += PlayChangedSound;
-            _health.Dead += PlayDeadSound;
+            _health.OnChanged += PlayChangedSound;
+            _health.OnDead += PlayDeadSound;
         }
 
         private void PlayChangedSound()

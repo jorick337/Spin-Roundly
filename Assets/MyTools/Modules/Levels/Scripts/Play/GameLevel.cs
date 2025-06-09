@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
-using MyTools.Movement.TwoDimensional;
-using MyTools.UI;
+using MyTools.Levels.TwoDimensional.Player;
 using UnityEngine;
 
 namespace MyTools.Levels.Play
@@ -9,13 +8,11 @@ namespace MyTools.Levels.Play
     {
         #region  CORE
 
-        [Header("Core")]
-        [SerializeField] private Movement2D _movement2D;
-        [SerializeField] private Teleport _teleportPlayer;
+        [SerializeField] private Player_PL2 _player;
 
         // Managers
         private GameLevelManager _gameLevelManager;
-        private GameLevelsProvider _gameLevelsProvider;
+        private GameLevelsProvider _provider;
 
         #endregion
 
@@ -39,20 +36,15 @@ namespace MyTools.Levels.Play
 
         #region VALUES
 
-        public void SetProvider(GameLevelsProvider gameLevelsProvider) => _gameLevelsProvider = gameLevelsProvider;
-        public UniTask Unload() => _gameLevelsProvider.UnloadAsync();
+        public void SetProvider(GameLevelsProvider provider) => _provider = provider;
+        public UniTask Unload() => _provider.UnloadAsync();
 
         #endregion
 
         #region CALLBACKS
 
-        private void Restart()
-        {
-            _teleportPlayer.SendToTarget();
-            _movement2D.Enable();
-        }
-
-        private void Finish() => _movement2D.Disable();
+        private void Restart() => _player.Restart();
+        private void Finish() => _player.Disable();
 
         #endregion
     }

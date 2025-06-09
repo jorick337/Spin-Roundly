@@ -6,7 +6,7 @@ namespace MyTools.Levels.Play
 {
     public class HearthCounter : Counter
     {
-        [SerializeField] private Health _playerHealth;
+        [SerializeField] private Health_HL2 _playerHealth;
         [SerializeField] private bool _findInstance = false;
 
         // Managers
@@ -24,16 +24,16 @@ namespace MyTools.Levels.Play
 
         private void OnDisable()
         {
-            _playerHealth.Changed -= UpdateHealth;
+            _playerHealth.OnChanged -= UpdateHealth;
             _gameLevelManager.OnRestart -= UpdateHealth;
         }
 
         private void Initialize()
         {
             if (_findInstance)
-                _playerHealth = Health.Instance;
+                _playerHealth = Health_HL2.Instance;
 
-            _playerHealth.Changed += UpdateHealth;
+            _playerHealth.OnChanged += UpdateHealth;
         }
 
         private void UpdateHealth() => UpdateHealth(_playerHealth.Current);

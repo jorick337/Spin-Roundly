@@ -6,11 +6,10 @@ namespace MyTools.Advertising
 {
     public class AdvertisingViewProvider : LocalAssetLoader
     {
-        public async UniTask<AdvertisingView> LoadAsync(Func<UniTask> action)
+        public async UniTask<AdvertisingView> LoadAsync()
         {
             AdvertisingView advertisingView = await LoadInternal<AdvertisingView>("AdvertisingView");
             advertisingView.SetProvider(this);
-            AddEvent(action);
 
             return advertisingView;
         }
