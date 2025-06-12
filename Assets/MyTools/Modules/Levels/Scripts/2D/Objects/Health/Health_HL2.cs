@@ -36,13 +36,13 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
         private void OnEnable() 
         {
             foreach (var collider2DTrigger in _collider2DTriggers)
-                collider2DTrigger.OnTriggered += Add;
+                collider2DTrigger.OnTriggeredEnter += Add;
         } 
 
         private void OnDisable() 
         {
             foreach (var collider2DTrigger in _collider2DTriggers)
-                collider2DTrigger.OnTriggered -= Add;
+                collider2DTrigger.OnTriggeredEnter -= Add;
         }
 
         #endregion

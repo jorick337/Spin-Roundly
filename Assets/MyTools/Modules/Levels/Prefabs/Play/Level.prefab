@@ -732,7 +732,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _repeatable: 0
   _allowActivation: 1
+  _useTag: 1
   _tag: Player
+  _useLayer: 0
+  _layer: Default
   _canAll: 0
   _canTop: 1
   _topDistance: 0
@@ -902,7 +905,7 @@ GameObject:
   - component: {fileID: 5021821060767868951}
   - component: {fileID: 7124997091156495406}
   - component: {fileID: 7523464750527436427}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1039,8 +1042,8 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0.6
   m_Density: 0.5
-  m_LinearDrag: 5
-  m_AngularDrag: 5
+  m_LinearDrag: 10
+  m_AngularDrag: 10
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
@@ -1075,7 +1078,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _repeatable: 0
   _allowActivation: 0
+  _useTag: 1
   _tag: Player
+  _useLayer: 0
+  _layer: Default
   _canAll: 1
   _canTop: 0
   _topDistance: 0

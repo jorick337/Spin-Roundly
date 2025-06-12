@@ -1,0 +1,37 @@
+using MyTools.UI;
+using UnityEngine;
+
+namespace MyTools.Levels.TwoDimensional.Objects
+{
+    public class Water_WT2 : MonoBehaviour
+    {
+        [SerializeField] private Collider2DTrigger _collider2DTrigger;
+        [SerializeField] private ParticleSystem _particleSystem;
+        [SerializeField] private AudioSource _audioSource;
+
+        private void OnEnable()
+        {
+            _collider2DTrigger.OnTriggeredEnter += Enter;
+            _collider2DTrigger.OnTriggeredExit += Exit;
+        }
+
+        private void OnDisable()
+        {
+            _collider2DTrigger.OnTriggeredEnter -= Enter;
+            _collider2DTrigger.OnTriggeredExit -= Exit;
+        }
+
+        private void Enter(Collider2D collider2D)
+        {
+            _particleSystem.transform.position = collider2D.transform.position;
+            _particleSystem.Play();
+            _audioSource.Play();
+        }
+
+        private void Exit(Collider2D collider2D)
+        {
+            _particleSystem.Stop();
+            _audioSource.Stop();
+        }
+    }
+}

@@ -14,8 +14,8 @@ namespace MyTools.Levels.Play
         private GameLevelManager _gameLevelManager;
 
         private void Awake() => _gameLevelManager = GameLevelManager.Instance;
-        private void OnEnable() => _colliderTrigger.OnTriggered += Apply;
-        private void OnDisable() => _colliderTrigger.OnTriggered -= Apply;
+        private void OnEnable() => _colliderTrigger.OnTriggeredEnter += Apply;
+        private void OnDisable() => _colliderTrigger.OnTriggeredEnter -= Apply;
 
         private async void Apply(Collider2D collider2D) 
         {

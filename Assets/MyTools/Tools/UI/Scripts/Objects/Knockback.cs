@@ -15,8 +15,8 @@ namespace MyTools.UI.Objects
         [SerializeField] private bool _X = true;
         [SerializeField] private bool _Y = true;
 
-        private void OnEnable() => _collider2DTrigger.OnTriggered += Apply;
-        private void OnDisable() => _collider2DTrigger.OnTriggered -= Apply;
+        private void OnEnable() => _collider2DTrigger.OnTriggeredEnter += Apply;
+        private void OnDisable() => _collider2DTrigger.OnTriggeredEnter -= Apply;
 
         public void Apply(Collider2D collider2D)
         {

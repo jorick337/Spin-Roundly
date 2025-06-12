@@ -27,13 +27,13 @@ namespace MyTools.UI
 
         private void OnEnable()
         {
-            _collider2DTrigger.OnTriggered += InvokeTrigger2D;
+            _collider2DTrigger.OnTriggeredEnter += InvokeTrigger2D;
             _gameLevelManager.OnRestart += Restart;
         }
 
         private void OnDisable()
         {
-            _collider2DTrigger.OnTriggered -= InvokeTrigger2D;
+            _collider2DTrigger.OnTriggeredEnter -= InvokeTrigger2D;
             _gameLevelManager.OnRestart -= Restart;
         }
 

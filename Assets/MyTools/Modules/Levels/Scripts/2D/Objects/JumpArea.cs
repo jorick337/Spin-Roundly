@@ -9,8 +9,8 @@ namespace MyTools.Levels.TwoDimensional.Objects
         [SerializeField] private Collider2DTrigger _collider2DTrigger;
         [SerializeField] private Movement2D _movement2D;
 
-        private void OnEnable() => _collider2DTrigger.OnTriggered += Apply;
-        private void OnDisable() => _collider2DTrigger.OnTriggered -= Apply;
+        private void OnEnable() => _collider2DTrigger.OnTriggeredEnter += Apply;
+        private void OnDisable() => _collider2DTrigger.OnTriggeredEnter -= Apply;
 
         private void Apply(Collider2D collider2D) => _movement2D.Jump();
     }
