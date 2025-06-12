@@ -43,7 +43,7 @@ namespace MyTools.Levels.Play
 
         #region CALLBACKS
 
-        private void Restart() => _player.Restart();
+        private async void Restart() => await _player.Restart();
         private void Finish() => _player.Disable();
 
         #endregion

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using MyTools.UI;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace MyTools.Levels.Play
     {
         [SerializeField] private Collider2DTrigger _colliderTrigger;
         [SerializeField] private bool _isFinish = true;
+        [SerializeField] private float _timeToWait;
         
         // Managers
         private GameLevelManager _gameLevelManager;
@@ -15,8 +17,10 @@ namespace MyTools.Levels.Play
         private void OnEnable() => _colliderTrigger.OnTriggered += Apply;
         private void OnDisable() => _colliderTrigger.OnTriggered -= Apply;
 
-        private void Apply(Collider2D collider2D) 
+        private async void Apply(Collider2D collider2D) 
         {
+            await UniTask.WaitForSeconds(_timeToWait);
+
             if (_isFinish)
                 _gameLevelManager.Finish();
             else

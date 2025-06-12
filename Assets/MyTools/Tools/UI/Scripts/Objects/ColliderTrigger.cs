@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UIElements;
 
 namespace MyTools.UI
 {
@@ -20,6 +19,7 @@ namespace MyTools.UI
         [SerializeField] private string _tag = "Player";
 
         [Header("Directions")]
+        [SerializeField] private bool _canAll = false;
         [SerializeField] private bool _canTop = false;
         [SerializeField] private float _topDistance = 0;
         [SerializeField] private bool _canBottom = false;
@@ -40,7 +40,7 @@ namespace MyTools.UI
             if (!collider2D.transform.CompareTag(_tag))
                 return;
 
-            bool can = false;
+            bool can = _canAll;
 
             if (_canTop && IsTriggerFrom(Direction.Top, collider2D))
                 can = true;

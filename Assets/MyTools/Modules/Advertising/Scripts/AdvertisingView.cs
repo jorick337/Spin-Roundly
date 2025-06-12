@@ -27,7 +27,7 @@ namespace MyTools.Advertising
             }
 
             Finish();
-            return false;
+            return true;
         }
 
         private void Restart()

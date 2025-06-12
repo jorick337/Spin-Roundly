@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MyTools.UI.Objects
 {
-    public class StunAndInvincibility : MonoBehaviour
+    public class CollusionIgnore : MonoBehaviour
     {
         [SerializeField] private int _firstLayer;
         [SerializeField] private int _secondLayer;
@@ -13,7 +13,7 @@ namespace MyTools.UI.Objects
 
         private bool _isActive = false;
 
-        public async void Stun()
+        public async void Apply()
         {
             if (_isActive)
                 return;
@@ -31,8 +31,8 @@ namespace MyTools.UI.Objects
 
         public async UniTask WaitUntilFinished() => await UniTask.WaitUntil(() => IsFinished == true);
 
-        private void EnableCollision() => SetCollisionIgnored(false);
-        private void DisableCollision() => SetCollisionIgnored(true);
+        public void EnableCollision() => SetCollisionIgnored(false);
+        public void DisableCollision() => SetCollisionIgnored(true);
 
         private void SetCollisionIgnored(bool ignore) => Physics2D.IgnoreLayerCollision(_firstLayer, _secondLayer, ignore);
     }

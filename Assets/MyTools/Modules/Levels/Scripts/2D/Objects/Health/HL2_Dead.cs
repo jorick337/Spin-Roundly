@@ -11,7 +11,7 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
         [SerializeField] private Player_PL2 _player;
 
         private AdvertisingView _advertisingView;
- 
+
         private void OnEnable() => _health.OnBeforeDead += Apply;
         private void OnDisable() => _health.OnBeforeDead -= Apply;
 
@@ -24,17 +24,17 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
         private async UniTask TryReviveWithAd()
         {
             if (await _advertisingView.StartLoading())
-                _health.Restart();
+                await _player.Rebirth();
             else
-                _player.Restart();
+                await _player.Restart();
         }
 
-        private async UniTask Apply() 
+        private async UniTask Apply()
         {
             _player.Disable();
             await LoadAdvertisingViewAsync();
             await TryReviveWithAd();
-            _player.Enable();
+            await _player.Enable();
         }
     }
 }

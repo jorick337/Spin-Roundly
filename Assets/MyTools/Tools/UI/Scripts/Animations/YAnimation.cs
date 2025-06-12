@@ -2,6 +2,8 @@ using System;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Localization.SmartFormat.GlobalVariables;
+using UnityEngine.U2D.IK;
 
 namespace MyTools.UI.Animation
 {
@@ -20,6 +22,8 @@ namespace MyTools.UI.Animation
         private Sequence _animationIn;
         private Sequence _animationOut;
         private Sequence _animation;
+
+        private bool _isFinished = false;
 
         #endregion
 
@@ -110,27 +114,34 @@ namespace MyTools.UI.Animation
         {
             if (_isLooping)
                 return;
-                
+
             _isLooping = true;
             AnimateAlways();
         }
-        
-        public void StopAlwaysAnimation() 
+
+        public async void StopAlwaysAnimation()
         {
             _isLooping = false;
+            await WaitUntilFinished();
             AnimateIn();
         }
 
         private async void AnimateAlways()
         {
+            _isFinished = false;
+
             var token = this.GetCancellationTokenOnDestroy();
             try
             {
-                while (IsValid() && _isLooping)
+                while (_isLooping && IsValid())
                     await AnimateAsync().AttachExternalCancellation(token);
             }
             catch (OperationCanceledException) { }
+
+            _isFinished = true;
         }
+
+        private async UniTask WaitUntilFinished() => await UniTask.WaitUntil(() => _isFinished == true);
 
         #endregion
 

@@ -10,7 +10,7 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
         [SerializeField] private Health_HL2 _health;
         [SerializeField] private CameraFollower _cameraFollower;
         [SerializeField] private CameraShaker _cameraShaker;
-        [SerializeField] private StunAndInvincibility _stunAndInvincibility;
+        [SerializeField] private CollusionIgnore _stunAndInvincibility;
         [SerializeField] private AnimationTransparency _animationTransparency;
 
         private void OnEnable() => _health.OnChanged += Apply;
@@ -32,12 +32,16 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
 
         private async void Stun()
         {
-            _stunAndInvincibility.Stun();
+            _stunAndInvincibility.Apply();
             _animationTransparency.StartAlwaysAnimation();
             await _stunAndInvincibility.WaitUntilFinished();
             _animationTransparency.StopAlwaysAnimation();
         }
 
-        private void Apply(int health) => Apply(); 
+        private void Apply(int health)
+        {
+            if (health > 0)
+                Apply();
+        }
     }
 }

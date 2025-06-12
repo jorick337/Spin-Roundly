@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using MyTools.UI;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
         #region CORE
 
         [Header("Core")]
-        [SerializeField] private Collider2DTrigger _collider2DTrigger;
+        [SerializeField] private Collider2DTrigger[] _collider2DTriggers;
         [SerializeField] private int _default = 3;
         [SerializeField] private bool _instance;
 
@@ -31,8 +32,18 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
         #region MONO
 
         private void Awake() => Initialize();
-        private void OnEnable() => _collider2DTrigger.OnTriggered += Add;
-        private void OnDisable() => _collider2DTrigger.OnTriggered -= Add;
+        
+        private void OnEnable() 
+        {
+            foreach (var collider2DTrigger in _collider2DTriggers)
+                collider2DTrigger.OnTriggered += Add;
+        } 
+
+        private void OnDisable() 
+        {
+            foreach (var collider2DTrigger in _collider2DTriggers)
+                collider2DTrigger.OnTriggered -= Add;
+        }
 
         #endregion
 
@@ -74,7 +85,7 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
 
         private async UniTask InvokeOnBeforeDead() 
         {
-            foreach (Func<UniTask> handler in OnBeforeDead.GetInvocationList())
+            foreach (Func<UniTask> handler in OnBeforeDead.GetInvocationList().Cast<Func<UniTask>>())
                 await handler();
         }
         

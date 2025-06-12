@@ -1,7 +1,8 @@
-using MyTools.Levels.Play;
+using Cysharp.Threading.Tasks;
 using MyTools.Levels.TwoDimensional.Objects.Health;
 using MyTools.Movement.TwoDimensional;
 using MyTools.UI;
+using MyTools.UI.Objects;
 using UnityEngine;
 
 namespace MyTools.Levels.TwoDimensional.Player
@@ -12,29 +13,50 @@ namespace MyTools.Levels.TwoDimensional.Player
         [SerializeField] private Movement2D _movement2D;
         [SerializeField] private Health_HL2 _health;
         [SerializeField] private Teleport _teleportPlayer;
-
-        [SerializeField] private float _inactiveMass;
-        [SerializeField] private float _activeMass;
+        [SerializeField] private CollusionIgnore _stunAndInvincibility;
+        [SerializeField] private float _timeToRestart;
 
         public void Disable()
         {
-            _health.enabled = false;
-            _rigidbody2D.mass = _inactiveMass;
             _movement2D.Disable();
+            _stunAndInvincibility.DisableCollision();
         }
 
-        public void Enable()
+        public async UniTask Enable()
         {
-            _health.enabled = true;
-            _rigidbody2D.mass = _activeMass;
             _movement2D.Enable();
+            await UniTask.WaitForSeconds(_timeToRestart);
+            _stunAndInvincibility.EnableCollision();
         }
 
-        public void Restart()
+        private void SendToTarget()
         {
-            Enable();
+            _rigidbody2D.simulated = false;
             _teleportPlayer.SendToTarget();
+            ResetSpeed();
+            _rigidbody2D.simulated = true;
+        }
+
+        private void ResetSpeed()
+        {
+            _rigidbody2D.linearVelocity = Vector2.zero;
+            _rigidbody2D.linearVelocityY = 0f;
+            _rigidbody2D.angularVelocity = 0f;
+        }
+
+        public async UniTask Rebirth()
+        {
+            Disable();
             _health.Restart();
+            await Enable();
+        }
+
+        public async UniTask Restart()
+        {
+            Disable();
+            _health.Restart();
+            SendToTarget();
+            await Enable();
         }
     }
 }
