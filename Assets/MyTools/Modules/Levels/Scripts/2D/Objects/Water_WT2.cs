@@ -23,7 +23,6 @@ namespace MyTools.Levels.TwoDimensional.Objects
 
         private void Enter(Collider2D collider2D)
         {
-            _particleSystem.transform.position = collider2D.transform.position;
             _particleSystem.Play();
             _audioSource.Play();
         }

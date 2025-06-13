@@ -126,9 +126,9 @@ MonoBehaviour:
   _canBottom: 0
   _bottomDistance: 0
   _canLeft: 1
-  _leftDistance: 0.3
+  _leftDistance: 0.6
   _canRight: 1
-  _rightDistance: 0.3
+  _rightDistance: 0.6
 --- !u!1 &2787317360973933934
 GameObject:
   m_ObjectHideFlags: 0
@@ -10217,8 +10217,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 1001725658682267121, guid: f455c7cc3ec81d0a4a197a186e192634, type: 2}
-  m_audioClip: {fileID: 8300000, guid: aca8b05be967b75d3bffca7e2461cefb, type: 3}
-  m_Resource: {fileID: 8300000, guid: aca8b05be967b75d3bffca7e2461cefb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 30948ba9e5dd815a8b26dc4cac429f46, type: 3}
+  m_Resource: {fileID: 8300000, guid: 30948ba9e5dd815a8b26dc4cac429f46, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
