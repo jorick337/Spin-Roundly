@@ -76,6 +76,14 @@ namespace MyTools.Levels
             InvokeTrophiesChanged();
         }
 
+        public int GetStars()
+        {
+            int number = 0;
+            for (int i = 0; i < Stars.Length; i++)
+                number += Stars[i];
+            return number;
+        }
+
         public void SetLevel(int level) => _chosedLevel = level;
         public async UniTask WaitUntilLoaded() => await UniTask.WaitUntil(() => IsLoaded);
 

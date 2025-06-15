@@ -10,6 +10,9 @@ namespace MyTools.PlayerSystem
         private const int MAX_LEVEL = 15;
         private static readonly string LEVEL_STARS = string.Join(",", Enumerable.Repeat("0", MAX_LEVEL));
 
+        private const int MAX_SKINS = 9;
+        private static readonly string ACTIVITY_SKINS = string.Join(",", Enumerable.Repeat("0", MAX_SKINS));
+
         private const int TROPHY = 0;
         private const int MONEY = 0;
 
@@ -35,6 +38,19 @@ namespace MyTools.PlayerSystem
             return levelStars;
         }
 
+        public static bool[] LoadSkins()
+        {
+            bool[] activitySkins = new bool[MAX_SKINS];
+            
+            string saved = PlayerPrefs.GetString("ActivitySkins", ACTIVITY_SKINS);
+            string[] parts = saved.Split(',');
+
+            for (int i = 0; i < MAX_SKINS; i++)
+                activitySkins[i] = parts[i] != "0";
+
+            return activitySkins;
+        }
+
         public static int LoadTrophy() => PlayerPrefs.GetInt("Trophy", TROPHY);
         public static int LoadMoney() => PlayerPrefs.GetInt("Money", MONEY);
 
@@ -48,6 +64,7 @@ namespace MyTools.PlayerSystem
         #region SAVE
 
         public static void SaveStars(int[] levelStars) => PlayerPrefs.SetString("LevelStars", string.Join(",", levelStars));
+        public static void SaveSkins(bool[] activitySkins) => PlayerPrefs.SetString("ActivitySkins", string.Join(",", activitySkins));
         
         public static void SaveTrophies(int trophy) => PlayerPrefs.SetInt("Trophy", trophy);
         public static void SaveMoney(int money) => PlayerPrefs.SetInt("Money", money);

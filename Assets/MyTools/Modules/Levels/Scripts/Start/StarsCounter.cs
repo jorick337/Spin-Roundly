@@ -16,14 +16,9 @@ namespace MyTools.Levels.Start
         private void OnEnable() => _levelsManager.StarsChanged += UpdateStars;
         private void OnDisable() => _levelsManager.StarsChanged -= UpdateStars;
 
-        private void Initialize() => UpdateStars(_levelsManager.Stars);
+        private void Initialize() => UpdateStars(_levelsManager.GetStars());
 
-        private void UpdateStars(int[] stars)
-        {
-            int number = 0;
-            for (int i = 0; i < stars.Length; i++)
-                number += stars[i];
-            UpdateText(number.ToString());
-        }
+        private void UpdateStars(int stars) => UpdateText(stars.ToString());
+        private void UpdateStars(int[] stars) => UpdateStars(_levelsManager.GetStars());
     }
 }
