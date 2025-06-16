@@ -27,7 +27,6 @@ namespace MyTools.Start
 
         private void OnDisable()
         {
-            _shopButton.OnPressed -= ClearStartView;
             _shopButton.OnPressEnded -= LoadShopView;
             _leaderboardButton.OnPressed -= ClearStartView;
             _leaderboardButton.OnPressEnded -= LoadLeaderboardView;
@@ -53,7 +52,7 @@ namespace MyTools.Start
         private async UniTask LoadShopView() 
         {
             SSHV_Provider provider = new();
-            await provider.Load();
+            await provider.Load(transform.parent);
         }
 
         private async UniTask LoadLeaderboardView() => await UniTask.CompletedTask;

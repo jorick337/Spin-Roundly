@@ -16,26 +16,34 @@ namespace MyTools.Shop.Skins
         private SSHV_Manager _shopManager;
         private SSHV_Provider _provider;
 
-        private void Awake() => _shopManager = SSHV_Manager.Instance;
+        private void Awake() 
+        {
+            _shopManager = SSHV_Manager.Instance;
+            Initialize();
+        }
 
         private void OnEnable()
         {
             _closeButton.OnPressed += Unload;
             _shopManager.SpriteChanged += UpdateIcon;
-            _shopManager.NumberChanged += SelectSkin;
         }
 
         private void OnDisable()
         {
             _closeButton.OnPressed -= Unload;
             _shopManager.SpriteChanged -= UpdateIcon;
-            _shopManager.NumberChanged -= SelectSkin;
+        }
+
+        private void Initialize()
+        {
+            int number = _shopManager.Number;
+            _shopManager.ChangeNumber(number);
+            _buttonsSelectorSkins.Select(number - 1);
         }
 
         public void SetProvider(SSHV_Provider provider) => _provider = provider;
 
         private async UniTask Unload() => await _provider.UnloadAsync();
         private void UpdateIcon(Sprite sprite) => _iconImage.sprite = sprite;
-        private void SelectSkin(int number) => _buttonsSelectorSkins.Select(number - 1);
     }
 }

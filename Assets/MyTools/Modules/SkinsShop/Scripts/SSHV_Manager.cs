@@ -8,14 +8,14 @@ namespace MyTools.Shop.Skins
     {
         public event UnityAction<Sprite> SpriteChanged;
         public event UnityAction<int> PriceChanged;
-        public event UnityAction<int> NumberChanged;
         public event UnityAction<bool> SkinChanged;
 
         public static SSHV_Manager Instance { get; private set; }
-
+        public int Number { get; private set; }
+        
         private bool[] _activities;
-        private int _number;
         private SSHV_Skin _skin;
+        private int _selectedNumber = 1;
 
         // Managers
         private PlayerManager _playerManager;
@@ -34,7 +34,7 @@ namespace MyTools.Shop.Skins
         private void Initialize()
         {
             _activities = SSHV_Saver.LoadSkins();
-            _number = SSHV_Saver.LoadNumberSkin();
+            Number = SSHV_Saver.LoadNumberSkin();
             UpdateSkin();
         }
 
@@ -42,46 +42,51 @@ namespace MyTools.Shop.Skins
 
         public void ChangeNumber(int number)
         {
-            _number = number;
+            _selectedNumber = number;
+
+            if (IsSelectedSkinBought())
+            {
+                Number = _selectedNumber;
+                SaveNumber();
+            }
+
             UpdateSkin();
         }
 
         public void BuySkin()
         {
-            if (!IsSkinBought() && _playerManager.Player.AddMoney(-_skin.Price))
+            if (!IsSelectedSkinBought() && _playerManager.Player.AddMoney(-_skin.Price))
             {
-                _activities[_number - 1] = true;
-                SaveNumber();
+                _activities[_selectedNumber - 1] = true;
                 SaveActivities();
+                Number = _selectedNumber;
+                SaveNumber();
                 InvokeSkinChanged();
             }
         }
 
         private async void UpdateSkin()
         {
-            _skin = await _skinProvider.Load(_number);
-            SaveNumber();
+            _skin = await _skinProvider.Load(_selectedNumber);
             InvokeSpriteChanged();
             InvokePriceChanged();
-            InvokeNumberChanged();
             InvokeSkinChanged();
         }
 
         private void SaveNumber()
         {
-            if (IsSkinBought())
-                SSHV_Saver.SaveNumber(_number);
+            if (IsSelectedSkinBought())
+                SSHV_Saver.SaveNumber(Number);
         }
 
         private void SaveActivities() => SSHV_Saver.SaveSkins(_activities);
 
         #endregion
 
-        private bool IsSkinBought() => _activities[_number - 1];
+        private bool IsSelectedSkinBought() => _activities[_selectedNumber - 1];
 
         private void InvokeSpriteChanged() => SpriteChanged?.Invoke(_skin.Sprite);
         private void InvokePriceChanged() => PriceChanged?.Invoke(_skin.Price);
-        private void InvokeNumberChanged() => NumberChanged?.Invoke(_number);
-        private void InvokeSkinChanged() => SkinChanged?.Invoke(_activities[_number - 1]);
+        private void InvokeSkinChanged() => SkinChanged?.Invoke(_activities[_selectedNumber - 1]);
     }
 }
