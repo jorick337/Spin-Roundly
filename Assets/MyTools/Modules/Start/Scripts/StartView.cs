@@ -20,7 +20,6 @@ namespace MyTools.Start
 
         private void OnEnable()
         {
-            _shopButton.OnPressed += ClearStartView;
             _shopButton.OnPressEnded += LoadShopView;
             _leaderboardButton.OnPressed += ClearStartView;
             _leaderboardButton.OnPressEnded += LoadLeaderboardView;

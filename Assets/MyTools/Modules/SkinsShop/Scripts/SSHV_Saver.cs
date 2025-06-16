@@ -6,7 +6,7 @@ namespace MyTools.Shop.Skins
     public class SSHV_Saver
     {
         private const int MAX_SKINS = 9;
-        private static readonly string SKINS = string.Join(",", Enumerable.Repeat("0", MAX_SKINS));
+        private static readonly string SKINS = "1," + string.Join(",", Enumerable.Repeat("0", MAX_SKINS - 1));
 
         private const int NUMBER = 1;
 
@@ -31,7 +31,7 @@ namespace MyTools.Shop.Skins
 
         #region SAVE
 
-        public static void SaveSkins(bool[] activities) => PlayerPrefs.SetString("ActivitySkins", string.Join(",", activities));
+        public static void SaveSkins(bool[] activities) => PlayerPrefs.SetString("Skins", string.Join(",", activities));
         public static void SaveNumber(int number) => PlayerPrefs.SetInt("NumberSkin", number);
 
         #endregion
