@@ -12,10 +12,15 @@ namespace MyTools.PlayerSystem
 
         public void Initialize() => Money = SaveManager.LoadMoney();
 
-        public void AddMoney(int money)
+        public bool AddMoney(int money)
         {
-            Money += money;
-            InvokeMoneyChanged();
+            if (Money + money >= 0)
+            {
+                Money += money;
+                InvokeMoneyChanged();
+                return true;
+            }
+            return false;
         }
 
         private void InvokeMoneyChanged()

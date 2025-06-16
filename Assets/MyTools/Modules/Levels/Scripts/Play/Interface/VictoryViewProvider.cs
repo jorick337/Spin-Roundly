@@ -8,7 +8,7 @@ namespace MyTools.Levels.Play
     {
         public async UniTask<VictoryView> Load()
         {
-            VictoryView victoryView = await LoadInternal<VictoryView>("VictoryView");
+            VictoryView victoryView = await LoadGameObjectAsync<VictoryView>("VictoryView");
             victoryView.SetProvider(this);
 
             return victoryView;

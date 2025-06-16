@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using MyTools.Shop.Skins;
 using MyTools.UI;
 using UnityEngine;
 
@@ -50,7 +51,12 @@ namespace MyTools.Start
             await UniTask.CompletedTask;
         } 
 
-        private async UniTask LoadShopView() => await UniTask.CompletedTask;
+        private async UniTask LoadShopView() 
+        {
+            SSHV_Provider provider = new();
+            await provider.Load();
+        }
+
         private async UniTask LoadLeaderboardView() => await UniTask.CompletedTask;
 
         #endregion

@@ -307,9 +307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070971727f35dbe04aa807582f145572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toggle: {fileID: 0}
   _button: {fileID: 6321449253697980062}
-  _image: {fileID: 1916585043558726852}
-  _audioSource: {fileID: 1407377772628042818}
-  _sprite: {fileID: 0}
-  _cost: 500
-  _eventTrigger: {fileID: 0}
+  _audioSourceClick: {fileID: 1407377772628042818}
+  _animationScale: {fileID: 0}
+  _animationScaleX: {fileID: 0}
+  _number: 0

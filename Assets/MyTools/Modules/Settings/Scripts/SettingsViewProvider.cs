@@ -9,7 +9,7 @@ namespace MyTools.Settings
     {
         public async void Load(Transform transform, Func<UniTask> action)
         {
-            SettingsView settingsView = await LoadInternal<SettingsView>("SettingsView", transform);
+            SettingsView settingsView = await LoadGameObjectAsync<SettingsView>("SettingsView", transform);
             settingsView.SetSettingsProvider(this);
             if (action != null)
                 AddEvent(action);

@@ -8,7 +8,7 @@ namespace MyTools.Levels.Play
     {
         public async UniTask<GameLevel> Load(int level)
         {
-            GameLevel gameLevel = await LoadInternal<GameLevel>($"Level {level}");
+            GameLevel gameLevel = await LoadGameObjectAsync<GameLevel>($"Level {level}");
             gameLevel.SetProvider(this);
 
             return gameLevel;

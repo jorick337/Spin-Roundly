@@ -7,7 +7,7 @@ namespace MyTools.Advertising
     {
         public async UniTask<AdvertisingView> LoadAsync()
         {
-            AdvertisingView advertisingView = await LoadInternal<AdvertisingView>("AdvertisingView");
+            AdvertisingView advertisingView = await LoadGameObjectAsync<AdvertisingView>("AdvertisingView");
             advertisingView.SetProvider(this);
 
             return advertisingView;

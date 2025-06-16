@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: SkinsShop
+  m_EditorClassIdentifier: 
+  m_GroupName: SkinsShop
+  m_GUID: 652084698538803e08d50a81cf230415
+  m_SerializeEntries:
+  - m_GUID: 351bcfa4af5df2a55b17b681f610edac
+    m_Address: SkinShop 2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7403d23179e7df56db411372956004cd
+    m_Address: SkinShop 3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d73b88e1b231acfe7aea683d4a16f4f0
+    m_Address: SkinShop 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 97ba2dda6834bfb338823d3fc0be546e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 39adf286ecac91ed5bc833e1a1fcc8b3, type: 2}
+    - {fileID: 11400000, guid: 8f1b26955a5bed184bc81e3f9393f2a9, type: 2}
