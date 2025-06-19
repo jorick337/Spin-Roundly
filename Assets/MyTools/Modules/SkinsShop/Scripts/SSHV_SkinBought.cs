@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace MyTools.Shop.Skins
 {
-    public class SSHV_BoughtSkin : MonoBehaviour
+    public class SSHV_SkinBought : MonoBehaviour
     {
         [SerializeField] private Image _image;
         [SerializeField] private int _number;
