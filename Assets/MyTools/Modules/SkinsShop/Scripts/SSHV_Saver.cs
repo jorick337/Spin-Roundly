@@ -3,12 +3,16 @@ using UnityEngine;
 
 namespace MyTools.Shop.Skins
 {
-    public class SSHV_Saver
+    public static class SSHV_Saver
     {
+        #region CONSTANTS
+
         private const int MAX_SKINS = 9;
         private static readonly string SKINS = "1," + string.Join(",", Enumerable.Repeat("0", MAX_SKINS - 1));
 
         private const int NUMBER = 1;
+
+        #endregion
 
         #region LOAD
 

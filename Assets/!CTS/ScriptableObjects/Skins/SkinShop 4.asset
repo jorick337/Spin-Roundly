@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a023402f3e7ccaca977d56f98159b60, type: 3}
-  m_Name: SkinShop 5
+  m_Name: SkinShop 4
   m_EditorClassIdentifier: 
-  _sprite: {fileID: -8120479604261871205, guid: 5c5e4adb28f6e43d6a93ef6e58690905, type: 3}
+  _sprite: {fileID: -893417657216806259, guid: bf18468f737bc87cbb33483af9d5f6dc, type: 3}
   _price: 600

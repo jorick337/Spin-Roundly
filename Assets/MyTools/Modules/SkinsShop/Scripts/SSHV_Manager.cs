@@ -14,10 +14,11 @@ namespace MyTools.Shop.Skins
         public event UnityAction<bool> SkinChanged;
 
         public static SSHV_Manager Instance { get; private set; }
-        public int Number { get; private set; }
 
-        private SSHV_Skin _skin;
-        private bool[] _activities;
+        public bool[] Activities { get; private set; }
+        public int Number { get; private set; }
+        public SSHV_Skin Skin { get; private set; }
+
         private bool _isBought = true;
         private int _selectedNumber = 1;
 
@@ -35,12 +36,21 @@ namespace MyTools.Shop.Skins
         private void OnEnable() => _playerManager.OnLoaded += Initialize;
         private void OnDisable() => _playerManager.OnLoaded -= Initialize;
 
+        #region INITIALIZATION
+
         private async void Initialize()
         {
-            _activities = SSHV_Saver.LoadSkins();
-            Number = SSHV_Saver.LoadNumberSkin();
+            Load();
             await UpdateSkin();
         }
+        
+        private void Load()
+        {
+            Activities = SSHV_Saver.LoadSkins();
+            Number = SSHV_Saver.LoadNumberSkin();
+        }
+
+        #endregion
 
         #region CORE LOGIC
 
@@ -49,15 +59,13 @@ namespace MyTools.Shop.Skins
             _selectedNumber = number;
             _isBought = IsSelectedSkinBought();
 
-            if (_isBought)
-                SaveNumber();
-
+            SaveNumber();
             await UpdateSkin();
         }
 
         public async void BuySkin()
         {
-            if (!_isBought && _playerManager.Player.AddMoney(-_skin.Price))
+            if (!_isBought && _playerManager.Player.AddMoney(-Skin.Price))
             {
                 SaveActivities();
                 SaveNumber();
@@ -67,7 +75,7 @@ namespace MyTools.Shop.Skins
 
         private async UniTask UpdateSkin()
         {
-            _skin = await _skinProvider.Load(_selectedNumber);
+            Skin = await _skinProvider.Load(_selectedNumber);
 
             if (_isBought)
                 InvokeOnSpritePurchased();
@@ -89,19 +97,19 @@ namespace MyTools.Shop.Skins
 
         private void SaveActivities()
         {
-            _activities[_selectedNumber - 1] = true;
+            Activities[_selectedNumber - 1] = true;
             _isBought = true;
-            SSHV_Saver.SaveSkins(_activities);
+            SSHV_Saver.SaveSkins(Activities);
         }
 
         #endregion
 
-        private bool IsSelectedSkinBought() => _activities[_selectedNumber - 1];
+        private bool IsSelectedSkinBought() => Activities[_selectedNumber - 1];
 
-        private void InvokeOnSpriteChanged() => OnSpriteChanged?.Invoke(_skin.Sprite);
-        private void InvokeOnSpritePurchased() => OnSpritePurchased?.Invoke(_skin.Sprite);
+        private void InvokeOnSpriteChanged() => OnSpriteChanged?.Invoke(Skin.Sprite);
+        private void InvokeOnSpritePurchased() => OnSpritePurchased?.Invoke(Skin.Sprite);
 
-        private void InvokePriceChanged() => PriceChanged?.Invoke(_skin.Price);
-        private void InvokeSkinChanged() => SkinChanged?.Invoke(_activities[_selectedNumber - 1]);
+        private void InvokePriceChanged() => PriceChanged?.Invoke(Skin.Price);
+        private void InvokeSkinChanged() => SkinChanged?.Invoke(Activities[_selectedNumber - 1]);
     }
 }

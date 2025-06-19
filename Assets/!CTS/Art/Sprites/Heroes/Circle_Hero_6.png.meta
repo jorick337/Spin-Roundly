@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5c5e4adb28f6e43d6a93ef6e58690905
+guid: a9857a89b36cd599b966495b74990663
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8120479604261871205
-    second: Circle_Hero_0
+      213: -785392644072869128
+    second: Circle_Hero_6_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Circle_Hero_0
+      name: Circle_Hero_6_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 256
-        height: 254
+        x: 2
+        y: 3
+        width: 250
+        height: 249
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b91aa26f2d24e4f80800000000000000
-      internalID: -8120479604261871205
+      spriteID: 8f2f4d82d89b915f0800000000000000
+      internalID: -785392644072869128
       vertices: []
       indices: 
       edges: []
