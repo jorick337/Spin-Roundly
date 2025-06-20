@@ -7,11 +7,17 @@ namespace MyTools.Shop.Skins
     {
         [SerializeField] private Image _image;
         [SerializeField] private bool _canChangeAlways = false;
+        [SerializeField] private bool _canInitialize = false;
 
         // Manager
         private SSHV_Manager _shopManager;
 
-        private void Awake() => Initialize();
+        private void Awake()
+        {
+            _shopManager = SSHV_Manager.Instance;
+            if (_canInitialize)
+                Initialize();
+        }
 
         private void OnEnable()
         {
@@ -27,12 +33,12 @@ namespace MyTools.Shop.Skins
             _shopManager.OnSpritePurchased -= UpdateSprite;
         }
 
-        private void Initialize()
-        {
-            _shopManager = SSHV_Manager.Instance;
-            UpdateSprite(_shopManager.Skin?.Sprite);
-        }
+        private void Initialize() => UpdateSprite(_shopManager.Skin.Sprite);
 
-        private void UpdateSprite(Sprite sprite) => _image.sprite = sprite;
+        private void UpdateSprite(Sprite sprite)
+        {
+            if (sprite != null)
+                _image.sprite = sprite;
+        }
     }
 }
