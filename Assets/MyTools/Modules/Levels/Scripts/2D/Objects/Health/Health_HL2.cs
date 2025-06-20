@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-using Cysharp.Threading.Tasks;
 using MyTools.UI;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,7 +9,6 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
         #region EVENTS
 
         public event UnityAction<int> OnChanged;
-        public event Func<UniTask> OnBeforeDead;
         public event UnityAction OnDead;
 
         #endregion
@@ -32,17 +28,23 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
         #region MONO
 
         private void Awake() => Initialize();
-        
-        private void OnEnable() 
-        {
-            foreach (var collider2DTrigger in _collider2DTriggers)
-                collider2DTrigger.OnTriggeredEnter += Add;
-        } 
 
-        private void OnDisable() 
+        private void OnEnable()
         {
             foreach (var collider2DTrigger in _collider2DTriggers)
+            {
+                collider2DTrigger.OnTriggeredEnter += Add;
+                collider2DTrigger.OnTriggeredStay += Add;
+            }
+        }
+
+        private void OnDisable()
+        {
+            foreach (var collider2DTrigger in _collider2DTriggers)
+            {
                 collider2DTrigger.OnTriggeredEnter -= Add;
+                collider2DTrigger.OnTriggeredStay -= Add;
+            }
         }
 
         #endregion
@@ -67,28 +69,19 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
 
         #region VALUES
 
-        private async void Add(Collider2D collider2D)
+        private void Add(Collider2D collider2D)
         {
             Current -= 1;
             InvokeOnChanged();
 
             if (Current == 0)
-            {
-                await InvokeOnBeforeDead();
                 InvokeOnDead();
-            }
         }
 
         #endregion
 
         #region CALLBACKS
 
-        private async UniTask InvokeOnBeforeDead() 
-        {
-            foreach (Func<UniTask> handler in OnBeforeDead.GetInvocationList().Cast<Func<UniTask>>())
-                await handler();
-        }
-        
         private void InvokeOnChanged() => OnChanged?.Invoke(Current);
         private void InvokeOnDead() => OnDead?.Invoke();
 

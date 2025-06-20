@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace MyTools.Levels.TwoDimensional.Objects.Health
@@ -13,13 +12,13 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
         private void OnEnable()
         {
             _health.OnChanged += PlayChangedSound;
-            _health.OnBeforeDead += PlayDeadSound;
+            _health.OnDead += PlayDeadSound;
         }
 
         private void OnDisable()
         {
             _health.OnChanged += PlayChangedSound;
-            _health.OnBeforeDead += PlayDeadSound;
+            _health.OnDead += PlayDeadSound;
         }
 
         private void PlayChangedSound()
@@ -28,11 +27,10 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
             _audioSource.Play();
         }
 
-        private async UniTask PlayDeadSound()
+        private void PlayDeadSound()
         {
             _audioSource.clip = _deadAudioClip;
             _audioSource.Play();
-            await UniTask.CompletedTask;
         }
 
         private void PlayChangedSound(int health) => PlayChangedSound();
