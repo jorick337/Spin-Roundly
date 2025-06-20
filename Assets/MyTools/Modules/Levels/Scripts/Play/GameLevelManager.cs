@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,10 +8,11 @@ namespace MyTools.Levels.Play
 {
     public class GameLevelManager : MonoBehaviour
     {
-
         #region EVENTS
 
         public event UnityAction OnFinish;
+
+        public event Func<UniTask> OnPreRestart;
         public event UnityAction OnRestart;
 
         public event UnityAction<int> StarsChanged;
@@ -50,9 +53,10 @@ namespace MyTools.Levels.Play
             InvokeOnFinish();
         }
 
-        public void Restart()
+        public async void RestartAsync()
         {
             ResetStars();
+            await InvokeOnPreRestartAsync();
             InvokeOnRestart();
         }
 
@@ -98,9 +102,15 @@ namespace MyTools.Levels.Play
 
         #region CALLBACKS
 
-        private void InvokeOnFinish() => OnFinish?.Invoke();
+        private async UniTask InvokeOnPreRestartAsync()
+        {
+            foreach (Func<UniTask> handler in OnPreRestart.GetInvocationList().Cast<Func<UniTask>>())
+                await handler();
+        }
+        
         private void InvokeOnRestart() => OnRestart?.Invoke();
-
+        
+        private void InvokeOnFinish() => OnFinish?.Invoke();
         private void InvokeStarsChanged() => StarsChanged?.Invoke(Stars);
 
         #endregion

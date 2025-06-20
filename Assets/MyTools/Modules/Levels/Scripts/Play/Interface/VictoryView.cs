@@ -94,7 +94,7 @@ namespace MyTools.Levels.Play
 
         #region CALLBACKS
 
-        private async UniTask Reload() => await InvokeActionAndUnload(() =>  _gameLevelManager.Restart());
+        private async UniTask Reload() => await InvokeActionAndUnload(() =>  _gameLevelManager.RestartAsync());
         private async UniTask LoadStartScene() => await InvokeActionAndUnload(() =>  _loadScene.Load());
         private async UniTask LoadNextLevel() => await InvokeActionAndUnload(() =>  _gameLevelManager.Next());
 

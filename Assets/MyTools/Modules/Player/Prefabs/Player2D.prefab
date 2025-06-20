@@ -126,9 +126,9 @@ MonoBehaviour:
   _canBottom: 0
   _bottomDistance: 0
   _canLeft: 1
-  _leftDistance: 0.6
+  _leftDistance: 1
   _canRight: 1
-  _rightDistance: 0.6
+  _rightDistance: 1
 --- !u!1 &2787317360973933934
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4990368510417099155}
   - component: {fileID: 6487234348729557546}
+  - component: {fileID: 210624843956823263}
   - component: {fileID: 3974528386507280071}
   m_Layer: 6
   m_Name: Player2D
@@ -343,6 +344,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &210624843956823263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091099298256190212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9c19ed698e7013484bc4b7d00eae75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 3974528386507280071}
 --- !u!114 &3974528386507280071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,12 +369,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d583d7f4f04d9c88b44bcd256467778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody2D: {fileID: 6487234348729557546}
   _movement2D: {fileID: 7804675292730317143}
   _health: {fileID: 3368997529782143389}
   _teleportPlayer: {fileID: 0}
   _stunAndInvincibility: {fileID: 6350781176916681075}
-  _timeToRestart: 2
+  _timeToRebirth: 2
 --- !u!1 &4442345418916127789
 GameObject:
   m_ObjectHideFlags: 0
@@ -10435,7 +10448,6 @@ GameObject:
   - component: {fileID: 2276344713849563303}
   - component: {fileID: 6318656566422421758}
   - component: {fileID: 8866079437125548472}
-  - component: {fileID: 1744305442015959329}
   - component: {fileID: 3368997529782143389}
   m_Layer: 6
   m_Name: Health
@@ -10589,20 +10601,6 @@ MonoBehaviour:
   _cameraShaker: {fileID: 7275942886803278985}
   _stunAndInvincibility: {fileID: 6350781176916681075}
   _animationTransparency: {fileID: 9121932516985515054}
---- !u!114 &1744305442015959329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8302808662137845678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4e4a4ef2fe43be4484254d649686f25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: {fileID: 3368997529782143389}
-  _player: {fileID: 3974528386507280071}
 --- !u!114 &3368997529782143389
 MonoBehaviour:
   m_ObjectHideFlags: 0
