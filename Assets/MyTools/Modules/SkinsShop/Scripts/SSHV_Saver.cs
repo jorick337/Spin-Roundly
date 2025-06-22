@@ -8,7 +8,7 @@ namespace MyTools.Shop.Skins
         #region CONSTANTS
 
         private const int MAX_SKINS = 9;
-        private static readonly string SKINS = "1," + string.Join(",", Enumerable.Repeat("0", MAX_SKINS - 1));
+        private static readonly string SKINS = "True," + string.Join(",", Enumerable.Repeat("False", MAX_SKINS - 1));
 
         private const int NUMBER = 1;
 
@@ -19,12 +19,11 @@ namespace MyTools.Shop.Skins
         public static bool[] LoadSkins()
         {
             bool[] activitySkins = new bool[MAX_SKINS];
-            
             string saved = PlayerPrefs.GetString("Skins", SKINS);
             string[] parts = saved.Split(',');
 
             for (int i = 0; i < MAX_SKINS; i++)
-                activitySkins[i] = parts[i] != "0";
+                activitySkins[i] = parts[i] == "True";
 
             return activitySkins;
         }

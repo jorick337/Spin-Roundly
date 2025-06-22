@@ -5,6 +5,7 @@ namespace MyTools.Shop.Skins
 {
     public class SSHV_Icon : MonoBehaviour
     {
+        [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Image _image;
         [SerializeField] private bool _canChangeAlways = false;
         [SerializeField] private bool _canInitialize = false;
@@ -15,8 +16,7 @@ namespace MyTools.Shop.Skins
         private void Awake()
         {
             _shopManager = SSHV_Manager.Instance;
-            if (_canInitialize)
-                Initialize();
+            Initialize();
         }
 
         private void OnEnable()
@@ -33,12 +33,24 @@ namespace MyTools.Shop.Skins
             _shopManager.OnSpritePurchased -= UpdateSprite;
         }
 
-        private void Initialize() => UpdateSprite(_shopManager.Skin.Sprite);
+        private async void Initialize() 
+        {
+            if (_canInitialize)
+            {
+                await _shopManager.WaitUntilLoaded();
+                UpdateSprite(_shopManager.Skin.Sprite);
+            }
+        } 
 
         private void UpdateSprite(Sprite sprite)
         {
             if (sprite != null)
-                _image.sprite = sprite;
+            {
+                if (_image != null)
+                    _image.sprite = sprite;
+                else if (_spriteRenderer != null)
+                    _spriteRenderer.sprite = sprite;
+            }
         }
     }
 }

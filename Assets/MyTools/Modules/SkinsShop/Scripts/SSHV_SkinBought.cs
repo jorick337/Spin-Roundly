@@ -8,19 +8,39 @@ namespace MyTools.Shop.Skins
         [SerializeField] private Image _image;
         [SerializeField] private int _number;
 
+        private bool _active = false;
+
         // Managers
         private SSHV_Manager _shopManager;
 
         private void Awake() => Initialize();
-        private void OnEnable() => _shopManager.SkinChanged += EnableImage;
-        private void OnDisable() => _shopManager.SkinChanged -= EnableImage;
+
+        private void OnEnable()
+        {
+            if (!_active)
+                _shopManager.SkinChanged += CheckNumberSkin;
+        }
+
+        private void OnDisable() => _shopManager.SkinChanged -= CheckNumberSkin;
 
         private void Initialize()
         {
             _shopManager = SSHV_Manager.Instance;
-            EnableImage(_shopManager.Activities[_number - 1]);
+            CheckNumberSkin();
         }
 
-        private void EnableImage(bool active) => _image.enabled = true;
+        private void CheckNumberSkin()
+        {
+            _active = _shopManager.Activities[_number - 1];
+            if (_active)
+            {
+                EnableImage(_active);
+                OnDisable();
+            }
+        }
+
+        private void EnableImage(bool active) => _image.enabled = active;
+
+        private void CheckNumberSkin(bool active) => CheckNumberSkin();
     }
 }

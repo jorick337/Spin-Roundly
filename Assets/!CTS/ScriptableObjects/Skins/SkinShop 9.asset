@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a023402f3e7ccaca977d56f98159b60, type: 3}
   m_Name: SkinShop 9
   m_EditorClassIdentifier: 
-  _sprite: {fileID: -8120479604261871205, guid: 5c5e4adb28f6e43d6a93ef6e58690905, type: 3}
-  _price: 600
+  _sprite: {fileID: 2200207831159970627, guid: 09678d1139e4f43baaca2d13a6c86e68, type: 3}
+  _price: 2000
