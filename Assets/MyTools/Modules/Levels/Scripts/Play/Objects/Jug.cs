@@ -70,7 +70,7 @@ namespace MyTools.Levels.Play
 
         #region CALLBACKS
 
-        protected override void InvokeTrigger2D(Collider2D collider2D)
+        protected override void InvokeTriggeredEnter(Collider2D collider2D)
         {
             if (_currentHits >= _hitsToBreak)
                 return;
@@ -79,6 +79,9 @@ namespace MyTools.Levels.Play
             if (_currentHits >= _hitsToBreak)
                 Break();
         }
+
+        protected override void InvokeTriggeredStay(Collider2D collider2D) { }
+        protected override void InvokeTriggeredExit(Collider2D collider2D) { }
 
         #endregion
     }

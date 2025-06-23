@@ -27,13 +27,17 @@ namespace MyTools.UI
 
         private void OnEnable()
         {
-            _collider2DTrigger.OnTriggeredEnter += InvokeTrigger2D;
+            _collider2DTrigger.OnTriggeredEnter += InvokeTriggeredEnter;
+            _collider2DTrigger.OnTriggeredStay += InvokeTriggeredStay;
+            _collider2DTrigger.OnTriggeredExit += InvokeTriggeredExit;
             _gameLevelManager.OnRestart += Restart;
         }
 
         private void OnDisable()
         {
-            _collider2DTrigger.OnTriggeredEnter -= InvokeTrigger2D;
+            _collider2DTrigger.OnTriggeredEnter -= InvokeTriggeredEnter;
+            _collider2DTrigger.OnTriggeredStay -= InvokeTriggeredStay;
+            _collider2DTrigger.OnTriggeredExit -= InvokeTriggeredExit;
             _gameLevelManager.OnRestart -= Restart;
         }
 
@@ -69,7 +73,9 @@ namespace MyTools.UI
             EnableColliderTrigger();
         }
 
-        protected abstract void InvokeTrigger2D(Collider2D collider2D);
+        protected abstract void InvokeTriggeredEnter(Collider2D collider2D);
+        protected abstract void InvokeTriggeredStay(Collider2D collider2D);
+        protected abstract void InvokeTriggeredExit(Collider2D collider2D);
 
         #endregion
     }

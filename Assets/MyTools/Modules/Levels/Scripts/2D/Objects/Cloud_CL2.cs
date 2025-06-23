@@ -15,7 +15,7 @@ namespace MyTools.Levels.TwoDimensional.Objects
         protected override void DoActionOnAwake() { }
         protected override void DoActionBeforeRestart() { }
 
-        protected override async void InvokeTrigger2D(Collider2D collider2D)
+        protected override async void InvokeTriggeredEnter(Collider2D collider2D)
         {
             _animationTransparency.StartAlwaysAnimation();
             await WaitTimeToDie();
@@ -26,6 +26,7 @@ namespace MyTools.Levels.TwoDimensional.Objects
 
         private async UniTask WaitTimeToDie() => await UniTask.WaitForSeconds(_timeToDie);
 
-
+        protected override void InvokeTriggeredStay(Collider2D collider2D) { }
+        protected override void InvokeTriggeredExit(Collider2D collider2D) { }
     }
 }

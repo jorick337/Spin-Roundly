@@ -111,11 +111,11 @@ namespace MyTools.Levels.Play.Objects
 
         #region CALLBACKS
 
-        protected override async void InvokeTrigger2D(Collider2D collider2D)
+        protected override async void InvokeTriggeredEnter(Collider2D collider2D)
         {
             if (_currentHits >= _hitsToBreak)
                 return;
-            
+
             _currentHits++;
 
             if (_currentHits >= _hitsToBreak)
@@ -126,6 +126,9 @@ namespace MyTools.Levels.Play.Objects
 
             await ReboundAsync();
         }
+
+        protected override void InvokeTriggeredStay(Collider2D collider2D) { }
+        protected override void InvokeTriggeredExit(Collider2D collider2D) { }
 
         #endregion
     }
