@@ -54,6 +54,7 @@ namespace MyTools.Levels.Play
         }
 
         public async void RestartAsync()
+<<<<<<< HEAD
         {
             ResetStars();
             await InvokeOnPreRestartAsync();
@@ -61,8 +62,11 @@ namespace MyTools.Levels.Play
         }
 
         public void Restart()
+=======
+>>>>>>> 753c7ba61f898b3869c56fd00d34fefda7c7c7a4
         {
             ResetStars();
+            await InvokeOnPreRestartAsync();
             InvokeOnRestart();
         }
 

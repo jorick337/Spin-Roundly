@@ -30,10 +30,14 @@ namespace MyTools.Levels.TwoDimensional.Player
             if (await _advertisingView.StartLoading())
                 _player.Rebirth();
             else
+<<<<<<< HEAD
             {
                 await _player.RestartAsync();
                 _player.Restart();
             }
+=======
+                await _player.RestartAsync();
+>>>>>>> 753c7ba61f898b3869c56fd00d34fefda7c7c7a4
         }
     }
 }

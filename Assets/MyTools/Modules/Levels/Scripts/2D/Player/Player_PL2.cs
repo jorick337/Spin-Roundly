@@ -29,7 +29,10 @@ namespace MyTools.Levels.TwoDimensional.Player
         {
             _gameLevelManager.OnFinish += Finish;
             _gameLevelManager.OnPreRestart += RestartAsync;
+<<<<<<< HEAD
             _gameLevelManager.OnRestart += Restart;
+=======
+>>>>>>> 753c7ba61f898b3869c56fd00d34fefda7c7c7a4
             _health.OnDead += Dead;
         }
 
@@ -37,12 +40,16 @@ namespace MyTools.Levels.TwoDimensional.Player
         {
             _gameLevelManager.OnFinish -= Finish;
             _gameLevelManager.OnPreRestart -= RestartAsync;
+<<<<<<< HEAD
             _gameLevelManager.OnRestart -= Restart;
+=======
+>>>>>>> 753c7ba61f898b3869c56fd00d34fefda7c7c7a4
             _health.OnDead -= Dead;
         }
 
         #region CORE LOGIC
 
+<<<<<<< HEAD
         public async UniTask RestartAsync() => await Handle(async () => await WaitTimeToRebirth());
 
         public void Restart() 
@@ -51,6 +58,14 @@ namespace MyTools.Levels.TwoDimensional.Player
             _teleportPlayer.SendToTarget();
             Enable();
         }
+=======
+        public async UniTask RestartAsync() => await Handle(async () =>
+        {
+            await WaitTimeToRebirth();
+            _health.Restart();
+            _teleportPlayer.SendToTarget();
+        });
+>>>>>>> 753c7ba61f898b3869c56fd00d34fefda7c7c7a4
 
         public async void Rebirth() => await Handle(async () =>
         {
