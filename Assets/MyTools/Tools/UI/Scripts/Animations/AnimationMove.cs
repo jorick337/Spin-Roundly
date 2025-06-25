@@ -12,7 +12,7 @@ namespace MyTools.UI.Animation
 
         private Transform _transform;
 
-        private void Awake()
+        public override void Initialize()
         {
             _transform = transform;
             if (_useStartPos)

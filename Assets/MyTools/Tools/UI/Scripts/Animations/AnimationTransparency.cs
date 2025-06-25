@@ -15,7 +15,7 @@ namespace MyTools.UI.Animation
         private Color _visibleColor;
         private Color _hiddenColor;
 
-        private void Awake()
+        public override void Initialize()
         {
             if (_uiElement != null)
             {

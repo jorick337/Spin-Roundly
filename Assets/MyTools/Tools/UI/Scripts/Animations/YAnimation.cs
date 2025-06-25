@@ -2,8 +2,6 @@ using System;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Localization.SmartFormat.GlobalVariables;
-using UnityEngine.U2D.IK;
 
 namespace MyTools.UI.Animation
 {
@@ -15,6 +13,7 @@ namespace MyTools.UI.Animation
         [SerializeField] protected float _timeToShow;
         [SerializeField] protected float _timeToHide;
         [SerializeField] private bool _isLooping = false;
+        [SerializeField] private bool _initializeOnStart = false;
 
         public abstract Sequence AnimationIn();
         public abstract Sequence AnimationOut();
@@ -29,8 +28,17 @@ namespace MyTools.UI.Animation
 
         #region MONO
 
+        private void Awake()
+        {
+            if (!_initializeOnStart)
+                Initialize();
+        }
+
         private void Start()
         {
+            if (_initializeOnStart)
+                Initialize();
+
             if (_isLooping)
                 AnimateAlways();
         }
@@ -41,6 +49,8 @@ namespace MyTools.UI.Animation
         #endregion
 
         #region INITIALIZATION
+
+        public virtual void Initialize() {}
 
         private void KillAnimations()
         {

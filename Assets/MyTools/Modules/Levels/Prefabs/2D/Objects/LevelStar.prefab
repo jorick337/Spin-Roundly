@@ -4773,10 +4773,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeToShow: 0.5
   _timeToHide: 0.5
-  _isLooping: 0
+  _isLooping: 1
+  _initializeOnStart: 1
   _visibleAchorPos: {x: 0, y: 0, z: 0}
   _hiddenAchorPos: {x: 0, y: 0.5, z: 0}
-  _useStartPos: 0
+  _useStartPos: 1
 --- !u!114 &2251216913904652409
 MonoBehaviour:
   m_ObjectHideFlags: 0
