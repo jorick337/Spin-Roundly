@@ -14,15 +14,8 @@ namespace MyTools.Loading
 
         private LoadScene _loadScene;
 
-        private void Awake()
-        {
-            _loadScene = LoadScene.Instance;
-        }
-
-        private void Start()
-        {
-            StartCoroutine(Load());
-        }
+        private void Awake() => _loadScene = LoadScene.Instance;
+        private void Start() => StartCoroutine(Load());
 
         #region CORE LOGIC
 

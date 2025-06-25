@@ -193,6 +193,7 @@ MonoBehaviour:
   _timeToShow: 0.5
   _timeToHide: 0.5
   _isLooping: 0
+  _initializeOnStart: 0
   _visibleTransparency: 1
   _hiddenTransparency: 0
   _uiElement: {fileID: 0}
@@ -408,7 +409,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4990368510417099155}

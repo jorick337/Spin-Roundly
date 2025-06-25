@@ -70,6 +70,15 @@ namespace MyTools.Levels
 
         #region VALUES
 
+        public void AddStars(int stars)
+        {
+            if (Stars[_chosedLevel - 1] == 3)
+                return;
+
+            Stars[_chosedLevel - 1] = stars;
+            InvokeStarsChanged();
+        }
+
         public void AddTrophy(int trophy)
         {
             Trophies += trophy;
@@ -87,14 +96,7 @@ namespace MyTools.Levels
         public void SetLevel(int level) => _chosedLevel = level;
         public async UniTask WaitUntilLoaded() => await UniTask.WaitUntil(() => IsLoaded);
 
-        private void AddStars(int stars)
-        {
-            if (Stars[_chosedLevel - 1] == 3)
-                return;
 
-            Stars[_chosedLevel - 1] = stars;
-            InvokeStarsChanged();
-        }
 
         private void AddLevel()
         {

@@ -44,11 +44,11 @@ namespace MyTools.PlayerSystem
 
         private void OnDisable()
         {
-            _levelsManager.TrophiesChanged += SaveManager.SaveTrophies;
-            _levelsManager.StarsChanged += SaveManager.SaveStars;
-            _languageManager.LocaleChanged += SaveManager.SaveLanguage;
-            _musicManager.MusicActiveChanged += SaveManager.SaveMusicActive;
-            _musicManager.SoundsActiveChanged += SaveManager.SaveSoundsActive;
+            _levelsManager.TrophiesChanged -= SaveManager.SaveTrophies;
+            _levelsManager.StarsChanged -= SaveManager.SaveStars;
+            _languageManager.LocaleChanged -= SaveManager.SaveLanguage;
+            _musicManager.MusicActiveChanged -= SaveManager.SaveMusicActive;
+            _musicManager.SoundsActiveChanged -= SaveManager.SaveSoundsActive;
         }
 
         private void Initialize()

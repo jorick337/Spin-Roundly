@@ -50,6 +50,7 @@ namespace MyTools.Levels.Play
         public void Finish()
         {
             LoadVictoryView();
+            SaveStars();
             InvokeOnFinish();
         }
 
@@ -66,7 +67,11 @@ namespace MyTools.Levels.Play
             InvokeOnRestart();
         }
 
-        public void Next() => LoadNextLevel();
+        public void Next() 
+        {
+            ResetStars();
+            LoadNextLevel();
+        } 
 
         #endregion
 
@@ -103,6 +108,8 @@ namespace MyTools.Levels.Play
         }
 
         private void ResetStars() => Stars = 0;
+
+        private void SaveStars() => _levelsManager.AddStars(Stars);
 
         #endregion
 

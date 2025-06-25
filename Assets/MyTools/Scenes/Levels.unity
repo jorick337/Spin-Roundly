@@ -160,15 +160,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 662684170422878784, guid: 8ff50e90cd6c78a6cad3fbf3f571df3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.3419142
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 662684170422878784, guid: 8ff50e90cd6c78a6cad3fbf3f571df3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.0317593
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 662684170422878784, guid: 8ff50e90cd6c78a6cad3fbf3f571df3c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 90.72984
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 662684170422878784, guid: 8ff50e90cd6c78a6cad3fbf3f571df3c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -756,6 +756,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 8661016324974262306, guid: 77d68e935544f5bb380e84b2b17dd719, type: 3}
+      propertyPath: m_Name
+      value: Button
+      objectReference: {fileID: 0}
     - target: {fileID: 8962679564421318834, guid: 77d68e935544f5bb380e84b2b17dd719, type: 3}
       propertyPath: m_Name
       value: InterfaceLevelCanvas

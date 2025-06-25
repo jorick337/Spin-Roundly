@@ -1157,6 +1157,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 878203608106595485, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+      propertyPath: m_Tiles.Array.data[24].second.m_TileObjectToInstantiateIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878203608106595485, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+      propertyPath: m_Tiles.Array.data[25].second.m_TileObjectToInstantiateIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878203608106595485, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: m_Tiles.Array.data[26].second.m_TileObjectToInstantiateIndex
       value: 7
       objectReference: {fileID: 0}
