@@ -47,11 +47,14 @@ namespace MyTools.Shop.Skins
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
-        private void OnDisable() 
+        private void OnDisable()
         {
-           _playerManager.OnLoaded -= Initialize; 
-           SceneManager.sceneLoaded -= OnSceneLoaded;
-        } 
+            if (_isLoaded)
+            {
+                _playerManager.OnLoaded -= Initialize;
+                SceneManager.sceneLoaded -= OnSceneLoaded;
+            }
+        }
 
         #region INITIALIZATION
 
