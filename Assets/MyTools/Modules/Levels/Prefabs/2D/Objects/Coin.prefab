@@ -30,7 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5152034314481420364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -133,7 +133,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &572547369070006301
 MonoBehaviour:
@@ -4936,10 +4936,10 @@ MonoBehaviour:
   _timeToShow: 0.5
   _timeToHide: 0.5
   _isLooping: 1
+  _initializeOnStart: 1
   _visibleAchorPos: {x: 0, y: 0, z: 0}
   _hiddenAchorPos: {x: 0, y: 0.5, z: 0}
   _useStartPos: 1
-  _initializeOnStart: 1
 --- !u!114 &953564553374164080
 MonoBehaviour:
   m_ObjectHideFlags: 0

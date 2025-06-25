@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Cloud
+  m_Name: CoinBox
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 3349391187094723686, guid: d25176a118dc128d19786736d1a462fd, type: 3}
+  m_Sprite: {fileID: 3850564952883496113, guid: 3263b0e77cddbb5dc9367c21906e179c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -31,6 +31,6 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 1190254696899834437, guid: 8f791e3c190b2d5eda65dd7b7e9f663d, type: 3}
+  m_InstancedGameObject: {fileID: 3755295696224441789, guid: e1159230af48d90e49f9377b5d3cedd5, type: 3}
   m_Flags: 0
   m_ColliderType: 0

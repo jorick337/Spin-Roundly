@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Cloud
+  m_Name: Cloud_BG
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 3349391187094723686, guid: d25176a118dc128d19786736d1a462fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53a92b61ea7dbdb45a0b3db4c15903c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
-    e00: 1
+    e00: 5
     e01: 0
     e02: 0
     e03: 0
     e10: 0
-    e11: 1
+    e11: 3
     e12: 0
     e13: 0
     e20: 0
@@ -31,6 +31,6 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 1190254696899834437, guid: 8f791e3c190b2d5eda65dd7b7e9f663d, type: 3}
+  m_InstancedGameObject: {fileID: 1190254696899834437, guid: b6adeb118e0754888b89c28386e26a4f, type: 3}
   m_Flags: 0
   m_ColliderType: 0

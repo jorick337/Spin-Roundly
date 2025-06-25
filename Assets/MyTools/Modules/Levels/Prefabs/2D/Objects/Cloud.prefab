@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7834532239280934942}
   - component: {fileID: 4539336053783491029}
   - component: {fileID: 793138587405839994}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4774,6 +4774,7 @@ MonoBehaviour:
   _timeToShow: 0.2
   _timeToHide: 0.2
   _isLooping: 0
+  _initializeOnStart: 0
   _visibleTransparency: 1
   _hiddenTransparency: 0.5
   _uiElement: {fileID: 0}
@@ -4884,7 +4885,7 @@ GameObject:
   - component: {fileID: 817956328424666771}
   - component: {fileID: 7904111012277195530}
   - component: {fileID: 4945950334803886582}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
