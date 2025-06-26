@@ -7,7 +7,6 @@ namespace MyTools.Advertising
     public class AD_RewardButton : MonoBehaviour
     {
         [SerializeField] private Button _button;
-        [SerializeField] private Text _text;
         [SerializeField] private int _reward;
 
         // Managers

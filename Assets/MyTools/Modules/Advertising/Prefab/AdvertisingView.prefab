@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8125894759177648345}
   - component: {fileID: 5141102604622231383}
   - component: {fileID: 9033703367249022218}
+  - component: {fileID: 377186619414646766}
   m_Layer: 5
   m_Name: AdvertisingView
   m_TagString: Untagged
@@ -58,7 +59,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1
@@ -117,6 +118,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _time: 5
   _slider: {fileID: 25955772239427951}
+--- !u!222 &377186619414646766
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987758234992155068}
+  m_CullTransparentMesh: 1
 --- !u!1 &2165469462557507209
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +234,7 @@ MonoBehaviour:
   _timeToShow: 0.3
   _timeToHide: 0.3
   _isLooping: 1
+  _initializeOnStart: 0
   _visibleScale: {x: 1, y: 1, z: 1}
   _hiddenScale: {x: 0.9, y: 0.9, z: 0.9}
 --- !u!1 &2936343201998676127

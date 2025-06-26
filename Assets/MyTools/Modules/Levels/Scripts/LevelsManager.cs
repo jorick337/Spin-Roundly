@@ -22,7 +22,7 @@ namespace MyTools.Levels
         public int[] Stars { get; private set; }
         public int Trophies { get; private set; }
 
-        private int _chosedLevel = 1;
+        public int ChosedNumberLevel { get; private set; } = 1;
 
         #endregion
 
@@ -46,7 +46,7 @@ namespace MyTools.Levels
         public async UniTask<GameLevel> Load()
         {
             GameLevelsProvider gameLevelsProvider = new();
-            return await gameLevelsProvider.Load(_chosedLevel);
+            return await gameLevelsProvider.Load(ChosedNumberLevel);
         }
 
         public async UniTask<GameLevel> LoadNextLevel()
@@ -72,10 +72,10 @@ namespace MyTools.Levels
 
         public void AddStars(int stars)
         {
-            if (Stars[_chosedLevel - 1] == 3)
+            if (Stars[ChosedNumberLevel - 1] == 3)
                 return;
 
-            Stars[_chosedLevel - 1] = stars;
+            Stars[ChosedNumberLevel - 1] = stars;
             InvokeStarsChanged();
         }
 
@@ -93,15 +93,13 @@ namespace MyTools.Levels
             return number;
         }
 
-        public void SetLevel(int level) => _chosedLevel = level;
+        public void SetLevel(int level) => ChosedNumberLevel = level;
         public async UniTask WaitUntilLoaded() => await UniTask.WaitUntil(() => IsLoaded);
-
-
 
         private void AddLevel()
         {
-            if (_chosedLevel + 1 <= Stars.Length)
-                _chosedLevel += 1;
+            if (ChosedNumberLevel + 1 <= Stars.Length)
+                ChosedNumberLevel += 1;
         }
 
         #endregion
