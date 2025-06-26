@@ -72,7 +72,7 @@ namespace MyTools.Levels
 
         public void AddStars(int stars)
         {
-            if (Stars[ChosedNumberLevel - 1] == 3)
+            if (Stars[ChosedNumberLevel - 1] >= stars)
                 return;
 
             Stars[ChosedNumberLevel - 1] = stars;

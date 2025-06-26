@@ -297,8 +297,9 @@ GameObject:
   - component: {fileID: 8090084194812080084}
   - component: {fileID: 410051906553765744}
   - component: {fileID: 830321517907825582}
+  - component: {fileID: 8695649607343149647}
   m_Layer: 0
-  m_Name: InterfaceLevelCanvas
+  m_Name: InterfaceLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -391,6 +392,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8695649607343149647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8962679564421318834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6683cbae97b813fab1b7d8ddb414763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _homeButton: {fileID: 5408609147873473841}
 --- !u!1001 &791006415190841037
 PrefabInstance:
   m_ObjectHideFlags: 0
