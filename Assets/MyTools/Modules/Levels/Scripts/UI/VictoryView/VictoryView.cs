@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using MyTools.Loading;
+using MyTools.Advertising;
 using MyTools.PlayerSystem;
 using MyTools.UI;
 using MyTools.UI.Animation;
@@ -19,14 +19,13 @@ namespace MyTools.Levels.Play
         [SerializeField] private Text _moneyText;
 
         [Header("Buttons")]
+        [SerializeField] private AD_RewardScrollbar _rewardScrollbar;
         [SerializeField] private MyButton _reloadButton;
-        [SerializeField] private MyButton _homeButton;
         [SerializeField] private MyButton _forwardButton;
 
         // Managers
         private GameLevelManager _gameLevelManager;
         private PlayerManager _playerManager;
-        private LoadScene _loadScene;
         private VictoryViewProvider _victoryViewProvider;
 
         #endregion
@@ -37,43 +36,47 @@ namespace MyTools.Levels.Play
         {
             _gameLevelManager = GameLevelManager.Instance;
             _playerManager = PlayerManager.Instance;
-            _loadScene = LoadScene.Instance;
             SetTextMoney();
         }
 
         private void OnEnable()
         {
             _reloadButton.OnPressEnded += Reload;
-            _homeButton.OnPressEnded += LoadStartScene;
             _forwardButton.OnPressEnded += LoadNextLevel;
+            _gameLevelManager.CollectedMoneyChanged += UpdateReward;
         }
 
         private void OnDisable()
         {
             _reloadButton.OnPressEnded -= Reload;
-            _homeButton.OnPressEnded -= LoadStartScene;
             _forwardButton.OnPressEnded -= LoadNextLevel;
+            _gameLevelManager.CollectedMoneyChanged -= UpdateReward;
         }
 
-        private void Start() 
+        private async void Start()
         {
             DisableUI();
-            ShowStars();
+            await ShowStars();
+            EnableRewardScrollbar();
             EnableUI();
-        } 
+        }
 
         #endregion
 
         #region UI
 
-        private async void ShowStars()
+        private async UniTask ShowStars()
         {
             for (int i = 0; i < _gameLevelManager.Stars; i++)
+            {
                 await _animationTranparencyStars[i].AnimateInAsync();
+                _gameLevelManager.AddMoney(10);
+            }
         }
 
         private void SetTextMoney() => _moneyText.text = _playerManager.Player.Money.ToString();
 
+        private void EnableRewardScrollbar() => _rewardScrollbar.Initialize();
         private void EnableUI() => _canvasGroup.interactable = true;
         private void DisableUI() => _canvasGroup.interactable = false;
 
@@ -94,9 +97,10 @@ namespace MyTools.Levels.Play
 
         #region CALLBACKS
 
-        private async UniTask Reload() => await InvokeActionAndUnload(() =>  _gameLevelManager.Restart());
-        private async UniTask LoadStartScene() => await InvokeActionAndUnload(() =>  _loadScene.Load());
-        private async UniTask LoadNextLevel() => await InvokeActionAndUnload(() =>  _gameLevelManager.Next());
+        private void UpdateReward(int reward) => _rewardScrollbar.SetInitialReward(reward);
+
+        private async UniTask Reload() => await InvokeActionAndUnload(() => _gameLevelManager.Restart());
+        private async UniTask LoadNextLevel() => await InvokeActionAndUnload(() => _gameLevelManager.Next());
 
         #endregion
     }

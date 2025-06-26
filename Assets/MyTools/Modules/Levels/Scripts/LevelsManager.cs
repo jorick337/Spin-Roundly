@@ -41,22 +41,6 @@ namespace MyTools.Levels
 
         #endregion
 
-        #region LOAD
-
-        public async UniTask<GameLevel> Load()
-        {
-            GameLevelsProvider gameLevelsProvider = new();
-            return await gameLevelsProvider.Load(ChosedNumberLevel);
-        }
-
-        public async UniTask<GameLevel> LoadNextLevel()
-        {
-            AddLevel();
-            return await Load();
-        }
-
-        #endregion
-
         #region INITIALIZATION
 
         public void Initialize(int[] stars, int trophy)
@@ -64,6 +48,16 @@ namespace MyTools.Levels
             Stars = stars;
             Trophies = trophy;
             IsLoaded = true;
+        }
+
+        #endregion
+
+        #region LOAD
+
+        public async UniTask<GameLevel> Load()
+        {
+            GameLevelsProvider gameLevelsProvider = new();
+            return await gameLevelsProvider.Load(ChosedNumberLevel);
         }
 
         #endregion
@@ -84,6 +78,12 @@ namespace MyTools.Levels
             Trophies += trophy;
             InvokeTrophiesChanged();
         }
+        
+        public void AddLevel()
+        {
+            if (ChosedNumberLevel + 1 <= Stars.Length)
+                ChosedNumberLevel += 1;
+        }
 
         public int GetStars()
         {
@@ -95,12 +95,6 @@ namespace MyTools.Levels
 
         public void SetLevel(int level) => ChosedNumberLevel = level;
         public async UniTask WaitUntilLoaded() => await UniTask.WaitUntil(() => IsLoaded);
-
-        private void AddLevel()
-        {
-            if (ChosedNumberLevel + 1 <= Stars.Length)
-                ChosedNumberLevel += 1;
-        }
 
         #endregion
 

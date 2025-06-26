@@ -9,15 +9,12 @@ namespace MyTools.Levels.Play
         [Header("Coin")]
         [SerializeField] private ParticleSystem _particleSystem;
 
-        // Managers
-        private PlayerManager _playerManager;
-
-        protected override void DoActionOnAwake() => _playerManager = PlayerManager.Instance;
+        protected override void DoActionOnAwake() { }
         protected override void DoActionBeforeRestart() { }
 
         protected override void InvokeTriggeredEnter(Collider2D collider2D)
         {
-            _playerManager.Player.AddMoney(1);
+            _gameLevelManager.AddMoney(1);
             _particleSystem.Play();
         }
 
