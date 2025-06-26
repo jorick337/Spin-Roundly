@@ -4854,7 +4854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 8435512608576777453}
   _text: {fileID: 2432735806721019368}
-  _reward: 150
+  _reward: 200
 --- !u!1 &2784505468605179115
 GameObject:
   m_ObjectHideFlags: 0
