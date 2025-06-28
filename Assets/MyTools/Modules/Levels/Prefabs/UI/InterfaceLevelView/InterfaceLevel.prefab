@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2770278539747337490}
   - component: {fileID: 7727355232817292016}
   - component: {fileID: 8984295102992602406}
-  - component: {fileID: 5408609147873473841}
   - component: {fileID: 2313697731313987887}
   m_Layer: 5
   m_Name: LoadButton
@@ -255,23 +254,6 @@ MonoBehaviour:
   _initializeOnStart: 0
   _visibleScale: 1
   _hiddenScale: 0.95
---- !u!114 &5408609147873473841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8661016324974262306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f927596993b669cf93c26b726894f4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _toggle: {fileID: 0}
-  _button: {fileID: 2770278539747337490}
-  _audioSourceClick: {fileID: 7727355232817292016}
-  _animationScale: {fileID: 0}
-  _animationScaleX: {fileID: 8984295102992602406}
 --- !u!114 &2313697731313987887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +266,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fcd1f4dbcc9d217afc793e918b3e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toggle: {fileID: 0}
   _button: {fileID: 2770278539747337490}
+  _audioSourceClick: {fileID: 7727355232817292016}
+  _animationScale: {fileID: 0}
+  _animationScaleX: {fileID: 8984295102992602406}
 --- !u!1 &8962679564421318834
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6683cbae97b813fab1b7d8ddb414763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButton: {fileID: 5408609147873473841}
+  _homeButton: {fileID: 0}
 --- !u!1001 &791006415190841037
 PrefabInstance:
   m_ObjectHideFlags: 0
