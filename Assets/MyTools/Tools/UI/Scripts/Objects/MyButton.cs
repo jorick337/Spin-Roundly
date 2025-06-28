@@ -30,8 +30,8 @@ namespace MyTools.UI
 
         #region MONO
 
-        protected void OnEnable() => RegisterEvents();
-        protected void OnDisable() => UnregisterEvents();
+        protected virtual void OnEnable() => RegisterEvents();
+        protected virtual void OnDisable() => UnregisterEvents();
         
         public virtual void OnValidate() => Validate();
 

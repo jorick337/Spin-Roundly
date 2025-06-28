@@ -69,16 +69,17 @@ namespace MyTools.Levels.Play
             Restart();
         }
 
-        public void Restart()
-        {
-            ResetStars();
-            InvokeOnRestart();
-        }
-
         public void Next()
         {
             Restart();
             LoadNextLevel();
+        }
+        
+        public void Restart()
+        {
+            ResetCollectedMoney();
+            ResetStars();
+            InvokeOnRestart();
         }
 
         #endregion
@@ -104,7 +105,6 @@ namespace MyTools.Levels.Play
             if (_gameLevel != null)
                 await _gameLevel.Unload();
             _gameLevel = await _levelsManager.Load();
-            ResetCollectedMoney();
         }
 
         #endregion

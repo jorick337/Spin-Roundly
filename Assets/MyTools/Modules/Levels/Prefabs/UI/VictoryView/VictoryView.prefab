@@ -1044,9 +1044,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1542994445340926761, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4435041309306956517}
-    - targetCorrespondingSourceObject: {fileID: 1542994445340926761, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8443311830042901966}
   m_SourcePrefab: {fileID: 100100000, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
 --- !u!114 &573852398270473103 stripped
@@ -1065,23 +1062,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1542994445340926761, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
   m_PrefabInstance: {fileID: 4228755085820644312}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4435041309306956517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3442543546023094513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f927596993b669cf93c26b726894f4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _toggle: {fileID: 0}
-  _button: {fileID: 4449264893056684517}
-  _audioSourceClick: {fileID: 7841172647913104960}
-  _animationScale: {fileID: 3750216216211579804}
-  _animationScaleX: {fileID: 573852398270473103}
 --- !u!114 &8443311830042901966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1094,7 +1074,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fcd1f4dbcc9d217afc793e918b3e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toggle: {fileID: 0}
   _button: {fileID: 4449264893056684517}
+  _audioSourceClick: {fileID: 7841172647913104960}
+  _animationScale: {fileID: 3750216216211579804}
+  _animationScaleX: {fileID: 573852398270473103}
 --- !u!114 &3750216216211579804 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1055249271248660548, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
