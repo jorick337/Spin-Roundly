@@ -756,10 +756,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 8661016324974262306, guid: 77d68e935544f5bb380e84b2b17dd719, type: 3}
-      propertyPath: m_Name
-      value: Button
-      objectReference: {fileID: 0}
     - target: {fileID: 8962679564421318834, guid: 77d68e935544f5bb380e84b2b17dd719, type: 3}
       propertyPath: m_Name
       value: InterfaceLevelCanvas

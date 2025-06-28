@@ -1,4 +1,5 @@
 using MyTools.Levels.Play;
+using MyTools.Loading;
 using MyTools.UI;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace MyTools.Levels.UI.Interface
 {
     public class LV_Interface : MonoBehaviour
     {
-        [SerializeField] private MyButton _homeButton;
+        [SerializeField] private LS_Button _homeButton;
 
         // Managers
         private GameLevelManager _gameLevelManager;

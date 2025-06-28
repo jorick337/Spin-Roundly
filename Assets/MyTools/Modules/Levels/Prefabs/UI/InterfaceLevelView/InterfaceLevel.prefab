@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8984295102992602406}
   - component: {fileID: 2313697731313987887}
   m_Layer: 5
-  m_Name: LoadButton
+  m_Name: HomeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6683cbae97b813fab1b7d8ddb414763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homeButton: {fileID: 0}
+  _homeButton: {fileID: 2313697731313987887}
 --- !u!1001 &791006415190841037
 PrefabInstance:
   m_ObjectHideFlags: 0
