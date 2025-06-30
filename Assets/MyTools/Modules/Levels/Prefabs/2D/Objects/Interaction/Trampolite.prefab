@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider2DTrigger: {fileID: 2564193410395031077}
-  _bounsForce: 13
+  _bounsForce: 14
 --- !u!1 &8914996728637978275
 GameObject:
   m_ObjectHideFlags: 0
