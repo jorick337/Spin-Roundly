@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8991871408080893925}
   - component: {fileID: 7130125615617628179}
   - component: {fileID: 3515145902023090351}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: CoinBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4963,7 +4963,7 @@ GameObject:
   - component: {fileID: 4561284372803187496}
   - component: {fileID: 510682883011251463}
   - component: {fileID: 155684834099517910}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5123,7 +5123,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2176900224163536020, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2176900224163536020, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_IsActive
@@ -5135,7 +5135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4978010352576905717, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5152034314481420364, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_LocalPosition.x
