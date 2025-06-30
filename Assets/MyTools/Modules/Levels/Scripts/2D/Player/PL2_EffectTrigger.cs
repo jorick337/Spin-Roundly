@@ -1,9 +1,9 @@
 using MyTools.UI;
 using UnityEngine;
 
-namespace MyTools.Levels.TwoDimensional.Objects
+namespace MyTools.Levels.TwoDimensional.Player
 {
-    public class Water_WT2 : MonoBehaviour
+    public class PL2_EffectTrigger : MonoBehaviour
     {
         [SerializeField] private Collider2DTrigger _collider2DTrigger;
         [SerializeField] private ParticleSystem _particleSystem;

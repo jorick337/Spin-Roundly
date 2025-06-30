@@ -1,8 +1,8 @@
 using Cysharp.Threading.Tasks;
 using MyTools.Loading;
 using MyTools.Music;
-using MyTools.UI.Animation;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MyTools.Levels.Start
 {
@@ -13,6 +13,12 @@ namespace MyTools.Levels.Start
         [Header("Core")]
         [SerializeField] protected CanvasGroup _canvasGroup;
         [SerializeField] protected LevelButton[] _levelButtons;
+
+        [Header("Moving")]
+        [SerializeField] protected Button _leftButton;
+        [SerializeField] protected Button _rightButton;
+
+        protected int _multiplyLevel = 0;
 
         // Managers
         protected MusicManager _musicManager;
@@ -40,6 +46,9 @@ namespace MyTools.Levels.Start
                 _levelButtons[i].OnPressed += DisableUIAsync;
                 _levelButtons[i].OnSelected += LoadLevelsScene;
             }
+
+            _leftButton.onClick.AddListener(PrevPage);
+            _rightButton.onClick.AddListener(NextPage);
         }
 
         public virtual void OnDisable()
@@ -49,18 +58,37 @@ namespace MyTools.Levels.Start
                 _levelButtons[i].OnPressed -= DisableUIAsync;
                 _levelButtons[i].OnSelected -= LoadLevelsScene;
             }
+
+            _leftButton.onClick.RemoveListener(PrevPage);
+            _rightButton.onClick.RemoveListener(NextPage);
         }
 
         #endregion
 
-        #region UI
-
         protected void Initialize()
         {
-            for (int i = 0; i < _levelButtons.Length; i++)
-                _levelButtons[i].Initialize();
+            int lenght = _levelButtons.Length;
+            for (int i = 0; i < lenght; i++)
+            {
+                int level = i + 1 + lenght * _multiplyLevel;
+                _levelButtons[i].Initialize(level);
+            }
         }
 
+        #region UI
+
+        protected void Turn(int direction)
+        {
+            _multiplyLevel += direction;
+
+            SetActiveLeftButton(_multiplyLevel != 0);
+            SetActiveRightButton(_multiplyLevel != 1);
+
+            Initialize();
+        }
+
+        protected void SetActiveRightButton(bool active) => _rightButton.gameObject.SetActive(active);
+        protected void SetActiveLeftButton(bool active) => _leftButton.gameObject.SetActive(active);
         protected void DisableUI() => _canvasGroup.interactable = false;
 
         #endregion
@@ -78,6 +106,9 @@ namespace MyTools.Levels.Start
             _levelsManager.SetLevel(level);
             await _loadScene.LoadAsync();
         }
+
+        protected void NextPage() => Turn(1);
+        protected void PrevPage() => Turn(-1);
 
         #endregion
     }

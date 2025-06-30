@@ -12,6 +12,7 @@ namespace MyTools.Levels.Start
 
         [Header("Level")]
         [SerializeField] private int _level = 1;
+        [SerializeField] private Text _text;
         [SerializeField] private Image[] _starImages = new Image[3];
         [SerializeField] private Material _starVisibleMaterial;
         [SerializeField] private Color _starVisibleColor;
@@ -37,8 +38,10 @@ namespace MyTools.Levels.Start
             Validate();
         }
 
-        public void Initialize()
+        public void Initialize(int level)
         {
+            SetLevel(level);
+
             int stars = _levelsManager.Stars[_level - 1];
             for (int i = 0; i < stars; i++)
             {
@@ -46,6 +49,16 @@ namespace MyTools.Levels.Start
                 _starImages[i].color = _starVisibleColor;
             }
         }
+
+        private void SetLevel(int level) 
+        {
+            _level = level;
+            SetText(level.ToString());
+        }
+
+        private void SetText(string text) => _text.text = text;
+
+        #region CALLBACKS
 
         public override async void ClickButtonAsync()
         {
@@ -62,5 +75,7 @@ namespace MyTools.Levels.Start
             if (OnSelected != null)
                 await OnSelected.Invoke(_level);
         }
+
+        #endregion
     }
 }

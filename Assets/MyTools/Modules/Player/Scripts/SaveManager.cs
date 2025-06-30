@@ -7,7 +7,7 @@ namespace MyTools.PlayerSystem
     {
         #region CONSTANTS
 
-        private const int MAX_LEVEL = 15;
+        private const int MAX_LEVEL = 30;
         private static readonly string LEVEL_STARS = string.Join(",", Enumerable.Repeat("0", MAX_LEVEL));
 
         private const int TROPHY = 0;
@@ -36,7 +36,7 @@ namespace MyTools.PlayerSystem
         }
 
         public static int LoadTrophy() => PlayerPrefs.GetInt("Trophy", TROPHY);
-        public static int LoadMoney() => 5000; // PlayerPrefs.GetInt("Money", MONEY);
+        public static int LoadMoney() => PlayerPrefs.GetInt("Money", MONEY);
 
         public static bool LoadMusisActive() => PlayerPrefs.GetInt("MusicActive", MUSIC_ACTIVE) == 1;
         public static bool LoadSoundsActive() => PlayerPrefs.GetInt("SoundsActive", SOUNDS_ACTIVE) == 1;

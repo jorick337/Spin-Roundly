@@ -315,6 +315,7 @@ MonoBehaviour:
   _timeToShow: 0.8
   _timeToHide: 0.8
   _isLooping: 1
+  _initializeOnStart: 0
   _visibleScale: {x: 1, y: 1, z: 1}
   _hiddenScale: {x: 1, y: 0.95, z: 1}
 --- !u!1 &7619830467143778411
@@ -595,6 +596,7 @@ MonoBehaviour:
   _animationScale: {fileID: 8909225191930092424}
   _animationScaleX: {fileID: 5214648762591206299}
   _level: 1
+  _text: {fileID: 4708037019668766470}
   _starImages:
   - {fileID: 8760031399095509645}
   - {fileID: 733417667058755344}
