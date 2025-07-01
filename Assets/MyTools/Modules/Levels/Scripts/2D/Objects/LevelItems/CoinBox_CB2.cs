@@ -24,7 +24,7 @@ namespace MyTools.Levels.TwoDimensional.Objects
             DisableColliderTrigger();
         }
 
-        protected override void InvokeTriggeredStay(Collider2D collider2D) { }
+        protected override void InvokeTriggeredStayAsync(Collider2D collider2D) { }
 
         private void DisableCoins()
         {

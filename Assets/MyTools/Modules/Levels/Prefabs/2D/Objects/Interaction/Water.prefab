@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeToShow: 5
   _timeToHide: 5
-  _isLooping: 0
+  _isLooping: 1
   _initializeOnStart: 0
   _visibleAchorPos: {x: 0, y: 0, z: 0}
   _hiddenAchorPos: {x: 0, y: -0.5, z: 0}

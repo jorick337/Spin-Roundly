@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5184112747289038560}
   - component: {fileID: 8235816351697315560}
   - component: {fileID: 572547369070006301}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 1530527213784137955}
   - component: {fileID: 953564553374164080}
   - component: {fileID: 4516737363798001423}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

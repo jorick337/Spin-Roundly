@@ -144,6 +144,10 @@ PrefabInstance:
       propertyPath: _teleport
       value: 
       objectReference: {fileID: 4496874142185331096}
+    - target: {fileID: 723604266961060843, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 878203608106595485, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: m_Size.x
       value: 94
@@ -10927,6 +10931,10 @@ PrefabInstance:
     - target: {fileID: 4554681979799501000, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: m_ChunkCullingBounds.y
       value: 0.14499998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021821060767868951, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+      propertyPath: _isLooping
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5021821060767868951, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: _timeToHide

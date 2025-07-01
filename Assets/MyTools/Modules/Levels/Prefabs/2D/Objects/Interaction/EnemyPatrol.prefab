@@ -170,7 +170,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.2, y: 1.2}
   m_EdgeRadius: 0
 --- !u!82 &4447756113128646177
 AudioSource:
@@ -5088,6 +5088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTrans: {fileID: 8701519322878591274}
   _objTrans: {fileID: 2209758176431162990}
+  _rigidbody2D: {fileID: 0}
 --- !u!114 &6820446665194647766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5102,7 +5103,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _repeatable: 1
   _allowActivation: 0
+  _useTag: 1
   _tag: Player
+  _useLayer: 0
+  _layer: Default
+  _canAll: 0
   _canTop: 1
   _topDistance: 1
   _canBottom: 0
@@ -5223,7 +5228,6 @@ MonoBehaviour:
   _trophies:
   - {fileID: 6465872344477625234}
   _teleportReward: {fileID: 2841623472779665808}
-  _movement2D: {fileID: 0}
   _patrolArea: {fileID: 3409434253400385877}
   _particleSystem: {fileID: 3995124384685468780}
   _teleportEnemy: {fileID: 8956958555374605153}
@@ -10111,6 +10115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTrans: {fileID: 2209758176431162990}
   _objTrans: {fileID: 2833591309613862518}
+  _rigidbody2D: {fileID: 0}
 --- !u!1 &8614917831376546317
 GameObject:
   m_ObjectHideFlags: 0

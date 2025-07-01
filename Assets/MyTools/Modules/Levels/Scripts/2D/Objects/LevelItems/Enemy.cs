@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using MyTools.Enemy;
 using MyTools.UI;
@@ -127,7 +128,7 @@ namespace MyTools.Levels.Play.Objects
             await ReboundAsync();
         }
 
-        protected override void InvokeTriggeredStay(Collider2D collider2D) { }
+        protected override void InvokeTriggeredStayAsync(Collider2D collider2D) { }
         protected override void InvokeTriggeredExit(Collider2D collider2D) { }
 
         #endregion
