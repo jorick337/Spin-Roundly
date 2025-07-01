@@ -603,6 +603,7 @@ MonoBehaviour:
   - {fileID: 4871442089003787019}
   _starVisibleMaterial: {fileID: 2100000, guid: 61576a0ccd7234d0c9677c26ffed7962, type: 2}
   _starVisibleColor: {r: 1, g: 1, b: 1, a: 1}
+  _starHidenColor: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 1}
 --- !u!114 &8220874736373443057 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 509320726876379709, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}

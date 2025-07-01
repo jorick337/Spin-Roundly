@@ -16,6 +16,7 @@ namespace MyTools.Levels.Start
         [SerializeField] private Image[] _starImages = new Image[3];
         [SerializeField] private Material _starVisibleMaterial;
         [SerializeField] private Color _starVisibleColor;
+        [SerializeField] private Color _starHidenColor;
 
         // Managers
         private LevelsManager _levelsManager;
@@ -41,16 +42,27 @@ namespace MyTools.Levels.Start
         public void Initialize(int level)
         {
             SetLevel(level);
+            UpdateActivityStars(_levelsManager.Stars[_level - 1]);
+        }
 
-            int stars = _levelsManager.Stars[_level - 1];
-            for (int i = 0; i < stars; i++)
+        private void UpdateActivityStars(int stars)
+        {
+            for (int i = 0; i < 3; i++)
             {
-                _starImages[i].material = _starVisibleMaterial;
-                _starImages[i].color = _starVisibleColor;
+                if (i < stars)
+                {
+                    _starImages[i].material = _starVisibleMaterial;
+                    _starImages[i].color = _starVisibleColor;
+                }
+                else
+                {
+                    _starImages[i].material = null;
+                    _starImages[i].color = _starHidenColor;
+                }
             }
         }
 
-        private void SetLevel(int level) 
+        private void SetLevel(int level)
         {
             _level = level;
             SetText(level.ToString());
