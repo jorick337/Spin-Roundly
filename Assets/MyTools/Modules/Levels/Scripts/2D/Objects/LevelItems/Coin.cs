@@ -18,7 +18,7 @@ namespace MyTools.Levels.Play
             _particleSystem.Play();
         }
 
-        protected override void InvokeTriggeredStayAsync(Collider2D collider2D) { }
+        protected override void InvokeTriggeredStay(Collider2D collider2D) { }
 
         protected override void InvokeTriggeredExit(Collider2D collider2D) { }
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1126913668704850863}
   - component: {fileID: 8361899142490186955}
   - component: {fileID: 1199520161267091115}
+  - component: {fileID: 4168850618143609719}
   m_Layer: 3
   m_Name: Collider
   m_TagString: Untagged
@@ -60,7 +61,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!61 &8361899142490186955
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -162,6 +163,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4168850618143609719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160859855285784641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c08c3dc4fa3296988e949aa4d8e900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _repeatable: 0
+  _allowActivation: 0
+  _useTag: 1
+  _tag: Player
+  _useLayer: 0
+  _layer: Default
+  _canAll: 1
+  _canTop: 0
+  _topDistance: 0
+  _canBottom: 0
+  _bottomDistance: 0
+  _canLeft: 0
+  _leftDistance: 0
+  _canRight: 0
+  _rightDistance: 0
 --- !u!1 &2792772663089750781
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +199,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 357684593436985155}
+  - component: {fileID: 7656536979834242368}
+  - component: {fileID: 5718979896400452959}
   m_Layer: 3
   m_Name: WoodenRaft
   m_TagString: Untagged
@@ -194,3 +224,33 @@ Transform:
   - {fileID: 1794663053960228112}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7656536979834242368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2792772663089750781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3388bd7578b6cdc99af61b2687721f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTrans: {fileID: 357684593436985155}
+  _objTrans: {fileID: 1794663053960228112}
+  _rigidbody2D: {fileID: 1126913668704850863}
+--- !u!114 &5718979896400452959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2792772663089750781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93e6ec4e53eb9f3a8684dfd4a0136b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider2DTrigger: {fileID: 4168850618143609719}
+  _rigidbody2D: {fileID: 1126913668704850863}
+  _teleport: {fileID: 7656536979834242368}

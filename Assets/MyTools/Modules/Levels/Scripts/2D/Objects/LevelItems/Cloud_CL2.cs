@@ -26,7 +26,7 @@ namespace MyTools.Levels.TwoDimensional.Objects
 
         private async UniTask WaitTimeToDie() => await UniTask.WaitForSeconds(_timeToDie);
 
-        protected override void InvokeTriggeredStayAsync(Collider2D collider2D) { }
+        protected override void InvokeTriggeredStay(Collider2D collider2D) { }
         protected override void InvokeTriggeredExit(Collider2D collider2D) { }
     }
 }
