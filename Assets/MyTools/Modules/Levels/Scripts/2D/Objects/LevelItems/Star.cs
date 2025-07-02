@@ -13,7 +13,6 @@ namespace MyTools.Levels.Play
 
         protected override void InvokeTriggeredEnter(Collider2D collider2D)
         {
-            Debug.Log(1);
             _gameLevelManager.AddStar();
             _particleSystem.Play();
         }
