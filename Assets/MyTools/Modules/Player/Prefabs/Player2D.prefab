@@ -10366,7 +10366,7 @@ MonoBehaviour:
   _layer: Water
   _canAll: 1
   _canTop: 0
-  _topDistance: 0
+  _topDistance: 1
   _canBottom: 0
   _bottomDistance: 0
   _canLeft: 0
