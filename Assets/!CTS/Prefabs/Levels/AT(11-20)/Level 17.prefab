@@ -12534,7 +12534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5021821060767868951, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: _timeToShow
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5021821060767868951, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: _useStartPos
@@ -12542,11 +12542,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5021821060767868951, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: _hiddenAchorPos.y
-      value: -3
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 5021821060767868951, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: _visibleAchorPos.y
-      value: 18
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5130188997053983659, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: m_ChunkCullingBounds.x
@@ -12614,11 +12614,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8551381940918485922, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8551381940918485922, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 8614708720225246837, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: m_Size.x
