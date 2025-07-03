@@ -5361,10 +5361,10 @@ MonoBehaviour:
   _rigidbody2D: {fileID: 6487234348729557546}
   _spriteRenderer: {fileID: 4788586140081623027}
   _jumpForce: 11
-  _groundCheckRadius: 0.6
+  _groundCheckRadius: 0.5
   _groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
 --- !u!199 &8897875972827673445
 ParticleSystemRenderer:
   serializedVersion: 6
