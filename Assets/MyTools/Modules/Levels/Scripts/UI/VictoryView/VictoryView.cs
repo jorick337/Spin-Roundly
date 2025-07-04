@@ -56,6 +56,7 @@ namespace MyTools.Levels.Play
         private async void Start()
         {
             DisableUI();
+            UpdateReward(_gameLevelManager.CollectedMoney);
             await ShowStars();
             EnableRewardScrollbar();
             EnableUI();

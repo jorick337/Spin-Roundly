@@ -27,7 +27,12 @@ namespace MyTools.Advertising
 
         public void Initialize() => EnableAnimationScrollbar();
 
-        public void SetInitialReward(int reward) => _initialReward = reward;
+        public void SetInitialReward(int reward) 
+        {
+            _initialReward = reward;
+            _currentReward = reward;
+            SetReward();
+        } 
 
         private void SetReward() => _rewardButton.SetReward(_currentReward);
         private void EnableAnimationScrollbar() => _animScrollbar.enabled = true;
