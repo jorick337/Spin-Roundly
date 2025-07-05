@@ -172,6 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6137230522532823607}
   - component: {fileID: 7742300816585102830}
+  - component: {fileID: 31134568240115608}
   - component: {fileID: 3241129376441617780}
   - component: {fileID: 6240563948623839221}
   m_Layer: 8
@@ -4920,6 +4921,25 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &31134568240115608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6287327753680751502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad674d166142b3cfbc104246cefbc74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToShow: 0.5
+  _timeToHide: 0.5
+  _isLooping: 1
+  _initializeOnStart: 1
+  _visibleAchorPos: {x: 0, y: 0, z: 0}
+  _hiddenAchorPos: {x: 0, y: 0.5, z: 0}
+  _useStartPos: 1
 --- !u!199 &3241129376441617780
 ParticleSystemRenderer:
   serializedVersion: 6

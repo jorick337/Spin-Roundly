@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5152034314481420364}
   - component: {fileID: 8729749449402572693}
-  - component: {fileID: 1530527213784137955}
+  - component: {fileID: 967604039147282779}
   - component: {fileID: 953564553374164080}
   - component: {fileID: 4516737363798001423}
   m_Layer: 8
@@ -4921,7 +4921,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &1530527213784137955
+--- !u!114 &967604039147282779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
