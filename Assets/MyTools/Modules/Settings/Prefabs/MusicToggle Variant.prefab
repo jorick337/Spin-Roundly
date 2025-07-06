@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicToggle Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1542994445340926761, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5215909857798523659, guid: 185ba26423a056b3cbd2daa64bfc8acb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

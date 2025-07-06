@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Circle_Hero_5_0: 2200207831159970627
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

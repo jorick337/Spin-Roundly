@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Events;
@@ -24,7 +25,7 @@ namespace MyTools.Music
         public bool IsMusicActive { get; private set; } = true;
         public bool IsSoundsActive { get; private set; } = true;
 
-        public bool IsLoaded { get; private set; } = false;
+        private bool _isLoaded = false;
 
         #endregion
 
@@ -59,8 +60,10 @@ namespace MyTools.Music
             UpdateBackgroundVolume();
             UpdateSoundsVolume();
 
-            IsLoaded = true;
+            _isLoaded = true;
         }
+
+        public async UniTask WaitUntilLoaded() => await UniTask.WaitUntil(() => _isLoaded == true);
 
         #endregion
 

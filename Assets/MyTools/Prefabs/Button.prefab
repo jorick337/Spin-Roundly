@@ -14,14 +14,14 @@ GameObject:
   - component: {fileID: 4369183871048022024}
   - component: {fileID: 509320726876379709}
   - component: {fileID: 6232698909843123608}
-  - component: {fileID: 1055249271248660548}
   - component: {fileID: 4420623810862884951}
+  - component: {fileID: 4633533518039728598}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &5215909857798523659
 RectTransform:
@@ -237,23 +237,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1055249271248660548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542994445340926761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c46158f82de5dc3ca7ce2143fbb8d2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timeToShow: 0.5
-  _timeToHide: 0.5
-  _isLooping: 0
-  _visibleScale: {x: 1, y: 1, z: 1}
-  _hiddenScale: {x: 0, y: 0, z: 0}
 --- !u!114 &4420623810862884951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,8 +252,26 @@ MonoBehaviour:
   _timeToShow: 0.1
   _timeToHide: 0.1
   _isLooping: 0
+  _initializeOnStart: 0
   _visibleScale: 1
   _hiddenScale: 0.95
+--- !u!114 &4633533518039728598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542994445340926761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f927596993b669cf93c26b726894f4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toggle: {fileID: 0}
+  _button: {fileID: 509320726876379709}
+  _audioSourceClick: {fileID: 6232698909843123608}
+  _animationScale: {fileID: 0}
+  _animationScaleX: {fileID: 4420623810862884951}
 --- !u!1 &3446477414602941234
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +288,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &7971903850985355208
 RectTransform:
@@ -336,7 +337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1151905075149521417, guid: 4a349f2f8e25cb246b1f2a9f4e432b18, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

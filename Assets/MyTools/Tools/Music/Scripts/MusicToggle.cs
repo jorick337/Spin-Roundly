@@ -1,57 +1,45 @@
-using Cysharp.Threading.Tasks;
-using MyTools.UI;
+using MyTools.UI.Objects.Toggles;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MyTools.Music
+namespace MyTools.Music.UI
 {
-    public class MusicToggle : MyButton
+    public class MusicToggle : BaseToggle
     {
-        [Header("Only Image")]
+        [Header("Music")]
         [SerializeField] private Image _image;
         [SerializeField] private Sprite _enableSoundSprite;
         [SerializeField] private Sprite _disableSoundSprite;
-
-        [Header("Work with")]
-        [SerializeField] private bool _canMusic = true;
-        [SerializeField] private bool _canSounds = true;
+        [SerializeField] private bool _canChangeActiveMusic = true;
+        [SerializeField] private bool _canChangeActiveSounds = true;
 
         // Managers
         private MusicManager _musicManager;
 
-        private async void Awake() 
+        private async void Awake()
         {
             _musicManager = MusicManager.Instance;
-            await UniTask.WaitUntil(() => _musicManager.IsLoaded);
+            await _musicManager.WaitUntilLoaded();
             Initialize();
         }
 
-        public override void OnValidate()
+        protected override void OnTogglePressed(bool isOn)
         {
-            if (_toggle == null)
-                _toggle = GetComponent<Toggle>();
-
-            if (_canMusic == false && _canSounds == false)
-                _canMusic = true;
-
-            Validate();
+            UpdateMusic(isOn);
+            UpdateSprite();
         }
 
-        private void Initialize() 
+        private void Initialize()
         {
-            UnregisterEvents();
-
             UpdateIsOn();
             UpdateSprite();
-
-            RegisterEvents();
         }
 
-        private void UpdateIsOn() 
+        private void UpdateIsOn()
         {
-            if (_canMusic)
+            if (_canChangeActiveMusic)
                 _toggle.isOn = _musicManager.IsMusicActive;
-            if (_canSounds)
+            if (_canChangeActiveSounds)
                 _toggle.isOn = _musicManager.IsSoundsActive;
         }
 
@@ -63,18 +51,10 @@ namespace MyTools.Music
 
         private void UpdateMusic(bool isOn)
         {
-            if (_canMusic)
+            if (_canChangeActiveMusic)
                 _musicManager.SetIsActiveMusic(isOn);
-            if (_canSounds)
+            if (_canChangeActiveSounds)
                 _musicManager.SetIsActiveSounds(isOn);
-        }
-
-        public override void ClickToggle(bool isOn)
-        {
-            AnimateClick();
-            PlayClickSound();
-            UpdateMusic(isOn);
-            UpdateSprite();
         }
     }
 }

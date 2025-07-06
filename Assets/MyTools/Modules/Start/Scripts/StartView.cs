@@ -12,7 +12,6 @@ namespace MyTools.Start
         [Header("Core")]
         [SerializeField] protected CanvasGroup _canvasGroup;
         [SerializeField] protected MyButton _shopButton;
-        [SerializeField] protected MyButton _leaderboardButton;
 
         #endregion
 
@@ -21,15 +20,11 @@ namespace MyTools.Start
         private void OnEnable()
         {
             _shopButton.OnPressEnded += LoadShopView;
-            _leaderboardButton.OnPressed += ClearStartView;
-            _leaderboardButton.OnPressEnded += LoadLeaderboardView;
         }
 
         private void OnDisable()
         {
             _shopButton.OnPressEnded -= LoadShopView;
-            _leaderboardButton.OnPressed -= ClearStartView;
-            _leaderboardButton.OnPressEnded -= LoadLeaderboardView;
         }
 
         #endregion
@@ -51,11 +46,9 @@ namespace MyTools.Start
 
         private async UniTask LoadShopView() 
         {
-            SSHV_Provider provider = new();
+            ShopProvider provider = new();
             await provider.Load(transform.parent);
         }
-
-        private async UniTask LoadLeaderboardView() => await UniTask.CompletedTask;
 
         #endregion
     }

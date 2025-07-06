@@ -12,7 +12,7 @@ namespace MyTools.Shop.Skins
 
         // Managers
         private SSHV_Manager _shopManager;
-        private SSHV_Provider _provider;
+        private ShopProvider _provider;
 
         private void Awake() 
         {
@@ -30,7 +30,7 @@ namespace MyTools.Shop.Skins
             _buttonsSelectorSkins.Select(number - 1);
         }
 
-        public void SetProvider(SSHV_Provider provider) => _provider = provider;
+        public void SetProvider(ShopProvider provider) => _provider = provider;
 
         private async UniTask Unload() => await _provider.UnloadAsync();
     }
