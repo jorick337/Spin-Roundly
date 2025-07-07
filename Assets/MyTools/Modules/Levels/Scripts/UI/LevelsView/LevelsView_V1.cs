@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using MyTools.Levels.Start;
 using MyTools.UI;
 using MyTools.UI.Animation;
 using UnityEngine;
 
-namespace MyTools.Levels.Start
+namespace MyTools.Levels.UI.View
 {
-    public class LevelsView_V1 : LevelsView
+    public class LevelsView_V1 : MonoBehaviour
     {
         #region CORE
 
@@ -23,27 +24,27 @@ namespace MyTools.Levels.Start
 
         private async void Start() => await AnimateAllIn();
 
-        public override void OnEnable()
-        {
-            for (int i = 0; i < _levelButtons.Length; i++)
-            {
-                _levelButtons[i].OnPressed += DisableUIAsync;
-                _levelButtons[i].OnSelected += LoadLevelsScene;
-            }
-            _closeButton.OnPressed += DisableUIAsync;
-            _closeButton.OnPressEnded += DestroySelf;
-        }
+        // public override void OnEnable()
+        // {
+        // //     for (int i = 0; i < _levelButtons.Length; i++)
+        // //     {
+        // //         _levelButtons[i].OnPressed += DisableUIAsync;
+        // //         _levelButtons[i].OnSelected += LoadLevelsScene;
+        // //     }
+        //     _closeButton.OnPressed += DisableUIAsync;
+        //     _closeButton.OnPressEnded += DestroySelf;
+        // }
 
-        public override void OnDisable()
-        {
-            for (int i = 0; i < _levelButtons.Length; i++)
-            {
-                _levelButtons[i].OnPressed -= DisableUIAsync;
-                _levelButtons[i].OnSelected -= LoadLevelsScene;
-            }
-            _closeButton.OnPressed -= DisableUIAsync;
-            _closeButton.OnPressEnded -= DestroySelf;
-        }
+        // public override void OnDisable()
+        // {
+        //     // for (int i = 0; i < _levelButtons.Length; i++)
+        //     // {
+        //     //     _levelButtons[i].OnPressed -= DisableUIAsync;
+        //     //     _levelButtons[i].OnSelected -= LoadLevelsScene;
+        //     // }
+        //     _closeButton.OnPressed -= DisableUIAsync;
+        //     _closeButton.OnPressEnded -= DestroySelf;
+        // }
 
         #endregion
 
@@ -59,7 +60,7 @@ namespace MyTools.Levels.Start
         {
             var animations = new List<UniTask>();
 
-            animations.AddRange(_levelButtons.Select(levelAnimation));
+            // animations.AddRange(_levelButtons.Select(levelAnimation));
             animations.Add(titleAnimation());
             animations.Add(closeButtonAnimation());
 
@@ -75,9 +76,9 @@ namespace MyTools.Levels.Start
 
         #region CALLBACKS
 
-        public override async UniTask DisableUIAsync()
+        public async UniTask DisableUIAsync()
         {
-            DisableUI();
+            // DisableUI();
             await AnimateAllOut();
         }
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MyTools.UI
+namespace MyTools.UI.Objects
 {
     public class Counter : MonoBehaviour
     {

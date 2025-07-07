@@ -100,9 +100,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5359307077554372665, guid: 56a7c557593277fbd86fe7e2d2a664c4, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8661489134285191412, guid: 56a7c557593277fbd86fe7e2d2a664c4, type: 3}
       propertyPath: m_Name
-      value: ShopButton
+      value: ShopLoaderButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

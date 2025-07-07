@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using MyTools.LocalAddressables;
 using UnityEngine;
 
-namespace MyTools.Levels.Start
+namespace MyTools.Levels.UI.View
 {
     public class LevelsViewProvider : LocalAssetLoader
     {

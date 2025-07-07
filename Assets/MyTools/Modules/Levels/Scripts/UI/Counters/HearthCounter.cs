@@ -1,6 +1,5 @@
-using Cysharp.Threading.Tasks;
 using MyTools.Levels.TwoDimensional.Objects.Health;
-using MyTools.UI;
+using MyTools.UI.Objects;
 using UnityEngine;
 
 namespace MyTools.Levels.Play

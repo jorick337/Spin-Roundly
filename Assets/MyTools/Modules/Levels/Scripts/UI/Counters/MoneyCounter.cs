@@ -1,7 +1,7 @@
 using MyTools.PlayerSystem;
-using MyTools.UI;
+using MyTools.UI.Objects;
 
-namespace MyTools.Levels.Start
+namespace MyTools.Levels.UI.Counters
 {
     public class MoneyCounter : Counter
     {

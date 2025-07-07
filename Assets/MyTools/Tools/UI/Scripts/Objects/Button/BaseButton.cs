@@ -8,8 +8,8 @@ namespace MyTools.UI.Objects.Buttons
         [Header("Core")]
         [SerializeField] protected Button _button;
 
-        protected void OnEnable() => _button.onClick.AddListener(OnButtonPressed);
-        protected void OnDisable() => _button.onClick.RemoveListener(OnButtonPressed);
+        protected virtual void OnEnable() => _button.onClick.AddListener(OnButtonPressed);
+        protected virtual void OnDisable() => _button.onClick.RemoveListener(OnButtonPressed);
 
         protected virtual void OnValidate() 
         {
