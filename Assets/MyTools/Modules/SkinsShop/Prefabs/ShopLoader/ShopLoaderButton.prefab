@@ -101,6 +101,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5359307077554372665, guid: 56a7c557593277fbd86fe7e2d2a664c4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359307077554372665, guid: 56a7c557593277fbd86fe7e2d2a664c4, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
       value: 1
       objectReference: {fileID: 0}
@@ -145,3 +149,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 4805441722167889741}
+  _loadProvider: 1
+  _instance: 1

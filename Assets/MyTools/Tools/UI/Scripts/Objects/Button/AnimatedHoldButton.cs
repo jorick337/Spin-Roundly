@@ -18,7 +18,7 @@ namespace MyTools.UI.Objects.Buttons
             _isDown = true;
 
             PlayClickSound();
-            _animationScale.AnimateOut();
+            _animationScale?.AnimateOut();
         }
 
         public void OnPointerUp(PointerEventData eventData)
@@ -26,7 +26,7 @@ namespace MyTools.UI.Objects.Buttons
             _isDown = false;
 
             if (_isInside)
-                _animationScale.AnimateIn();
+                _animationScale?.AnimateIn();
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -34,7 +34,7 @@ namespace MyTools.UI.Objects.Buttons
             _isInside = true;
 
             if (_isDown)
-                _animationScale.AnimateOut();
+                _animationScale?.AnimateOut();
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -42,9 +42,9 @@ namespace MyTools.UI.Objects.Buttons
             _isInside = false;
 
             if (_isDown)
-                _animationScale.AnimateIn();
+                _animationScale?.AnimateIn();
         }
 
-        private void PlayClickSound() => _audioSource.Play();
+        private void PlayClickSound() => _audioSource?.Play();
     }
 }

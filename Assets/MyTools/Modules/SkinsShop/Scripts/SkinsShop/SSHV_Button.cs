@@ -1,6 +1,5 @@
 using MyTools.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace MyTools.Shop.Skins
 {

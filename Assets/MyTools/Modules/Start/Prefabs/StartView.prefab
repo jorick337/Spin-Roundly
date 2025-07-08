@@ -520,7 +520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5821168652810925657, guid: a658ca0e64423f186946ff24c68e88af, type: 3}
       propertyPath: m_Name
-      value: ShopButton
+      value: ShopLoaderButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
