@@ -1,4 +1,5 @@
 using MyTools.Levels.Play;
+using MyTools.UI.Colliders;
 using UnityEngine;
 
 namespace MyTools.UI
@@ -8,7 +9,7 @@ namespace MyTools.UI
         #region CORE
 
         [Header("Core")]
-        [SerializeField] protected Collider2DTrigger _collider2DTrigger;
+        [SerializeField] protected ColliderTrigger2D _collider2DTrigger;
 
         protected GameLevelManager _gameLevelManager;
 

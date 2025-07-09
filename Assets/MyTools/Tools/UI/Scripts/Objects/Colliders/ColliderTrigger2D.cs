@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace MyTools.UI
+namespace MyTools.UI.Colliders
 {
-    public class Collider2DTrigger : MonoBehaviour
+    public class ColliderTrigger2D : MonoBehaviour
     {
         #region EVENTS
 

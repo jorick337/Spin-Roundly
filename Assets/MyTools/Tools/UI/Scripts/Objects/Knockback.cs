@@ -1,4 +1,5 @@
 using System;
+using MyTools.UI.Colliders;
 using UnityEngine;
 
 namespace MyTools.UI.Objects
@@ -6,7 +7,7 @@ namespace MyTools.UI.Objects
     public class Knockback : MonoBehaviour
     {
         [Header("Core")]
-        [SerializeField] private Collider2DTrigger _collider2DTrigger;
+        [SerializeField] private ColliderTrigger2D _collider2DTrigger;
         [SerializeField] private Rigidbody2D _rigidbody2D;
         [SerializeField] private float _force;
         [SerializeField] private ForceMode2D _forceMode2D;

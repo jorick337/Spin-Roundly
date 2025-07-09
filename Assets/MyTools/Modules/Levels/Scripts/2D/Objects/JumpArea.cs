@@ -1,12 +1,12 @@
 using MyTools.Movement.TwoDimensional;
-using MyTools.UI;
+using MyTools.UI.Colliders;
 using UnityEngine;
 
 namespace MyTools.Levels.TwoDimensional.Objects
 {
     public class JumpArea : MonoBehaviour
     {
-        [SerializeField] private Collider2DTrigger _collider2DTrigger;
+        [SerializeField] private ColliderTrigger2D _collider2DTrigger;
         [SerializeField] private Movement2D _movement2D;
 
         private void OnEnable() => _collider2DTrigger.OnTriggeredEnter += Apply;

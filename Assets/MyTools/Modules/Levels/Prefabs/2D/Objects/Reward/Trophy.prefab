@@ -144,7 +144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 892142038763738863}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68c08c3dc4fa3296988e949aa4d8e900, type: 3}
+  m_Script: {fileID: 11500000, guid: 6efbc3db190c6a0f78e4395583c7bc72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _repeatable: 0
@@ -153,14 +153,14 @@ MonoBehaviour:
   _tag: Player
   _useLayer: 0
   _layer: Default
-  _canAll: 0
-  _canTop: 1
+  _canAll: 1
+  _canTop: 0
   _topDistance: 0
-  _canBottom: 1
+  _canBottom: 0
   _bottomDistance: 0
-  _canLeft: 1
+  _canLeft: 0
   _leftDistance: 0
-  _canRight: 1
+  _canRight: 0
   _rightDistance: 0
 --- !u!1 &6287327753680751502
 GameObject:
@@ -172,7 +172,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6137230522532823607}
   - component: {fileID: 7742300816585102830}
+  - component: {fileID: 3275443719747690086}
   - component: {fileID: 31134568240115608}
+  - component: {fileID: 29794604643620736}
   - component: {fileID: 3241129376441617780}
   - component: {fileID: 6240563948623839221}
   m_Layer: 8
@@ -4921,6 +4923,103 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!82 &3275443719747690086
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6287327753680751502}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 1001725658682267121, guid: f455c7cc3ec81d0a4a197a186e192634, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 95a1b4009fd8308658287d01149dc5e3, type: 3}
+  m_Resource: {fileID: 8300000, guid: 95a1b4009fd8308658287d01149dc5e3, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &31134568240115608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4940,6 +5039,20 @@ MonoBehaviour:
   _visibleAchorPos: {x: 0, y: 0, z: 0}
   _hiddenAchorPos: {x: 0, y: 0.5, z: 0}
   _useStartPos: 1
+--- !u!114 &29794604643620736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6287327753680751502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c7dac4d7b1306eb8440f7cc30567a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colliderTrigger2D: {fileID: 1560067916819880550}
+  _audioSource: {fileID: 3275443719747690086}
 --- !u!199 &3241129376441617780
 ParticleSystemRenderer:
   serializedVersion: 6

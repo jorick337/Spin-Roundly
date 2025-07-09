@@ -1,11 +1,11 @@
-using MyTools.UI;
+using MyTools.UI.Colliders;
 using UnityEngine;
 
 namespace MyTools.Levels.Play
 {
     public class End : MonoBehaviour
     {
-        [SerializeField] private Collider2DTrigger _colliderTrigger;
+        [SerializeField] private ColliderTrigger2D _colliderTrigger;
         [SerializeField] private bool _isFinish = true;
 
         // Managers

@@ -1,4 +1,4 @@
-using MyTools.UI;
+using MyTools.UI.Colliders;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,7 +16,7 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
         #region CORE
 
         [Header("Core")]
-        [SerializeField] private Collider2DTrigger[] _collider2DTriggers;
+        [SerializeField] private ColliderTrigger2D[] _collider2DTriggers;
         [SerializeField] private int _default = 3;
         [SerializeField] private bool _instance;
 

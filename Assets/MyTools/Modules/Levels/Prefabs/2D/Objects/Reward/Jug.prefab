@@ -150,7 +150,7 @@ AudioSource:
   m_GameObject: {fileID: 198206937917521700}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1001725658682267121, guid: f455c7cc3ec81d0a4a197a186e192634, type: 2}
   m_audioClip: {fileID: 8300000, guid: aca8b05be967b75d3bffca7e2461cefb, type: 3}
   m_Resource: {fileID: 8300000, guid: aca8b05be967b75d3bffca7e2461cefb, type: 3}
   m_PlayOnAwake: 0
@@ -247,11 +247,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 198206937917521700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68c08c3dc4fa3296988e949aa4d8e900, type: 3}
+  m_Script: {fileID: 11500000, guid: 6efbc3db190c6a0f78e4395583c7bc72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _repeatable: 1
-  _allowActivation: 1
+  _repeatable: 0
+  _allowActivation: 0
   _useTag: 1
   _tag: Player
   _useLayer: 0
@@ -303,6 +303,10 @@ PrefabInstance:
     - target: {fileID: 4978010352576905717, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_Name
       value: Coin (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978010352576905717, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5152034314481420364, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -381,6 +385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4978010352576905717, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5152034314481420364, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
@@ -458,6 +466,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4978010352576905717, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5152034314481420364, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
@@ -534,6 +546,10 @@ PrefabInstance:
     - target: {fileID: 4978010352576905717, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_Name
       value: Coin (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978010352576905717, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5152034314481420364, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_LocalPosition.x
