@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,16 +9,15 @@ namespace MyTools.Shop.Skins
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Image _image;
         [SerializeField] private bool _canChangeAlways = false;
-        [SerializeField] private bool _canInitialize = false;
+
+        public UniTask Initialized => _initializedTcs.Task;
+
+        private UniTaskCompletionSource<bool> _initializedTcs = new();
 
         // Manager
         private SSHV_Manager _shopManager;
 
-        private void Awake()
-        {
-            _shopManager = SSHV_Manager.Instance;
-            Initialize();
-        }
+        private void Awake() => Initialize();
 
         private void OnEnable()
         {
@@ -33,14 +33,14 @@ namespace MyTools.Shop.Skins
             _shopManager.OnSpritePurchased -= UpdateSprite;
         }
 
-        private async void Initialize() 
+        private async void Initialize()
         {
-            if (_canInitialize)
-            {
-                await _shopManager.WaitUntilLoaded();
-                UpdateSprite(_shopManager.Skin.Sprite);
-            }
-        } 
+            _shopManager = SSHV_Manager.Instance;
+            await _shopManager.WaitUntilLoaded();
+            await _shopManager.LoadBoughtSkin();
+            UpdateSprite(_shopManager.Skin.Sprite);
+            _initializedTcs.TrySetResult(true);
+        }
 
         private void UpdateSprite(Sprite sprite)
         {

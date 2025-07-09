@@ -6,9 +6,6 @@ namespace MyTools.Shop.Skins
 {
     public class ShopProvider : LocalAssetLoader
     {
-        public async UniTask Load(Transform transform) 
-        {
-            await LoadGameObjectAsync<SkinsShopView_SSHV>("SSHV", transform);
-        } 
+        public async UniTask Load(Transform transform) => await LoadGameObjectAsync<SkinsShopView_SSHV>("SSHV", transform);
     }
 }

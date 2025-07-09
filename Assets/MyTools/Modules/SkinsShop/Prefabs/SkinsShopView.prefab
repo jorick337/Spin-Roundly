@@ -5062,6 +5062,7 @@ GameObject:
   - component: {fileID: 150688990885687168}
   - component: {fileID: 807598279383609374}
   - component: {fileID: 799773070833795602}
+  - component: {fileID: 7815575874183117911}
   - component: {fileID: 2062863551724817627}
   - component: {fileID: 791593829669289424}
   m_Layer: 5
@@ -5138,6 +5139,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &7815575874183117911
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5741856630028967573}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &2062863551724817627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5174,6 +5187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fca1f545d86274918a437537786a367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 7815575874183117911}
+  _shopIcon: {fileID: 8941366006046268305}
   _buttonsSelectorSkins: {fileID: 2062863551724817627}
 --- !u!1 &8736223258097853309
 GameObject:
@@ -6157,6 +6172,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5362693667921789685, guid: 8b14eee07afb15faabd9552c4c8101f2, type: 3}
   m_PrefabInstance: {fileID: 5972105261909115621}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8941366006046268305 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3384229833036896628, guid: 8b14eee07afb15faabd9552c4c8101f2, type: 3}
+  m_PrefabInstance: {fileID: 5972105261909115621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403acab53b4c6ba2189d2fbe8dd8c002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6412141560837463782
 PrefabInstance:
   m_ObjectHideFlags: 0

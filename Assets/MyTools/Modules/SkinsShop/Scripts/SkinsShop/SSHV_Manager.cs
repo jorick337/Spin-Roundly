@@ -2,7 +2,6 @@ using Cysharp.Threading.Tasks;
 using MyTools.PlayerSystem;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 namespace MyTools.Shop.Skins
 {
@@ -20,8 +19,8 @@ namespace MyTools.Shop.Skins
         public int Number { get; private set; } = 1;
         public SSHV_Skin Skin { get; private set; }
 
+        private int _selectedNumber = 0;
         private bool _isBought = true;
-        private int _selectedNumber = 1;
         private bool _isLoaded = false;
 
         // Managers
@@ -41,35 +40,25 @@ namespace MyTools.Shop.Skins
                 Destroy(gameObject);
         }
 
-        private void OnEnable()
-        {
-            _playerManager.OnLoaded += Initialize;
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
+        private void OnEnable() => _playerManager.OnLoaded += Initialize;
 
         private void OnDisable()
         {
             if (_isLoaded)
-            {
                 _playerManager.OnLoaded -= Initialize;
-                SceneManager.sceneLoaded -= OnSceneLoaded;
-            }
         }
 
         #region INITIALIZATION
 
         private async void Initialize()
         {
-            Load();
-            await UpdateSkin();
-            _isLoaded = true;
-        }
-
-        private void Load()
-        {
             Activities = SSHV_Saver.LoadSkins();
             Number = SSHV_Saver.LoadNumberSkin();
+
+            await LoadBoughtSkin();
             _selectedNumber = Number;
+
+            _isLoaded = true;
         }
 
         #endregion
@@ -137,13 +126,20 @@ namespace MyTools.Shop.Skins
         #region VALUES
 
         public async UniTask WaitUntilLoaded() => await UniTask.WaitUntil(() => _isLoaded == true);
+        public async UniTask LoadBoughtSkin()
+        {
+            if (_selectedNumber != Number)
+            {
+                if (Skin != null)
+                    await _skinProvider.UnloadAsync();
+                
+                Skin = await _skinProvider.Load(Number);
+            }
+        }
 
-        private async UniTask ChangeSkinToBoughtAsync() => Skin = await _skinProvider.Load(Number);
         private bool IsSelectedSkinBought() => Activities[_selectedNumber - 1];
 
         #endregion
-
-        private async void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) => await ChangeSkinToBoughtAsync();
 
         private void InvokeOnSpriteChanged() => OnSpriteChanged?.Invoke(Skin.Sprite);
         private void InvokeOnSpritePurchased() => OnSpritePurchased?.Invoke(Skin.Sprite);
