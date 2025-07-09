@@ -7,15 +7,21 @@ namespace MyTools.Start.Buttons
     public class ShopLoaderButton : BaseButton
     {
         [Header("Shop Loader")]
+        [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private Transform _transformParent;
         [SerializeField] private bool _loadProvider = true;
         [SerializeField] private bool _instance = false;
 
-        private static ShopProvider _provider;
+        private static ShopLoaderButton Instance;
+        private ShopProvider _provider;
 
-        private void Awake() 
+        private void Awake()
         {
-            if (_instance)
+            if (_instance && Instance == null)
+            {
+                Instance = this;
                 _provider = new();
+            }
         }
 
         protected override void OnButtonPressed()
@@ -28,7 +34,22 @@ namespace MyTools.Start.Buttons
                 Unload();
         }
 
-        private async void Load() => await _provider.Load(transform.parent);
-        private async void Unload() => await _provider.UnloadAsync();
+        private void Load()
+        {
+            Instance.DisableCanvasGroup();
+            Instance.LoadShopView();
+        }
+
+        private void Unload()
+        {
+            Instance.EnableCanvasGroup();
+            Instance.UnloadShopView();
+        }
+
+        private async void LoadShopView() => await _provider.Load(_transformParent);
+        private async void UnloadShopView() => await _provider.UnloadAsync();
+
+        private void DisableCanvasGroup() => _canvasGroup.interactable = false;
+        private void EnableCanvasGroup() => _canvasGroup.interactable = true;
     }
 }

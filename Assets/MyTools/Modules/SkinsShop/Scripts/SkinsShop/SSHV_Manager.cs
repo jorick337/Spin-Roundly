@@ -97,6 +97,9 @@ namespace MyTools.Shop.Skins
 
         private async UniTask UpdateSkin()
         {
+            if (Skin != null)
+                await _skinProvider.UnloadAsync();
+
             Skin = await _skinProvider.Load(_selectedNumber);
 
             if (_isBought)

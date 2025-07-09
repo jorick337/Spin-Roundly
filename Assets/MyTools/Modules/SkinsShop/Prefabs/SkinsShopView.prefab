@@ -5174,7 +5174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fca1f545d86274918a437537786a367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _closeButton: {fileID: 0}
   _buttonsSelectorSkins: {fileID: 2062863551724817627}
 --- !u!1 &8736223258097853309
 GameObject:
@@ -5388,6 +5387,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2491011621273927824, guid: 2b4ce8a63966192da820e9d764d329f5, type: 3}
       propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754400799248612368, guid: 2b4ce8a63966192da820e9d764d329f5, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3476599037440781065, guid: 2b4ce8a63966192da820e9d764d329f5, type: 3}
