@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5737239686780410428, guid: 79b06b884b6ca672898b2a8a5ae9dc1e, type: 3}
+      propertyPath: ShapeModule.m_Position.y
+      value: -0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}

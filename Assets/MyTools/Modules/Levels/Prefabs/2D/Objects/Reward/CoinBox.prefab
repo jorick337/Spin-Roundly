@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4658424938796998872}
   - component: {fileID: 7130125615617628179}
   - component: {fileID: 4531432473959093519}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: CoinBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4963,7 +4963,7 @@ GameObject:
   - component: {fileID: 4561284372803187496}
   - component: {fileID: 510682883011251463}
   - component: {fileID: 155684834099517910}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
