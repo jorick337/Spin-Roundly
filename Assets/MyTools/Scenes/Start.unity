@@ -532,10 +532,6 @@ PrefabInstance:
       propertyPath: _transformParent
       value: 
       objectReference: {fileID: 2076643333}
-    - target: {fileID: 5255923308540959447, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: _canvasGroup
-      value: 
-      objectReference: {fileID: 525340883}
     - target: {fileID: 7191946379079957897, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -982,7 +978,6 @@ GameObject:
   - component: {fileID: 2076643332}
   - component: {fileID: 2076643331}
   - component: {fileID: 2076643330}
-  - component: {fileID: 2076643329}
   m_Layer: 5
   m_Name: ShopCanvas
   m_TagString: Untagged
@@ -990,18 +985,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!225 &2076643329
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076643328}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!114 &2076643330
 MonoBehaviour:
   m_ObjectHideFlags: 0
