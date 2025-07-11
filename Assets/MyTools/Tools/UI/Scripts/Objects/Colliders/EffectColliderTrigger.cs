@@ -2,35 +2,24 @@ using UnityEngine;
 
 namespace MyTools.UI.Colliders
 {
-    public class EffectColliderTrigger : MonoBehaviour
+    public class EffectColliderTrigger : TriggerActivator
     {
-        [SerializeField] private ColliderTrigger2D _colliderTrigger2D;
+        [Header("Effects")]
         [SerializeField] private ParticleSystem _particleSystem;
         [SerializeField] private AudioSource _audioSource;
 
-        private void OnEnable()
+        protected override void OnValidate()
         {
-            _colliderTrigger2D.OnTriggeredEnter += Enter;
-            _colliderTrigger2D.OnTriggeredExit += Exit;
-        }
+            base.OnValidate();
 
-        private void OnDisable()
-        {
-            _colliderTrigger2D.OnTriggeredEnter -= Enter;
-            _colliderTrigger2D.OnTriggeredExit -= Exit;
-        }
-
-        private void OnValidate()
-        {
-            if (_colliderTrigger2D == null)
-                _colliderTrigger2D = GetComponent<ColliderTrigger2D>();
             if (_audioSource == null)
                 _audioSource = GetComponent<AudioSource>();
+
             if (_particleSystem == null)
                 _particleSystem = GetComponent<ParticleSystem>();
         }
 
-        private void Enter(Collider2D collider)
+        protected override void Enter(Collider2D collider)
         {
             if (_particleSystem != null)
                 _particleSystem.Play();
@@ -39,7 +28,7 @@ namespace MyTools.UI.Colliders
                 _audioSource.Play();
         }
 
-        private void Exit(Collider2D collider)
+        protected override void Exit(Collider2D collider)
         {
             if (_particleSystem != null)
                 _particleSystem.Stop();

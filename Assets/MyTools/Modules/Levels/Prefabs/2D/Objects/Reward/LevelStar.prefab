@@ -4871,6 +4871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colliderTrigger2D: {fileID: 8448607481645767947}
+  _particleSystem: {fileID: 1927320059000473798}
   _audioSource: {fileID: 6932219307349860631}
 --- !u!114 &-6611254891023930349
 MonoBehaviour:
@@ -5101,7 +5102,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -5130,7 +5131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _repeatable: 0
-  _allowActivation: 1
+  _allowActivation: 0
   _useTag: 1
   _tag: Player
   _useLayer: 0
