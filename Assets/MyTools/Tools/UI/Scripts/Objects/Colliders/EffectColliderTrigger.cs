@@ -7,10 +7,11 @@ namespace MyTools.UI.Colliders
         [Header("Effects")]
         [SerializeField] private ParticleSystem _particleSystem;
         [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private bool _canFinishIfColliderExit = false;
 
-        protected override void OnValidate()
+        protected override void AutoAssignComponents()
         {
-            base.OnValidate();
+            base.AutoAssignComponents();
 
             if (_audioSource == null)
                 _audioSource = GetComponent<AudioSource>();
@@ -30,11 +31,14 @@ namespace MyTools.UI.Colliders
 
         protected override void Exit(Collider2D collider)
         {
-            if (_particleSystem != null)
-                _particleSystem.Stop();
+            if (_canFinishIfColliderExit)
+            {
+                if (_particleSystem != null)
+                    _particleSystem.Stop();
 
-            if (_audioSource != null)
-                _audioSource.Stop();
+                if (_audioSource != null)
+                    _audioSource.Stop();
+            }
         }
     }
 }

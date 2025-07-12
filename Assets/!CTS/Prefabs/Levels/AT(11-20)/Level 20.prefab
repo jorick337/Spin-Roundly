@@ -13549,6 +13549,10 @@ PrefabInstance:
       value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 5021821060767868951, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
+      propertyPath: _initializeOnStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021821060767868951, guid: 2fd43034d15c2c991b7981c6d7198496, type: 3}
       propertyPath: _visibleAchorPos.y
       value: 16
       objectReference: {fileID: 0}

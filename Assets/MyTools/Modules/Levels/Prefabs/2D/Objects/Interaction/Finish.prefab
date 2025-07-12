@@ -93,6 +93,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _repeatable: 0
   _allowActivation: 1
+  _minVelocityY: 0.1
+  _minVelocityX: 0.1
   _useTag: 1
   _tag: Player
   _useLayer: 0
@@ -307,8 +309,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colliderTrigger2D: {fileID: 8169157642124710789}
+  _autoAssignComponents: 1
   _particleSystem: {fileID: 0}
   _audioSource: {fileID: 3156305973221682693}
+  _canFinishIfColliderExit: 0
 --- !u!114 &1943393611893284512
 MonoBehaviour:
   m_ObjectHideFlags: 0

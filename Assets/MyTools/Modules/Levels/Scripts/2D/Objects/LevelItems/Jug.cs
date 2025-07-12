@@ -21,20 +21,14 @@ namespace MyTools.Levels.Play
 
         #endregion
 
-        #region MONO
-
-        protected override void DoActionOnAwake() { }
-
-        protected override void DoActionBeforeRestart()
+        protected override void Restart()
         {
+            base.Restart();
+
             _currentHits = 0;
             DisableCoins();
             SetNormalSprite();
         }
-
-        #endregion
-
-        #region CORE LOGIC
 
         private void Break()
         {
@@ -42,8 +36,6 @@ namespace MyTools.Levels.Play
             EnableCoins();
             SetBrokenSprite();
         }
-
-        #endregion
 
         #region UI
 
@@ -68,9 +60,7 @@ namespace MyTools.Levels.Play
 
         #endregion
 
-        #region CALLBACKS
-
-        protected override void InvokeTriggeredEnter(Collider2D collider2D)
+        protected override void Enter(Collider2D collider2D)
         {
             if (_currentHits >= _hitsToBreak)
                 return;
@@ -79,10 +69,5 @@ namespace MyTools.Levels.Play
             if (_currentHits >= _hitsToBreak)
                 Break();
         }
-
-        protected override void InvokeTriggeredStay(Collider2D collider2D) { }
-        protected override void InvokeTriggeredExit(Collider2D collider2D) { }
-
-        #endregion
     }
 }

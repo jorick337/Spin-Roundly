@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1597183870943440899}
   - component: {fileID: 8991871408080893925}
   - component: {fileID: 4658424938796998872}
+  - component: {fileID: 3001319688253715392}
   - component: {fileID: 7130125615617628179}
   - component: {fileID: 4531432473959093519}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: CoinBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4857,6 +4858,23 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &3001319688253715392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3755295696224441789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c7dac4d7b1306eb8440f7cc30567a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colliderTrigger2D: {fileID: 155684834099517910}
+  _autoAssignComponents: 1
+  _particleSystem: {fileID: 4658424938796998872}
+  _audioSource: {fileID: 8991871408080893925}
+  _canFinishIfColliderExit: 0
 --- !u!114 &7130125615617628179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4869,11 +4887,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1435f7ad46ca0272ab408f2c1cfc4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider2DTrigger: {fileID: 155684834099517910}
-  _particleSystem: {fileID: 4658424938796998872}
-  _audioSource: {fileID: 8991871408080893925}
+  _colliderTrigger2D: {fileID: 155684834099517910}
+  _autoAssignComponents: 1
   _coins:
   - {fileID: 6532653283790674142}
+  _timeToDisableCollider: 0.5
 --- !u!199 &4531432473959093519
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5100,6 +5118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _repeatable: 0
   _allowActivation: 0
+  _minVelocityY: 0.1
+  _minVelocityX: 0.1
   _useTag: 1
   _tag: Player
   _useLayer: 0
@@ -5108,7 +5128,7 @@ MonoBehaviour:
   _canTop: 0
   _topDistance: 0
   _canBottom: 1
-  _bottomDistance: 1
+  _bottomDistance: 0.5
   _canLeft: 0
   _leftDistance: 0
   _canRight: 0

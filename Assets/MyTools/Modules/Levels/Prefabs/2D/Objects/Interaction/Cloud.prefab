@@ -4891,7 +4891,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colliderTrigger2D: {fileID: 4945950334803886582}
+  _autoAssignComponents: 0
+  _particleSystem: {fileID: 0}
   _audioSource: {fileID: 8978966278677074226}
+  _canFinishIfColliderExit: 0
 --- !u!114 &4539336053783491029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4904,7 +4907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e52031e83e72f02695a34cb16d52e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider2DTrigger: {fileID: 4945950334803886582}
+  _colliderTrigger2D: {fileID: 4945950334803886582}
+  _autoAssignComponents: 1
   _animationTransparency: {fileID: 7834532239280934942}
   _particleSystem: {fileID: 4750160560138986600}
   _timeToDie: 3
@@ -5145,6 +5149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _repeatable: 0
   _allowActivation: 0
+  _minVelocityY: 0.1
+  _minVelocityX: 0.1
   _useTag: 1
   _tag: Player
   _useLayer: 0

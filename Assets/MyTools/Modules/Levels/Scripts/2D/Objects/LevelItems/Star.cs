@@ -1,4 +1,5 @@
 using MyTools.UI;
+using MyTools.UI.Animation;
 using UnityEngine;
 
 namespace MyTools.Levels.Play
@@ -6,18 +7,25 @@ namespace MyTools.Levels.Play
     public class Star : LevelItem
     {
         [Header("Star")]
-        [SerializeField] private ParticleSystem _particleSystem;
+        [SerializeField] private AnimationMove _animationMove;
 
-        protected override void DoActionOnAwake() { }
-        protected override void DoActionBeforeRestart() { }
-
-        protected override void InvokeTriggeredEnter(Collider2D collider2D)
+        protected override void AutoAssignComponents()
         {
-            _gameLevelManager.AddStar();
-            _particleSystem.Play();
+            base.AutoAssignComponents();
+            if (_animationMove == null)
+                _animationMove = GetComponent<AnimationMove>();
         }
 
-        protected override void InvokeTriggeredStay(Collider2D collider2D) { }
-        protected override void InvokeTriggeredExit(Collider2D collider2D) { }
+        protected override void Restart()
+        {
+            base.Restart();
+            _animationMove.StartAlwaysAnimation();
+        }
+
+        protected override void Enter(Collider2D collider2D)
+        {
+            _gameLevelManager.AddStar();
+            _animationMove.StopAlwaysAnimation();
+        }
     }
 }

@@ -1,83 +1,48 @@
 using MyTools.Levels.Play;
 using MyTools.UI.Colliders;
-using UnityEngine;
 
 namespace MyTools.UI
 {
-    public abstract class LevelItem : MonoBehaviour
+    public abstract class LevelItem : TriggerActivator
     {
-        #region CORE
-
-        [Header("Core")]
-        [SerializeField] protected ColliderTrigger2D _collider2DTrigger;
-
         protected GameLevelManager _gameLevelManager;
 
-        #endregion
+        protected virtual void Awake() => _gameLevelManager = GameLevelManager.Instance;
 
-        #region MONO
-
-        protected abstract void DoActionOnAwake();
-        protected abstract void DoActionBeforeRestart();
-
-        private void Awake()
+        protected override void OnEnable()
         {
-            _gameLevelManager = GameLevelManager.Instance;
-            DoActionOnAwake();
-        }
-
-        private void OnEnable()
-        {
-            _collider2DTrigger.OnTriggeredEnter += InvokeTriggeredEnter;
-            _collider2DTrigger.OnTriggeredStay += InvokeTriggeredStay;
-            _collider2DTrigger.OnTriggeredExit += InvokeTriggeredExit;
+            base.OnEnable();
             _gameLevelManager.OnRestart += Restart;
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
-            _collider2DTrigger.OnTriggeredEnter -= InvokeTriggeredEnter;
-            _collider2DTrigger.OnTriggeredStay -= InvokeTriggeredStay;
-            _collider2DTrigger.OnTriggeredExit -= InvokeTriggeredExit;
+            base.OnDisable();
             _gameLevelManager.OnRestart -= Restart;
         }
 
-        #endregion
-
         #region UI
 
-        public void Enable()
+        public virtual void Enable()
         {
-            EnableLevelItem();
+            EnableSelf();
             EnableColliderTrigger();
         }
 
-        public void Disable()
+        public virtual void Disable()
         {
-            DisableLevelItem();
+            DisableSelf();
             DisableColliderTrigger();
         }
 
-        protected void EnableLevelItem() => gameObject.SetActive(true);
-        protected void DisableLevelItem() => gameObject.SetActive(false);
+        protected void EnableSelf() => gameObject.SetActive(true);
+        protected void DisableSelf() => gameObject.SetActive(false);
 
-        protected void EnableColliderTrigger() => _collider2DTrigger.Enable();
-        protected void DisableColliderTrigger() => _collider2DTrigger.Disable();
-
-        #endregion
-
-        #region CALLBACKS
-
-        protected void Restart()
-        {
-            DoActionBeforeRestart();
-            EnableColliderTrigger();
-        }
-
-        protected abstract void InvokeTriggeredEnter(Collider2D collider2D);
-        protected abstract void InvokeTriggeredStay(Collider2D collider2D);
-        protected abstract void InvokeTriggeredExit(Collider2D collider2D);
+        protected void EnableColliderTrigger() => _colliderTrigger2D.Enable();
+        protected void DisableColliderTrigger() => _colliderTrigger2D.Disable();
 
         #endregion
+
+        protected virtual void Restart() => EnableColliderTrigger();
     }
 }

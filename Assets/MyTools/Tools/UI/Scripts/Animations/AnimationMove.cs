@@ -11,6 +11,13 @@ namespace MyTools.UI.Animation
         [SerializeField] private bool _useStartPos = false;
 
         private Transform _transform;
+        private Vector3 _currentHiddenAchorPos;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _currentHiddenAchorPos = _hiddenAchorPos;
+        }
 
         public override void Initialize()
         {
@@ -18,11 +25,11 @@ namespace MyTools.UI.Animation
             if (_useStartPos)
             {
                 _visibleAchorPos = transform.position;
-                _hiddenAchorPos = _visibleAchorPos + _hiddenAchorPos;
+                _currentHiddenAchorPos = _visibleAchorPos + _hiddenAchorPos;
             }
         }
 
-        public override Sequence AnimationOut() => DOTween.Sequence().Append(_transform.DOMove(_hiddenAchorPos, _timeToHide).SetEase(Ease.InOutSine));
+        public override Sequence AnimationOut() => DOTween.Sequence().Append(_transform.DOMove(_currentHiddenAchorPos, _timeToHide).SetEase(Ease.InOutSine));
         public override Sequence AnimationIn() => DOTween.Sequence().Append(_transform.DOMove(_visibleAchorPos, _timeToShow).SetEase(Ease.InOutSine));
     }
 }

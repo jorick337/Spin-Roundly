@@ -251,5 +251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5351c0f22ea9b5a77a2180b217294041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider2DTrigger: {fileID: 1652024661395302023}
+  _colliderTrigger2D: {fileID: 1652024661395302023}
+  _autoAssignComponents: 1
   _teleport: {fileID: 4511967796309959570}

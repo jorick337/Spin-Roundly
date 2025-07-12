@@ -5,8 +5,8 @@ namespace MyTools.UI.Objects
 {
     public class CollusionIgnore : MonoBehaviour
     {
-        [SerializeField] private int _firstLayer;
-        [SerializeField] private int _secondLayer;
+        [SerializeField] private LayerMask _firstLayer;
+        [SerializeField] private LayerMask _secondLayer;
         [SerializeField] private float _time;
 
         public bool IsFinished { get; private set; } = false;
@@ -34,6 +34,19 @@ namespace MyTools.UI.Objects
         public void EnableCollision() => SetCollisionIgnored(false);
         public void DisableCollision() => SetCollisionIgnored(true);
 
-        private void SetCollisionIgnored(bool ignore) => Physics2D.IgnoreLayerCollision(_firstLayer, _secondLayer, ignore);
+        private void SetCollisionIgnored(bool ignore)
+        {
+            for (int i = 0; i < 32; i++)
+            {
+                if ((_firstLayer.value & (1 << i)) == 0) continue;
+
+                for (int j = 0; j < 32; j++)
+                {
+                    if ((_secondLayer.value & (1 << j)) == 0) continue;
+
+                    Physics2D.IgnoreLayerCollision(i, j, ignore);
+                }
+            }
+        }
     }
 }

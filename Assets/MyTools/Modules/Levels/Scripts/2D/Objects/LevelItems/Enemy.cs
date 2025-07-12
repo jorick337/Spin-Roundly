@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using MyTools.Enemy;
 using MyTools.UI;
@@ -35,10 +34,10 @@ namespace MyTools.Levels.Play.Objects
 
         #region MONO
 
-        protected override void DoActionOnAwake() { }
-
-        protected override void DoActionBeforeRestart()
+        protected override void Restart()
         {
+            base.Restart();
+
             _currentHits = 0;
             _isDeath = false;
             _teleportEnemy.SendToTarget();
@@ -110,9 +109,7 @@ namespace MyTools.Levels.Play.Objects
 
         #endregion
 
-        #region CALLBACKS
-
-        protected override async void InvokeTriggeredEnter(Collider2D collider2D)
+        protected override async void Enter(Collider2D collider2D)
         {
             if (_currentHits >= _hitsToBreak)
                 return;
@@ -127,10 +124,5 @@ namespace MyTools.Levels.Play.Objects
 
             await ReboundAsync();
         }
-
-        protected override void InvokeTriggeredStay(Collider2D collider2D) { }
-        protected override void InvokeTriggeredExit(Collider2D collider2D) { }
-
-        #endregion
     }
 }

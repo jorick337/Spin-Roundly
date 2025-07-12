@@ -9,17 +9,15 @@ namespace MyTools.Levels.TwoDimensional.Objects
         [SerializeField] private Rigidbody2D _rigidbody2D;
         [SerializeField] private Teleport _teleport;
 
-        protected override void DoActionBeforeRestart() 
+        protected override void Restart() 
         {
+            base.Restart();
+
             FreezePositionX();
             _teleport.SendToTarget();
         }
 
-        protected override void DoActionOnAwake() { }
-
-        protected override void InvokeTriggeredEnter(Collider2D collider2D) => UnfreezePositionX();
-        protected override void InvokeTriggeredExit(Collider2D collider2D) { }
-        protected override void InvokeTriggeredStay(Collider2D collider2D) { }
+        protected override void Enter(Collider2D collider2D) => UnfreezePositionX();
 
         private void FreezePositionX() => _rigidbody2D.constraints |= RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         private void UnfreezePositionX() => _rigidbody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionX;

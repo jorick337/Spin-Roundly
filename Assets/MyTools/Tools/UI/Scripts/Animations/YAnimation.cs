@@ -12,8 +12,8 @@ namespace MyTools.UI.Animation
         [Header("Core")]
         [SerializeField] protected float _timeToShow;
         [SerializeField] protected float _timeToHide;
-        [SerializeField] private bool _isLooping = false;
-        [SerializeField] private bool _initializeOnStart = false;
+        [SerializeField] protected bool _isLooping = false;
+        [SerializeField] protected bool _initializeOnStart = false;
 
         public abstract Sequence AnimationIn();
         public abstract Sequence AnimationOut();
@@ -28,7 +28,7 @@ namespace MyTools.UI.Animation
 
         #region MONO
 
-        private void Awake()
+        protected virtual void Awake()
         {
             if (!_initializeOnStart)
                 Initialize();
@@ -54,6 +54,7 @@ namespace MyTools.UI.Animation
 
         private void KillAnimations()
         {
+            StopAlwaysAnimation();
             _animationIn?.Kill();
             _animationOut?.Kill();
             _animation?.Kill();
@@ -136,7 +137,7 @@ namespace MyTools.UI.Animation
             AnimateIn();
         }
 
-        private async void AnimateAlways()
+        protected async void AnimateAlways()
         {
             _isFinished = false;
 

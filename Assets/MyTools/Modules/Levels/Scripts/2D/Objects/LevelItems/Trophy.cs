@@ -1,4 +1,5 @@
 using MyTools.UI;
+using MyTools.UI.Animation;
 using UnityEngine;
 
 namespace MyTools.Levels.Play
@@ -6,21 +7,46 @@ namespace MyTools.Levels.Play
     public class Trophy : LevelItem
     {
         [Header("Trophy")]
-        [SerializeField] private ParticleSystem _particleSystem;
+        [SerializeField] private AnimationMove _animationMove; 
 
-        // Managers
         private LevelsManager _levelsManager;
 
-        protected override void DoActionOnAwake() => _levelsManager = LevelsManager.Instance;
-        protected override void DoActionBeforeRestart() { }
-
-        protected override void InvokeTriggeredEnter(Collider2D collider2D)
+        public override void Enable()
         {
-            _levelsManager.AddTrophy(1);
-            _particleSystem.Play();
+            base.Enable();
+            _animationMove.Initialize();
+            _animationMove.StartAlwaysAnimation();
         }
 
-        protected override void InvokeTriggeredStay(Collider2D collider2D) { }
-        protected override void InvokeTriggeredExit(Collider2D collider2D) { }
+        public override void Disable()
+        {
+            base.Disable();
+            _animationMove.StopAlwaysAnimation();
+        }
+
+        protected override void AutoAssignComponents()
+        {
+            base.AutoAssignComponents();
+            if (_animationMove == null)
+                _animationMove = GetComponent<AnimationMove>();
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _levelsManager = LevelsManager.Instance;
+        }
+
+        protected override void Restart()
+        {
+            base.Restart();
+            _animationMove.StartAlwaysAnimation();
+        }
+
+        protected override void Enter(Collider2D collider2D)
+        {
+            _levelsManager.AddTrophy(1);
+            _animationMove.StopAlwaysAnimation();
+        }
     }
 }

@@ -177,6 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _repeatable: 0
   _allowActivation: 0
+  _minVelocityY: 0.1
+  _minVelocityX: 0.1
   _useTag: 1
   _tag: Player
   _useLayer: 0
@@ -251,6 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93e6ec4e53eb9f3a8684dfd4a0136b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider2DTrigger: {fileID: 4168850618143609719}
+  _colliderTrigger2D: {fileID: 4168850618143609719}
+  _autoAssignComponents: 1
   _rigidbody2D: {fileID: 1126913668704850863}
   _teleport: {fileID: 7656536979834242368}

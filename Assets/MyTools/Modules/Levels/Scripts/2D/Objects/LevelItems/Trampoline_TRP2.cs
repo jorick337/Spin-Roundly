@@ -8,10 +8,7 @@ namespace MyTools.Levels.TwoDimensional.Objects
         [Header("Trampoline")]
         [SerializeField] private float _bounsForce = 0f;
 
-        protected override void DoActionBeforeRestart() { }
-        protected override void DoActionOnAwake() { }
-
-        protected override void InvokeTriggeredEnter(Collider2D collider2D)
+        protected override void Enter(Collider2D collider2D)
         {
             Rigidbody2D rb2 = collider2D.attachedRigidbody;
 
@@ -21,8 +18,5 @@ namespace MyTools.Levels.TwoDimensional.Objects
                 rb2.AddForce(Vector2.up * _bounsForce, ForceMode2D.Impulse);
             }
         }
-
-        protected override void InvokeTriggeredExit(Collider2D collider2D) { }
-        protected override void InvokeTriggeredStay(Collider2D collider2D) { }
     }
 }

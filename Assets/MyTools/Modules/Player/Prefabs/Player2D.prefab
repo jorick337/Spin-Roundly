@@ -185,8 +185,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43331637dae0043894efd1a2197457e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstLayer: 6
-  _secondLayer: 7
+  _firstLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _secondLayer:
+    serializedVersion: 2
+    m_Bits: 144
   _time: 2
 --- !u!114 &9121932516985515054
 MonoBehaviour:
@@ -10385,8 +10389,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colliderTrigger2D: {fileID: 8459828950434431422}
+  _autoAssignComponents: 1
   _particleSystem: {fileID: 2675069383357985721}
   _audioSource: {fileID: 8485804300521310647}
+  _canFinishIfColliderExit: 1
 --- !u!199 &6516462111684693249
 ParticleSystemRenderer:
   serializedVersion: 6

@@ -5219,7 +5219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c72b6f694cf1ecfb74b3e015d8f8af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider2DTrigger: {fileID: 6820446665194647766}
+  _colliderTrigger2D: {fileID: 6820446665194647766}
+  _autoAssignComponents: 1
   _hitsToBreak: 3
   _deathSound: {fileID: 4447756113128646177}
   _coins:

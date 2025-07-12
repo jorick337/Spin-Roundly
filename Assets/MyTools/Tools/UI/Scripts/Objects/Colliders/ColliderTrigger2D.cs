@@ -46,7 +46,7 @@ namespace MyTools.UI.Colliders
 
         private void OnTriggerEnter2D(Collider2D collider2D) => HandleTriggerEvent(collider2D, InvokeOnTriggeredEnter);
         private void OnTriggerStay2D(Collider2D collider2D) => HandleTriggerEvent(collider2D, InvokeOnTriggeredStay);
-        private void OnTriggerExit2D(Collider2D collider2D) => HandleTriggerEvent(collider2D, InvokeOnTriggerdExit);
+        private void OnTriggerExit2D(Collider2D collider2D) => HandleTriggerEvent(collider2D, InvokeOnTriggeredExit);
 
         #endregion
 
@@ -118,7 +118,7 @@ namespace MyTools.UI.Colliders
 
         private void InvokeOnTriggeredEnter(Collider2D collider2D) => OnTriggeredEnter?.Invoke(collider2D);
         private void InvokeOnTriggeredStay(Collider2D collider2D) => OnTriggeredStay?.Invoke(collider2D);
-        private void InvokeOnTriggerdExit(Collider2D collider2D) => OnTriggeredExit?.Invoke(collider2D);
+        private void InvokeOnTriggeredExit(Collider2D collider2D) => OnTriggeredExit?.Invoke(collider2D);
 
         #endregion
     }

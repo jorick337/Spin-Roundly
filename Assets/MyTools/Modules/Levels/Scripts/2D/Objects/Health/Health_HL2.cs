@@ -71,6 +71,9 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
 
         private void Add(Collider2D collider2D)
         {
+            if (Current <= 0)
+                return;
+
             Current -= 1;
             InvokeOnChanged();
 

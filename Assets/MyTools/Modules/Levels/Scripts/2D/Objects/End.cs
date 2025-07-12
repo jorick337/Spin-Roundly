@@ -33,9 +33,6 @@ namespace MyTools.Levels.Play
                 _gameLevelManager.RestartAsync();
         }
 
-        private void Restart() 
-        {
-           _colliderTrigger.Enable(); 
-        } 
+        private void Restart() => _colliderTrigger.Enable();
     }
 }

@@ -4871,8 +4871,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colliderTrigger2D: {fileID: 8448607481645767947}
+  _autoAssignComponents: 1
   _particleSystem: {fileID: 1927320059000473798}
   _audioSource: {fileID: 6932219307349860631}
+  _canFinishIfColliderExit: 0
 --- !u!114 &-6611254891023930349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4904,8 +4906,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d406df9fcf69452a7df211884cc026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider2DTrigger: {fileID: 8448607481645767947}
-  _particleSystem: {fileID: 1927320059000473798}
+  _colliderTrigger2D: {fileID: 8448607481645767947}
+  _autoAssignComponents: 1
+  _animationMove: {fileID: -6611254891023930349}
 --- !u!199 &7279171060753027444
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5102,7 +5105,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
