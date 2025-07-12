@@ -45,7 +45,7 @@ namespace MyTools.Levels.TwoDimensional.Player
 
         public async UniTask RestartAsync() => await Handle(async () => await WaitTimeToRebirth());
 
-        public void Restart() 
+        public void Restart()
         {
             _health.Restart();
             _teleportPlayer.SendToTarget();
@@ -70,13 +70,6 @@ namespace MyTools.Levels.TwoDimensional.Player
                 await action.Invoke();
             Enable();
         }
-
-        private void Disable()
-        {
-            _movement2D.Disable();
-            _stunAndInvincibility.DisableCollision();
-        }
-
         private async void Enable()
         {
             _movement2D.Enable();
@@ -84,6 +77,7 @@ namespace MyTools.Levels.TwoDimensional.Player
             _stunAndInvincibility.EnableCollision();
         }
 
+        private void Disable() => _movement2D.Disable();
         private async UniTask WaitTimeToRebirth() => await UniTask.WaitForSeconds(_timeToRebirth);
 
         #region CALLBACKS

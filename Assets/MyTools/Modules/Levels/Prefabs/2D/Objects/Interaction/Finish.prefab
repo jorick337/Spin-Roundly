@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _repeatable: 0
-  _allowActivation: 0
+  _allowActivation: 1
   _useTag: 1
   _tag: Player
   _useLayer: 0
