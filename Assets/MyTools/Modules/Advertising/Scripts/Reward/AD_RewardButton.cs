@@ -14,6 +14,8 @@ namespace MyTools.Advertising
         [SerializeField] private bool _canInitialize = false;
         [SerializeField] private bool _looping = true;
 
+        private string _idAd = "1234";
+
         // Managers
         private PlayerManager _playerManager;
 
@@ -41,7 +43,7 @@ namespace MyTools.Advertising
 
         private void Click()
         {
-            GiveReward();
+            YG2.RewardedAdvShow(_idAd, GiveReward);
             if (!_looping)
                 DestroySelf();
         }
