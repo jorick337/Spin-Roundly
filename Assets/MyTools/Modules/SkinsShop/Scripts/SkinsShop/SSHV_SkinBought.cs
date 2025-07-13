@@ -31,7 +31,7 @@ namespace MyTools.Shop.Skins
 
         private void CheckNumberSkin()
         {
-            _active = _shopManager.Activities[_number - 1];
+            _active = _shopManager.ActivitySkins[_number - 1];
             if (_active)
             {
                 EnableImage(_active);

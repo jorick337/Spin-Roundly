@@ -15,8 +15,8 @@ namespace MyTools.Shop.Skins
 
         public static SSHV_Manager Instance { get; private set; }
 
-        public bool[] Activities { get; private set; }
-        public int Number { get; private set; } = 1;
+        public bool[] ActivitySkins { get; private set; }
+        public int NumberSelectedSkin { get; private set; } = 1;
         public SSHV_Skin Skin { get; private set; }
 
         private int _selectedNumber = 0;
@@ -52,11 +52,11 @@ namespace MyTools.Shop.Skins
 
         private async void Initialize()
         {
-            Activities = SSHV_Saver.LoadSkins();
-            Number = SSHV_Saver.LoadNumberSkin();
+            ActivitySkins = SaveManager.LoadActivitySkins();
+            NumberSelectedSkin = SaveManager.LoadNumberSelectedSkin();
 
             await LoadBoughtSkin();
-            _selectedNumber = Number;
+            _selectedNumber = NumberSelectedSkin;
 
             _isLoaded = true;
         }
@@ -108,16 +108,16 @@ namespace MyTools.Shop.Skins
         {
             if (_isBought)
             {
-                Number = _selectedNumber;
-                SSHV_Saver.SaveNumber(Number);
+                NumberSelectedSkin = _selectedNumber;
+                SaveManager.SaveNumberSelectedSkin(NumberSelectedSkin);
             }
         }
 
         private void SaveActivities()
         {
-            Activities[_selectedNumber - 1] = true;
+            ActivitySkins[_selectedNumber - 1] = true;
             _isBought = true;
-            SSHV_Saver.SaveSkins(Activities);
+            SaveManager.SaveActivitySkins(ActivitySkins);
             InvokeSkinChanged();
         }
 
@@ -128,16 +128,16 @@ namespace MyTools.Shop.Skins
         public async UniTask WaitUntilLoaded() => await UniTask.WaitUntil(() => _isLoaded == true);
         public async UniTask LoadBoughtSkin()
         {
-            if (_selectedNumber != Number)
+            if (_selectedNumber != NumberSelectedSkin)
             {
                 if (Skin != null)
                     await _skinProvider.UnloadAsync();
                 
-                Skin = await _skinProvider.Load(Number);
+                Skin = await _skinProvider.Load(NumberSelectedSkin);
             }
         }
 
-        private bool IsSelectedSkinBought() => Activities[_selectedNumber - 1];
+        private bool IsSelectedSkinBought() => ActivitySkins[_selectedNumber - 1];
 
         #endregion
 
@@ -145,6 +145,6 @@ namespace MyTools.Shop.Skins
         private void InvokeOnSpritePurchased() => OnSpritePurchased?.Invoke(Skin.Sprite);
 
         private void InvokePriceChanged() => PriceChanged?.Invoke(Skin.Price);
-        private void InvokeSkinChanged() => SkinChanged?.Invoke(Activities[_selectedNumber - 1]);
+        private void InvokeSkinChanged() => SkinChanged?.Invoke(ActivitySkins[_selectedNumber - 1]);
     }
 }

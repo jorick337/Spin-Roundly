@@ -3,6 +3,7 @@ using MyTools.Levels;
 using MyTools.Music;
 using UnityEngine;
 using UnityEngine.Events;
+using YG;
 
 namespace MyTools.PlayerSystem
 {
@@ -32,6 +33,7 @@ namespace MyTools.PlayerSystem
         }
 
         private void Start() => Initialize();
+        private void OnApplicationQuit() => YG2.SaveProgress();
 
         private void OnEnable()
         {
@@ -62,7 +64,7 @@ namespace MyTools.PlayerSystem
 
         private void InitializeLevels() => _levelsManager.Initialize(SaveManager.LoadStars(), SaveManager.LoadTrophy());
         private void InitializeLanguage() => _languageManager.Initialize(SaveManager.LoadLanguage());
-        private void InitializeMusic() => _musicManager.Initialize(SaveManager.LoadMusisActive(), SaveManager.LoadSoundsActive());
+        private void InitializeMusic() => _musicManager.Initialize(SaveManager.LoadMusicActive(), SaveManager.LoadSoundsActive());
 
         private void InvokeOnLoaded() => OnLoaded?.Invoke();
     }

@@ -22,7 +22,7 @@ namespace MyTools.Shop.Skins
 
         private async UniTask InitializeAsync()
         {
-            _buttonsSelectorSkins.Select(_shopManager.Number - 1);
+            _buttonsSelectorSkins.Select(_shopManager.NumberSelectedSkin - 1);
             await _shopIcon.Initialized;
             EnableAlphaCanvasGroup();
         }
