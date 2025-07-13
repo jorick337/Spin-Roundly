@@ -1,11 +1,14 @@
 using System.Linq;
 using UnityEngine;
+using YG;
 
 namespace MyTools.PlayerSystem
 {
     public class SaveManager
     {
         #region CONSTANTS
+
+        private const bool USE_YG2 = true;
 
         private const int MAX_LEVEL = 30;
         private static readonly string LEVEL_STARS = string.Join(",", Enumerable.Repeat("0", MAX_LEVEL));
@@ -47,8 +50,14 @@ namespace MyTools.PlayerSystem
 
         #region SAVE
 
-        public static void SaveStars(int[] levelStars) => PlayerPrefs.SetString("LevelStars", string.Join(",", levelStars));
-        
+        public static void SaveStars(int[] stars)
+        {
+            if (USE_YG2)
+                YG2.saves.Stars = stars;
+            else
+                PlayerPrefs.SetString("Stars", string.Join(",", stars));
+        }
+
         public static void SaveTrophies(int trophy) => PlayerPrefs.SetInt("Trophy", trophy);
         public static void SaveMoney(int money) => PlayerPrefs.SetInt("Money", money);
 
