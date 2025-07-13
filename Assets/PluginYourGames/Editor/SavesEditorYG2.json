@@ -21,9 +21,9 @@
         0,
         0,
         0,
+        2,
         0,
-        0,
-        0,
+        3,
         0,
         0,
         0,
@@ -31,8 +31,8 @@
         0,
         0
     ],
-    "Trophy": 0,
-    "Money": 65,
+    "Trophy": 6,
+    "Money": 379,
     "ActivitySkins": [
         true,
         false,
@@ -56,5 +56,5 @@
         false,
         false
     ],
-    "idSave": 2
+    "idSave": 9
 }

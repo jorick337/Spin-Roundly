@@ -8,7 +8,11 @@ namespace MyTools.PlayerSystem.Save
         public void SaveStars(int[] stars) => YG2.saves.Stars = stars;
 
         public int LoadTrophy() => YG2.saves.Trophy;
-        public void SaveTrophy(int trophy) => YG2.saves.Trophy = trophy;
+        public void SaveTrophy(int trophy) 
+        {
+            YG2.saves.Trophy = trophy;
+            YG2.SetLeaderboard("Leaderboard", trophy);
+        }
 
         public int LoadMoney() => YG2.saves.Money;
         public void SaveMoney(int money) => YG2.saves.Money = money;
