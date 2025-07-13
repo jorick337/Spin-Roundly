@@ -1,6 +1,7 @@
 using MyTools.PlayerSystem;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace MyTools.Advertising
 {

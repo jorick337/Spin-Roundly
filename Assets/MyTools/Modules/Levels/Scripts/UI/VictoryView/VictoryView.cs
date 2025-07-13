@@ -6,6 +6,7 @@ using MyTools.UI.Animation;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using YG;
 
 namespace MyTools.Levels.Play
 {
@@ -101,7 +102,11 @@ namespace MyTools.Levels.Play
         private void UpdateReward(int reward) => _rewardScrollbar.SetInitialReward(reward);
 
         private async UniTask Reload() => await InvokeActionAndUnload(() => _gameLevelManager.Restart());
-        private async UniTask LoadNextLevel() => await InvokeActionAndUnload(() => _gameLevelManager.Next());
+        private async UniTask LoadNextLevel() => await InvokeActionAndUnload(() =>
+        {
+            YG2.InterstitialAdvShow();
+            _gameLevelManager.Next();
+        });
 
         #endregion
     }

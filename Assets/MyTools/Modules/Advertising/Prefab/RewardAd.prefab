@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8854118738064612644}
   - component: {fileID: 9142629528574603417}
   - component: {fileID: 276485119431016177}
+  - component: {fileID: 4905528877112553041}
   m_Layer: 5
   m_Name: RewardAd
   m_TagString: Untagged
@@ -4855,6 +4856,25 @@ MonoBehaviour:
   _button: {fileID: 8435512608576777453}
   _text: {fileID: 2432735806721019368}
   _reward: 200
+  _canInitialize: 0
+  _looping: 1
+--- !u!114 &4905528877112553041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343269212252043478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341f31e995335eb49bcb5f79b009a4cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &2784505468605179115
 GameObject:
   m_ObjectHideFlags: 0
