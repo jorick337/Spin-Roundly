@@ -91,9 +91,11 @@ MonoBehaviour:
   _timeToShow: 0.5
   _timeToHide: 0.5
   _isLooping: 0
+  _initializeOnStart: 0
   _visibleTransparency: 1
   _hiddenTransparency: 0
   _uiElement: {fileID: 9092250099022523354}
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &3998070298795944914
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +113,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &1529137720819740631
 RectTransform:
