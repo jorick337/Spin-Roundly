@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &5362693667921789685
 RectTransform:
@@ -91,4 +91,3 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 0}
   _image: {fileID: 3500193403782786552}
   _canChangeAlways: 1
-  _canInitialize: 0

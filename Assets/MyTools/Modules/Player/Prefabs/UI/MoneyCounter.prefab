@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &6746754816608898598
 RectTransform:
@@ -263,9 +263,17 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0.14480388
       objectReference: {fileID: 0}
+    - target: {fileID: 7748990206038366014, guid: 236597c05414d4d3a9b8b1005d4f66f1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8339282953038290869, guid: 236597c05414d4d3a9b8b1005d4f66f1, type: 3}
       propertyPath: m_Name
       value: MoneyCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8339282953038290869, guid: 236597c05414d4d3a9b8b1005d4f66f1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8766109430693127833, guid: 236597c05414d4d3a9b8b1005d4f66f1, type: 3}

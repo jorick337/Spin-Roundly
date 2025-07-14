@@ -8,9 +8,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1418163469587133550, guid: a7fc76ebeabae4f368dcf848265e3966, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2719347379953869280, guid: a7fc76ebeabae4f368dcf848265e3966, type: 3}
       propertyPath: m_Name
       value: StarsCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719347379953869280, guid: a7fc76ebeabae4f368dcf848265e3966, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436032610832918891, guid: a7fc76ebeabae4f368dcf848265e3966, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5158192311674446803, guid: a7fc76ebeabae4f368dcf848265e3966, type: 3}
       propertyPath: m_Pivot.x
