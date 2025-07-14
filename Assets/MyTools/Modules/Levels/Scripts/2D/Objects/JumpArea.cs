@@ -4,14 +4,12 @@ using UnityEngine;
 
 namespace MyTools.Levels.TwoDimensional.Objects
 {
-    public class JumpArea : MonoBehaviour
+    public class JumpArea : TriggerActivator
     {
-        [SerializeField] private ColliderTrigger2D _collider2DTrigger;
-        [SerializeField] private Movement2D _movement2D;
+        private Movement2D _movement2D;
 
-        private void OnEnable() => _collider2DTrigger.OnTriggeredEnter += Apply;
-        private void OnDisable() => _collider2DTrigger.OnTriggeredEnter -= Apply;
+        private void Awake() => _movement2D = Movement2D.Instance;
 
-        private void Apply(Collider2D collider2D) => _movement2D.Jump();
+        protected override void Enter(Collider2D collider2D) => _movement2D.Jump();
     }
 }

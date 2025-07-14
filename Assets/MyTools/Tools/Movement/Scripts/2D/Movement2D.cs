@@ -1,16 +1,14 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using YG;
 
 namespace MyTools.Movement.TwoDimensional
 {
+    [DefaultExecutionOrder(-100)]
     public class Movement2D : MonoBehaviour
     {
-        #region EVENTS
-
         public event UnityAction OnJump;
-
-        #endregion
 
         #region CORE
 
@@ -24,7 +22,9 @@ namespace MyTools.Movement.TwoDimensional
         [SerializeField] private float _groundCheckRadius;
         [SerializeField] private LayerMask _groundMask;
 
-        private Vector2 _input;
+        public static Movement2D Instance { get; private set; }
+
+        private Vector2 _input = new(0, 0);
         private bool _isGrounded = false;
 
         // Managers
@@ -34,7 +34,11 @@ namespace MyTools.Movement.TwoDimensional
 
         #region MONO
 
-        private void Awake() => _inputActions = new();
+        private void Awake()
+        {
+            Instance = this;
+            _inputActions = new();
+        }
 
         private void OnEnable()
         {
@@ -48,26 +52,37 @@ namespace MyTools.Movement.TwoDimensional
             _inputActions.GamePlay.Jump.started -= OnJumpUpStarted;
         }
 
-        private void Update() => Move();
+        private void Update()
+        {
+            if (!YG2.envir.isMobile)
+                _input = _inputActions.GamePlay.Move.ReadValue<Vector2>();
+
+            Move();
+        }
 
         #endregion
 
         #region CORE LOGIC
 
-        private void Move()
-        {
-            _input = _inputActions.GamePlay.Move.ReadValue<Vector2>();
-            _rigidbody2D.linearVelocity = new Vector2(_input.x * _moveSpeed, _rigidbody2D.linearVelocity.y);
-
-            if (_input.x != 0)
-                _spriteRenderer.flipX = _input.x > 0;
-        }
-
-        private void JumpIfGrounded()
+        public void JumpIfGrounded()
         {
             UpdateIsGrounded();
             if (_isGrounded)
                 Jump();
+        }
+
+        public void Jump()
+        {
+            InvokeOnJump();
+            _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, _jumpForce);
+        }
+
+        private void Move()
+        {
+            _rigidbody2D.linearVelocity = new Vector2(_input.x * _moveSpeed, _rigidbody2D.linearVelocity.y);
+
+            if (_input.x != 0)
+                _spriteRenderer.flipX = _input.x > 0;
         }
 
         private void UpdateIsGrounded()
@@ -81,11 +96,7 @@ namespace MyTools.Movement.TwoDimensional
 
         #region VALUES
 
-        public void Jump() 
-        {
-            InvokeOnJump();
-            _rigidbody2D.linearVelocity = new Vector2(_rigidbody2D.linearVelocity.x, _jumpForce);
-        } 
+        public void MoveDirectionX(float value) => _input.x = value;
 
         public void Enable() => _inputActions.Enable();
         public void Disable() => _inputActions.Disable();
