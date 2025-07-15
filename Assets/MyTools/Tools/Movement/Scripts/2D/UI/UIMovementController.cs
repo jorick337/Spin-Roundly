@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MyTools.Movement.TwoDimensional
+namespace MyTools.Movement.TwoDimensional.UI
 {
     public class UIMovementController : MonoBehaviour
     {

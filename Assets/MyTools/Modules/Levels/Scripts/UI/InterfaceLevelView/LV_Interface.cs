@@ -1,32 +1,52 @@
 using MyTools.Levels.Play;
-using MyTools.Loading;
-using MyTools.UI;
+using MyTools.Movement.ThreeDimensional.UI;
 using UnityEngine;
+using YG;
 
 namespace MyTools.Levels.UI.Interface
 {
     public class LV_Interface : MonoBehaviour
     {
-        [SerializeField] private LS_Button _homeButton;
+        [SerializeField] private CanvasGroup _canvasGroup;
 
-        // Managers
         private GameLevelManager _gameLevelManager;
 
-        private void Awake() => _gameLevelManager = GameLevelManager.Instance;
+        private void Awake()
+        {
+            _gameLevelManager = GameLevelManager.Instance;
+
+            if (YG2.envir.isMobile)
+                LoadUIMovement();
+        }
 
         private void OnEnable()
         {
-            _gameLevelManager.OnFinish += HideHomeButton;
-            _gameLevelManager.OnRestart += ShowHomeButton;
+            _gameLevelManager.OnFinish += HideUI;
+            _gameLevelManager.OnRestart += ShowUI;
         }
 
         private void OnDisable()
         {
-            _gameLevelManager.OnFinish -= HideHomeButton;
-            _gameLevelManager.OnRestart -= ShowHomeButton;
+            _gameLevelManager.OnFinish -= HideUI;
+            _gameLevelManager.OnRestart -= ShowUI;
         }
 
-        private void ShowHomeButton() => _homeButton.gameObject.SetActive(true);
-        private void HideHomeButton() => _homeButton.gameObject.SetActive(false);
+        private void LoadUIMovement()
+        {
+            UIMovementProvider provider = new();
+            provider.Load(_canvasGroup.transform);
+        }
+
+        private void ShowUI()
+        {
+            _canvasGroup.alpha = 1f;
+            _canvasGroup.interactable = true;
+        }
+
+        private void HideUI()
+        {
+            _canvasGroup.alpha = 0f;
+            _canvasGroup.interactable = false;
+        }
     }
 }
