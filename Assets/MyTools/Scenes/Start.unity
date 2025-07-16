@@ -520,29 +520,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 525340882}
     m_Modifications:
-    - target: {fileID: 3342290251822327473, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342290251822327473, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_Color.g
-      value: 0.93255174
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342290251822327473, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_Color.r
-      value: 0.2783019
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342290251822327473, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: -876546973899608171, guid: 91a05f29b7d58299da92f205225f6168, type: 3}
     - target: {fileID: 3903769679141381861, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
       propertyPath: m_Name
       value: StartView
-      objectReference: {fileID: 0}
-    - target: {fileID: 3903769679141381861, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4639861120586689782, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
       propertyPath: _canvasGroup
@@ -631,6 +611,10 @@ PrefabInstance:
     - target: {fileID: 7191946379079957897, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618956896042708855, guid: df8db74ba9f2a93dcbd9e25a7201df06, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
