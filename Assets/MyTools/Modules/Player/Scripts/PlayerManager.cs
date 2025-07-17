@@ -32,11 +32,12 @@ namespace MyTools.PlayerSystem
                 Destroy(gameObject);
         }
 
-        private void Start() => Initialize();
         private void OnApplicationQuit() => YG2.SaveProgress();
 
         private void OnEnable()
         {
+            YG2.onGetSDKData += Initialize;
+
             _levelsManager.TrophiesChanged += SaveManager.SaveTrophies;
             _levelsManager.StarsChanged += SaveManager.SaveStars;
             // _languageManager.LocaleChanged += SaveManager.SaveLanguage;
@@ -46,6 +47,8 @@ namespace MyTools.PlayerSystem
 
         private void OnDisable()
         {
+            YG2.onGetSDKData -= Initialize;
+
             _levelsManager.TrophiesChanged -= SaveManager.SaveTrophies;
             _levelsManager.StarsChanged -= SaveManager.SaveStars;
             // _languageManager.LocaleChanged -= SaveManager.SaveLanguage;
@@ -55,11 +58,14 @@ namespace MyTools.PlayerSystem
 
         private void Initialize()
         {
-            Player.Initialize();
-            InitializeLevels();
-            // InitializeLanguage();
-            InitializeMusic();
-            InvokeOnLoaded();
+            if (YG2.isSDKEnabled)
+            {
+                Player.Initialize();
+                InitializeLevels();
+                // InitializeLanguage();
+                InitializeMusic();
+                InvokeOnLoaded();
+            }
         }
 
         private void InitializeLevels() => _levelsManager.Initialize(SaveManager.LoadStars(), SaveManager.LoadTrophy());

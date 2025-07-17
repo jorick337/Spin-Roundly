@@ -1,12 +1,14 @@
 using MyTools.Shop.Skins;
 using MyTools.UI.Objects.Buttons;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MyTools.Start.Buttons
 {
     public class ShopLoaderButton : BaseButton
     {
         [Header("Shop Loader")]
+        [SerializeField] private Image _iconImage;
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private Transform _transformParent;
         [SerializeField] private bool _loadProvider = true;
@@ -36,12 +38,14 @@ namespace MyTools.Start.Buttons
 
         private void Load()
         {
+            Instance._iconImage.enabled = false;
             Instance.DisableCanvasGroup();
             Instance.LoadShopView();
         }
 
         private void Unload()
         {
+            Instance._iconImage.enabled = true;
             Instance.EnableCanvasGroup();
             Instance.UnloadShopView();
         }

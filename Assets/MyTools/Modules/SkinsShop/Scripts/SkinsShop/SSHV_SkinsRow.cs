@@ -19,7 +19,7 @@ namespace MyTools.Shop.Skins
         private async void Initialize()
         {
             _levelsManager = LevelsManager.Instance;
-            await _levelsManager.WaitUntilLoaded();
+            await _levelsManager.Initialized;
             Apply();
         }
 

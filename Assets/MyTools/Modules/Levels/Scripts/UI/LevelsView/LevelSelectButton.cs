@@ -29,24 +29,24 @@ namespace MyTools.Levels.UI.View
 
         #region MONO
 
-        private async void Awake()
+        private void Awake()
         {
             _levelsManager = LevelsManager.Instance;
             _loadScene = LoadScene.Instance;
             _currentLevel = _initialLevel;
-            await _levelsManager.WaitUntilLoaded();
-            Initialize();
         }
 
         protected override void OnEnable()
         {
             base.OnEnable();
+            _levelsManager.Loaded += Initialize;
             _pageNavigator.PageChanged += Initialize;
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
+            _levelsManager.Loaded -= Initialize;
             _pageNavigator.PageChanged -= Initialize;
         }
 

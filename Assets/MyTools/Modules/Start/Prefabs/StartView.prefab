@@ -597,6 +597,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopLoaderButton
       objectReference: {fileID: 0}
+    - target: {fileID: 8175999929636547790, guid: a658ca0e64423f186946ff24c68e88af, type: 3}
+      propertyPath: _iconImage
+      value: 
+      objectReference: {fileID: 6946188945293410082}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -721,3 +725,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5362693667921789685, guid: 8b14eee07afb15faabd9552c4c8101f2, type: 3}
   m_PrefabInstance: {fileID: 5834128887601566426}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6946188945293410082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3500193403782786552, guid: 8b14eee07afb15faabd9552c4c8101f2, type: 3}
+  m_PrefabInstance: {fileID: 5834128887601566426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

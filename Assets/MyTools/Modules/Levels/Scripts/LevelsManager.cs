@@ -12,17 +12,22 @@ namespace MyTools.Levels
         public event UnityAction<int[]> StarsChanged;
         public event UnityAction<int> TrophiesChanged;
 
+        public event UnityAction Loaded;
+
         #endregion
 
         #region CORE
 
         public static LevelsManager Instance { get; private set; }
-        public bool IsLoaded { get; private set; } = false;
 
         public int[] Stars { get; private set; }
         public int Trophies { get; private set; }
 
         public int ChosedNumberLevel { get; private set; } = 1;
+
+        public UniTask Initialized => _initializedTcs.Task;
+
+        private UniTaskCompletionSource<bool> _initializedTcs = new();
 
         #endregion
 
@@ -47,7 +52,8 @@ namespace MyTools.Levels
         {
             Stars = stars;
             Trophies = trophy;
-            IsLoaded = true;
+            _initializedTcs.TrySetResult(true);
+            Loaded?.Invoke();
         }
 
         #endregion
@@ -78,7 +84,7 @@ namespace MyTools.Levels
             Trophies += trophy;
             InvokeTrophiesChanged();
         }
-        
+
         public void AddLevel()
         {
             if (ChosedNumberLevel + 1 <= Stars.Length)
@@ -94,7 +100,6 @@ namespace MyTools.Levels
         }
 
         public void SetLevel(int level) => ChosedNumberLevel = level;
-        public async UniTask WaitUntilLoaded() => await UniTask.WaitUntil(() => IsLoaded);
 
         #endregion
 

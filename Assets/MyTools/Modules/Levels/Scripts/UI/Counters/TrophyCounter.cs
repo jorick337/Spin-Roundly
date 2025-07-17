@@ -9,7 +9,7 @@ namespace MyTools.Levels.UI.Counters
         private async void Awake() 
         {
             _levelsManager = LevelsManager.Instance;
-            await _levelsManager.WaitUntilLoaded();
+            await _levelsManager.Initialized;
             UpdateCounter();
         }
 
