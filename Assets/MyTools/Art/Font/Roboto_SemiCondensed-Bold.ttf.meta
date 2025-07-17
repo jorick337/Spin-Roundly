@@ -3,7 +3,7 @@ guid: 33285e206492ce9519a454d08915673c
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
+  fontSize: 15
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
@@ -11,7 +11,7 @@ TrueTypeFontImporter:
   fontNames:
   - Roboto SemiCondensed
   fallbackFontReferences: []
-  customCharacters: 
+  customCharacters: 1234567890+-
   fontRenderingMode: 0
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0

@@ -1,3 +1,4 @@
+#if USE_LOCALIZATION
 using MyTools.UI;
 using UnityEngine;
 using UnityEngine.Localization.Components;
@@ -18,3 +19,4 @@ namespace MyTools.Localization
         }
     }
 }
+#endif

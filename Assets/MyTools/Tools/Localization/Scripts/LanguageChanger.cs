@@ -1,3 +1,4 @@
+#if USE_LOCALIZATION
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,3 +18,4 @@ namespace Game.Localization
         private void ChangeLanguage() => _languageManager.ChangeLanguage();
     }
 }
+#endif

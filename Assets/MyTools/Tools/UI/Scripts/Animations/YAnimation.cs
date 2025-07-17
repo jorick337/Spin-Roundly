@@ -50,7 +50,7 @@ namespace MyTools.UI.Animation
 
         #region INITIALIZATION
 
-        public virtual void Initialize() {}
+        public virtual void Initialize() { }
 
         private void KillAnimations()
         {

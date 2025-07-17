@@ -1,4 +1,4 @@
-using Game.Localization;
+// using Game.Localization;
 using MyTools.Levels;
 using MyTools.Music;
 using UnityEngine;
@@ -17,7 +17,7 @@ namespace MyTools.PlayerSystem
 
         [Header("Managers")]
         [SerializeField] private LevelsManager _levelsManager;
-        [SerializeField] private LanguageManager _languageManager;
+        // [SerializeField] private LanguageManager _languageManager;
         [SerializeField] private MusicManager _musicManager;
 
         private void Awake()
@@ -39,7 +39,7 @@ namespace MyTools.PlayerSystem
         {
             _levelsManager.TrophiesChanged += SaveManager.SaveTrophies;
             _levelsManager.StarsChanged += SaveManager.SaveStars;
-            _languageManager.LocaleChanged += SaveManager.SaveLanguage;
+            // _languageManager.LocaleChanged += SaveManager.SaveLanguage;
             _musicManager.MusicActiveChanged += SaveManager.SaveMusicActive;
             _musicManager.SoundsActiveChanged += SaveManager.SaveSoundsActive;
         }
@@ -48,7 +48,7 @@ namespace MyTools.PlayerSystem
         {
             _levelsManager.TrophiesChanged -= SaveManager.SaveTrophies;
             _levelsManager.StarsChanged -= SaveManager.SaveStars;
-            _languageManager.LocaleChanged -= SaveManager.SaveLanguage;
+            // _languageManager.LocaleChanged -= SaveManager.SaveLanguage;
             _musicManager.MusicActiveChanged -= SaveManager.SaveMusicActive;
             _musicManager.SoundsActiveChanged -= SaveManager.SaveSoundsActive;
         }
@@ -57,13 +57,13 @@ namespace MyTools.PlayerSystem
         {
             Player.Initialize();
             InitializeLevels();
-            InitializeLanguage();
+            // InitializeLanguage();
             InitializeMusic();
             InvokeOnLoaded();
         }
 
         private void InitializeLevels() => _levelsManager.Initialize(SaveManager.LoadStars(), SaveManager.LoadTrophy());
-        private void InitializeLanguage() => _languageManager.Initialize(SaveManager.LoadLanguage());
+        // private void InitializeLanguage() => _languageManager.Initialize(SaveManager.LoadLanguage());
         private void InitializeMusic() => _musicManager.Initialize(SaveManager.LoadMusicActive(), SaveManager.LoadSoundsActive());
 
         private void InvokeOnLoaded() => OnLoaded?.Invoke();

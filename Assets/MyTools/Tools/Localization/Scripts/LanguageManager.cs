@@ -1,5 +1,5 @@
+#if USE_LOCALIZATION
 using System;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Localization;
@@ -56,3 +56,4 @@ namespace Game.Localization
         private void InvokeLocaleChanged() => LocaleChanged?.Invoke(SelectedLocale.Identifier.Code);
     }
 }
+#endif

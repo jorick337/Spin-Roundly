@@ -104,6 +104,7 @@ MonoBehaviour:
   _timeToHide: 2
   _isLooping: 1
   _initializeOnStart: 1
+  _pauseWhenInvisible: 1
   _visibleAchorPos: {x: 0, y: 0, z: 0}
   _hiddenAchorPos: {x: 0, y: -0.5, z: 0}
   _useStartPos: 1
