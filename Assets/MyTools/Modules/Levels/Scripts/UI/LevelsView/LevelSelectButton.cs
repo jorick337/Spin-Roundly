@@ -33,6 +33,7 @@ namespace MyTools.Levels.UI.View
         {
             _levelsManager = LevelsManager.Instance;
             _loadScene = LoadScene.Instance;
+            _currentLevel = _initialLevel;
             await _levelsManager.WaitUntilLoaded();
             Initialize();
         }
@@ -74,7 +75,7 @@ namespace MyTools.Levels.UI.View
 
         private void Initialize()
         {
-            SetLevel(_currentLevel);
+            SetText(_currentLevel.ToString());
             UpdateActivityStars(_levelsManager.Stars[_currentLevel - 1]);
         }
 
@@ -95,12 +96,6 @@ namespace MyTools.Levels.UI.View
                 _starImages[i].material = isVisible ? _starVisibleMaterial : _starHiddenMaterial;
                 _starImages[i].color = isVisible ? _starVisibleColor : _starHidenColor;
             }
-        }
-
-        private void SetLevel(int level)
-        {
-            _currentLevel = level;
-            SetText(_currentLevel.ToString());
         }
 
         private void SetText(string text) => _text.text = text;
