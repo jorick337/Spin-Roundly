@@ -86,9 +86,6 @@ namespace MyTools.Shop.Skins
 
         private async UniTask UpdateSkin()
         {
-            if (Skin != null)
-                await _skinProvider.UnloadAsync();
-
             Skin = await _skinProvider.Load(_selectedNumber);
 
             if (_isBought)
@@ -131,7 +128,7 @@ namespace MyTools.Shop.Skins
             if (_selectedNumber != NumberSelectedSkin)
             {
                 if (Skin != null)
-                    await _skinProvider.UnloadAsync();
+                    await _skinProvider.UnloadAllAsync();
                 
                 Skin = await _skinProvider.Load(NumberSelectedSkin);
             }

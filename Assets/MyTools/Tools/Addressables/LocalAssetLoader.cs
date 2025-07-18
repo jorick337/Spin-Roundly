@@ -12,13 +12,16 @@ namespace MyTools.LocalAddressables
         private List<Func<UniTask>> _onUnloaded = new();
 
         private GameObject _cachedObject;
-        private AsyncOperationHandle _handle;
 
-        public async UniTask UnloadAsync()
+        private AsyncOperationHandle _currentHandle;
+        private AsyncOperationHandle _previousHandle;
+
+        public async UniTask UnloadAllAsync()
         {
             await InvokeOnUnloaded();
             UnloadGameObject();
-            UnloadObject();
+            UnloadCurrentObject();
+            UnloadPreviousHandle();
         }
 
         #region GAME OBJECT
@@ -47,18 +50,27 @@ namespace MyTools.LocalAddressables
 
         protected async UniTask<T> LoadObjectAsync<T>(string assetsId)
         {
-            _handle = Addressables.LoadAssetAsync<T>(assetsId);
-            await _handle.Task;
+            _previousHandle = _currentHandle;
+            _currentHandle = Addressables.LoadAssetAsync<T>(assetsId);
+            await _currentHandle.Task;
 
-            return (T)_handle.Result;
+            return (T)_currentHandle.Result;
         }
 
-        protected void UnloadObject()
+        protected void UnloadCurrentObject()
         {
-            if (!_handle.IsValid())
+            if (!_currentHandle.IsValid())
                 return;
 
-            Addressables.Release(_handle);
+            Addressables.Release(_currentHandle);
+        }
+
+        protected void UnloadPreviousHandle()
+        {
+            if (!_previousHandle.IsValid())
+                return;
+
+            Addressables.Release(_previousHandle);
         }
 
         #endregion

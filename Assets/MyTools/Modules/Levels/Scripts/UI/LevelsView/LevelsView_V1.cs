@@ -82,7 +82,7 @@ namespace MyTools.Levels.UI.View
             await AnimateAllOut();
         }
 
-        private async UniTask DestroySelf() => await _levelsViewProvider.UnloadAsync();
+        private async UniTask DestroySelf() => await _levelsViewProvider.UnloadAllAsync();
 
         #endregion
     }

@@ -8,6 +8,7 @@ namespace MyTools.Shop.Skins
         public async UniTask<SSHV_Skin> Load(int number)
         {
             SSHV_Skin skinShop = await LoadObjectAsync<SSHV_Skin>($"SkinShop {number}");
+            UnloadPreviousHandle();
             return skinShop;
         }
     }

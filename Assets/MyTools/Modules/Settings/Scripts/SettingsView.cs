@@ -41,7 +41,7 @@ namespace MyTools.Settings
         {
             DisableUI();
             await _animateAnchorPosInBackground.AnimateOutAsync();
-            await _settingsViewProvider.UnloadAsync();
+            await _settingsViewProvider.UnloadAllAsync();
         }
 
         #endregion

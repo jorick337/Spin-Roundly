@@ -92,7 +92,7 @@ namespace MyTools.Levels.Play
         {
             DisableUI();
             action?.Invoke();
-            await _victoryViewProvider.UnloadAsync();
+            await _victoryViewProvider.UnloadAllAsync();
         }
 
         #endregion

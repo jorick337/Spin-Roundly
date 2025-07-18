@@ -695,11 +695,13 @@ MonoBehaviour:
   _pageNavigator: {fileID: 0}
   _text: {fileID: 9029028829038420420}
   _initialLevel: 1
+  _currentLevel: 1
+  _numberOfButtons: 1
   _starImages:
   - {fileID: 8650505021329973162}
   - {fileID: 1064977653946891915}
   - {fileID: 5055383148260668151}
-  _starVisibleMaterial: {fileID: 2100000, guid: 61576a0ccd7234d0c9677c26ffed7962, type: 2}
+  _starVisibleMaterial: {fileID: -876546973899608171, guid: f45b611e56955b310a362b1ed7ac334a, type: 3}
   _starHiddenMaterial: {fileID: 0}
   _starVisibleColor: {r: 1, g: 1, b: 1, a: 1}
   _starHidenColor: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 1}

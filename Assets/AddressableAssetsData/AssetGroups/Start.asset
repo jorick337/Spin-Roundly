@@ -60,11 +60,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e6e7fb092a123ab0bb4f9bbe002a1e20
-    m_Address: LevelsView
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e84597c9629293f80bdf6743f4076131
     m_Address: SkinShop 6
     m_ReadOnly: 0

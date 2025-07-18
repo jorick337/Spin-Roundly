@@ -44,6 +44,6 @@ namespace MyTools.Advertising
 
         public void SetProvider(AdvertisingViewProvider provider) => _provider = provider;
 
-        private async void DestroySelf() => await _provider.UnloadAsync();
+        private async void DestroySelf() => await _provider.UnloadAllAsync();
     }
 }

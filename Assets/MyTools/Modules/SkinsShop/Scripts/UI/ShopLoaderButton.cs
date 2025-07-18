@@ -8,7 +8,6 @@ namespace MyTools.Start.Buttons
     public class ShopLoaderButton : BaseButton
     {
         [Header("Shop Loader")]
-        [SerializeField] private Image _iconImage;
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private Transform _transformParent;
         [SerializeField] private bool _loadProvider = true;
@@ -38,22 +37,26 @@ namespace MyTools.Start.Buttons
 
         private void Load()
         {
-            Instance._iconImage.enabled = false;
             Instance.DisableCanvasGroup();
             Instance.LoadShopView();
         }
 
         private void Unload()
         {
-            Instance._iconImage.enabled = true;
             Instance.EnableCanvasGroup();
             Instance.UnloadShopView();
         }
 
         private async void LoadShopView() => await _provider.Load(_transformParent);
-        private async void UnloadShopView() => await _provider.UnloadAsync();
+        private async void UnloadShopView() => await _provider.UnloadAllAsync();
 
-        private void DisableCanvasGroup() => _canvasGroup.interactable = false;
-        private void EnableCanvasGroup() => _canvasGroup.interactable = true;
+        private void DisableCanvasGroup() => SetActiveCanvasGroup(false);
+        private void EnableCanvasGroup() => SetActiveCanvasGroup(true);
+
+        private void SetActiveCanvasGroup(bool active) 
+        {
+            _canvasGroup.interactable = active;
+            _canvasGroup.blocksRaycasts = active;
+        }
     }
 }

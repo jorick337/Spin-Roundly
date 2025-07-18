@@ -9,6 +9,6 @@ namespace MyTools.Levels.Play
         private GameLevelsProvider _provider;
 
         public void SetProvider(GameLevelsProvider provider) => _provider = provider;
-        public UniTask Unload() => _provider.UnloadAsync();
+        public UniTask Unload() => _provider.UnloadAllAsync();
     }
 }
