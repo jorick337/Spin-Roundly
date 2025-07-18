@@ -32,8 +32,6 @@ namespace MyTools.PlayerSystem
                 Destroy(gameObject);
         }
 
-        private void OnApplicationQuit() => YG2.SaveProgress();
-
         private void OnEnable()
         {
             YG2.onGetSDKData += Initialize;
