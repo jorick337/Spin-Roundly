@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using MyTools.Advertising;
+using MyTools.Levels.Play;
 using UnityEngine;
 
 namespace MyTools.Levels.TwoDimensional.Player
@@ -8,8 +9,10 @@ namespace MyTools.Levels.TwoDimensional.Player
     {
         [SerializeField] private Player_PL2 _player;
 
+        private GameLevelManager _gameLevelManager;
         private AdvertisingView _advertisingView;
 
+        private void Awake() => _gameLevelManager = GameLevelManager.Instance;
         private void OnEnable() => _player.OnDead += Dead;
         private void OnDisable() => _player.OnDead -= Dead;
 
@@ -30,10 +33,7 @@ namespace MyTools.Levels.TwoDimensional.Player
             if (await _advertisingView.StartLoading())
                 _player.Rebirth();
             else
-            {
-                await _player.RestartAsync();
-                _player.Restart();
-            }
+                _gameLevelManager.Restart();
         }
     }
 }

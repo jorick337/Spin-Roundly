@@ -70,6 +70,7 @@ namespace MyTools.Levels.TwoDimensional.Player
                 await action.Invoke();
             Enable();
         }
+
         private async void Enable()
         {
             _movement2D.Enable();
@@ -77,7 +78,12 @@ namespace MyTools.Levels.TwoDimensional.Player
             _stunAndInvincibility.EnableCollision();
         }
 
-        private void Disable() => _movement2D.Disable();
+        private void Disable() 
+        {
+            _stunAndInvincibility.DisableCollision();
+            _movement2D.Disable(); 
+        } 
+
         private async UniTask WaitTimeToRebirth() => await UniTask.WaitForSeconds(_timeToRebirth);
 
         #region CALLBACKS

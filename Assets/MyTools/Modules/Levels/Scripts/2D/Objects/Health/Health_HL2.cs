@@ -73,12 +73,13 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
         {
             if (Current <= 0)
                 return;
-
+            
             Current -= 1;
-            InvokeOnChanged();
 
             if (Current == 0)
                 InvokeOnDead();
+            else
+                InvokeOnChanged();
         }
 
         #endregion

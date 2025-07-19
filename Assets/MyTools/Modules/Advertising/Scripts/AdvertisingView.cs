@@ -1,24 +1,26 @@
 using Cysharp.Threading.Tasks;
+using MyTools.Levels.Play;
+using MyTools.UI.Objects.Buttons;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace MyTools.Advertising
 {
-    public class AdvertisingView : MonoBehaviour
+    public class AdvertisingView : BaseButton
     {
-        [SerializeField] private float _time;
+        [Header("Advertising")]
         [SerializeField] private Slider _slider;
+        [SerializeField] private float _time;
 
-        private float _currentTime;
-
-        // Managers
         private AdvertisingViewProvider _provider;
+        private float _currentTime = 0;
+        private bool _canGiveReward = false;
+        private string _idAd = "1234";
 
         public async UniTask<bool> StartLoading()
         {
-            Restart();
-
-            while (_currentTime < _time)
+            while (_currentTime < _time && !_canGiveReward)
             {
                 _slider.value = _currentTime / _time;
                 _currentTime += Time.deltaTime;
@@ -26,24 +28,16 @@ namespace MyTools.Advertising
                 await UniTask.Yield();
             }
 
-            Finish();
-            return true;
-        }
-
-        private void Restart()
-        {
-            _currentTime = 0;
-            _slider.value = 0;
-        }
-
-        private void Finish()
-        {
-            _slider.value = 1f;
             DestroySelf();
+
+            return _canGiveReward;
         }
+
+        protected override void OnButtonPressed() => YG2.RewardedAdvShow(_idAd, SetTrueCanGiveReward);
 
         public void SetProvider(AdvertisingViewProvider provider) => _provider = provider;
 
+        private void SetTrueCanGiveReward() => _canGiveReward = true;
         private async void DestroySelf() => await _provider.UnloadAllAsync();
     }
 }
