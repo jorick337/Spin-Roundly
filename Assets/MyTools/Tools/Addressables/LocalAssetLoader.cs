@@ -11,7 +11,8 @@ namespace MyTools.LocalAddressables
     {
         private List<Func<UniTask>> _onUnloaded = new();
 
-        private GameObject _cachedObject;
+        private GameObject _currentCachedObject;
+        private GameObject _previousCachedObject;
 
         private AsyncOperationHandle _currentHandle;
         private AsyncOperationHandle _previousHandle;
@@ -19,8 +20,9 @@ namespace MyTools.LocalAddressables
         public async UniTask UnloadAllAsync()
         {
             await InvokeOnUnloaded();
-            UnloadGameObject();
-            UnloadCurrentObject();
+            UnloadCurrentCachedObject();
+            UnloadPreviousCachedObject();
+            UnloadCurrentHandle();
             UnloadPreviousHandle();
         }
 
@@ -28,20 +30,31 @@ namespace MyTools.LocalAddressables
 
         protected async UniTask<T> LoadGameObjectAsync<T>(string assetsId, Transform transform = null)
         {
-            _cachedObject = await Addressables.InstantiateAsync(assetsId, transform).Task;
-            T prefab = _cachedObject.GetComponent<T>();
+            _previousCachedObject = _currentCachedObject;
+            _currentCachedObject = await Addressables.InstantiateAsync(assetsId, transform).Task;
+            T prefab = _currentCachedObject.GetComponent<T>();
 
             return prefab;
         }
 
-        protected void UnloadGameObject()
+        protected void UnloadCurrentCachedObject()
         {
-            if (_cachedObject == null)
+            if (_currentCachedObject == null)
                 return;
 
-            _cachedObject.SetActive(false);
-            Addressables.ReleaseInstance(_cachedObject);
-            _cachedObject = null;
+            _currentCachedObject.SetActive(false);
+            Addressables.ReleaseInstance(_currentCachedObject);
+            _currentCachedObject = null;
+        }
+
+        protected void UnloadPreviousCachedObject()
+        {
+            if (_previousCachedObject == null)
+                return;
+
+            _previousCachedObject.SetActive(false);
+            Addressables.ReleaseInstance(_previousCachedObject);
+            _previousCachedObject = null;
         }
 
         #endregion
@@ -57,7 +70,7 @@ namespace MyTools.LocalAddressables
             return (T)_currentHandle.Result;
         }
 
-        protected void UnloadCurrentObject()
+        protected void UnloadCurrentHandle()
         {
             if (!_currentHandle.IsValid())
                 return;

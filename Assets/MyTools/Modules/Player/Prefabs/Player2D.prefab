@@ -190,7 +190,7 @@ MonoBehaviour:
     m_Bits: 64
   _secondLayer:
     serializedVersion: 2
-    m_Bits: 144
+    m_Bits: 128
   _time: 2
 --- !u!114 &9121932516985515054
 MonoBehaviour:
@@ -5344,7 +5344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167cb99cd4bda3f5780bcb296ac6b5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movement2D: {fileID: 7804675292730317143}
   _audioSource: {fileID: 6108821962227508196}
   _jumpSound: {fileID: 8300000, guid: caa2a5980f94bd3edb3f92b0e37d19c8, type: 3}
   _jumpParticleSystem: {fileID: 7268443726680896334}

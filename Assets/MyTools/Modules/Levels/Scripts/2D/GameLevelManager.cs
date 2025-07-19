@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using MyTools.PlayerSystem;
+using MyTools.UI;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -104,9 +105,9 @@ namespace MyTools.Levels.Play
 
         private async UniTask LoadLevel()
         {
-            if (_gameLevel != null)
-                await _gameLevel.Unload();
+            await SceneFader.Instance.FadeIn();
             _gameLevel = await _levelsManager.Load();
+            await SceneFader.Instance.FadeOut();
         }
 
         #endregion

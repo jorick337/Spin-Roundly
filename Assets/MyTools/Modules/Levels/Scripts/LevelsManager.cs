@@ -28,6 +28,7 @@ namespace MyTools.Levels
         public UniTask Initialized => _initializedTcs.Task;
 
         private UniTaskCompletionSource<bool> _initializedTcs = new();
+        private GameLevelsProvider _gameLevelsProvider = new();
 
         #endregion
 
@@ -60,11 +61,7 @@ namespace MyTools.Levels
 
         #region LOAD
 
-        public async UniTask<GameLevel> Load()
-        {
-            GameLevelsProvider gameLevelsProvider = new();
-            return await gameLevelsProvider.Load(ChosedNumberLevel);
-        }
+        public async UniTask<GameLevel> Load() => await _gameLevelsProvider.Load(ChosedNumberLevel);
 
         #endregion
 

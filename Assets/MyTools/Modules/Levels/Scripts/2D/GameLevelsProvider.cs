@@ -1,4 +1,3 @@
-using System;
 using Cysharp.Threading.Tasks;
 using MyTools.LocalAddressables;
 
@@ -10,7 +9,7 @@ namespace MyTools.Levels.Play
         {
             GameLevel gameLevel = await LoadGameObjectAsync<GameLevel>($"Level {level}");
             gameLevel.SetProvider(this);
-
+            UnloadPreviousCachedObject();
             return gameLevel;
         }
     }
