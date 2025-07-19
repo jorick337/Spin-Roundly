@@ -20,7 +20,11 @@ namespace MyTools.Levels.Play
             UpdateHealth();
         }
 
-        private void OnEnable() => _gameLevelManager.OnRestart += UpdateHealth;
+        private void OnEnable()
+        {
+            _gameLevelManager.OnRestart += UpdateHealth;
+            _gameLevelManager.OnNextLevel += Initialize;
+        }
 
         private void OnDisable()
         {

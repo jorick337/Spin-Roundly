@@ -12,6 +12,7 @@ namespace MyTools.Levels.Play
         #region EVENTS
 
         public event UnityAction OnFinish;
+        public event UnityAction OnNextLevel;
 
         public event Func<UniTask> OnPreRestart;
         public event UnityAction OnRestart;
@@ -74,7 +75,7 @@ namespace MyTools.Levels.Play
             Restart();
             LoadNextLevel();
         }
-        
+
         public void Restart()
         {
             ResetCollectedMoney();
@@ -98,6 +99,7 @@ namespace MyTools.Levels.Play
         {
             _levelsManager.AddLevel();
             await LoadLevel();
+            InvokeOnNextLevel();
         }
 
         private async UniTask LoadLevel()
@@ -140,6 +142,7 @@ namespace MyTools.Levels.Play
 
         private void InvokeOnRestart() => OnRestart?.Invoke();
         private void InvokeOnFinish() => OnFinish?.Invoke();
+        private void InvokeOnNextLevel() => OnNextLevel?.Invoke();
         private void InvokeStarsChanged() => StarsChanged?.Invoke(Stars);
         private void InvokeCollectedMoneyChanged() => CollectedMoneyChanged?.Invoke(CollectedMoney);
 
