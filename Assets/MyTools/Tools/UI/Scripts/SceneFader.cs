@@ -10,15 +10,7 @@ namespace MyTools.UI
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private float _fadeDuration = 0.5f;
 
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else Destroy(gameObject);
-        }
+        private void Awake() => Instance = this;
 
         public async UniTask FadeIn()
         {

@@ -1,4 +1,5 @@
 // using Game.Localization;
+using DG.Tweening;
 using MyTools.Levels;
 using MyTools.Music;
 using UnityEngine;
@@ -24,6 +25,7 @@ namespace MyTools.PlayerSystem
         {
             if (Instance == null)
             {
+                DOTween.SetTweensCapacity(1000, 200); 
                 Instance = this;
                 Player = new();
                 DontDestroyOnLoad(gameObject);
