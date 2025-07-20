@@ -33,6 +33,10 @@ namespace MyTools.Levels.TwoDimensional.Objects.Health
             _audioSource.Play();
         }
 
-        private void PlayChangedSound(int health) => PlayChangedSound();
+        private void PlayChangedSound(int health)
+        {
+            if (health != 3)
+                PlayChangedSound();
+        }
     }
 }

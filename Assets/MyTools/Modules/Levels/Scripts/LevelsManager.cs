@@ -96,6 +96,8 @@ namespace MyTools.Levels
             return number;
         }
 
+        public bool IsChosedNumberLevelMaximum() => ChosedNumberLevel == Stars.Length;
+
         public void SetLevel(int level) => ChosedNumberLevel = level;
 
         #endregion

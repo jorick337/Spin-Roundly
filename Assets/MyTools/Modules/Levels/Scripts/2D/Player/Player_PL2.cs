@@ -58,7 +58,7 @@ namespace MyTools.Levels.TwoDimensional.Player
             await UniTask.CompletedTask;
         });
 
-        private void Finish() => Disable();
+        private void Finish() => _movement2D.Disable(); 
         private async void Dead() => await Handle(async () => await InvokeOnDead());
 
         #endregion

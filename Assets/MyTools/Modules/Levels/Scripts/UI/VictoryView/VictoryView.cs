@@ -25,6 +25,7 @@ namespace MyTools.Levels.Play
         [SerializeField] private MyButton _forwardButton;
 
         // Managers
+        private LevelsManager _levelsManager;
         private GameLevelManager _gameLevelManager;
         private PlayerManager _playerManager;
         private VictoryViewProvider _victoryViewProvider;
@@ -36,8 +37,10 @@ namespace MyTools.Levels.Play
         private void Awake()
         {
             _gameLevelManager = GameLevelManager.Instance;
+            _levelsManager = LevelsManager.Instance;
             _playerManager = PlayerManager.Instance;
             SetTextMoney();
+            CheckChosedNumberLevel();
         }
 
         private void OnEnable()
@@ -74,6 +77,12 @@ namespace MyTools.Levels.Play
                 await _animationTranparencyStars[i].AnimateInAsync();
                 _gameLevelManager.AddMoney(10);
             }
+        }
+
+        private void CheckChosedNumberLevel()
+        {
+            if (_levelsManager.IsChosedNumberLevelMaximum())
+                _forwardButton.gameObject.SetActive(false);
         }
 
         private void SetTextMoney() => _moneyText.text = _playerManager.Player.Money.ToString();

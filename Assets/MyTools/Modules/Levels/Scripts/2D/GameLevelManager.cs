@@ -30,7 +30,6 @@ namespace MyTools.Levels.Play
         public int Stars { get; private set; } = 0;
         public int CollectedMoney { get; private set; } = 0;
 
-        private GameLevel _gameLevel;
         private bool IsLoaded = false;
 
         // Managers
@@ -106,7 +105,7 @@ namespace MyTools.Levels.Play
         private async UniTask LoadLevel()
         {
             await SceneFader.Instance.FadeIn();
-            _gameLevel = await _levelsManager.Load();
+            await _levelsManager.Load();
             await SceneFader.Instance.FadeOut();
         }
 
