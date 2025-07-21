@@ -16,18 +16,18 @@ MonoBehaviour:
   projectSettings:
     showFirstAdv: 1
     interAdvInterval: 90
-    postponeCallByFail: 0
-    skipInterAdvAfterReward: 0
+    postponeCallByFail: 1
+    skipInterAdvAfterReward: 1
     saveLocal: 1
     saveCloud: 1
     selectWebGLTemplate: 1
     runInBackground: 0
-    enableExceptions: 2
+    enableExceptions: 0
     compressionFormat: 0
     decompressionFallback: 1
     autoGraphicsAPI: 1
     minimalCodeCompression: 1
     dataCaching: 1
     colorSpace: 0
-    archivingBuild: 1
+    archivingBuild: 0
     syncInitSDK: 0
