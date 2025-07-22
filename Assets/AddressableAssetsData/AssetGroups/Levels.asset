@@ -100,11 +100,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a0215d4e649f6a7b5a3c9d6d197608aa
-    m_Address: UIMovement
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a134ecabe6da7289c991c651a1598718
     m_Address: Level 5
     m_ReadOnly: 0

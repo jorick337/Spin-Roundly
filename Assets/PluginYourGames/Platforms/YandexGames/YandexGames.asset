@@ -22,7 +22,7 @@ MonoBehaviour:
     saveCloud: 1
     selectWebGLTemplate: 1
     runInBackground: 0
-    enableExceptions: 0
+    enableExceptions: 2
     compressionFormat: 0
     decompressionFallback: 1
     autoGraphicsAPI: 1

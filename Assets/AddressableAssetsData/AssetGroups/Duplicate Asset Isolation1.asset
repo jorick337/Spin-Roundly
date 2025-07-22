@@ -10,13 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Advertising
+  m_Name: Duplicate Asset Isolation1
   m_EditorClassIdentifier: 
-  m_GroupName: Advertising
-  m_GUID: 162579e31b0130c74bfd89e147b781d0
+  m_GroupName: Duplicate Asset Isolation1
+  m_GUID: 92bcad8c7cc37c5ea94afb3ab4e549af
   m_SerializeEntries:
-  - m_GUID: e0b5eafd30f38ffc5b409722e1dadc56
-    m_Address: AdvertisingView
+  - m_GUID: 200f61238773cb0948744d72b9959e3c
+    m_Address: Assets/MyTools/Art/Sprites/SkinsShop/Triangle.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b6d725ef468c9caeb9955e6311d2dab
+    m_Address: Assets/MyTools/Art/Sprites/SkinsShop/TapPlease.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -24,5 +29,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 97ba2dda6834bfb338823d3fc0be546e, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 02ef923e69e5ccebf8415f1642a8ab1d, type: 2}
-    - {fileID: 11400000, guid: 072322491d1ac708fabd90ddb07f28f2, type: 2}
+    - {fileID: 11400000, guid: 659496238050f219d81127216d66a782, type: 2}
+    - {fileID: 11400000, guid: 68bffbdc172e87d32b7f546b9d60c50d, type: 2}

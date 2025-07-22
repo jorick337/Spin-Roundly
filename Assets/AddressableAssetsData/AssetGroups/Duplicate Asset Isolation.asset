@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation
+  m_EditorClassIdentifier: 
+  m_GroupName: Duplicate Asset Isolation
+  m_GUID: 59616090f66500580a962be24af0d1e1
+  m_SerializeEntries:
+  - m_GUID: 0406db5a14f94604a8c57ccfbc9f3b46
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesUnlit.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a74dfbc89b3ae48f8a0fc3871b053b8
+    m_Address: Assets/MyTools/Art/Materials/ParticleSystem/Reward/Coin.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1eb3c31d41114d6aa9b6d05293c7f2b4
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/Coin.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2094dfa4860c6dddbada9337ba522f7c
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/Jug.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23f14d01ff52629c5ae513954b7048d5
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/Heart.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b0b7dabfba69d8d8846d61a50fab6ed
+    m_Address: Assets/MyTools/Art/Sprites/Base/Circle.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3263b0e77cddbb5dc9367c21906e179c
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/CoinBox.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32f1541bc3799038681a9efc44b7fe59
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/Explosion.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33285e206492ce9519a454d08915673c
+    m_Address: Assets/MyTools/Art/Font/Roboto_SemiCondensed-Bold.ttf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36e335017ad71d54fbb10842863188ae
+    m_Address: Packages/com.unity.render-pipelines.core/Runtime/RenderPipelineResources/FallbackShader.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 490afe31dc2ccd71db3585c47a09a135
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/Trophy.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4df279ca552c8e86191926d46c65bdf6
+    m_Address: Assets/MyTools/Art/Sprites/Base/WhitePixel.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53a92b61ea7dbdb45a0b3db4c15903c6
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/Cloud_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54afe42a6b9725712a6af57af1b17514
+    m_Address: Assets/MyTools/Art/Materials/CircleGradient.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b417972b4ee6e64488d28b5f7a8e576
+    m_Address: Assets/!CTS/Art/Sprites/Tiles/Dirt.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c5e4adb28f6e43d6a93ef6e58690905
+    m_Address: Assets/!CTS/Art/Sprites/Heroes/Circle_Hero_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d19b682407ef1520b99fe7778a56857
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/BaseLevelAtlas.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6db72696d7d87ffbb9f5b82fd54f808e
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/Star.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 702fef9c56e853f0d96a7a732d000058
+    m_Address: Assets/MyTools/Art/Sprites/Icons/Close.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77a4970ec017c12bda521ca4be1e3ac1
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/Enemy.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a073b1746282a469798d56fabc3eb0ca
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/RedFlag.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b32275efbd491e9e796edafc089ca334
+    m_Address: Assets/MyTools/Art/Shaders/G_Circle.shadergraph
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: beb5bf916b8f51add92ace4b7e44b7df
+    m_Address: Assets/MyTools/Art/Sprites/SkinsShop/Bubble.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c98e391c89972e934b8e2a6c24e73726
+    m_Address: Assets/MyTools/Art/Sprites/Icons/StartAd.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc1d6ae62e70ae6ceac7e45211b8f5fe
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/Stun.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6e9a19c3678ded42a3bc431ebef7dbd
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/Utils/FallbackError.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef3a1556ef44619a39d763164f5df0da
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/Water.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f455c7cc3ec81d0a4a197a186e192634
+    m_Address: Assets/MyTools/Tools/Music/Prefabs/Main.mixer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f45b611e56955b310a362b1ed7ac334a
+    m_Address: Assets/MyTools/Art/Shaders/G_Star.shadergraph
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7d4ef38c009ba7e6975ddbb7fe097eb
+    m_Address: Assets/MyTools/Art/Sounds/Click.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa688565c75c9985bbefe48d63dbfc70
+    m_Address: Assets/MyTools/Art/Sprites/Levels/Base/BrokenJug.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 97ba2dda6834bfb338823d3fc0be546e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 61252996ac17cc09d9f9709336a6bd9e, type: 2}
+    - {fileID: 11400000, guid: 2cb286a0474a5c55fb01d446283ab745, type: 2}

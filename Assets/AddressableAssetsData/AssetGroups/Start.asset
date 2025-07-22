@@ -15,43 +15,13 @@ MonoBehaviour:
   m_GroupName: Start
   m_GUID: f1887e5aac5694c52b95d4f78f33db7f
   m_SerializeEntries:
-  - m_GUID: 06278bbbbd3041fa3814312dededc5a1
-    m_Address: SettingsView
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0c8dfc95ee3637adf9ec579bc899d0da
-    m_Address: SkinShop 5
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2b6f0c68d77c5c3deaabf683fc76fa24
-    m_Address: SkinShop 7
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51e402882e8c578cdaee150198ca181e
     m_Address: VictoryView
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 62a75144ea05d913a8759a53f07b1d58
-    m_Address: SkinShop 4
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8552e6624c00543ba9e26609f6caffa3
-    m_Address: SSHV
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9d28882fa334ca3928ff8b21e0356c65
-    m_Address: SkinShop 8
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: be45a4e5d501e1a7e8dc6e59be72f284
-    m_Address: SkinShop 9
+  - m_GUID: a0215d4e649f6a7b5a3c9d6d197608aa
+    m_Address: UIMovement
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -60,8 +30,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e84597c9629293f80bdf6743f4076131
-    m_Address: SkinShop 6
+  - m_GUID: e0b5eafd30f38ffc5b409722e1dadc56
+    m_Address: AdvertisingView
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

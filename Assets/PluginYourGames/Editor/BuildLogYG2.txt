@@ -1,3 +1,3 @@
-Build path: /home/yurinka/Projects/Builds/Web/Circle: Summer, Autumn Winter/1
-Build number: 21
+Build path: /home/yurinka/Projects/Builds/Web/Spin-Roundly/2
+Build number: 22
 PluginYG version: 2.004
