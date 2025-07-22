@@ -12,32 +12,32 @@
    <img src="https://img.shields.io/badge/License-Apache--2.0%20-yellow?style=&logo=apache" alt="License">
 </p>
 
-## Об игре
+## About Game
 **Spin roundly!** - Complete levels with a circle in the worlds of Spring, Summer and Winter! Simple controls, bright style and fun gameplay - play for free in your browser!
 
 Embark on a circular journey through the seasons! Jump, roll, avoid traps and win. Spring, Summer, Winter - each season brings new challenges!
 
-## Как играть
+## How to play
 
-🖥️ Управление на компьютере:
+🖥️ Computer controls:
 
-Двигаться: ← → / A D
-Прыгать: ↑ / W / ␣ Пробел / ↵ Enter
+Move: ← → / A D
+Jump: ↑ / W / ␣ Space / ↵ Enter
 
-📱 Управление на смартфоне:
+📱 Smartphone controls:
 
-Стрелочки  (виртуальные кнопки, расположенные на экране)
+Arrows (virtual buttons located on the screen)
 
-## О проекте
-* **Дата завершения:** - 0.00.0000
-* Проект был сделан на **[Unity Engine](https://unity.com/)**
-* **Версия движка:** 6000.0.38f1
-* **Яндекс игры:**
-* **Языки:** ALL
+## About project
+* **Completion date:** - 0.00.0000
+* The project was made on **[Unity Engine](https://unity.com/)**
+* **Engine version:** 6000.0.38f1
+* **Yandex games:**
+* **Languages:** ALL
 
-## Активно использованные инструменты:
-1. DOTween - позволяет делать анимации в коде
-2. Addressables - используется для загрузки сцен локально
-3. ParticleSystem - делает эффекты для действий
-4. YG2 - монетизация
-5. unitypackage - хранение адаптивных скриптов для упрощения работы с новыми проектами
+## Actively used tools:
+1. DOTween - allows you to make animations in code
+2. Addressables - used to load scenes locally
+3. ParticleSystem - makes effects for actions
+4. YG2 - monetization
+5. unitypackage - storing adaptive scripts to simplify work with new projects
