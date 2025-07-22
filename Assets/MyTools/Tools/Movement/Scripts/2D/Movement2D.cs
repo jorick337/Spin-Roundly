@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using YG;
 
 namespace MyTools.Movement.TwoDimensional
 {
@@ -11,6 +10,8 @@ namespace MyTools.Movement.TwoDimensional
         public event UnityAction OnJump;
 
         #region CORE
+
+        public static Movement2D Instance { get; private set; }
 
         [Header("Core")]
         [SerializeField] private float _moveSpeed;
@@ -22,13 +23,12 @@ namespace MyTools.Movement.TwoDimensional
         [SerializeField] private float _groundCheckRadius;
         [SerializeField] private LayerMask _groundMask;
 
-        public static Movement2D Instance { get; private set; }
-
-        private Vector2 _input = new(0, 0);
-        private bool _isGrounded = false;
-
-        // Managers
         private InputActions _inputActions;
+
+        private Vector2 _keyboardInput = new();
+        private Vector2 _uiInput = new();
+        private Vector2 _finalInput = new();
+        private bool _isGrounded = false;
 
         #endregion
 
@@ -54,9 +54,9 @@ namespace MyTools.Movement.TwoDimensional
 
         private void Update()
         {
-            if (!YG2.envir.isMobile)
-                _input = _inputActions.GamePlay.Move.ReadValue<Vector2>();
-
+            _keyboardInput = _inputActions.GamePlay.Move.ReadValue<Vector2>();
+            _finalInput = _keyboardInput + _uiInput;
+            _finalInput = _finalInput.normalized;
             Move();
         }
 
@@ -79,10 +79,10 @@ namespace MyTools.Movement.TwoDimensional
 
         private void Move()
         {
-            _rigidbody2D.linearVelocity = new Vector2(_input.x * _moveSpeed, _rigidbody2D.linearVelocity.y);
+            _rigidbody2D.linearVelocity = new Vector2(_finalInput.x * _moveSpeed, _rigidbody2D.linearVelocity.y);
 
-            if (_input.x != 0)
-                _spriteRenderer.flipX = _input.x > 0;
+            if (_finalInput.x != 0)
+                _spriteRenderer.flipX = _finalInput.x > 0;
         }
 
         private void UpdateIsGrounded()
@@ -96,7 +96,7 @@ namespace MyTools.Movement.TwoDimensional
 
         #region VALUES
 
-        public void MoveDirectionX(float value) => _input.x = value;
+        public void MoveDirectionX(float value) => _uiInput.x = value;
 
         public void Enable() => _inputActions.Enable();
         public void Disable() => _inputActions.Disable();
@@ -106,7 +106,6 @@ namespace MyTools.Movement.TwoDimensional
         #region CALLBACKS
 
         private void OnJumpUpStarted(InputAction.CallbackContext context) => JumpIfGrounded();
-
         private void InvokeOnJump() => OnJump?.Invoke();
 
         #endregion
