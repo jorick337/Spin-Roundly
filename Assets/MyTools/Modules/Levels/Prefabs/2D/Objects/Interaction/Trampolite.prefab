@@ -313,15 +313,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _repeatable: 0
   _allowActivation: 0
-  _minVelocityY: 0.1
-  _minVelocityX: 0.1
   _useTag: 1
   _tag: Player
   _useLayer: 0
   _layer: Default
-  _canAll: 1
-  _canTop: 0
-  _topDistance: 0
+  _canAll: 0
+  _canTop: 1
+  _topDistance: 0.5
   _canBottom: 0
   _bottomDistance: 0
   _canLeft: 0

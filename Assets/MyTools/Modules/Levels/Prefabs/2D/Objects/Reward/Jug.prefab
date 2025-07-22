@@ -256,9 +256,9 @@ MonoBehaviour:
   _tag: Player
   _useLayer: 0
   _layer: Default
-  _canAll: 0
-  _canTop: 1
-  _topDistance: 1
+  _canAll: 1
+  _canTop: 0
+  _topDistance: 0
   _canBottom: 0
   _bottomDistance: 0
   _canLeft: 0
@@ -277,7 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fad00542eca348e935fae94cf3bff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider2DTrigger: {fileID: 6426677747238704236}
+  _colliderTrigger2D: {fileID: 6426677747238704236}
+  _autoAssignComponents: 1
   _hitsToBreak: 1
   _breakSound: {fileID: 3328572117640112246}
   _coins:
@@ -314,7 +315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5152034314481420364, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5152034314481420364, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -395,7 +396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5152034314481420364, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5152034314481420364, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -476,7 +477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5152034314481420364, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5152034314481420364, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -557,7 +558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5152034314481420364, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5152034314481420364, guid: 1e7fb0fc841d30f4ca04994c7eeb97e4, type: 3}
       propertyPath: m_LocalPosition.z
