@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: f1887e5aac5694c52b95d4f78f33db7f
   m_currentHash:
     serializedVersion: 2
-    Hash: 425a4530d533cb4da9c884aa45487925
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
     m_Id: 
   m_RemoteCatalogLoadPath:
     m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
@@ -123,7 +123,9 @@ MonoBehaviour:
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 8dd75edd374300fc8892b395081d6257, type: 2}
-  m_InitializationObjects: []
+  - {fileID: 11400000, guid: 34760afd0df915ec38b0d175731bc388, type: 2}
+  m_InitializationObjects:
+  - {fileID: 11400000, guid: 0fecaa82afe143828a377f9c6c527bc9, type: 2}
   m_CertificateHandlerType:
     m_AssemblyName: 
     m_ClassName: 
@@ -132,4 +134,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f245afd3a8c3fafec9d904945be05dbe, type: 2}
   - {fileID: 11400000, guid: 796eecbc6a73eadcf845326726081a23, type: 2}
   - {fileID: 11400000, guid: 9f6346d1a22a0b9ce88bf0344ff7de2b, type: 2}
+  - {fileID: 11400000, guid: 9eb264d0447c60bb7aea5caa7b8b6c6b, type: 2}
   m_ActiveProfileId: a7cc486370383d8038ded9051188855a
