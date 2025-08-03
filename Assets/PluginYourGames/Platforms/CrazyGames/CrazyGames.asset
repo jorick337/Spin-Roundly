@@ -17,17 +17,17 @@ MonoBehaviour:
     showFirstAdv: 0
     interAdvInterval: 60
     postponeCallByFail: 0
-    skipInterAdvAfterReward: 0
+    skipInterAdvAfterReward: 1
     saveLocal: 0
     saveCloud: 1
     selectWebGLTemplate: 1
     runInBackground: 0
-    enableExceptions: 2
+    enableExceptions: 1
     compressionFormat: 0
     decompressionFallback: 0
     autoGraphicsAPI: 1
     minimalCodeCompression: 1
     dataCaching: 1
     colorSpace: 0
-    archivingBuild: 1
-    syncInitSDK: 0
+    archivingBuild: 0
+    syncInitSDK: 1

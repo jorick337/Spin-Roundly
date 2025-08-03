@@ -1,3 +1,0 @@
-Build path: /home/yurinka/Projects/Builds/Web/Spin-Roundly/7
-Build number: 24
-PluginYG version: 2.004

@@ -657,7 +657,7 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: PROJECT:YandexGames
+  webGLTemplate: PROJECT:CrazyGames
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 0
@@ -678,23 +678,23 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Android: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2
+    Android: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2;CrazyGamesPlatform_yg
     EmbeddedLinux: DOTWEEN
     GameCoreScarlett: DOTWEEN
     GameCoreXboxOne: DOTWEEN
-    LinuxHeadlessSimulation: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2
-    Nintendo Switch: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2
-    PS4: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2
-    PS5: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2
+    LinuxHeadlessSimulation: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2;CrazyGamesPlatform_yg
+    Nintendo Switch: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2;CrazyGamesPlatform_yg
+    PS4: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2;CrazyGamesPlatform_yg
+    PS5: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2;CrazyGamesPlatform_yg
     QNX: DOTWEEN
     ReservedCFE: DOTWEEN
-    Standalone: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2
-    VisionOS: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2
-    WebGL: DOTWEEN;PLUGIN_YG_2;RU_YG2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2
-    Windows Store Apps: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2
-    XboxOne: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2
-    iPhone: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2
-    tvOS: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2
+    Standalone: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2;CrazyGamesPlatform_yg
+    VisionOS: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2;CrazyGamesPlatform_yg
+    WebGL: DOTWEEN;PLUGIN_YG_2;RU_YG2;InterstitialAdv_yg;CrazyGamesPlatform_tg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2;CrazyGamesPlatform_yg
+    Windows Store Apps: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2;CrazyGamesPlatform_yg
+    XboxOne: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2;CrazyGamesPlatform_yg
+    iPhone: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2;CrazyGamesPlatform_yg
+    tvOS: DOTWEEN;PLUGIN_YG_2;InterstitialAdv_yg;RewardedAdv_yg;Authorization_yg;Storage_yg;EnvirData_yg;Leaderboards_yg;TMP_YG2;CrazyGamesPlatform_yg
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
