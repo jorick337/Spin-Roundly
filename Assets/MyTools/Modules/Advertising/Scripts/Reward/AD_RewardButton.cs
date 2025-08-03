@@ -14,7 +14,7 @@ namespace MyTools.Advertising
         [SerializeField] private bool _canInitialize = false;
         [SerializeField] private bool _looping = true;
 
-        private string _idAd = "1234";
+        private string _idAd = "coins";
 
         // Managers
         private PlayerManager _playerManager;
