@@ -33,6 +33,9 @@ namespace YG
                 });
             }
         }
+
+        public void GameplayStart() => CrazySDK.Game.GameplayStart();
+        public void GameplayStop() => CrazySDK.Game.GameplayStop();
     }
 }
 #endif

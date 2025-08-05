@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d228dc2bb257eb43a856395ab5a038b, type: 3}
-  m_Name: CrazyGames
+  m_Name: WelwiseGames
   m_EditorClassIdentifier: 
-  nameFull: CrazyGamesPlatform
+  nameFull: WelwiseGamesPlatform
   projectSettings:
-    showFirstAdv: 0
-    interAdvInterval: 60
+    showFirstAdv: 1
+    interAdvInterval: 10
     postponeCallByFail: 0
-    skipInterAdvAfterReward: 1
+    skipInterAdvAfterReward: 0
     saveLocal: 0
     saveCloud: 1
     selectWebGLTemplate: 1
@@ -29,5 +29,5 @@ MonoBehaviour:
     minimalCodeCompression: 1
     dataCaching: 1
     colorSpace: 0
-    archivingBuild: 0
-    syncInitSDK: 1
+    archivingBuild: 1
+    syncInitSDK: 0

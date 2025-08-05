@@ -1,5 +1,6 @@
 #if CrazyGamesPlatform_yg && InterstitialAdv_yg
 using CrazyGames;
+using UnityEngine;
 using YG.Insides;
 
 namespace YG

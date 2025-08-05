@@ -21,7 +21,7 @@ MonoBehaviour:
     payingStatus: 0
   InterstitialAdv:
     showFirstAdv: 0
-    interAdvInterval: 90
+    interAdvInterval: 60
     postponeCallByFail: 0
     postponeCallTimer: 10
     labelAdvSimLabel: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
   platformToggles:
     showFirstAdv: 1
     interAdvInterval: 1
-    postponeCallByFail: 1
+    postponeCallByFail: 0
     skipInterAdvAfterReward: 1
     saveLocal: 1
     saveCloud: 1
