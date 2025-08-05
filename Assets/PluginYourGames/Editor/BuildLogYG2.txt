@@ -1,3 +1,3 @@
-Build path: /home/yurinka/Projects/Builds/Web/Spin-Roundly/8
-Build number: 1
+Build path: /home/yurinka/Projects/Builds/Web/Spin-Roundly/10
+Build number: 3
 PluginYG version: 2.0041

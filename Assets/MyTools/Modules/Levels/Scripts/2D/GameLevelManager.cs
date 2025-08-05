@@ -5,6 +5,7 @@ using MyTools.PlayerSystem;
 using MyTools.UI;
 using UnityEngine;
 using UnityEngine.Events;
+using YG;
 
 namespace MyTools.Levels.Play
 {
@@ -59,6 +60,7 @@ namespace MyTools.Levels.Play
 
         public void Finish()
         {
+            YG2.GameplayStop();
             LoadVictoryView();
             SaveStars();
             InvokeOnFinish();
@@ -105,6 +107,7 @@ namespace MyTools.Levels.Play
         private async UniTask LoadLevel()
         {
             await SceneFader.Instance.FadeIn();
+            YG2.GameplayStart();
             await _levelsManager.Load();
             await SceneFader.Instance.FadeOut();
         }
